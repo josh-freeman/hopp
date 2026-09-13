@@ -73,9 +73,9 @@ function render(): void {
 }
 function showLoading(): void {
   const node = document.querySelector('#plan-message');
-  if (node) node.innerHTML = '<p data-testid="loading"><span class="spinner"></span> Checking your connection…</p>';
+  if (node) node.innerHTML = '<p data-testid="loading">Checking SBB connections and sprint routes…</p>';
   const submit = document.querySelector<HTMLButtonElement>('#trip-form button[type="submit"]');
-  if (submit) submit.disabled = true;
+  if (submit) { submit.disabled = true; submit.setAttribute('aria-busy', 'true'); submit.innerHTML = '<span class="spinner"></span> Finding sprint routes…'; }
 }
 function showSearchError(): void {
   const node = document.querySelector('#plan-message');
