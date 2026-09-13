@@ -16,7 +16,7 @@ test('complete phone flow and screen layout', async ({ page }, testInfo) => {
   await audit('results');
   await expect(page.getByTestId('offer-card').getByRole('heading', { level: 2 })).toHaveText('Get off early at Central');
   await expect(page.locator('.offer-service')).toContainText(/IC \d+ · \d{2}:\d{2} · Platform 11/);
-  await expect(page.locator('.offer-regular-stop')).toHaveText('Before Bahnhofplatz/HB');
+  await expect(page.locator('.offer-regular-stop')).toHaveText('One stop before Bahnhofplatz/HB, your usual stop');
   await expect(page.getByTestId('connection-row').first()).toBeVisible();
   const offer = await page.getByTestId('offer-card').boundingBox();
   const regular = await page.getByTestId('connection-row').first().boundingBox();
@@ -30,9 +30,9 @@ test('complete phone flow and screen layout', async ({ page }, testInfo) => {
   const fixedActions = await page.locator('.results-actions').boundingBox();
   expect(map!.y, 'The complete map starts in the visible result').toBeGreaterThanOrEqual(0);
   expect(map!.height, 'The map remains large enough to read on the smallest phone').toBeGreaterThanOrEqual(180);
-  expect(map!.y + map!.height, 'Both map endpoints fit above Go live, including at 320×568').toBeLessThanOrEqual(fixedActions!.y + 1);
+  expect(map!.y + map!.height, 'Both map endpoints fit above Guide me there, including at 320×568').toBeLessThanOrEqual(fixedActions!.y + 1);
   await expect(page.getByTestId('fallback')).toBeVisible();
-  await page.getByRole('button', { name: 'Go live', exact: true }).click();
+  await page.getByRole('button', { name: 'Guide me there', exact: true }).click();
   await audit('live');
   await expect(page.getByTestId('live-status')).toHaveText('GET OFF EARLY AT');
   await page.getByRole('button', { name: 'Start sprint', exact: true }).click();

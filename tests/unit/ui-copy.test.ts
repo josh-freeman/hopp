@@ -46,7 +46,7 @@ describe('travel copy reflects the actual service and budget', () => {
     expect(html).toContain('Bahnhofbrücke');
     expect(html).toContain('Route notes and sources');
     expect(html.match(/data-testid="primary-action"/g)).toHaveLength(1);
-    expect(html).toContain('Go live');
+    expect(html).toContain('Guide me there');
     expect(html).not.toMatch(/data-action="(?:try|detail|route)"/);
   });
   test('early alighting is explicit only when the regular plan rides past the shortcut stop', async () => {
@@ -56,7 +56,7 @@ describe('travel copy reflects the actual service and budget', () => {
     const html = resultsScreen(result, false);
     const heading = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/)?.[1].replace(/<[^>]+>/g, '');
     expect(heading).toBe('Get off early at Central');
-    expect(html).toContain('Before Bahnhofplatz/HB');
+    expect(html).toContain('One stop before Bahnhofplatz/HB');
     expect(liveScreen(result, result.recommended!, now, false)).toContain('GET OFF EARLY AT');
 
     // A walking transfer begins at the feeder's actual arrival stop; the user
