@@ -481,3 +481,18 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
 .live-instruction[data-flip] { animation: band-flip .36s ease-out both; }
 .live-numbers strong { transition: color .25s ease-out; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Three intentional motions: the screen rises in, the map fades in, the live dot breathes. */
+@keyframes rise-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+#app[data-enter] .screen { animation: rise-in .22s ease-out both; }
+#app[data-enter] .live-instruction { animation: rise-in .3s cubic-bezier(.2, .8, .2, 1) both; }
+#app[data-enter] .live-numbers { animation: rise-in .3s cubic-bezier(.2, .8, .2, 1) .08s both; }
+#app[data-enter] .live-budget, #app[data-enter] .live-bottom { animation: rise-in .3s ease-out .14s both; }
+#app[data-enter] .platform-sign { animation: unlock-in .4s cubic-bezier(.2, .8, .2, 1) both; }
+.route-map img { opacity: 0; transition: opacity .3s ease-out; }
+.route-map img.is-loaded { opacity: 1; }
+@keyframes live-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.75); } }
+.live-screen:not(.live-paused) .live-indicator::before { animation: live-pulse 2s ease-in-out infinite; }
+.live-numbers [data-testid=countdown] { transition: color .3s ease-out; }
+.live-numbers [data-testid=countdown].is-urgent { color: var(--red); }
+@media (prefers-reduced-motion: reduce) { .route-map img { opacity: 1; } }

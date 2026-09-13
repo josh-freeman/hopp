@@ -67,6 +67,9 @@ function render(): void {
   else content = planScreen(profile, from, to);
   app.innerHTML = `${header()}${mock ? '<div class="demo-banner">Demo · example times</div>' : ''}<main id="main" tabindex="-1">${content}</main><div class="toast" role="status" id="toast"></div><div id="announce" class="sr-only" aria-live="assertive"></div>`;
   app.classList.toggle('is-live', screen === 'live');
+  app.toggleAttribute('data-enter', previous !== screen);
+  if (previous !== screen) setTimeout(() => app.removeAttribute('data-enter'), 500);
+  document.querySelectorAll<HTMLImageElement>('.route-map img').forEach(img => img.complete ? img.classList.add('is-loaded') : img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true }));
   if (error && screen === 'plan') showSearchError();
   if (loading && !refreshing) showLoading();
   if (previous !== screen) { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true }); }
@@ -147,7 +150,7 @@ function updateLive(): void {
     if (focused) document.querySelector<HTMLElement>(`[data-action="${focused}"]`)?.focus({ preventScroll: true });
   } else if (active) {
     const countdown = document.querySelector('[data-testid="countdown"]');
-    if (countdown) countdown.innerHTML = t(formatDuration(Math.max(0, selected.departureTs - 20 - seconds)));
+    if (countdown) { countdown.innerHTML = t(formatDuration(Math.max(0, selected.departureTs - 20 - seconds))); countdown.classList.toggle('is-urgent', selected.departureTs - 20 - seconds < 30); }
     const arrival = document.querySelector('.live-instruction > p:last-child');
     if (arrival && !running) arrival.innerHTML = arrivalText(result, seconds);
     if (!running) {
