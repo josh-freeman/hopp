@@ -428,3 +428,5 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
   .platform-sign { background: #edf1e9; color: #18252d; }
   .platform-sign .eyebrow { color: #4d605e; }
 }
+.restore-offer { align-self: flex-start; padding-inline: 0; min-height: 44px; color: var(--green); font-weight: 600; gap: 6px; }
+.restore-offer svg { width: 18px; height: 18px; }

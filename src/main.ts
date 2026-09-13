@@ -212,6 +212,7 @@ app.addEventListener('click', event => {
   if (account.handleAction(action, target)) return;
   if (action === 'back') { navigate(({ plan: 'plan', results: 'plan', live: 'results', done: 'results', settings: 'plan', account: 'plan' } as Record<string, string>)[screen]); return; }
   if (action === 'dismiss') { dismissed = true; render(); return; }
+  if (action === 'restore') { dismissed = false; render(); return; }
   if (action === 'start-run') {
     const available = selected ? selected.departureTs - Math.max(now(), result?.opportunity?.alightTs ?? now()) : 0;
     if (!result?.recommended || !selected || now() - result.updatedAt > 120 || available < selected.sprintS + selected.marginS) { updateLive(); return; }
