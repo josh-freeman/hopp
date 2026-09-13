@@ -14,7 +14,7 @@ export function planScreen(profile: Profile, from: string, to: string): string {
       </div>
       <div id="plan-message" class="inline-message" role="status"></div>
       ${recent.length ? `<div class="recent"><p class="eyebrow">Recent destinations</p><div class="chips">${recent.map(x => button(esc(x), 'destination', 'chip', `data-value="${esc(x)}"`)).join('')}</div></div>` : ''}
-      <button type="button" class="local-note" data-action="settings" aria-label="Sprint route settings">${icon('run')}<span><strong>Sprint routes ${profile.offerSprintRoutes ? 'on' : 'off'}</strong><small>Included in connection searches.</small></span>${icon('arrow')}</button>
+      <button type="button" class="local-note" data-action="settings" aria-label="Sprint route settings">${icon('run')}<span><strong>Sprint routes ${profile.offerSprintRoutes ? 'on' : 'off'}</strong><small>${profile.offerSprintRoutes ? `Pace ${(profile.sprintMps * 3.6).toFixed(1)} km/h · margin ${profile.minMarginS} s` : 'Only regular connections are shown.'}</small></span>${icon('arrow')}</button>
       <div class="bottom-actions"><button type="submit" class="primary" data-testid="primary-action">Find connections ${icon('arrow')}</button><div class="demo-links"><a class="text-link demo-link" href="?mock=1#plan">Example trip</a><span aria-hidden="true">·</span><a class="text-link demo-link" href="${import.meta.env.BASE_URL}demo.html">Watch video</a></div></div>
     </form>
   </section>`;

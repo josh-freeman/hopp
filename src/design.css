@@ -89,16 +89,12 @@ h1, h2, h3 { font-weight: 650; }
 .time-field { padding-left: 18px; background: #f0f1eb; border-radius: 0 0 12px 12px; }
 .time-field svg { width: 16px; height: 16px; margin-right: 2px; }
 .time-field select { font-size: 16px; font-weight: 500; }
-.local-note {
-  display: flex; align-items: center; width: 100%; min-height: 76px; gap: 12px;
-  padding: 14px; border: 1px solid var(--line); border-radius: 12px;
-  text-align: left; background: transparent; color: var(--ink);
-}
+.local-note { display: flex; align-items: center; width: 100%; min-height: 48px; gap: 12px; padding: 6px 0; border: 0; border-radius: 0; background: transparent; text-align: left; color: var(--ink); }
 .local-note > span { flex: 1; }
 .local-note strong { display: block; font-size: 14px; font-weight: 600; }
 .local-note small { display: block; color: var(--muted); margin-top: 4px; font-size: 12px; line-height: 1.4; }
 .local-note > svg:last-child { width: 18px; height: 18px; color: var(--muted); }
-.local-note:hover { background: var(--card); }
+.local-note:hover { background: transparent; }
 .chip { border-radius: 8px; }
 
 /* One result contains the train, the budget, the map and the written route. */
