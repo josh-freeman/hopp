@@ -25,7 +25,7 @@ test('complete phone flow and screen layout', async ({ page }, testInfo) => {
   await expect(page.locator('.integrated-route .route-map, .integrated-route .route-diagram')).toBeVisible();
   const mapImage = page.locator('.integrated-route .route-map img');
   await expect.poll(() => mapImage.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
-  await expect(mapImage).toHaveCSS('object-fit', 'contain');
+  await expect(mapImage).toHaveCSS('object-fit', 'cover');
   const map = await mapImage.boundingBox();
   const fixedActions = await page.locator('.results-actions').boundingBox();
   expect(map!.y, 'The complete map starts in the visible result').toBeGreaterThanOrEqual(0);
