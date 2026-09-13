@@ -430,3 +430,8 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
 }
 .restore-offer { align-self: flex-start; padding-inline: 0; min-height: 44px; color: var(--green); font-weight: 600; gap: 6px; }
 .restore-offer svg { width: 18px; height: 18px; }
+
+/* Live budget: the spare number is the green one; the derivation and status lines stay quiet. */
+.live-budget > p.live-spare { color: var(--green); font-size: 14px; font-weight: 600; margin: 0; }
+.live-budget > p.budget, .live-budget > p:last-child { color: var(--muted); font-weight: 400; font-size: 13px; margin: 0; }
+.live-paused .live-budget > p:last-child { color: var(--amber); font-weight: 600; }
