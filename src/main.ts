@@ -139,7 +139,7 @@ function updateLive(): void {
     const countdown = document.querySelector('[data-testid="countdown"]');
     if (countdown) countdown.innerHTML = t(formatDuration(Math.max(0, selected.departureTs - 20 - seconds)));
     const arrival = document.querySelector('.live-instruction > p:last-child');
-    if (arrival && !running) arrival.textContent = arrivalText(result, seconds);
+    if (arrival && !running) arrival.innerHTML = arrivalText(result, seconds);
     if (!running) {
       const have = document.querySelector('[data-testid="verdict-budget"] strong');
       if (have) have.textContent = formatDuration(available);

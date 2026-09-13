@@ -140,7 +140,8 @@ h1, h2, h3 { font-weight: 650; }
 .live-instruction { background: #18252d; border-radius: 12px; padding: 20px; }
 .live-instruction .eyebrow { color: #c4cfce; font-weight: 500; letter-spacing: .06em; }
 .live-instruction h1 { letter-spacing: -1.2px; font-weight: 650; }
-.live-instruction > p:last-child { color: #d6dfdc; }
+.live-instruction > p:last-child { display: flex; align-items: baseline; gap: 8px; font-size: 15px; color: #d6dfdc; }
+.live-instruction > p:last-child strong { font-family: var(--mono); font-weight: 500; font-size: 24px; letter-spacing: -.02em; line-height: 1.1; color: #fff; font-variant-numeric: tabular-nums; }
 .live-numbers { align-items: flex-start; padding: 2px 0; }
 .live-numbers > div { gap: 10px; }
 .live-numbers strong { font-family: var(--mono); font-weight: 500; font-size: clamp(43px, 14vw, 60px); line-height: 1.25; letter-spacing: -.04em; }
@@ -203,6 +204,7 @@ h1, h2, h3 { font-weight: 650; }
   .primary:hover, .results-actions .primary:hover, .live-bottom .primary:hover { background: #d7e3dc; }
   .live-instruction { background: #edf1e9; color: #18252d; }
   .live-instruction .eyebrow, .live-instruction > p:last-child { color: #4d605e; }
+  .live-instruction > p:last-child strong { color: #18252d; }
   .live-paused .live-instruction { background: #354248; color: var(--ink); }
   .live-paused .live-instruction p { color: #c0cbc6; }
 }

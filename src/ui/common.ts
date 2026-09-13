@@ -4,9 +4,8 @@ import { esc, icon, t } from './html';
 export const shortStop = (value: string) => value.replace(/^[^,]+,\s*/, '');
 export const journeyLabel = (j?: Journey | null) => j?.category && j?.number ? `${j.category} ${j.number}` : j?.name || j?.category || 'Train';
 export function arrivalText(result: PlanResult, now: number): string {
-  const category = result.opportunity?.feeder?.journey?.category?.toUpperCase();
-  const label = !result.opportunity?.feeder ? 'Start' : category === 'T' || category === 'TRAM' ? 'Tram arrives' : ['B', 'BUS', 'NFB'].includes(category ?? '') ? 'Bus arrives' : 'Service arrives';
-  return `${label} in ${formatDuration(Math.max(0, (result.opportunity?.alightTs ?? now) - now))}`;
+  const label = !result.opportunity?.feeder ? 'Start' : 'Your stop';
+  return `${label} in <strong>${formatDuration(Math.max(0, (result.opportunity?.alightTs ?? now) - now))}</strong>`;
 }
 export const trainName = (c: Candidate) => journeyLabel(c.train.journey);
 export function budget(c: Candidate): string {
