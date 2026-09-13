@@ -32,6 +32,8 @@
   --red: #bf3b28;
   --green: #246148;
   --green-bg: #edf3ed;
+  --amber: #7a5410;
+  --amber-bg: #f3ecdc;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   color: var(--ink);
   background: #e9eae5;
@@ -147,8 +149,11 @@ h1, h2, h3 { font-weight: 650; }
 .live-numbers [data-testid=countdown] { padding-top: 3px; }
 .live-budget { padding-block: 14px; }
 .live-bottom .fallback { padding: 12px 0 8px; }
-.live-paused .live-instruction { background: #e6e9e2; color: var(--ink); }
-.live-paused .live-instruction p { color: #505c5d; }
+.live-paused .live-instruction { background: var(--amber-bg); color: var(--ink); }
+.live-paused .live-instruction .eyebrow { color: var(--amber); }
+.live-paused .live-instruction p { color: var(--muted); }
+.live-paused .live-indicator, .live-paused .live-budget > p { color: var(--amber); }
+.live-paused .live-numbers [data-testid=countdown] { color: var(--muted); }
 
 @media (max-height: 740px) {
   .app-header { height: 58px; padding-block: 5px; }
@@ -192,7 +197,7 @@ h1, h2, h3 { font-weight: 650; }
   .demo-banner + main .screen { min-height: calc(100dvh - 143px); }
 }
 @media (prefers-color-scheme: dark) {
-  :root { --paper: #182127; --card: #202c33; --ink: #f0f3ed; --muted: #b2bdbd; --line: #39484c; --red: #d96b53; --green: #b4d7bb; --green-bg: #2a4038; background: #11191f; }
+  :root { --paper: #182127; --card: #202c33; --ink: #f0f3ed; --muted: #b2bdbd; --line: #39484c; --red: #d96b53; --green: #b4d7bb; --green-bg: #2a4038; --amber: #e3b86e; --amber-bg: #3a3226; background: #11191f; }
   .demo-banner { background: #303b3e; color: #d0d7d4; border-color: var(--line); }
   .journey-fields, .results-screen .integrated-offer { border-color: var(--line); }
   .time-field { background: #28363c; }
@@ -201,8 +206,6 @@ h1, h2, h3 { font-weight: 650; }
   .live-instruction { background: #edf1e9; color: #18252d; }
   .live-instruction .eyebrow, .live-instruction > p:last-child { color: #4d605e; }
   .live-instruction > p:last-child strong { color: #18252d; }
-  .live-paused .live-instruction { background: #354248; color: var(--ink); }
-  .live-paused .live-instruction p { color: #c0cbc6; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
