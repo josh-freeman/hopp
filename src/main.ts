@@ -22,7 +22,7 @@ let profile = readProfile();
 let result: PlanResult | undefined;
 let selected: Candidate | undefined;
 let from = mock ? 'Zürich, Bellevue' : '', to = mock ? 'Bern' : '';
-let loading = false, error = '', dismissed = false, running = false;
+let loading = false, error = '', dismissed = false, running = false, refreshing = false;
 let screen = '', searchSerial = 0, pollBusy = false, liveSignature = '';
 let attemptId: string | undefined, runStartedAt: number | undefined;
 let pollTimer: ReturnType<typeof setInterval> | undefined;
@@ -44,7 +44,7 @@ function render(): void {
     screen = 'results';
     history.replaceState(null, '', `${location.pathname}${location.search}#results`);
   }
-  if (loading && screen !== 'plan') { ++searchSerial; loading = false; }
+  if (loading && !refreshing && screen !== 'plan') { ++searchSerial; loading = false; }
   if (!['plan', 'results', 'live', 'done', 'settings', 'account'].includes(screen)) screen = 'plan';
   if (result && result.recommended && now() - result.updatedAt > 120 && screen !== 'live' && screen !== 'done') {
     result = { ...result, recommended: undefined, risky: undefined, reason: 'stale', error: 'Timetable updates are over two minutes old. Refresh to check a sprint route.' };
@@ -61,14 +61,14 @@ function render(): void {
   let content: string;
   if (screen === 'account') content = account.html();
   else if (screen === 'settings') content = settingsScreen(account.preferences() ?? profile);
-  else if (screen === 'results') content = resultsScreen(result!, dismissed);
+  else if (screen === 'results') content = resultsScreen(result!, dismissed, refreshing);
   else if (screen === 'live') content = liveScreen(result!, selected!, now(), running);
   else if (screen === 'done') content = doneScreen(result!, selected);
   else content = planScreen(profile, from, to);
   app.innerHTML = `${header()}${mock ? '<div class="demo-banner">Demo · example times</div>' : ''}<main id="main" tabindex="-1">${content}</main><div class="toast" role="status" id="toast"></div>`;
   app.classList.toggle('is-live', screen === 'live');
   if (error && screen === 'plan') showSearchError();
-  if (loading) showLoading();
+  if (loading && !refreshing) showLoading();
   if (previous !== screen) { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true }); }
 }
 function showLoading(): void {
@@ -87,17 +87,20 @@ async function search(query: TripQuery, target = 'results'): Promise<void> {
   loading = true; error = ''; dismissed = false; running = false;
   attemptId = undefined; runStartedAt = undefined;
   from = query.from; to = query.to;
-  history.replaceState(null, '', `${location.pathname}${location.search}#plan`);
-  render();
-  showLoading();
+  if (!result || target !== 'results') {
+    history.replaceState(null, '', `${location.pathname}${location.search}#plan`);
+    render();
+    showLoading();
+  } else { refreshing = true; render(); }
   try {
     const next = await planTrip(client, query, profile);
     if (serial !== searchSerial) return;
     result = next; selected = next.recommended;
     rememberDestination(query.to);
-    loading = false; navigate(target); if (screen === target) render();
+    loading = false; refreshing = false; navigate(target); if (screen === target) render();
     if (next.connections.length) void account.recordConnectionChecked();
   } catch (reason) {
+    refreshing = false;
     if (serial !== searchSerial) return;
     error = reason instanceof Error ? reason.message : 'Could not load connections. Please try again.';
     loading = false;

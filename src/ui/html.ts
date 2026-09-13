@@ -16,6 +16,7 @@ const paths: Record<string, string> = {
   plus: '<path d="M12 5v14M5 12h14"/>',
   minus: '<path d="M5 12h14"/>',
   hop: '<path d="M2 17h4.5c3 0 3.5-10 7-10h1c3.5 0 4 10 7 10H22"/>',
+  refresh: '<path d="M20 11a8 8 0 1 0 .7 4"/><path d="M20 4v7h-7"/>',
 };
 export const icon = (name: string) => `<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name] ?? paths.arrow}</svg>`;
 export const button = (text: string, action: string, className = 'primary', extra = '') => `<button type="button" class="${className}" data-action="${action}" ${extra}>${text}</button>`;

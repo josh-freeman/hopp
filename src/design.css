@@ -462,3 +462,7 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
   .primary:active, .results-actions .primary:active, .live-bottom .primary:active { background: #c9d6ce; }
   @media (hover: none) { .primary:hover, .results-actions .primary:hover, .live-bottom .primary:hover { background: var(--ink); } }
 }
+
+/* Refresh stays on Results; the icon spins while the timetable reloads. */
+.section-heading .icon-button[aria-busy="true"] { color: var(--muted); opacity: 1; }
+.section-heading .icon-button[aria-busy="true"] svg { animation: spin .8s linear infinite; }
