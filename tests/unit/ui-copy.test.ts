@@ -31,7 +31,7 @@ describe('travel copy reflects the actual service and budget', () => {
     const spareText = html.match(/class="offer-spare">[\s\S]*?<strong>(\d+:\d{2})<\/strong>/)?.[1];
     expect(spareText).toBeDefined();
     expect(Math.abs(durationSeconds(spareText!) - (displayed[0] - displayed[1] - displayed[2]))).toBeLessThanOrEqual(2);
-    expect(html).toContain('Spare after margin');
+    expect(html).toContain('to spare');
   });
   test('the matching route is visible before a single Go live action', async () => {
     const result = await planTrip(createMockClient('happy'), { from: 'Zürich, Bellevue', to: 'Bern', when: Date.now() / 1000 }, DEFAULT_PROFILE);

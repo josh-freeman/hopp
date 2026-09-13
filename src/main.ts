@@ -143,8 +143,8 @@ function updateLive(): void {
     if (!running) {
       const have = document.querySelector('[data-testid="verdict-budget"] strong');
       if (have) have.textContent = formatDuration(available);
-      const spare = document.querySelector('.live-budget > p:last-child');
-      if (spare) spare.textContent = `${formatDuration(Math.max(0, available - selected.sprintS - selected.marginS))} spare after margin`;
+      const spare = document.querySelector('.live-spare strong');
+      if (spare) spare.textContent = formatDuration(Math.max(0, available - selected.sprintS - selected.marginS));
     }
   }
 }

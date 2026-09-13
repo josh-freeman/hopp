@@ -10,15 +10,15 @@ test('fresh profile reaches live in one tap after search, with honest budget and
   await expect(page.getByTestId('offer-card').getByRole('heading', { level: 2 })).toHaveText('Get off early at Central');
   await expect(page.locator('.offer-service')).toContainText(/IC \d+ · \d{2}:\d{2} · Platform 11/);
   await expect(page.locator('.integrated-route')).toBeVisible();
-  await expect(page.getByTestId('verdict-budget')).toContainText(/you have/i);
-  await expect(page.getByTestId('verdict-budget')).toContainText(/need/i);
+  await expect(page.getByTestId('verdict-budget')).toContainText(/at the door/i);
+  await expect(page.getByTestId('verdict-budget')).toContainText(/run/i);
   await expect(page.getByTestId('verdict-budget')).toContainText(/margin/i);
   const seconds = (value: string) => {
     const [minutes, remainder] = value.trim().split(':').map(Number);
     return minutes * 60 + remainder;
   };
   const [have, need, margin] = (await page.getByTestId('verdict-budget').locator('strong').allTextContents()).map(seconds);
-  const displayedSpare = seconds(await page.getByText('Spare after margin', { exact: true }).locator('..').locator('strong').innerText());
+  const displayedSpare = seconds(await page.locator('.offer-spare strong').innerText());
   expect(Math.abs(displayedSpare - (have - need - margin)), 'Displayed spare deducts both sprint and margin (allowing rounded seconds)').toBeLessThanOrEqual(2);
   await expect(page.getByTestId('screen')).toContainText(/walking/i);
   const fallback = (await page.getByTestId('fallback').innerText()).trim();

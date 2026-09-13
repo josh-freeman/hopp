@@ -111,8 +111,6 @@ h1, h2, h3 { font-weight: 650; }
 .results-screen .offer-arrival { display: flex; align-items: baseline; gap: 6px; font-size: 14px; color: var(--ink); margin-top: -2px; }
 .offer-arrival strong { color: var(--green); font-weight: 650; }
 .offer-timing { background: #f0f3ed; border: 0; padding: 8px 10px; border-radius: 6px; margin-top: 2px; gap: 2px; }
-.budget strong, .offer-spare strong { font-family: var(--mono); font-weight: 500; letter-spacing: -.4px; }
-.results-screen .offer-spare strong { font-size: 14px; }
 .integrated-route { display: grid; grid-template-columns: 1fr 44px; gap: 9px; margin-top: 0; }
 .integrated-route > h3 { grid-column: 1; grid-row: 1; font-size: 13px; font-weight: 600; }
 .integrated-route .route-map, .integrated-route .route-diagram { grid-column: 1 / -1; grid-row: 2; }
@@ -148,8 +146,6 @@ h1, h2, h3 { font-weight: 650; }
 .live-numbers [data-testid=platform] { min-width: 70px; align-self: flex-start; text-align: center; font-size: 44px; background: var(--ink); color: var(--card); border-radius: 6px; padding: 3px 10px; line-height: 1.4; letter-spacing: -2px; }
 .live-numbers [data-testid=countdown] { padding-top: 3px; }
 .live-budget { padding-block: 14px; }
-.live-budget .budget { font-size: 12px; }
-.live-budget > p:last-child { font-size: 13px; }
 .live-bottom .fallback { padding: 12px 0 8px; }
 .live-paused .live-instruction { background: #e6e9e2; color: var(--ink); }
 .live-paused .live-instruction p { color: #505c5d; }
@@ -386,3 +382,10 @@ h1, h2, h3 { font-weight: 650; }
 .live-numbers .t .colon { margin-inline: -.1em; position: relative; top: -.04em; }
 .fallback .t, .live-train .t { font-size: 1em; }
 .arrival-info .t { font-size: .95em; }
+
+/* The verdict is one number; the derivation stays visible underneath. */
+.results-screen .offer-spare, .live-spare { display: flex; align-items: baseline; gap: 8px; font-size: 14px; font-weight: 600; color: var(--green); line-height: 1.3; }
+.results-screen .offer-spare strong, .live-spare strong { font-family: var(--mono); font-weight: 500; font-size: 22px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.offer-timing .budget { font-size: 13px !important; }
+.offer-timing .budget, .live-budget .budget, .live-budget > p { font-size: 13px; color: var(--muted); line-height: 1.5; font-weight: 400; margin: 0; }
+.budget strong { font-family: var(--mono); font-weight: 500; letter-spacing: 0; color: var(--ink); }

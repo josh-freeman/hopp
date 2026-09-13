@@ -8,7 +8,8 @@ export function resultsScreen(result: PlanResult, dismissed: boolean): string {
   const opportunity = result.opportunity;
   const directive = opportunity?.kind === 'ride-past' ? 'Get off early at' : opportunity?.kind === 'walk' ? 'Get off at' : 'Start at';
   const regularStop = opportunity?.kind === 'ride-past' ? shortStop(opportunity.feeder?.arrival.station.name ?? '') : '';
-  const timing = c ? `<div class="offer-timing">${budget(c)}<p class="offer-spare"><span>Spare after margin</span> <strong>${formatDuration(Math.max(0, c.haveS - c.sprintS - c.marginS))}</strong></p></div>` : '';
+  const spare = c ? Math.max(0, c.haveS - c.sprintS - c.marginS) : 0;
+  const timing = c ? `<div class="offer-timing"><p class="offer-spare"><strong>${formatDuration(spare)}</strong> to spare</p>${budget(c)}</div>` : '';
   const reason = ({ 'no-shortcut': 'No sprint shortcut on this trip yet. Your regular connections are below.', 'no-connections': 'No connections found. Try a different stop or departure time.', 'no-earlier-train': 'No earlier arrival found for this trip.', 'passed-stop': 'You have passed the shortcut stop. Keep your regular connection.', 'hack-inactive': 'This shortcut is currently unavailable. Follow the regular transfer.', 'missed-by': 'The sprint would not leave enough time for the full margin.', 'candidate-lookup-failed': 'We could not check the sprint route. Use your regular connection.', stale: 'Refresh the timetable before choosing a sprint route.' } as Record<string, string>)[result.reason] ?? result.reason;
   return `<section class="screen results-screen" data-screen="results" data-testid="screen"><div class="trip-title"><p class="eyebrow">${esc(result.connections[0]?.from.station.name ?? result.query.from)} →</p><h1>${esc(result.connections[0]?.to.station.name ?? result.query.to)}</h1></div>
     ${result.error ? `<p class="notice" role="status" data-testid="error">${esc(result.error)}</p>` : ''}

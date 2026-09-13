@@ -9,7 +9,7 @@ export function arrivalText(result: PlanResult, now: number): string {
 }
 export const trainName = (c: Candidate) => journeyLabel(c.train.journey);
 export function budget(c: Candidate): string {
-  return `<p class="budget" data-testid="verdict-budget">You have <strong>${formatDuration(c.haveS)}</strong> · need <strong>${formatDuration(c.sprintS)}</strong> + <strong>${formatDuration(c.marginS)}</strong> margin</p>`;
+  return `<p class="budget" data-testid="verdict-budget"><strong>${formatDuration(c.haveS)}</strong> at the door − <strong>${formatDuration(c.sprintS)}</strong> run − <strong>${formatDuration(c.marginS)}</strong> margin</p>`;
 }
 export function connectionRow(c: Connection): string {
   const departure = stopTime(c.from, 'departure'), arrival = stopTime(c.to, 'arrival');
