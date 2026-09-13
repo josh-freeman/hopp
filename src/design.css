@@ -507,3 +507,23 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
 /* Directions as short numbered steps. */
 .route-steps { padding-left: 22px; margin: 0; font-size: 14px; line-height: 1.55; }
 .route-steps li + li { margin-top: 6px; }
+
+/* Type scale. 12 = captions and eyebrows, 14 = anything that must be read, 16 = controls; nothing at 13 or 15 except the Live eyebrow. Weights 400/500/600/700 only. */
+:root { --fs-caption: 12px; --fs-body: 14px; --fs-ui: 16px; --fs-sub: 20px; --fs-card: 24px; --fs-title: 32px; --fs-display: 40px; }
+h1, .plan-screen .intro h1, .account-screen h1, .done-screen h1 { font-size: var(--fs-title); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+.live-instruction h1 { font-size: var(--fs-display); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+h2 { font-size: var(--fs-sub); font-weight: 600; }
+.results-screen .integrated-offer .offer-directive { font-weight: 700; }
+h3, strong { font-weight: 600; }
+.eyebrow, .offer-label { font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.live-instruction .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; }
+.offer-service, .offer-service .service-name, .offer-service .departure-time, .offer-service strong, .setting-switch strong, .muted, .fallback p, .connection-row p, .notice, .history-empty, .account-section > .muted, .delete-confirm p, .local-note strong { font-size: 14px; }
+.fallback strong, .connection-row p > span, small, figcaption { font-size: 12px; }
+.profile-pass h2 { font-size: 25px; letter-spacing: -.6px; margin-top: 10px; }
+.wordmark, .app-header:has(.icon-button:first-child) .header-label { letter-spacing: -.05em; }
+.pass-score > strong { letter-spacing: -.05em; }
+.field-content input, .trip-title h1, .live-indicator { letter-spacing: 0; }
+p, .muted, small, figcaption, .lead { text-wrap: pretty; }
+h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; }
+@media (max-height: 740px) { .plan-screen .intro h1 { font-size: 32px; } .live-instruction h1 { font-size: 34px; } }
+@media (max-height: 620px) { .plan-screen .intro h1 { font-size: 27px; } .live-instruction h1 { font-size: 28px; } }
