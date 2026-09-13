@@ -12,9 +12,9 @@ Record participant code, date, device model, OS, browser/version, screen/text zo
 
 1. **No setup.** Open `/hopp/?mock=1#plan` with fresh browser storage. “You are on a tram in Zürich and want to get to Bern. Find your connections.” Observe whether the user searches without hunting for account, pace, or location settings. Record any accidental tap, typing issue, or keyboard overlap.
 2. **Notice the offer.** On Results: “What would you normally do next? Is there another possibility here?” Do not say “sprint”. Record what the user thinks the offered departure means and whether they can find normal connections. Ask what happens if they choose Not now.
-3. **Understand the budget.** “Explore the extra option, without committing yet.” On Try it: “Tell me how much time you have, what the run needs, and what the margin means. Would walking work?” Record the actual numbers they read and whether they mistake margin for a guarantee. Ask which button continues and which lets them inspect the route.
-4. **Read the route before running.** “You don't know this station well. Find out where you would go.” Let them open the route. Ask them to describe the alight stop, route, and target platform. Observe whether text supports the map and whether they understand it should be read before the run.
-5. **Commit with one hand.** Return to Results. “Choose the sprint and get to the live screen.” Count taps from Results: Try it → Sprint it → Go live should take three. Count backtracking and optional route inspection separately. Note grip changes, missed targets, scrolling, and the location of the main action.
+3. **Understand the budget.** On Results: “Tell me how much time you have, what the run needs, and what the margin means. Would walking work?” Record the actual numbers they read and whether they mistake margin for a guarantee. Observe whether the timing and map can be understood together.
+4. **Read the route before running.** “You don't know this station well. Find out where you would go.” Let them explore the map and directions already in Results. Ask them to describe the alight stop, route, and target platform. Observe whether text supports the map, whether they discover the expandable sources, and whether they understand the route should be read before the run.
+5. **Continue with one hand.** “Get to the live screen.” Results → Go live should take one action tap. Count scrolling and backtracking separately. Note grip changes, missed targets, and whether the user confuses opening Live with actually starting the sprint.
 6. **Three-second glance.** Hide the phone, then show Live for three seconds. Hide it again. “Where should you get off? Which platform? How much time remains?” Record each answer separately and whether the user confuses train departure countdown with running time. Show Live again and ask what they would do if the sprint became uncatchable.
 7. **Fallback.** “You decide you cannot run. What will you do?” Observe whether the normal SBB connection is found without leaving the decision context, and whether its stop, departure, and platform are understood.
 8. **Changed conditions.** Open `/hopp/?mock=late&poll=1000#live`. “Watch this screen and tell me whether your decision changes.” Record noticing the change to STAY ON, the interpretation of the message, and the next action. Do not tell the participant which decision to make.
@@ -39,7 +39,7 @@ Avoid coaching such as “the button is at the bottom” or “that is the safe 
 | Identify catchable departure | | | | |
 | Interpret have / need / margin | | | | |
 | Understand route before run | | | | |
-| Reach Live in three taps | | | | |
+| Reach Live in one tap from Results | | | | |
 | Recall alight stop in three seconds | | | | |
 | Recall platform in three seconds | | | | |
 | Recall countdown in three seconds | | | | |

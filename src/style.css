@@ -23,3 +23,39 @@
 @media(max-height:740px){.try-screen{gap:10px;padding-top:12px}.try-screen>.round-icon{display:none}.try-screen>h1{font-size:30px;line-height:1.04;letter-spacing:-1.1px}.try-screen>.lead{font-size:14px;line-height:1.4}.try-screen .sprint-stats{margin:3px 0;padding:14px 12px;gap:12px}.try-screen .sprint-stats>div+div{padding-left:12px}.try-screen .sprint-stats strong{font-size:32px;margin-top:4px}.try-screen>.budget{font-size:12px;line-height:1.5}}
 .plan-screen .intro h1{font-size:28px;letter-spacing:-.7px}.plan-screen{padding-top:24px}.try-screen h1{font-size:32px;letter-spacing:-.9px}.try-screen>.lead{max-width:none}.done-screen h1{font-size:34px}.header-label:empty{margin:0}
 .live-instruction h1{overflow-wrap:anywhere}.route-diagram span{overflow-wrap:anywhere}.hack-card a{display:flex;min-height:44px;align-items:center;overflow-wrap:anywhere;font-size:13px}
+/* Search results contain the route and decision; no intermediate action screens. */
+.results-screen:has(.integrated-offer){padding-top:16px;gap:12px;padding-bottom:110px}
+.results-screen:has(.integrated-offer) .trip-title{display:flex;align-items:baseline;gap:7px;min-width:0}
+.results-screen:has(.integrated-offer) .trip-title .eyebrow{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0;text-transform:none}
+.results-screen:has(.integrated-offer) .trip-title h1{font-size:16px;letter-spacing:-.2px;margin:0;white-space:nowrap;flex-shrink:0}
+.results-screen .integrated-offer{padding:12px;gap:8px;overflow:hidden}
+.results-screen .integrated-offer h2{font-size:27px;line-height:1.1;letter-spacing:-.8px}
+.results-screen .offer-access{font-size:13px;line-height:1.4}
+.results-screen .offer-arrival{font-size:12px;line-height:1.4;color:var(--muted)}
+.offer-timing{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-top:1px solid var(--line)}
+.offer-timing .budget{font-size:12px!important;line-height:1.5}
+.results-screen .offer-spare{display:flex;align-items:baseline;gap:7px;font-size:12px;line-height:1.5}
+.results-screen .offer-spare strong{font-size:15px}
+.integrated-route{display:flex;flex-direction:column;gap:8px;min-width:0}
+.integrated-route>h3{font-size:14px;display:flex;align-items:center;gap:7px;letter-spacing:0;line-height:1.4}
+.integrated-route>h3 svg{height:17px;width:17px}
+.integrated-route .route-map{margin-inline:-12px;border-radius:0;border-inline:0;background:#eef1e9}
+.integrated-route .route-map img{height:clamp(180px,30dvh,290px);aspect-ratio:auto;object-fit:contain;width:100%}
+.integrated-route .route-map figcaption{padding:6px 12px;background:var(--card);font-size:12px;line-height:1.4}
+.integrated-route .route-map-link{align-self:flex-start;padding:4px 0;min-height:44px;font-size:12px}
+.integrated-route .route-directions{gap:5px}
+.integrated-route .route-directions h3{font-size:14px}
+.integrated-route .route-directions p{font-size:13px;line-height:1.5}
+.integrated-offer>.walking{font-size:12px;color:var(--muted);margin-top:3px}
+.integrated-offer .badges{gap:5px}
+.integrated-offer .badges span{padding:5px 6px}
+.route-notes{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.route-notes summary{min-height:48px;display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:600;cursor:pointer}
+.route-notes summary:before{content:'+';font-size:18px}
+.route-notes[open] summary:before{content:'−'}
+.route-notes p{margin:0 0 10px}.route-notes h3{font-size:14px;margin:12px 0 6px}.route-notes ul{margin:6px 0;padding-left:18px;line-height:1.5}.route-notes li{margin-bottom:8px}
+.route-notes a{display:flex;align-items:center;min-height:44px;overflow-wrap:anywhere;font-size:13px}
+.bottom-actions.results-actions{flex-direction:row;align-items:center;padding-top:10px;gap:10px}
+.results-actions .primary{flex:1;background:var(--ink);color:var(--paper)}
+.results-actions>.text-button{min-width:82px;flex-shrink:0;padding-inline:8px}
+@media(max-height:620px){.results-screen:has(.integrated-offer){padding-top:10px;gap:8px}.results-screen .integrated-offer{gap:6px}.offer-timing{padding-block:4px}.integrated-route{gap:6px}}

@@ -2,7 +2,7 @@
 
 Swiss public transport connections with estimated sprint transfers. Hopp shows relevant shortcuts alongside the regular connection, including the sprint duration, margin and fallback.
 
-[Open Hopp](https://joshfreeman.me/hopp/) · [Try a practice trip](https://joshfreeman.me/hopp/?mock=1)
+[Open Hopp](https://joshfreeman.me/hopp/) · [Watch the demo](https://joshfreeman.me/hopp/demo.html) · [Try a practice trip](https://joshfreeman.me/hopp/?mock=1)
 
 A static MVP with **11 enabled route records**, including nine additions from the expanded Swiss research. Coverage includes Zürich HB, Basel SBB, Winterthur, Chur, Oerlikon, Nyon, Bern, Biel, Genève and Neuchâtel, with specific supported platforms. The research covers **40 stations**, including 25 detailed approaches and 38 broader timetable observations. Routes are desk researched, **not yet timed or verified on foot**. Unresolved approaches and the Lausanne draft cannot generate offers.
 
@@ -23,10 +23,13 @@ Open `http://localhost:5173/hopp/` for real timetable searches. Open `http://loc
 
 - Swiss origin/destination search, nearby stops, departure time in Europe/Zurich, and recent destinations.
 - Regular connections plus a sprint offer only when a curated route leaves the full margin and improves arrival.
-- Try sheet, route preview, detailed timing, live countdown, regular fallback, and platform self-confirmation.
+- Search → results with the route map, timing, directions and fallback together → one tap on **Go live**. Route sources expand in place.
+- Live countdown, a separate **Start sprint** action, and platform self-confirmation.
 - One configurable sprint pace (3.5 m/s default), luggage adjustment, minimum margin and offer toggle, saved locally.
 - Live stationboards matched to the chosen trip's scheduled identity; delay/platform rescoring and fallback checks; stale countdowns stop after 120 seconds.
 - Install manifest, local icons, safe-area spacing, feature-detected wake lock, dark mode and reduced-motion support.
+
+The map appears in the search result before the longer directions. Bundled area maps use the researched station and platform context; they do not provide indoor positioning or verify that an entrance is open. The five app screens are Plan, Results, Live, Settings and On the platform.
 
 The API needs no key. See [API behavior](docs/API.md) and [model audit](docs/qa/model-review.md) for limits. Onward services need a fresh whole-journey check; a stationboard cannot verify an entire connecting itinerary. SBB remains the place for tickets and official departure information.
 
@@ -60,3 +63,22 @@ Profiles, points, verified runs, train-movement verification, leaderboard, celeb
 Each route is a validated JSON record under `data/hacks/`. `bun run validate` rebuilds the bundled catalogue automatically, so new files become planner inputs without hard-coded imports. Platform coverage may be partial; unsupported platforms never produce offers.
 
 `bun run research:scan` repeats the bounded, cached timetable screen. `bun run research:report` rebuilds the research report and source inventory from regional decisions. Screened distances are discovery leads only and never become enabled route timing automatically.
+
+## Visual design
+
+Instrument Sans provides labels and station names; IBM Plex Mono provides timetable numbers. Fonts are hosted with the app, with their OFL licenses in `public/fonts/`. The search form connects its stop markers, the combined result places the map above directions, and Live uses a station-sign treatment for the platform.
+
+All 26 supported map variants are offline SVGs built from the committed OSM extracts. They show geographic context and access markers, with no invented walking line. Regenerate them with `python3 scripts/build-route-maps.py`.
+
+## Demo video
+
+The [MP4 demo](public/demo.mp4) shows the actual phone UI: search, map, timing and fallback together, then one tap into live guidance. It uses explicitly synthetic times, contains no audio, and ends before the passenger starts running.
+
+To record and export it again, install Chromium with Playwright and have `ffmpeg`/`ffprobe` on PATH:
+
+```sh
+bun scripts/record-demo.ts
+python3 scripts/export-demo.py
+```
+
+The intermediate recording and timing notes stay in ignored `out/demo/`. The published player is `public/demo.html`.

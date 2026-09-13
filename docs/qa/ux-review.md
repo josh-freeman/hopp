@@ -1,45 +1,45 @@
 # Hopp UX review · 2026-09-13
 
-The final build passed, and the complete browser suite passed **44 of 44 checks in 20.3 seconds** across WebKit and Chromium: 16 viewport flow checks and 14 behavior/accessibility checks on each of two representative phones. All 16 viewports have nine screenshots, producing 144 PNGs in this directory. Every PNG was checked against its named CSS viewport dimensions.
+The current flow is **Plan → Results → Live**, with Settings and platform confirmation as separate screens. Results combines the train, budget, map, directions, route sources and fallback. One **Go live** action replaces the intermediate selection and route pages. The completed automated run and screenshot counts are recorded in the [QA guide](README.md).
 
-## Observed issues and fixes
+## Changes and verification
 
 | Finding | Change and verification |
 | --- | --- |
-| WebKit rendered the departure selector at 21 px high despite its minimum height. | An explicit 48 px height and custom select appearance now provide a usable target. All WebKit viewport audits pass. |
-| Try it labeled the pre-margin buffer “Spare after margin”: a 5:00 budget, 3:04 sprint, and 1:05 margin showed 1:57 spare. | Results and Try it now subtract both sprint and margin. A browser assertion checks displayed arithmetic within two seconds of rounding. Live and Try it show approximately 0:52 for that fixture. |
-| The compact fallback gave a train and platform without saying where the passenger should stay aboard until. | The fallback now includes “Stay on to Bahnhofplatz/HB” for the Zürich fixture. The same fallback persists through detail and Live. |
-| A live budget could keep showing the original available time after time had elapsed. | Live computes its displayed budget against the current time. Countdown ticking and the budget presentation are checked separately. |
-| A route preview could outlive the data that justified its offer. | Returning from a preview after two minutes cannot revive that offer. A browser clock regression verifies the normal connections remain available. |
-| A stationboard response without matching journey data could make an old countdown appear fresh. | Unmatched live trips cannot reset the freshness timestamp. The regression verifies “Updates paused”, a paused countdown, a retained fallback, and no Start sprint button after expiry. |
-| Passing the alight stop needs different handling before and after the passenger starts running. | Live has an explicit Start sprint action before On the platform, while the three taps from Results still reach Live. |
-| Compact layouts needed the main action reachable while retaining live essentials. | Primary actions stay in the lower viewport quarter; Live's countdown, platform, stop, fallback, header, and practice banner fit at 320 × 568. Navigations must naturally return to scroll position zero. |
-| The Results offer was so tall that regular connections disappeared below the initial 390 × 844 viewport. | Removed the duplicated large stats row and tightened the offer spacing. The first regular connection is now visible alongside the offer and fallback. |
-| Fixed actions covered the Try it budget on short phones. | At heights up to 740 px, the decorative icon is hidden and the intro and stats use less space. The sprint/spare numbers and complete budget must now fit above the fixed actions on every tested viewport, including 320 × 568. |
+| Reaching Live required several screens, while the map needed a separate tap. | The matching route appears directly in Results. A browser check verifies that the map starts in the upper half of representative phone viewports with at least 140 px visible. Results reaches Live in one tap. |
+| Old links could keep the removed steps in circulation. | `#try`, `#route`, `#detail` and `#shortcut` resolve to `#results`; browser coverage checks each alias. Route sources expand within the result. |
+| A browse-all directory and promotional headings did not fit the requested product. | Discovery stays tied to the searched trip. The offer leads with its public service number, departure, platform and arrival comparison. |
+| Spare time could be confused with the buffer before margin. | Results subtracts both sprint and margin. Unit and browser assertions compare the displayed durations, allowing for rounding. |
+| A compact fallback omitted where the passenger should remain aboard until. | The fallback includes the ride-on stop when relevant and remains consistent between Results and Live. Origin routes and bus feeders use the appropriate wording. |
+| A live budget could keep showing its original available time. | Live recomputes available time against the clock. Countdown ticking and budget presentation have separate checks. |
+| Old offers or unmatched stationboard data could appear usable. | Visible offers expire when the sprint window or two-minute freshness window closes. Unmatched trips do not reset freshness; the countdown pauses and the fallback remains available. |
+| Passing an alight stop has different meanings before and after starting. | Live keeps separate Start sprint and On the platform actions. Starting preserves a run already in progress; confirmation retains the selected train. |
+| Short viewports need both legible guidance and a reachable action. | Primary actions remain in the lower viewport quarter. Live's decision, countdown, platform and fallback fit without scrolling at 320 × 568. Controls and text have explicit minimum sizes. |
+| WebKit reduced the native departure selector's height. | An explicit selector height and appearance keep the control usable across the WebKit viewport matrix. |
 
-The browser checks also cover no-offer trips, an already-passed stop, an unknown platform, offline and rate-limit errors, dismissal with Not now, the optional route, and a late tram that changes the decision to STAY ON. All nine screens pass the serious/critical axe checks on representative WebKit and Chromium phones. No claim is made that axe alone establishes full accessibility.
+The browser suite also covers no-offer trips, passed stops, unknown platforms, offline and rate-limit errors, Not now dismissal, and a late feeder that changes the decision to STAY ON. All five screens pass the automated serious/critical axe checks on representative WebKit and Chromium phones. These checks cover only part of accessibility.
 
-## Visual review
+## Visual design
 
-Representative screenshots were inspected for Samsung 412 × 915, iPhone 390 × 844, and the minimum 320 × 568 layout, and compared with the approved phone mockups. The minimum Live screen keeps its decision, numbers, fallback, and action visible. The minimum Plan screen shows both stations and its departure selector above the fixed action area.
+The app now loads Instrument Sans and IBM Plex Mono locally, replacing an unloaded font declaration. Labels and station names use the sans face; timetable numbers use the mono face. A connected pair of stop markers clarifies the search form, all primary actions share one treatment, and the live platform number uses a station-sign block. The maps use restrained geographic detail and larger endpoint labels.
 
-The final [390 × 844 Results screenshot](iphone-390x844/results.png) shows the offer, actionable fallback, and first regular connection together. The final [320 × 568 Try it screenshot](minimum-320x568/try.png) shows full sprint time, spare after margin, have/need/margin arithmetic, and walking comparison above its actions. No serious unresolved visual issue was observed in this reviewed sample.
+Manual inspection covered Plan, Results and Live at 390 × 844 in light and dark mode and 320 × 568 in light mode. Fonts loaded, no horizontal overflow appeared, and all live information fit. On the shortest Results viewport, scrolling is needed to see the entire map; the 390 px layout shows both markers immediately. Screenshot capture waits for fonts before measuring layout.
 
-Route instructions and Settings can scroll behind their fixed action area, with bottom padding allowing the last content to be reached. Their viewport screenshots deliberately show only what fits on the phone; use the interactive preview to inspect the remaining content.
+## Visual evidence
 
-## Work not yet performed
+The generated [390 × 844 Results screenshot](iphone-390x844/results.png) records the combined result, and the [320 × 568 Live screenshot](minimum-320x568/live.png) records the compact guidance layout. The map and timing take priority in the initial Results view; longer directions, expandable evidence and regular connections remain reachable by scrolling. Bottom padding keeps the final content above the fixed action.
 
-- No physical iPhone or Samsung hardware has been tested. These are browser-engine and CSS-viewport emulations.
-- No participant think-aloud sessions have been conducted. [The script](think-aloud-script.md) is ready; three-second understanding, one-handed comfort, and trust have not been established with users.
-- VoiceOver/TalkBack, software keyboard overlap, OS text scaling, safe-area behavior with browser chrome, vibration, and wake lock still need physical-device checks.
-- These demo results do not field-verify walking routes, train stopping positions, station access, or current transport conditions. Existing route verification labels remain necessary.
+Area maps show the researched station context and selected platform group. They are not indoor positioning or evidence that an entrance is currently open. The same public-crossing and field-verification qualifications apply to every map.
 
-See [the QA guide](README.md) for commands, the full viewport matrix, and the scope of the automated assertions.
+The screenshot matrix records the five current screens. Older design mockups remain historical references rather than the current navigation specification. The demo video records the actual browser UI with synthetic times; it is separate from the layout assertions and does not depict a physical journey.
 
 ## Expanded-route verification
 
-The browser suite now also replays unmodified Winterthur Archstrasse → Aarau timetable captures at their original query time. It verifies the 08:09 departure on platform 3, the 09:28 fallback arrival, the 23-minute modelled gain, correct station-specific directions, accessible source links, and origin-start instructions. All network requests in that test are fulfilled from local captures.
+The browser suite replays unmodified Winterthur Archstrasse → Aarau timetable captures at their original query time. It checks the 08:09 departure on platform 3, the 09:28 fallback arrival, the 23-minute modelled gain, station-specific map and directions, accessible inline source links, and origin-start instructions. Network requests in that test are fulfilled from local captures.
 
-The copy pass removes the home tagline and promotional headings. No route directory is exposed on the home screen; route notes show only the searched trip’s access. Bus and origin arrival labels have unit coverage.
+## Work not yet performed
 
-Visible offers now expire without a tap, both at the two-minute freshness limit and when an origin sprint window closes earlier. The browser suite verifies both transitions.
+- No physical iPhone or Samsung hardware has been tested. The evidence uses browser engines and CSS viewport emulation.
+- No participant think-aloud sessions have been conducted. [The script](think-aloud-script.md) is ready; three-second understanding, one-handed comfort and trust have not been established with users.
+- VoiceOver/TalkBack, software keyboard overlap, OS text scaling, browser chrome, safe areas, vibration and wake lock still need physical-device checks.
+- Demo and captured-timetable results do not field-verify walking routes, train stopping positions, station access or current transport conditions.

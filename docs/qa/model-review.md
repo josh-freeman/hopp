@@ -48,7 +48,7 @@ Two actual HTTP response bodies were recovered from Claude's research scratchpad
 
 ## Geometry and evidence limits
 
-All route coordinates and path lengths were copied from the design's embedded seed JSON. No missing landing was invented. Routes with question-marked notes were reduced from high confidence to medium where necessary. Zürich and Basel are **desk-verified**; Lausanne is a **draft**, excluded from recommendations.
+The original seed coordinates and path lengths came from the design's embedded JSON. Later additions use the evidence recorded in the expansion report. No missing landing was invented. Routes with question-marked notes were reduced from high confidence to medium where necessary. Enabled records are **desk-verified**; Lausanne is a **draft**, excluded from recommendations.
 
 `bun run validate` checks schemas, dates, IDs, disjoint platform groups, observed platform coverage, path distance/rise constraints, uncertainty labels, source presence, and whether the model can improve the planner's walking budget. Geometry notes remain explicit:
 
@@ -65,4 +65,4 @@ The build loads every schema-valid file in `data/hacks/` into a generated catalo
 
 Origin starts have no departed feeder, so their eligibility follows remaining sprint time rather than a one-minute passed-stop guard. Before the user starts, an origin fallback needs its full planner walk from the current time. Confirmation preserves the train selected on the live screen. GO cards on non-live screens expire automatically when the available margin runs out or the timetable becomes stale.
 
-The final unit suite contains **85 tests and 438 assertions**, including these regressions. Expanded routes remain desk researched, with explicit rise/door-position assumptions and current access limitations documented in the research report.
+The integrated Results screen displays the full budget, spare after sprint and margin, matching route map, directions and fallback before its single **Go live** action. Unit checks retain the displayed arithmetic and selected-train identity regressions. Current verification counts are recorded in the [QA guide](README.md). Expanded routes remain desk researched, with explicit rise/door-position assumptions and current access limitations documented in the research report.

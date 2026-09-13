@@ -2,14 +2,13 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { allScreens, expectScreen, findConnections, showScreen, startDemo } from './helpers';
 
-test('fresh profile reaches live in three taps after search, with honest budget and fallback', async ({ page }) => {
+test('fresh profile reaches live in one tap after search, with honest budget and fallback', async ({ page }) => {
   await startDemo(page);
   // Each test has a fresh browser context: no profile, account, location grant, or prior trip.
   await findConnections(page);
   await expectScreen(page, 'results');
-  await expect(page.getByTestId('offer-card')).toContainText(/You can still make the/);
-  await page.getByRole('button', { name: 'Try it', exact: true }).click();
-  await expectScreen(page, 'try');
+  await expect(page.getByTestId('offer-card').getByRole('heading', { level: 2 })).toContainText(/IC \d+ · \d{2}:\d{2}/);
+  await expect(page.locator('.integrated-route')).toBeVisible();
   await expect(page.getByTestId('verdict-budget')).toContainText(/you have/i);
   await expect(page.getByTestId('verdict-budget')).toContainText(/need/i);
   await expect(page.getByTestId('verdict-budget')).toContainText(/margin/i);
@@ -21,8 +20,6 @@ test('fresh profile reaches live in three taps after search, with honest budget 
   const displayedSpare = seconds(await page.getByText('Spare after margin', { exact: true }).locator('..').locator('strong').innerText());
   expect(Math.abs(displayedSpare - (have - need - margin)), 'Displayed spare deducts both sprint and margin (allowing rounded seconds)').toBeLessThanOrEqual(2);
   await expect(page.getByTestId('screen')).toContainText(/walking/i);
-  await page.getByRole('button', { name: 'Sprint it', exact: true }).click();
-  await expectScreen(page, 'detail');
   const fallback = (await page.getByTestId('fallback').innerText()).trim();
   expect(fallback.length).toBeGreaterThan(15);
   await page.getByRole('button', { name: 'Go live', exact: true }).click();
@@ -36,13 +33,33 @@ test('fresh profile reaches live in three taps after search, with honest budget 
   await expect(page.getByTestId('alight')).toContainText(/Central/);
 });
 
-test('the route can be read before committing to the sprint', async ({ page }) => {
+test('the map and directions are part of the result before committing to the sprint', async ({ page }) => {
   await startDemo(page);
   await findConnections(page);
-  await page.getByRole('button', { name: 'Try it', exact: true }).click();
-  await page.getByRole('button', { name: 'Show me the route first', exact: true }).click();
-  await expectScreen(page, 'route');
-  await expect(page.getByTestId('screen')).toContainText(/Central|Bahnhofbrücke/);
+  await expectScreen(page, 'results');
+  const map = page.locator('.integrated-route .route-map');
+  await expect(map).toBeVisible();
+  await expect.poll(() => map.locator('img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0), { message: 'The route map asset loads' }).toBe(true);
+  const rect = await map.boundingBox();
+  const viewport = page.viewportSize()!;
+  expect(rect!.y, 'Map is visible immediately after search').toBeGreaterThanOrEqual(0);
+  expect(rect!.y, 'Map starts in the upper half of the result viewport').toBeLessThan(viewport.height * 0.5);
+  const visibleHeight = Math.min(rect!.y + rect!.height, viewport.height) - Math.max(rect!.y, 0);
+  expect(visibleHeight, 'Map has enough visible area to read without opening another screen').toBeGreaterThanOrEqual(140);
+  await expect(page.locator('.integrated-route .route-directions')).toContainText(/Central|Bahnhofbrücke/);
+  await expect(page.getByRole('button', { name: 'Go live', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: /Try it|Sprint it|Show me the route first|View sprint details/ })).toHaveCount(0);
+});
+
+test('legacy route steps return to the combined result', async ({ page }) => {
+  await startDemo(page);
+  await findConnections(page);
+  for (const screen of ['try', 'route', 'detail', 'shortcut']) {
+    await page.evaluate((name) => { window.location.hash = name; }, screen);
+    await expect(page).toHaveURL(/#results$/);
+    await expectScreen(page, 'results');
+    await expect(page.locator('.integrated-route')).toBeVisible();
+  }
 });
 
 test('Not now dismisses the sprint and keeps regular connections', async ({ page }) => {
@@ -54,6 +71,8 @@ test('Not now dismisses the sprint and keeps regular connections', async ({ page
   await page.getByRole('button', { name: 'Not now', exact: true }).click();
   await expectScreen(page, 'results');
   await expect(page.getByTestId('offer-card')).toHaveCount(0);
+  await expect(page.locator('.integrated-route')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Go live', exact: true })).toHaveCount(0);
   await expect(page.getByTestId('connection-row')).toHaveCount(count);
   await expect(page.getByTestId('fallback')).toBeVisible();
 });
@@ -65,7 +84,8 @@ for (const scenario of ['nohack', 'passed', 'unknown']) {
     await expectScreen(page, 'results');
     await expect(page.getByTestId('offer-card')).toHaveCount(0);
     await expect(page.getByTestId('connection-row').first()).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Try it', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Go live', exact: true })).toHaveCount(0);
+    await expect(page.locator('.integrated-route')).toHaveCount(0);
   });
 }
 
@@ -84,8 +104,6 @@ for (const scenario of ['offline', 'ratelimit']) {
 test('a late tram refresh degrades the live decision to STAY ON and retains fallback', async ({ page }) => {
   await startDemo(page, 'late', '&poll=1000');
   await findConnections(page);
-  await page.getByRole('button', { name: 'Try it', exact: true }).click();
-  await page.getByRole('button', { name: 'Sprint it', exact: true }).click();
   await page.getByRole('button', { name: 'Go live', exact: true }).click();
   await expectScreen(page, 'live');
   await expect(page.getByTestId('screen')).toContainText(/STAY ON/, { timeout: 15_000 });
@@ -107,22 +125,26 @@ test('every screen has no serious or critical accessibility violations', async (
   for (const screen of allScreens.filter((name) => name !== 'plan')) {
     await showScreen(page, screen);
     await test.step(`${screen}: axe`, () => audit(screen));
+    if (screen === 'results') {
+      await page.locator('details.route-notes > summary').click();
+      await test.step('results with route sources expanded: axe', () => audit('results with route sources expanded'));
+    }
   }
 });
 
-test('a route preview cannot revive an offer after its timetable becomes stale', async ({ page }) => {
+test('the combined result removes the sprint when its timetable becomes stale', async ({ page }) => {
   await page.clock.install({ time: Date.now() });
   await startDemo(page);
   // Keep alighting in the future to test freshness independently of the passed-stop guard.
   await page.getByLabel('Departure', { exact: true }).selectOption('later');
   await findConnections(page);
-  await page.getByRole('button', { name: 'Try it', exact: true }).click();
-  await page.getByRole('button', { name: 'Show me the route first', exact: true }).click();
-  await expectScreen(page, 'route');
+  await expectScreen(page, 'results');
+  await expect(page.locator('.integrated-route')).toBeVisible();
   await page.clock.fastForward(121_000);
   // Expiry removes the visible offer without requiring another click.
   await expectScreen(page, 'results');
   await expect(page.getByTestId('offer-card')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Go live', exact: true })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Start sprint', exact: true })).toHaveCount(0);
   await expect(page.getByTestId('connection-row').first()).toBeVisible();
 });
@@ -132,8 +154,6 @@ test('missing live trips cannot reset freshness or restart a stale countdown', a
   await startDemo(page, 'missing', '&poll=500');
   await page.getByLabel('Departure', { exact: true }).selectOption('later');
   await findConnections(page);
-  await page.getByRole('button', { name: 'Try it', exact: true }).click();
-  await page.getByRole('button', { name: 'Sprint it', exact: true }).click();
   await page.getByRole('button', { name: 'Go live', exact: true }).click();
   await expectScreen(page, 'live');
   await expect(page.getByTestId('countdown')).toContainText(/\d+:\d{2}/);
@@ -165,16 +185,12 @@ test('recorded Winterthur shortcut reaches the right platform with trip-specific
   await expect(page.getByTestId('offer-card')).toContainText('Archstrasse/HB');
   await expect(page.getByTestId('offer-card')).toContainText('Platform 3');
   await expect(page.getByTestId('fallback')).toContainText('09:28');
-  await page.getByRole('button', { name: 'Try it', exact: true }).click();
-  await page.getByRole('button', { name: 'Show me the route first', exact: true }).click();
-  await expect(page.locator('.route-diagram')).toContainText('Winterthur');
+  await expect(page.locator('.integrated-route .route-map img')).toHaveAttribute('alt', /Winterthur/);
   await expect(page.getByTestId('screen')).not.toContainText('Central');
-  await page.getByRole('button', { name: 'Route notes and sources', exact: true }).click();
-  await page.getByText('Platform access and checks', { exact: true }).click();
+  await page.locator('details.route-notes > summary').click();
   await expect(page.locator('.route-sources a').first()).toBeVisible();
   await expect(page.getByTestId('screen')).not.toContainText('Basel');
-  await page.getByRole('button', { name: 'Back to sprint details', exact: true }).click();
-  await expect(page.getByTestId('screen')).toContainText('23 min before your regular plan');
+  await expect(page.locator('.offer-arrival')).toContainText('23 min earlier');
   await page.getByRole('button', { name: 'Go live', exact: true }).click();
   await expect(page.getByTestId('alight')).toHaveText('Archstrasse/HB');
   await expect(page.getByTestId('platform')).toHaveText('3');

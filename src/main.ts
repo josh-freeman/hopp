@@ -1,4 +1,5 @@
 import './style.css';
+import './design.css';
 import type { Candidate, PlanResult, TripQuery } from './types';
 import { createClient } from './api/client';
 import { createMockClient } from './api/mock';
@@ -8,8 +9,7 @@ import { readProfile, saveProfile, rememberDestination } from './storage/prefs';
 import { keepAwake } from './pwa/wakelock';
 import { esc, icon, button } from './ui/html';
 import { planScreen, settingsScreen } from './ui/plan';
-import { resultsScreen, tryScreen, detailScreen, doneScreen } from './ui/journey';
-import { routeScreen, shortcutScreen } from './ui/route';
+import { resultsScreen, doneScreen } from './ui/journey';
 import { liveScreen } from './ui/live';
 import { arrivalText } from './ui/common';
 
@@ -25,16 +25,21 @@ let loading = false, error = '', dismissed = false, running = false;
 let screen = '', searchSerial = 0, pollBusy = false, liveSignature = '';
 let pollTimer: ReturnType<typeof setInterval> | undefined;
 const now = () => Date.now() / 1000;
-const protectedScreens = ['try', 'route', 'detail', 'live', 'done', 'shortcut'];
+const protectedScreens = ['live', 'done'];
 function navigate(next: string): void { if (location.hash === `#${next}`) render(); else location.hash = next; }
 function header(): string {
-  return `<header class="app-header">${screen === 'plan' ? `<a href="#plan" class="wordmark" aria-label="Hopp home">hopp<span>↗</span></a>` : button(icon('back'), 'back', 'icon-button', 'aria-label="Go back"')}<span class="header-label">${screen === 'plan' ? '' : 'hopp<span class="red">↗</span>'}</span>${button(icon('settings'), 'settings', 'icon-button', 'aria-label="Settings"')}</header>`;
+  const mark = `<span class="brand-mark">${icon('arrow')}</span>`;
+  return `<header class="app-header">${screen === 'plan' ? `<a href="#plan" class="wordmark" aria-label="Hopp home">hopp${mark}</a>` : button(icon('back'), 'back', 'icon-button', 'aria-label="Go back"')}<span class="header-label">${screen === 'plan' ? '' : `hopp${mark}`}</span>${button(icon('settings'), 'settings', 'icon-button', 'aria-label="Settings"')}</header>`;
 }
 function render(): void {
   const previous = screen;
   screen = location.hash.slice(1) || 'plan';
+  if (['try', 'route', 'detail', 'shortcut'].includes(screen)) {
+    screen = 'results';
+    history.replaceState(null, '', `${location.pathname}${location.search}#results`);
+  }
   if (loading && screen !== 'plan') { ++searchSerial; loading = false; }
-  if (!['plan', 'results', 'try', 'route', 'detail', 'live', 'done', 'shortcut', 'settings'].includes(screen)) screen = 'plan';
+  if (!['plan', 'results', 'live', 'done', 'settings'].includes(screen)) screen = 'plan';
   if (result && result.recommended && now() - result.updatedAt > 120 && screen !== 'live' && screen !== 'done') {
     result = { ...result, recommended: undefined, risky: undefined, reason: 'stale', error: 'Timetable updates are over two minutes old. Refresh to check a sprint route.' };
   }
@@ -49,11 +54,7 @@ function render(): void {
   } else if (screen !== 'live' && previous === 'live') { clearInterval(pollTimer); void keepAwake(false); }
   let content: string;
   if (screen === 'settings') content = settingsScreen(profile);
-  else if (screen === 'shortcut') content = shortcutScreen(result!);
   else if (screen === 'results') content = resultsScreen(result!, dismissed);
-  else if (screen === 'try') content = tryScreen(result!);
-  else if (screen === 'route') content = routeScreen(result!);
-  else if (screen === 'detail') content = detailScreen(result!);
   else if (screen === 'live') content = liveScreen(result!, selected!, now(), running);
   else if (screen === 'done') content = doneScreen(result!, selected);
   else content = planScreen(profile, from, to);
@@ -97,7 +98,7 @@ async function search(query: TripQuery, target = 'results'): Promise<void> {
 function flash(message: string): void { const t = document.querySelector('#toast'); if (t) { t.textContent = message; setTimeout(() => { t.textContent = ''; }, 5000); } }
 function updateLive(): void {
   if (screen !== 'live') {
-    if (result?.recommended && ['results', 'try', 'detail', 'route', 'shortcut'].includes(screen)) {
+    if (result?.recommended && screen === 'results') {
       const seconds = now(), candidate = result.recommended;
       const stale = seconds - result.updatedAt > 120;
       const passed = !!result.opportunity?.feeder && seconds > result.opportunity.alightTs + 60;
@@ -192,7 +193,7 @@ app.addEventListener('click', event => {
   const target = (event.target as Element).closest<HTMLElement>('[data-action]');
   if (!target) return;
   const action = target.dataset.action!;
-  if (action === 'back') { navigate(({ plan: 'plan', results: 'plan', try: 'results', route: 'try', detail: 'try', live: 'detail', done: 'results', settings: 'plan', shortcut: 'plan' } as Record<string, string>)[screen]); return; }
+  if (action === 'back') { navigate(({ plan: 'plan', results: 'plan', live: 'results', done: 'results', settings: 'plan' } as Record<string, string>)[screen]); return; }
   if (action === 'dismiss') { dismissed = true; render(); return; }
   if (action === 'start-run') {
     const available = selected ? selected.departureTs - Math.max(now(), result?.opportunity?.alightTs ?? now()) : 0;

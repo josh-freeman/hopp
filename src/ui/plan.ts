@@ -4,7 +4,7 @@ import { recentDestinations } from '../storage/prefs';
 export function planScreen(profile: Profile, from: string, to: string): string {
   const recent = recentDestinations();
   return `<section class="screen plan-screen" data-screen="plan" data-testid="screen">
-    <div class="intro"><h1>Connections</h1></div>
+    <div class="intro"><p class="eyebrow">Swiss public transport</p><h1>Connections</h1></div>
     <form id="trip-form" class="trip-form">
       <div class="journey-fields panel">
         <div class="station-field"><span class="field-icon">${icon('pin')}</span><div class="field-content"><label for="from">From</label><input id="from" name="from" value="${esc(from)}" placeholder="Stop or station" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="from-suggestions" required/><ul id="from-suggestions" class="suggestions" role="listbox" hidden></ul></div>${button(icon('pin'), 'nearest', 'icon-button', 'aria-label="Use nearest stop"')}</div>
@@ -14,8 +14,8 @@ export function planScreen(profile: Profile, from: string, to: string): string {
       </div>
       <div id="plan-message" class="inline-message" role="status"></div>
       ${recent.length ? `<div class="recent"><p class="eyebrow">Recent destinations</p><div class="chips">${recent.map(x => button(esc(x), 'destination', 'chip', `data-value="${esc(x)}"`)).join('')}</div></div>` : ''}
-      <div class="local-note">${icon('run')}<div><strong>Sprint routes ${profile.offerSprintRoutes ? 'on' : 'off'}</strong><p>Included in connection searches.</p></div>${button(icon('settings'), 'settings', 'icon-button', 'aria-label="Sprint route settings"')}</div>
-      <div class="bottom-actions"><button type="submit" class="primary" data-testid="primary-action">Find connections ${icon('arrow')}</button><a class="text-link demo-link" href="?mock=1#plan">Try the demo ${icon('run')}</a></div>
+      <button type="button" class="local-note" data-action="settings" aria-label="Sprint route settings">${icon('run')}<span><strong>Sprint routes ${profile.offerSprintRoutes ? 'on' : 'off'}</strong><small>Included in connection searches.</small></span>${icon('arrow')}</button>
+      <div class="bottom-actions"><button type="submit" class="primary" data-testid="primary-action">Find connections ${icon('arrow')}</button><div class="demo-links"><a class="text-link demo-link" href="?mock=1#plan">Example trip</a><span aria-hidden="true">·</span><a class="text-link demo-link" href="${import.meta.env.BASE_URL}demo.html">Watch video</a></div></div>
     </form>
   </section>`;
 }

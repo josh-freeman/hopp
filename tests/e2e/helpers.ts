@@ -2,12 +2,13 @@ import { expect, type Page, type TestInfo } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-export type Screen = 'plan' | 'results' | 'try' | 'route' | 'detail' | 'live' | 'shortcut' | 'settings' | 'done';
-export const allScreens: Screen[] = ['plan', 'results', 'try', 'route', 'detail', 'live', 'shortcut', 'settings', 'done'];
+export type Screen = 'plan' | 'results' | 'live' | 'settings' | 'done';
+export const allScreens: Screen[] = ['plan', 'results', 'live', 'settings', 'done'];
 
 export async function expectScreen(page: Page, screen: Screen) {
   await expect(page.getByTestId('screen')).toHaveAttribute('data-screen', screen);
   await expect(page.getByTestId('loading')).toBeHidden();
+  await page.evaluate(() => document.fonts.ready);
   await expect.poll(() => page.evaluate(() => window.scrollY), { message: `${screen}: navigation starts at the top` }).toBe(0);
 }
 
@@ -78,26 +79,15 @@ export async function auditLayout(page: Page, screen: Screen) {
   });
   expect(audit, `${screen}: phone layout and readable controls`).toEqual([]);
 
-  // The approved Results CTA belongs inside the offer card above the connection list.
-  if (screen !== 'results') {
-    const actions = page.getByTestId('primary-action');
-    for (let index = 0; index < await actions.count(); index++) {
-      const action = actions.nth(index);
-      if (!(await action.isVisible())) continue;
-      const rect = await action.boundingBox();
-      const viewport = page.viewportSize()!;
-      expect(rect, `${screen}: primary action has a visible hit area`).not.toBeNull();
-      expect(rect!.y + rect!.height / 2, `${screen}: primary action in lower quarter`).toBeGreaterThanOrEqual(viewport.height * 0.75);
-      expect(rect!.y + rect!.height, `${screen}: primary action above bottom edge`).toBeLessThanOrEqual(viewport.height + 1);
-    }
-  }
-  if (screen === 'try') {
-    const footer = await page.locator('.bottom-actions').boundingBox();
-    for (const element of [page.locator('.sprint-stats'), page.getByTestId('verdict-budget')]) {
-      const rect = await element.boundingBox();
-      expect(rect!.y, 'Try it: decision numbers below viewport top').toBeGreaterThanOrEqual(0);
-      expect(rect!.y + rect!.height, 'Try it: decision numbers above fixed actions').toBeLessThanOrEqual(footer!.y + 1);
-    }
+  const actions = page.getByTestId('primary-action');
+  for (let index = 0; index < await actions.count(); index++) {
+    const action = actions.nth(index);
+    if (!(await action.isVisible())) continue;
+    const rect = await action.boundingBox();
+    const viewport = page.viewportSize()!;
+    expect(rect, `${screen}: primary action has a visible hit area`).not.toBeNull();
+    expect(rect!.y + rect!.height / 2, `${screen}: primary action in lower quarter`).toBeGreaterThanOrEqual(viewport.height * 0.75);
+    expect(rect!.y + rect!.height, `${screen}: primary action above bottom edge`).toBeLessThanOrEqual(viewport.height + 1);
   }
   if (screen === 'live') {
     await expect(page.locator('.app-header')).toBeInViewport({ ratio: 1 });

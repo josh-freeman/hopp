@@ -1,10 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 import { arrivalText, journeyLabel } from '../../src/ui/common';
-import { doneScreen, resultsScreen, tryScreen } from '../../src/ui/journey';
+import { doneScreen, resultsScreen } from '../../src/ui/journey';
 import { liveScreen } from '../../src/ui/live';
 import { createMockClient } from '../../src/api/mock';
 import { planTrip } from '../../src/planner';
-import { DEFAULT_PROFILE, formatDuration } from '../../src/engine';
+import { DEFAULT_PROFILE } from '../../src/engine';
+
+const durationSeconds = (value: string) => {
+  const [minutes, seconds] = value.split(':').map(Number);
+  return minutes * 60 + seconds;
+};
 
 describe('travel copy reflects the actual service and budget', () => {
   test('API internal service names do not replace public line numbers', () => {
@@ -12,13 +17,37 @@ describe('travel copy reflects the actual service and budget', () => {
     expect(journeyLabel({ category: 'IC', number: '3', name: '000563' })).toBe('IC 3');
     expect(journeyLabel({ category: 'T', number: '2', name: '002059' })).toBe('T 2');
   });
-  test('spare after margin subtracts both sprint and margin on both offer screens', async () => {
+  test('the integrated offer displays its full budget and subtracts sprint plus margin from spare', async () => {
     const client = createMockClient('happy');
     const result = await planTrip(client, { from: 'Zürich, Bellevue', to: 'Bern', when: Date.now() / 1000 }, DEFAULT_PROFILE);
     const c = result.recommended!;
-    const spare = formatDuration(c.haveS - c.sprintS - c.marginS);
-    expect(resultsScreen(result, false)).toContain(`<strong>${spare}</strong> spare after margin`);
-    expect(tryScreen(result)).toContain(`<strong class="green">${spare}</strong>`);
+    const html = resultsScreen(result, false);
+    const budget = html.match(/data-testid="verdict-budget">([\s\S]*?)<\/p>/)?.[1] ?? '';
+    const displayed = [...budget.matchAll(/<strong>(\d+:\d{2})<\/strong>/g)].map(match => durationSeconds(match[1]));
+    expect(displayed).toHaveLength(3);
+    [c.haveS, c.sprintS, c.marginS].forEach((seconds, index) => {
+      expect(Math.abs(displayed[index] - seconds)).toBeLessThanOrEqual(0.5);
+    });
+    const spareText = html.match(/class="offer-spare">[\s\S]*?<strong>(\d+:\d{2})<\/strong>/)?.[1];
+    expect(spareText).toBeDefined();
+    expect(Math.abs(durationSeconds(spareText!) - (displayed[0] - displayed[1] - displayed[2]))).toBeLessThanOrEqual(2);
+    expect(html).toContain('Spare after margin');
+  });
+  test('the matching route is visible before a single Go live action', async () => {
+    const result = await planTrip(createMockClient('happy'), { from: 'Zürich, Bellevue', to: 'Bern', when: Date.now() / 1000 }, DEFAULT_PROFILE);
+    const html = resultsScreen(result, false);
+    const routeIndex = html.indexOf('class="integrated-route"');
+    const mapIndex = html.indexOf('class="route-map"', routeIndex);
+    const liveIndex = html.indexOf('data-action="live"');
+    expect(routeIndex).toBeGreaterThan(-1);
+    expect(mapIndex).toBeGreaterThan(routeIndex);
+    expect(liveIndex).toBeGreaterThan(mapIndex);
+    expect(html).toContain('Directions');
+    expect(html).toContain('Bahnhofbrücke');
+    expect(html).toContain('Route notes and sources');
+    expect(html.match(/data-testid="primary-action"/g)).toHaveLength(1);
+    expect(html).toContain('Go live');
+    expect(html).not.toMatch(/data-action="(?:try|detail|route)"/);
   });
 });
 
