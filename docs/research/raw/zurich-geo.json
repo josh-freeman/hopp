@@ -1,0 +1,352 @@
+{
+ "key": "zurich-geo",
+ "summary": "Pedestrian geometry of Zurich HB for hack #1 (get off at 'Zürich, Central', run over the Bahnhofbrücke). All coordinates are OSM nodes returned by Overpass (2026-09-13). Central tram stop (OSM ref 619) has platforms A-H; trams toward HB leave from F (4, 11, 15 -> Bahnhofstrasse/HB), H (6, 7, 10 -> Bahnhofplatz/HB or Bahnhofstrasse/HB) and B (3 -> Bahnhofplatz/HB); the Polybahn lower station is node 29542965 (47.376518, 8.544172). CRITICAL CURRENT-STATE FINDING: the tram stop 'Bahnhofquai/HB' (OSM ref 413, nodes 2264870172/29271923 at 47.37766, 8.54174) is out of service for track reconstruction until mid-December 2026 (SBB Innenplan 12/2025: 'Gleisbau und Sanierung Tramhaltestelle Bahnhofquai/HB bis Mitte Dezember 2026'; live stationboard 2026-09-13 shows only bus 46; no tram route relation in OSM stops there). Trams from Central therefore run non-stop over the Bahnhofbrücke to Bahnhofplatz/HB (3, 6, 10, 14; 2 min scheduled) or Bahnhofstrasse/HB (4, 7, 10, 11, 13, 15; 2-3 min). The underground ShopVille accesses at the Bahnhofquai/HB stop are also closed until mid-Dec 2026. PLATFORM NUMBERING CORRECTION: 3-18 = surface terminus platforms (420 m, level 0, Kopfbahnhof; Querhalle 108x24 m at the EAST head, Haupthalle 131x43 m east of it, east portal on the Bahnhofquai facade); 21-22 = SZU (Uetliberg/Sihltal, 125 m platform, 11.6 m below street, under Bahnhofplatz/south facade); 31-34 = Bahnhof Löwenstrasse (through tracks, 420 m, 15.4 m deep, OSM level -4); 41-44 = Bahnhof Museumstrasse (through tracks, 360 m, 13.6 m deep, OSM level -3; renumbered from 21-24 in May 2012). The task premise (21-24 Museumstrasse, 41-44 SZU) is outdated. DISTANCES (haversine chains over OSM nodes; indoor Haupthalle leg is straight-line because OSM has no routable ways inside the hall): Central platform F -> Bahnhofquai/HB stop 187 m; -> Haupthalle east portal 217 m; -> head of platform 3/10-11/18: 402/382/390 m with ZERO level changes; -> Museumstrasse 41-44: 424 m (2 escalator descents, mid-platform) or 438 m via the NE-corner Landesmuseum stairs (3 short flights, lands 72 m from the platforms' east end); -> Löwenstrasse 31-34: 423 m (2 descents); -> SZU 21-22: ~423 m (2 descents, low confidence). From the (closed) Bahnhofquai/HB stop subtract 187 m (e.g. 195 m to head of platform 10/11). From Bahnhofplatz/HB: 40-85 m to head of platform 3, 110-150 m to 10/11, 175-215 m to 18 (level 0); 64 m to SZU; 199 m to 31-34; 244 m to 41-44. From Sihlquai/HB: 100 m to the WEST end of 41-44 (2 descents), 205 m to 31-34, 114 m onto platform 10/11 at ~210 m from the head (via Passage Sihlquai), 237 m along platform 18 to its head. SBB planner (transport.opendata.ch, queried 2026-09-13 for 2026-09-14 08:05) gives walks Central->Zürich HB 4 min, Bahnhofplatz/HB->HB 1 min, Bahnhofstrasse/HB->HB 2 min, Sihlquai/HB->HB 1 min, Central->Bahnhofquai/HB 3 min - the 9 min/7 min figures in the task's verified list were not reproduced today.",
+ "facts": [
+  {
+   "claim": "Zürich, Central tram stop (OSM ref 619): stop positions A 2264846614 (47.3769308,8.5441319; trams 6,7,10 outbound), B 2264924886 (47.3767719,8.5436084; tram 3 toward HB), C 4883672596 (47.3768119,8.5441421; tram 3 outbound), D 5033804237 (47.3766731,8.5438208), E 1055325030 (47.376393,8.5436958), F 94583344 (47.3767194,8.5435274; trams 4,11,15 toward HB), G 2264862050 (47.3763891,8.5435935; trams 4,15 outbound), H 255265239 (47.3768539,8.5435216; trams 6,7,10 toward HB); platform ways A/B 186463063, C 186463064, D 501426081, E/F 501426082, G 186463062, H 186463061; bus platforms I 186475365, J 186480796, L node 364712943.",
+   "confidence": "high",
+   "source": "Overpass (tram stop query + route relation membership); live stationboard 8588078 2026-09-13 confirmed T4->Bahnhofstrasse/HB from F, T6/T10->Bahnhofplatz/HB from H"
+  },
+  {
+   "claim": "Lines serving Central per OSM route relations: trams 3, 4, 6, 7, 10, 11, 15; trolleybus 31, 46; night buses N4-N7, N10, N71, N74; Polybahn (funicular, ref 24) from node 29542965 'Central Polybahn' (47.376518, 8.544172).",
+   "confidence": "high",
+   "source": "Overpass relation membership (zh_routes.json)"
+  },
+  {
+   "claim": "Zürich, Bahnhofquai/HB (OSM ref 413): tram stop-position nodes 2264870172 (47.3776642,8.5417381) and 29271923 (47.3776129,8.5417736) are members of NO tram route relation; only trolleybus 46 (platform way 755835731 at 47.3774839,8.5420597; stop 2179406581). Live stationboard (id 8587349, 2026-09-13 12:04-13:54) lists only B46 departures. SBB Innenplan (12/2025) prints 'Gleisbau und Sanierung Tramhaltestelle Bahnhofquai/HB bis Mitte Dezember 2026' and 'Zugänge Bahnhofquai/HB infolge Bauarbeiten Tramhaltestelle geschlossen bis Mitte Dezember 2026'.",
+   "confidence": "high",
+   "source": "Overpass; transport.opendata.ch stationboard; company.sbb.ch plan-zuerich-hb-a4.pdf pages 1,2,4"
+  },
+  {
+   "claim": "Zürich, Bahnhofplatz/HB (ref 412): tram platform ways 129783415 (centre 47.3771797,8.5393009; trams 3,6,14) and 129783417 (47.3772799,8.539356; trams 3,6,10,14); stop positions 4881705897 (47.3773114,8.5391199) and 4881705898 (47.3771433,8.5396311); bus stops A/B/C/F for N-lines and trolleybus 31. Lies along the SOUTH facade of the station building, ~40-85 m from the Querhalle south end (platform 3 head).",
+   "confidence": "high",
+   "source": "Overpass"
+  },
+  {
+   "claim": "Zürich, Sihlquai/HB (ref 2395): tram platform ways 217574332 (47.3798745,8.5375588) and 217574333 (47.3798924,8.5374681); stop positions 2267027099 (47.3800717,8.5376403), 301139406 (47.3797805,8.537427); trams 17, 50, 51 (+ N13, N17, N46). Bahnhofstrasse/HB (ref 416): platforms 524415675 (47.3761053,8.5393966), 524415676 (47.3760785,8.5394953); trams 4,7,10,11,13,15 (+N7,N16,N17,N91); transport.opendata.ch id 8591067. Sihlpost/HB (ref 1366): platforms 170028729 (47.3762233,8.5342327), 170028730 (47.3761672,8.5343101); trams 3, 14, bus 31.",
+   "confidence": "high",
+   "source": "Overpass; transport.opendata.ch locations"
+  },
+  {
+   "claim": "Bahnhofbrücke (OSM highway=tertiary, bridge, layer=1): ways 53275979 (4 nodes, 47.376935,8.543127 -> 47.376989,8.542301; 63 m), 580414174 (47.3768865,8.5423272 -> 47.3768453,8.5428091) and 8143580 (47.3768453,8.5428091 -> 47.3767882,8.5431533). Bridge deck ~65-70 m; Central tram platform F/H to bridge east end 31-39 m; bridge west end to Bahnhofquai/HB stop node 86 m; total Central F -> Bahnhofquai/HB stop 187 m.",
+   "confidence": "high",
+   "source": "Overpass geometry + haversine"
+  },
+  {
+   "claim": "Station building (OSM relation 5708936, outer way 31824193): lon 8.53888-8.54142 (~192 m E-W), lat 47.37714-47.37874; east facade at lon ~8.5412-8.5414 facing Bahnhofquai/Bahnhofbrücke. Haupthalle east portal: covered indoor footway 445003247 -> link 595798550 -> Bahnhofquai sidewalk; portal node 267348654 (47.377759, 8.541364), outer link node 3927253107 (47.377752, 8.541433); 25-30 m from the Bahnhofquai/HB tram stop node. Additional level-0 entrances: NE corner 'Ausgang Landesmuseum' area with stairs 31893468 (top 47.378699,8.541246) and 88438880 (top 47.378781,8.540787) down to level -1; south side entrance=main node 356297795 (47.377320, 8.540074); Nordtrakt covered passage area 492505575 (level 0, lon 8.5398-8.5412, lat 47.3781-47.3785).",
+   "confidence": "high",
+   "source": "Overpass (zh_ped.json, zh_rel.json); SBB Innenplan page 1 (Ausgang Bahnhofquai SE, Ausgang Landesmuseum NE, Ausgang Bahnhofplatz/Bahnhofstrasse S)"
+  },
+  {
+   "claim": "Surface platforms 3-18 (level 0): platform 3 way 107555897; 4/5 rel 5832472 (outer 30612571); 6/7 rel 5832473 (30612554); 8/9 rel 5832474 (30612548); 10/11 rel 5832475 (30612523); 12/13 rel 5832469 (30612487); 14/15 rel 5832470 (30612590); 16/17 rel 5832471 (30612490); 18 rel 5832585 (30612684). Head (east, Querhalle-end) nodes: pl.3 338494270 (47.377611,8.538927); 4/5 338493663 (47.377755,8.539011); 6/7 338493456 (47.377892,8.539092); 8/9 338493387 (47.378038,8.539177); 10/11 338493236 (47.378186,8.539264); 12/13 338493731 (47.378330,8.539348); 14/15 338493871 (47.378474,8.539433); 16/17 338493033 (47.378612,8.539514); 18 338494776 (47.378735,8.539586). Head-to-head line pl.3->pl.18 = 135 m (Querhalle, wiki: 108 m x 24 m). Outline length head->west end 428-453 m (wiki: 420 m usable). Tracks bear ~294 deg (WNW) from the head.",
+   "confidence": "high",
+   "source": "Overpass multipolygon member geometry; de.wikipedia"
+  },
+  {
+   "claim": "Underground platforms: Museumstrasse 41/42 rel 6647429 (outer 107584012, lon 8.53615-8.54122, E end node 1236276663 at 47.378210,8.541217, W end 2208502782 at 47.379612,8.536148; 412 m), 43/44 rel 6647430 (outer 107584011) - level -3 (13.6 m below street, 360 m platforms). Löwenstrasse 31/32 rel 6620000 (outer 210813591, E end 2208542863 at 47.377526,8.539872, W end 2208542884 at 47.379273,8.533651), 33/34 rel 6620001 (210813592) - level -4 (15.4 m deep, 420 m). Stop positions: 41 (47.378742,8.538995), 42 (47.378850,8.539060), 43 (47.378889,8.539084), 44 (47.379001,8.539152); 31 (47.378199,8.537109), 32 (47.378341,8.537199), 33 (47.378382,8.537225), 34 (47.378513,8.537308). SZU 21/22: NOT tagged as platform in OSM; SZU rails (operator=SZU, level -2, tunnel) run under the south facade/Bahnhofplatz from 8.5390 to ~8.5410 (e.g. ways 302554650 47.377401,8.539054; 302554484 47.377265,8.540080; 302554483 47.376987,8.541031); 125 m island platform, 11.6 m deep.",
+   "confidence": "high (OSM objects) / medium (SZU location)",
+   "source": "Overpass; de.wikipedia (Perronlängen, Tiefen)"
+  },
+  {
+   "claim": "Level structure (OSM level tags vs SBB/wiki): 0 = Haupthalle/Querhalle/platforms 3-18; -1 = ShopVille 'Zwischengeschoss' (rel 6619159, centre 47.377944,8.540046; Halle Bahnhofplatz 4.7 m deep) and Passage Sihlquai (rel 17459087, centre 47.378975,8.536497); -2 = Halle Landesmuseum (rel 5829489, 47.378739,8.539614; 7.3 m deep), Plaza (rel 6605180, 47.378007,8.539886), Passage Löwenstrasse (rel 5829490, 47.378074,8.538936), Passage Gessnerallee (rel 5832476, 47.378397,8.538324), Passage Bahnhofstrasse (rel 6605179, 47.377955,8.540440), SZU tracks; -3 = Museumstrasse platforms + Halle Sihlpost (rel 5916360, 47.378783,8.535661); -4 = Löwenstrasse platforms.",
+   "confidence": "high",
+   "source": "Overpass relations; de.wikipedia depths"
+  },
+  {
+   "claim": "Key vertical links (OSM ways, level tags, lengths): Haupthalle central escalators 492505567-570 ('0;-1;-2', 15 m, top node 4845206591 47.377895,8.540013, bottom 4845206592 47.377979,8.539859); Haupthalle north escalators to Halle Landesmuseum 383737818/821/829/833 ('-2;0', 18-19 m, top 47.378361,8.539653, bottom 47.378516,8.539743); Halle Landesmuseum -> 41-44 escalators 389710325/329/332/334 ('-3;-2', 7-8 m, at 47.37870,8.53935-8.53944) and 389870277/290/294/297 ('-3;-2', 15-16 m, at ~47.3789,8.5388-8.5390) and west 389870282/285/287 (39 steps, 21-22 m, 47.3791,8.5383); 41-44 EAST-end escalators 389727064/073 ('-2;-3', 8 m, top 47.378565,8.540535, bottom 47.378588,8.540438) reached from the NE-corner stairs 31893468 (0->-1, 30 steps) and steps 445236316 (-1->-2, 14 steps, 47.378262,8.541256); Querhalle south escalators to Passage Löwenstrasse 383737824/831/836, 1274802234 ('-2;0', 12 m, top 47.377901,8.539422); Passage Löwenstrasse -> 31-34 stairs/escalators 389727029/032/059/067/068/071 ('-4;-2', 50 steps, 18-20 m, e.g. 389727032 top 47.377961,8.538934 bottom 47.378026,8.538718); elevators 394113570/571 ('0;-2;-4', at 47.37768-47.37786, 8.53918-8.53929, next to Bahnhofplatz/HB) and 383629856/862, 1274802210/211; Passage Sihlquai -> 31-34 escalators 375984540/541, 394374101/102/104/109 ('-4;-1', 62 steps, 16 m, ~47.3785,8.5364); Passage Sihlquai -> 41-44 west escalators 107629658/688, 1280857382 ('-3', 20-21 m, 47.3794,8.5370) with elevator 2208502779 ('-1;-3'); Sihlquai street stairs 31823281 (28 steps, top 47.379848,8.537272) and 88523689; Passage Sihlquai stairs up onto each platform 3-18: 107612388-442 (34-36 steps, 7-12 m) landing ~190-230 m west of the platform heads; SZU access escalators 389882890/892 (level -2, 8 m, 47.37726-47.37729, 8.53975-8.53985) from ShopVille stairs 31824550/551 (0->-1, 31 steps, 47.37724,8.53959).",
+   "confidence": "high (existence/positions) / medium (which stair is fastest)",
+   "source": "Overpass (zh_ped.json)"
+  },
+  {
+   "claim": "Distance table method: sum of haversine legs between OSM nodes listed above (script zh_chains.py). Outdoor legs follow real OSM footway/road nodes; inside the Haupthalle/Querhalle OSM has no routable ways, so the leg east portal -> platform head is a straight line (real path likely +5-10 %). A Dijkstra over the full OSM pedestrian graph (2923 walkable ways, 9078 nodes) reproduces the outdoor legs (e.g. Central H -> Bahnhofquai/HB -> outside-the-building -> platform 3 head = 392 m) but detours around the unmapped hall, so chained values are preferred.",
+   "confidence": "high",
+   "source": "zh_run.py, zh_chains.py"
+  },
+  {
+   "claim": "Central F -> head of surface platforms: 402 m (pl. 3), 385 m (8/9), 382 m (10/11), 390 m (18); Central H 375 m and Central B 385 m to pl. 10/11; straight line Central F -> head 10/11 = 360 m. Zero level changes (Bahnhofbrücke, Bahnhofquai, portal, Haupthalle, Querhalle and platforms are all at street level).",
+   "confidence": "high (outdoor) / medium (indoor)",
+   "source": "zh_chains.py"
+  },
+  {
+   "claim": "Central F -> Museumstrasse 41-44: 424 m via portal -> Haupthalle north escalators (0 -> -2, 19 m) -> Halle Landesmuseum 36 m -> escalator (-2 -> -3, 7 m), landing ~144 m from the platforms' east end / ~268 m from the west end; alternative 438 m via Bahnhofquai north 121 m -> NE-corner stairs (0->-1) -> 49 m -> steps (-1->-2) -> 56 m -> escalator (-2->-3) landing 72 m from the east end. From Bahnhofquai/HB stop: 237 m / 251 m.",
+   "confidence": "medium",
+   "source": "zh_chains.py; SBB Innenplan page 2 shows 41|42/43|44 access markers at the east end near Ausgang Landesmuseum/Bahnhofquai"
+  },
+  {
+   "claim": "Central F -> Löwenstrasse 31-34: 423 m via portal -> Haupthalle central escalators (103 m in, 0 -> -2, 15 m) -> Passage Löwenstrasse west 70 m -> stairs/escalator (-2 -> -4, 50 steps, 18 m), landing ~103 m from the platforms' east end (mid-east). From Bahnhofquai/HB stop: 235 m. Total descent 15.4 m in 2 flights.",
+   "confidence": "medium",
+   "source": "zh_chains.py; de.wikipedia depth"
+  },
+  {
+   "claim": "Central F -> SZU 21/22: ~423 m via portal -> Haupthalle central escalators (0 -> -1) -> ShopVille south 80 m -> escalator (-1 -> -2, 8 m) to the SZU island platform under the south facade; from Bahnhofquai/HB stop ~236 m; from Bahnhofplatz/HB only 64 m (stairs 31824550 + escalator).",
+   "confidence": "low-medium",
+   "source": "zh_chains.py; SZU location inferred from OSM SZU rail ways (level -2) and SBB plan ('Bahnhof SZU' with 'Projekt Ausbau Zürich HB SZU neuer Zugang bis Frühling 2026')"
+  },
+  {
+   "claim": "Bahnhofplatz/HB -> platform heads (level 0, via Querhalle south end / 'Ausgang Bahnhofplatz'): pl. 3 40 m (Dijkstra, from west end of tram platform) to 83 m (from east end of tram platform); pl. 10/11 +69 m (110-150 m); pl. 18 +135 m (175-217 m). Bahnhofplatz/HB -> 41-44: 244 m (2 descents); -> 31-34: 199 m (2 descents; or elevator 394113571 0->-4 at 47.377831,8.539261).",
+   "confidence": "high",
+   "source": "zh_run.py, zh_chains.py"
+  },
+  {
+   "claim": "Sihlquai/HB -> 41-44 WEST end: 100 m (stairs 0->-1 15 m + escalator -1->-3 20 m), landing ~86 m from the platforms' west end (~330 m from the east end); -> 31-34: 205 m via Passage Sihlquai (2 descents; lands mid-platform ~240 m from the west end); -> platform 10/11 via Passage Sihlquai: 114 m (down 15 m, up 7 m) arriving ~210 m west of the platform head (sector C); -> platform 18 head at level 0 along the platform's north edge: 237 m (straight 193 m).",
+   "confidence": "medium",
+   "source": "zh_run.py, zh_chains.py"
+  },
+  {
+   "claim": "Along-platform extra to a train door on 3-18: usable platform 420 m (OSM outline 428-453 m), sectors A-D ~105 m each with A at the Querhalle. Zürich HB is a terminus, so an arriving train's front stops at the buffer stop next to the Querhalle and its rear car is in sector A: nearest door typically 10-30 m from the head for any train length; a chosen car/class can be up to ~400 m (IC2000/Giruno full length). If a short train were parked up-platform instead (not verified), the extra would be 100-320 m. Underground: 41-44 mid access lands ~144 m from the east end (2-unit S-Bahn ~200 m centred -> 0-100 m extra), east-end access 72 m; 31-34 access ~103 m from the east end (0-150 m extra).",
+   "confidence": "medium (sector geometry) / low (stopping practice not verified online)",
+   "source": "de.wikipedia platform lengths; SBB Innenplan sector letters A-D (A nearest Haupthalle); inference"
+  },
+  {
+   "claim": "SBB/transport.opendata.ch walk budgets queried 2026-09-13 for 2026-09-14 08:05: Central -> Zürich HB WALK 4 min (08:05->08:09); Bahnhofplatz/HB -> Zürich HB 1 min; Bahnhofstrasse/HB (8591067) -> Zürich HB 2 min; Sihlquai/HB -> Zürich HB 1 min; Central -> Bahnhofquai/HB WALK 3 min (or bus 46, 1 min). Scheduled tram Central -> Bahnhofplatz/HB 2 min (T3 08:07-08:09, T6 08:11-08:13, T10 08:12-08:14); Central -> Bahnhofstrasse/HB 2-3 min (T7 08:05-08:07, T4 08:07-08:09).",
+   "confidence": "high",
+   "source": "https://transport.opendata.ch/v1/connections"
+  },
+  {
+   "claim": "SBB Innenplan Zürich HB (company.sbb.ch, 12/2025) confirms: Erdgeschoss with platforms 3-18 (sectors A nearest the Querhalle, then B, C, D westwards), Haupthalle, Nordtrakt ('Umbau Nordtrakt', 'Provisorium bis voraussichtlich Herbst 2026'), Südtrakt, Ausgang Bahnhofquai (SE/east), Ausgang Landesmuseum (NE), Ausgang Bahnhofplatz and Ausgang Bahnhofstrasse (south), Ausgang Löwenstrasse, Ausgang Gessnerallee, Ausgang Sihlquai (north), Ausgang Europaallee (west); Zwischengeschoss with Halle Landesmuseum, Halle Löwenstrasse, Halle Bahnhofplatz, Passage Sihlquai/Gessnerallee/Löwenstrasse/Bahnhofstrasse, Bahnhof Museumstrasse 41-44, Bahnhof Löwenstrasse 31-34, Bahnhof SZU 21-22 ('Projekt Ausbau Zürich HB SZU bis Dezember 2026', 'neuer Zugang bis Frühling 2026'). Interactive version: plans.trafimage.ch/zuerich-hb.",
+   "confidence": "high",
+   "source": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-hb-a4.pdf (read pages 1-4)"
+  },
+  {
+   "claim": "Where the Bahnhofquai entrance lets you into the hall relative to platforms 3-18: the east portal (47.37776, 8.54136) is at the EAST end of the 131 m Haupthalle, i.e. the far end from the platforms; the platform heads/Querhalle lie 165-185 m to the west-south-west (pl. 3 head 184 m, pl. 10/11 165 m, pl. 18 172 m from the portal). The portal is roughly aligned with platforms 6-9; platform 3's head is 18 m south of that line and platform 18's head 107 m north. Alternative for platforms 12-18: enter at the NE corner (Ausgang Landesmuseum) and use the Nordtrakt passage along the north side of the Haupthalle.",
+   "confidence": "high",
+   "source": "Overpass geometry + haversine"
+  }
+ ],
+ "tables": [
+  {
+   "title": "Zürich HB walking distances (metres; haversine chains over OSM nodes; indoor hall legs straight-line)",
+   "columns": [
+    "from",
+    "to",
+    "path",
+    "distance_m",
+    "level_changes",
+    "confidence",
+    "notes"
+   ],
+   "rows": [
+    [
+     "Central (tram platform F; H is -7 m, B +3 m)",
+     "Head of platform 3 (Querhalle S end)",
+     "Central F -> Bahnhofbrücke E end 39 -> bridge 62 -> Bahnhofquai N 86 -> east portal 30 -> straight through Haupthalle+Querhalle 184",
+     "402",
+     "0",
+     "high/medium",
+     "Bahnhofquai/HB stop passed at 187 m; portal at 217 m"
+    ],
+    [
+     "Central (F)",
+     "Head of platforms 8/9",
+     "same, hall leg 168",
+     "385",
+     "0",
+     "high/medium",
+     "portal roughly aligned with pl. 6-9"
+    ],
+    [
+     "Central (F)",
+     "Head of platforms 10/11",
+     "same, hall leg 165",
+     "382",
+     "0",
+     "high/medium",
+     "straight line 360 m; Central H 375 m, Central B 385 m"
+    ],
+    [
+     "Central (F)",
+     "Head of platform 18 (Querhalle N end)",
+     "same, hall leg 172",
+     "390",
+     "0",
+     "high/medium",
+     "alt. via NE corner + Nordtrakt passage, similar length"
+    ],
+    [
+     "Central (F)",
+     "Platforms 41-44 Museumstrasse (level -3, 13.6 m deep)",
+     "... portal -> Haupthalle N escalators 145 -> esc 0->-2 19 -> Halle Landesmuseum 36 -> esc -2->-3 7",
+     "424",
+     "2 down (escalators)",
+     "medium",
+     "lands ~144 m from E end / 268 m from W end; alt 438 m via NE-corner stairs (3 flights) landing 72 m from E end"
+    ],
+    [
+     "Central (F)",
+     "Platforms 31-34 Löwenstrasse (level -4, 15.4 m deep)",
+     "... portal -> Haupthalle 103 -> central esc 0->-2 15 -> Passage Löwenstrasse W 70 -> stairs/esc -2->-4 18",
+     "423",
+     "2 down",
+     "medium",
+     "lands ~103 m from E end of platform"
+    ],
+    [
+     "Central (F)",
+     "Platforms 21-22 SZU (11.6 m deep, under south facade)",
+     "... portal -> Haupthalle 103 -> central esc 0->-1 15 -> ShopVille S 80 -> esc -1->-2 8",
+     "423",
+     "2 down",
+     "low-medium",
+     "SZU platform not tagged in OSM; new SZU access (spring 2026) not mapped"
+    ],
+    [
+     "Bahnhofquai/HB (tram stop node; CLOSED for trams until mid-Dec 2026)",
+     "Head of platforms 3 / 10-11 / 18",
+     "stop -> portal 30 -> hall 184/165/172",
+     "214 / 195 / 203",
+     "0",
+     "high/medium",
+     "subtract 187 m from the Central rows"
+    ],
+    [
+     "Bahnhofquai/HB",
+     "Platforms 41-44",
+     "via Haupthalle N escalators (2 down) or NE-corner stairs (3 flights)",
+     "237 / 251",
+     "2 / 3 down",
+     "medium",
+     "underground stairs at the stop itself closed until mid-Dec 2026"
+    ],
+    [
+     "Bahnhofquai/HB",
+     "Platforms 31-34",
+     "via Haupthalle central escalators + Passage Löwenstrasse",
+     "235",
+     "2 down",
+     "medium",
+     ""
+    ],
+    [
+     "Bahnhofquai/HB",
+     "Platforms 21-22 SZU",
+     "via Haupthalle central escalators + ShopVille",
+     "236",
+     "2 down",
+     "low-medium",
+     ""
+    ],
+    [
+     "Bahnhofplatz/HB (tram platforms, S facade)",
+     "Head of platform 3",
+     "tram platform -> Ausgang Bahnhofplatz -> Querhalle S end",
+     "40-83",
+     "0",
+     "high",
+     "40 m from W end of tram platform (Dijkstra on OSM footways), 83 m from E end"
+    ],
+    [
+     "Bahnhofplatz/HB",
+     "Head of platforms 10/11 / 18",
+     "+69 m / +135 m along Querhalle",
+     "110-150 / 175-217",
+     "0",
+     "high",
+     ""
+    ],
+    [
+     "Bahnhofplatz/HB",
+     "Platforms 41-44",
+     "Querhalle -> N escalators 0->-2 -> Halle Landesmuseum -> esc -2->-3",
+     "244",
+     "2 down",
+     "medium",
+     ""
+    ],
+    [
+     "Bahnhofplatz/HB",
+     "Platforms 31-34",
+     "Querhalle S escalator 0->-2 12 -> Passage Löwenstrasse 37 -> stairs -2->-4 18",
+     "199",
+     "2 down",
+     "medium",
+     "elevator 394113571 (0;-2;-4) at 47.377831,8.539261 adjacent"
+    ],
+    [
+     "Bahnhofplatz/HB",
+     "Platforms 21-22 SZU",
+     "stairs 31824550 0->-1 10 -> ShopVille 28 -> esc -1->-2 8",
+     "64",
+     "2 down",
+     "low-medium",
+     ""
+    ],
+    [
+     "Sihlquai/HB (tram platforms, N side)",
+     "Platforms 41-44 (WEST end)",
+     "stairs 31823281 0->-1 15 -> Passage Sihlquai 44 -> esc -1->-3 20",
+     "100",
+     "2 down",
+     "medium",
+     "lands ~86 m from W end, ~330 m from E end"
+    ],
+    [
+     "Sihlquai/HB",
+     "Platforms 31-34",
+     "stairs 0->-1 -> Passage Sihlquai 154 -> esc -1->-4 (62 steps) 16",
+     "205",
+     "2 down",
+     "medium",
+     "lands mid-platform (~240 m from W end)"
+    ],
+    [
+     "Sihlquai/HB",
+     "Platform 10/11 (sector C, ~210 m west of head)",
+     "stairs 0->-1 15 -> Passage Sihlquai 72 -> stairs up 7",
+     "114",
+     "1 down + 1 up",
+     "medium",
+     "Passage Sihlquai has stairs to every platform 3-18"
+    ],
+    [
+     "Sihlquai/HB",
+     "Head of platform 18",
+     "surface, along north edge of platform 18 (Ausgang Sihlquai)",
+     "237 (straight 193)",
+     "0",
+     "medium",
+     ""
+    ],
+    [
+     "(extra) surface platform 3-18",
+     "train door",
+     "along platform from Querhalle: sectors A/B/C/D ~105 m each",
+     "10-30 nearest door (rear car in sector A); up to 400 (far end of full-length IC); 100-320 if a short train were parked up-platform (unverified)",
+     "0",
+     "medium/low",
+     "terminus: train front at buffer stop next to Querhalle"
+    ],
+    [
+     "(extra) 41-44 / 31-34",
+     "train door",
+     "from stair landing along platform",
+     "0-100 (41-44 mid access, 2-unit S-Bahn) / 0-150 (31-34)",
+     "0",
+     "low-medium",
+     "stop positions of short trains on through platforms not verified"
+    ]
+   ]
+  }
+ ],
+ "uncertainties": [
+  "Haupthalle/Querhalle interiors are not mapped as routable OSM ways; the portal->platform-head leg is a straight line (real path likely 5-10 % longer, e.g. detouring around the hall's kiosks/escalator wells).",
+  "Level-change counts come from OSM 'level' tags; the central Haupthalle escalators are tagged '0;-1;-2' (ambiguous whether one flight reaches -2); OSM level -1 vs -2 (ShopVille vs Halle Landesmuseum) differ by ~2.6 m per de.wikipedia depths (4.7 m vs 7.3 m).",
+  "SZU platforms 21/22 are not tagged in OSM; their position is inferred from SZU rail ways (level -2) ending near lon 8.5410 under the south facade and from the SBB plan; the 'neuer Zugang' (spring 2026) and 'Ausbau Zürich HB SZU bis Dezember 2026' works may change access paths.",
+  "Whether short trains on terminus platforms 3-18 stop at the buffer end (rear car in sector A) is inference from Kopfbahnhof practice; no SBB source verified this online.",
+  "Bahnhofquai/HB tram stop closure: SBB plan dated 12/2025 says until mid-December 2026; live stationboard 2026-09-13 shows only bus 46 (consistent). Whether 'Umbau Nordtrakt' affects the surface east portal is unknown.",
+  "OSM shows tram 15 relations 'Tiefenbrunnen -> Central' and 'Bahnhofstrasse/HB -> Tiefenbrunnen' (asymmetric); the live board at Central showed T15 only toward Tiefenbrunnen, so whether line 15 currently continues from Central to HB is unclear.",
+  "transport.opendata.ch today returned Central -> Zürich HB as a 4-min walk and Bahnhofquai/HB -> HB as 3-min-equivalent, not the 9/7 min in the task's verified list; the earlier figures may have come from transfer-walk sections of longer connections or a different day/API path - re-verify before relying on either.",
+  "Overpass shared-scratchpad hazard: a sibling agent overwrote research/routes.json with Basel data mid-run; all Zürich artefacts were re-fetched into research/zh/ with zh_ prefixes (zh_routes.json verified to contain Zürich relations).",
+  "The Bahnhofstrasse/HB tram platform ways are not connected to the OSM footway graph (Dijkstra 'unreachable'); its distances were not tabulated (SBB walk budget 2 min; stop is ~150 m south of the Querhalle south end)."
+ ],
+ "sources": [
+  "https://overpass.kumi.systems/api/interpreter and https://overpass-api.de/api/interpreter and https://overpass.private.coffee/api/interpreter (queries zh_q_tram.ql, zh_q_routes.ql, zh_q_ped.ql, zh_q_plat.ql, zh_q_rel.ql, zh_q_mem.ql; OSM data timestamp 2026-09-13T09:53Z)",
+  "https://transport.opendata.ch/v1/stationboard?id=8587349 / 8588078 / 8587348 / 8591368 (2026-09-13)",
+  "https://transport.opendata.ch/v1/connections (Central 8588078, Bahnhofplatz/HB 8587348, Bahnhofquai/HB 8587349, Sihlquai/HB 8591368, Bahnhofstrasse/HB 8591067 -> Zürich HB 8503000; 2026-09-14 08:05)",
+  "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-hb-a4.pdf (SBB Innenplan/Umgebungsplan Zürich HB, 12/2025, pages 1-4)",
+  "https://plans.trafimage.ch/zuerich-hb (interactive SBB station plan, not fetched)",
+  "https://de.wikipedia.org/wiki/Z%C3%BCrich_Hauptbahnhof (platform lengths, depths, renumbering 2012, Haupthalle/Querhalle dimensions)",
+  "https://en.wikipedia.org/wiki/Z%C3%BCrich_Hauptbahnhof (track counts: 16 surface terminus, 2 underground terminus, 8 underground through)",
+  "Local files: /private/tmp/claude-501/-Users-joshua/d9b722cc-c905-4ede-8387-8ec9e6fa26f6/scratchpad/research/zh/ (zh_ped.json, zh_rel.json, zh_mem.json, zh_routes.json, zh_platforms.json, zh_tram_stops.json, zh_chains.py, zh_chains_out.json, zh_run.py, zh_routes_out.json, zh_plan.pdf)"
+ ],
+ "file": "/private/tmp/claude-501/-Users-joshua/d9b722cc-c905-4ede-8387-8ec9e6fa26f6/scratchpad/research/zurich-geo.json"
+}

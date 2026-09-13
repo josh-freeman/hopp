@@ -1,0 +1,373 @@
+{
+ "key": "strava-pace",
+ "generated": "2026-09-13",
+ "part1_strava": {
+  "flow": "OAuth 2.0 three-legged authorization-code flow only. swagger.json securityDefinitions: flow='accessCode', authorizationUrl=https://www.strava.com/api/v3/oauth/authorize, tokenUrl=https://www.strava.com/api/v3/oauth/token. Web: GET https://www.strava.com/oauth/authorize; mobile: GET https://www.strava.com/oauth/mobile/authorize (same code exchange afterwards).",
+  "pkce_or_public_client": "NOT supported. Docs (checked 2026-09-13) list no PKCE/code_challenge parameters and no implicit or device flow; token exchange POST https://www.strava.com/oauth/token requires client_id, client_secret, code, grant_type=authorization_code. Docs quote: 'The application must now call the POST https://www.strava.com/oauth/token with its client ID and client secret to exchange the authorization code for a refresh token and short-lived access token' and 'The secret is used for authentication and should never be shared.' Community (Google group strava-api, 2020-08-29): 'there is no support for PKCE and your best bet would be to spin up a little server to host secrets and proxy requests to Strava.' No change found since.",
+  "consequence": "A pure static site cannot complete the flow without exposing client_secret. Either (a) a tiny backend (Cloudflare Worker / Vercel function) performs the code-to-token exchange and refreshes, or (b) bring-your-own-app mode: each user creates their own Strava API application (capacity 1 = themselves) and pastes client_id + client_secret into the static app (localStorage). Option (b) is static-only and dodges the athlete cap, but onboarding friction is high and the getting-started page states 'A Strava subscription is a prerequisite for creating an app' (medium confidence: quoted from the fetched page summary).",
+  "token_lifetimes": "Access tokens expire 6 h after creation; refresh via POST /oauth/token grant_type=refresh_token (returns a new access token if the current one expires in <= 1 h); every successful token call issues a new refresh token and the older one no longer works.",
+  "scopes_needed_for_pace": {
+   "minimum": "activity:read",
+   "why": "GET /athlete/activities and GET /activities/{id} require activity:read (activities visible to Everyone and Followers); add activity:read_all only if the user marks runs 'Only Me' (request it with an explanation; the user can untick it on the consent screen, so check the granted scope). profile:read_all is NOT needed (it only switches /athlete to the detailed representation). GET /athletes/{id}/stats documents no extra scope and 'Only includes data from activities set to Everyone visibility', so it under-reports for private runners.",
+   "all_scopes": [
+    "read",
+    "read_all",
+    "profile:read_all",
+    "profile:write",
+    "activity:read",
+    "activity:read_all",
+    "activity:write"
+   ]
+  },
+  "endpoints": [
+   {
+    "endpoint": "GET /athletes/{id}/stats (getStats)",
+    "id": "must match the authenticated athlete",
+    "fields": "recent_run_totals (last 4 weeks), ytd_run_totals, all_run_totals -> ActivityTotal {count, distance [m], moving_time [s], elapsed_time [s], elevation_gain [m], achievement_count}",
+    "pace_signal": "recent_run_totals.distance / recent_run_totals.moving_time = 4-week mean running speed [m/s] (mostly easy-run pace, about 0.65-0.75 VMA); 1 call, but visibility-filtered."
+   },
+   {
+    "endpoint": "GET /athlete/activities (getLoggedInAthleteActivities)",
+    "params": "before, after (epoch s), page (default 1), per_page (default 30; docs state no maximum; community practice 200, medium confidence)",
+    "fields": "SummaryActivity: sport_type (Run, TrailRun, VirtualRun), distance [m], moving_time [s], elapsed_time [s], average_speed [m/s], max_speed [m/s], workout_type (runs: 0 default, 1 race, 2 long run, 3 workout), manual, trainer, total_elevation_gain",
+    "pace_signal": "per-run average_speed; filter sport_type == Run, manual == false, distance >= 1000 m, last 90 days; median = easy pace, max of workout_type == 1 runs = race pace."
+   },
+   {
+    "endpoint": "GET /activities/{id} (getActivityById)",
+    "params": "id, include_all_efforts (bool)",
+    "fields": "DetailedActivity = SummaryActivity + best_efforts: array[DetailedSegmentEffort] (documented in https://developers.strava.com/swagger/activity.json; legacy docs: 'array of best effort summaries', runs only, names such as 400m, 1/2 mile, 1k, 1 mile, 2 mile, 5k, 10k). Each effort: name, distance [m], elapsed_time [s], moving_time [s], start_date_local, pr_rank (1-3 or null).",
+    "pace_signal": "best 400m / 1k / 1 mile / 5k efforts across the last N runs. 1 read call per run: fetch only the ~10 most recent qualifying runs and cache."
+   }
+  ],
+  "rate_limits": {
+   "overall": "200 requests per 15 min and 2,000 per day",
+   "read_non_upload": "100 requests per 15 min and 1,000 per day",
+   "window": "15-min windows reset at :00, :15, :30, :45",
+   "exceed": "HTTP 429 Too Many Requests with a JSON error",
+   "headers": [
+    "X-RateLimit-Limit",
+    "X-RateLimit-Usage",
+    "X-ReadRateLimit-Limit",
+    "X-ReadRateLimit-Usage"
+   ],
+   "budget_math": "One full profile refresh = 1 (/athlete/activities) + 1 (/athletes/{id}/stats) + <= 10 (/activities/{id}) = <= 12 read calls -> about 80 refreshes per day inside the 1,000/day read cap; cache the derived profile for 24 h."
+  },
+  "athlete_capacity": {
+   "unapproved_default": "1 connected athlete (single-player mode). Getting-started page: 'All new applications start in single-player mode. This is the default state where only your own Strava account can authenticate with the app.' Strava Community Manager (2024-07-12): 'all applications are created at an entry level athlete capacity of 1, aka single player mode.'",
+   "next_tier": "Docs mention a 10-athlete tier; rate-limits page: 'Once your app reaches 10 connected athletes and you are ready to scale further, please submit your app for review'. Whether the 1 -> 10 step is automatic or itself needs the form is not stated unambiguously. Community: review takes about 7-10 business days; increases are 'not guaranteed' unless the app uses webhooks and throttling.",
+   "implication": "Strava sync is effectively a personal/demo feature until the app passes Developer Program review. The pace model MUST work from manual inputs (tier, VMA, 5k time) first; Strava is an optional enhancer."
+  },
+  "api_agreement_constraints": [
+   "API Agreement update effective 2024-11-11: an athlete's Strava data may be displayed only to that athlete (fine here: pace is shown only to its owner; never push Strava-derived numbers into shared hack tables or leaderboards).",
+   "No use of API data to train AI/ML models; do not build a global pace prior from users' Strava data (use manual tier defaults instead).",
+   "Brand guidelines: OAuth must use a 'Connect with Strava' button linking to https://www.strava.com/oauth/authorize; attribution 'Powered by Strava' or 'Compatible with Strava' logo, separate from and not more prominent than the app's own branding.",
+   "Support deauthorization (POST https://www.strava.com/oauth/deauthorize) and delete cached tokens plus derived data on disconnect."
+  ],
+  "recommended_backend": {
+   "shape": "Static site (GitHub Pages / Cloudflare Pages) + one Cloudflare Worker (or Vercel edge function) with 4 routes; client_secret lives only in the Worker secret store; the static bundle never contains it.",
+   "routes": [
+    "GET /auth/login -> 302 to https://www.strava.com/oauth/authorize?client_id=..&redirect_uri=https://<worker>/auth/callback&response_type=code&approval_prompt=auto&scope=activity:read,activity:read_all&state=<csrf>",
+    "GET /auth/callback?code=..&scope=.. -> POST https://www.strava.com/oauth/token {client_id, client_secret, code, grant_type=authorization_code}; store {athlete_id, refresh_token, expires_at} in Workers KV keyed by a random opaque session id; set that id as an httpOnly SameSite cookie; 302 back to the static app. Verify the granted scope query parameter.",
+    "GET /api/pace -> (cookie -> KV) refresh the access token if expires_at - now < 3600 s; call /athlete/activities?after=<now-90d>&per_page=200, filter runs, then /activities/{id} for the <= 10 most recent qualifying runs; compute the profile; cache in KV for 24 h; return small JSON {vma_est_ms, v1k_best_ms, v5k_best_ms, v400_best_ms, recent_avg_ms, n_runs, confidence, updated_at}. Never return raw activities or GPS to the browser (keeps the display rule trivial and the payload tiny).",
+    "POST /api/disconnect -> POST https://www.strava.com/oauth/deauthorize with the access token; delete the KV entry; clear the cookie."
+   ],
+   "derived_number": "pace profile -> one fitness scalar VMA_est [m/s] plus a confidence label. Estimators (median of those available; weight best-effort estimators 2x): VMA = v_1k_best / 1.03 (a 1k best inside a normal run is a 3-5 min effort, about 100-105 % VMA); VMA = v_5k_best / 0.92 (5 km = 90-95 % VMA); VMA = race_avg_speed / 0.92 for workout_type == 1 runs of 5-10 km; VMA = recent_avg_speed / 0.70 (easy pace = 60-75 % VMA; low weight, high variance). Do not use 400 m best efforts for VMA (a within-run 400 m is rarely all-out) but keep v_400_best as an upper bound: v_open <= 0.95 * v_400_best. Hand VMA_est to the Part-2 model exactly like a manual VMA entry.",
+   "cost": "Cloudflare Workers free tier (100k requests/day) is ample; KV free tier stores tokens for thousands of users; roughly 150 lines of TypeScript."
+  }
+ },
+ "part2_pace_model": {
+  "grounding": {
+   "free_flow_walking": [
+    {
+     "value": "1.34 m/s mean (range 0.97-1.65), SD 0.37 m/s",
+     "source": "Weidmann 1993 (literature synthesis; cited via Vanumu et al. 2017 review and Buchmueller & Weidmann 2006)",
+     "confidence": "high"
+    },
+    {
+     "value": "comfortable gait 1.27-1.46 m/s (women in their 70s .. men in their 40s); maximum walking 1.75-2.53 m/s (women 70s .. men 20s); n = 230",
+     "source": "Bohannon 1997, Age and Ageing, PMID 9143432",
+     "confidence": "high"
+    },
+    {
+     "value": "normal gait 0.94-1.43 m/s by age/sex stratum; n = 23,111",
+     "source": "Bohannon & Andrews 2011 meta-analysis, PMID 21820535",
+     "confidence": "high"
+    },
+    {
+     "value": "measured free-flow speed inside a German railway station 0.97-1.04 m/s, below Weidmann's 1.34 m/s",
+     "source": "PLOS ONE 2014, doi:10.1371/journal.pone.0083355",
+     "confidence": "high"
+    },
+    {
+     "value": "normal walking on flat 1.31-1.40 m/s; fast walking 1.71-1.84 m/s",
+     "source": "Fujiyama & Tyler 2004 (UCL), Table 3",
+     "confidence": "high"
+    },
+    {
+     "value": "design guides 1.4 m/s; Transport for London 1.33 m/s; preferred range 1.10-1.65 m/s",
+     "source": "Wikipedia, Preferred walking speed (Browning 2006, Mohler 2007)",
+     "confidence": "medium"
+    }
+   ],
+   "transit_planner_assumptions": [
+    {
+     "value": "'average walking speed of 3 mph (5 km/h)' -> 400 m in 5 min; 'average walking speed of a younger adult is 4.0 ft/s (1.2 m/s)', 3.3 ft/s (1.0 m/s) when >= 20 % elderly; 3 s start-up and end clearance",
+     "source": "TCQSM 2nd ed. (TCRP Report 100), Part 3",
+     "confidence": "high"
+    },
+    {
+     "value": "SBB walk budgets imply (straight-line distance / budget): IWB -> Basel SBB 398 m / 8 min = 0.83 m/s; Margarethen 691 m / 11 min = 1.05 m/s; Markthalle 313 m / 8 min = 0.65 m/s; Central -> Zürich HB 282 m / 9 min = 0.52 m/s; Sihlquai/HB 313 m / 7 min = 0.74 m/s; Bahnhofquai/HB 99 m / 7 min = 0.24 m/s. The last shows the budget is a station-level constant, not a distance model.",
+     "source": "computed here (haversine) from transport.opendata.ch coordinates; Zürich HB 8503000 = 47.377847, 8.540502 fetched 2026-09-13",
+     "confidence": "high for the arithmetic; the station coordinate is a centroid, real platform paths are 1.2-1.6x longer"
+    },
+    {
+     "value": "SBB stores a per-stop transfer time (standard 2 min, Zürich HB 7 min) and only lets web users lengthen it (+50 % / +100 %), never shorten it",
+     "source": "SBB Community threads 11134 / 38971 (search summary)",
+     "confidence": "medium"
+    },
+    {
+     "value": "Net: SBB effectively budgets about 0.6-1.0 m/s door-to-platform including a fixed station buffer. A fit person walking at 1.4 m/s beats it by 30-50 %; running roughly halves it.",
+     "source": "derived",
+     "confidence": "medium"
+    }
+   ],
+   "stairs_escalators": [
+    {
+     "value": "horizontal speed on stairs, young adults (Fujiyama & Tyler Group 2): normal ascent 0.56 / 0.63 / 0.76 m/s at 35 / 30.5 / 24.6 deg; normal descent 0.65 / 0.74 / 0.87; FAST ascent 0.91 / 0.97 / 1.16; FAST descent 0.92 / 1.08 / 1.18",
+     "source": "Fujiyama & Tyler 2004, Table 3",
+     "confidence": "high"
+    },
+    {
+     "value": "Fruin 1971 field data (32 deg stairs): ascent 0.69 m/s young male, 0.51 young female; descent 0.69 / 0.51; over 50 y: 0.43 / 0.39 up",
+     "source": "Fujiyama & Tyler 2004, Table 6 reproducing Fruin",
+     "confidence": "high"
+    },
+    {
+     "value": "escalator nominal speed <= 0.75 m/s for <= 30 deg inclination, <= 0.50 m/s for 30-35 deg; 0.5-0.65 m/s typical",
+     "source": "EN 115 (via la-grazia summary / iTeh listing)",
+     "confidence": "medium"
+    },
+    {
+     "value": "per 5 m level change (one station level; 30 deg stairs = 8.7 m horizontal, 10 m incline): stairs normal up 14 s, fast up 9 s, normal down 12 s, fast down 8 s; escalator standing 15-20 s (0.65-0.5 m/s); walking on the escalator 8-10 s; plus 2-3 s landing transitions each",
+     "source": "derived from the speeds above",
+     "confidence": "medium"
+    }
+   ],
+   "tram_dwell_alighting": [
+    {
+     "value": "light-rail dwell regressions: constant 8.1-15.7 s (door cycle + operator), alighting 0.52-0.56 s per passenger, boarding 0.71-0.88 s per passenger, e.g. DT = 8.10 + 0.88*TONS + 0.22*LS; Koffman: DT = 3.0 + 0.75*TONS + 0.56*TOFFS + 0.035*PASS",
+     "source": "Lin & Wilson 1992, TRR 1361 (MBTA Green Line)",
+     "confidence": "high"
+    },
+    {
+     "value": "alighting rates 0.4-2.6 passengers/s per door across systems",
+     "source": "TRB / Transport Reviews dwell-time literature (search summary)",
+     "confidence": "medium"
+    },
+    {
+     "value": "wheel-stop to feet on platform: 5-8 s standing at the door with a hand on the button; 10-20 s seated in a crowded low-floor tram with 5-15 people alighting ahead",
+     "source": "derived",
+     "confidence": "medium"
+    }
+   ],
+   "running_physiology": [
+    {
+     "value": "VMA = VO2max / 3.5 (km/h, ml/kg/min); sustainable 4-8 min (fr.wikipedia) or 4-7 min (run-motion); beginners about 10 km/h, elite above 24 km/h (Kipchoge 24.3)",
+     "source": "fr.wikipedia VMA; run-motion.com",
+     "confidence": "high"
+    },
+    {
+     "value": "race fractions of VMA: 5 km 90-95 %; 10 km 85-92 % (typically 90 %); half 80-88 %; marathon about 80 % (Kipchoge 84 %); 100-400 m repetitions 100-115 % VMA",
+     "source": "wanarun.net, exterieursport.fr, athleteside / runningtimecalculator (search summary)",
+     "confidence": "medium-high"
+    },
+    {
+     "value": "a 60-120 s effort (300 m) is physiologically feasible at 100-110 % VMA; the 60-75 % VMA effective figure for a station dash is an ENVIRONMENTAL outcome (crowd x luggage x doors/turns x stairs), not a physiological ceiling",
+     "source": "derived from the above",
+     "confidence": "medium"
+    },
+    {
+     "value": "load carriage: running speeds in the severe-intensity domain fall about 1 % per 1 % body mass carried (7-15 % BM backpacks); cost of transport +30 % at 15 % BM",
+     "source": "PMID 29216289 (adventure racers)",
+     "confidence": "high for the study; medium for transfer to a 5 kg commuter backpack (about 7 % BM -> about 7 % slower)"
+    }
+   ],
+   "crowd_density": {
+    "kladek_weidmann_formula": "v(rho) = v0 * (1 - exp(-gamma * (1/rho - 1/rho_max))) with v0 = 1.34 m/s, gamma = 1.913 P/m^2, rho_max = 5.4 P/m^2 (parameter values from memory of Weidmann 1993; could not be re-fetched today -> medium confidence, verify before citing)",
+    "speed_by_density_m_s": {
+     "0.25": 1.34,
+     "0.5": 1.3,
+     "1.0": 1.06,
+     "1.5": 0.81,
+     "2.0": 0.61,
+     "3.0": 0.33
+    },
+    "note": "Walking multipliers about 0.97 / 0.79 / 0.45 at 0.5 / 1.0 / 2.0 P/m^2. Running through more than about 1 P/m^2 is not possible; hence the absolute caps below."
+   }
+  },
+  "fitness_inputs": {
+   "preset_tiers_m_s": [
+    {
+     "tier": "stroll_luggage",
+     "v_open": 1.0,
+     "basis": "TCQSM elderly/luggage 1.0 m/s; SBB-like"
+    },
+    {
+     "tier": "commuter_walk",
+     "v_open": 1.35,
+     "basis": "Weidmann 1.34; Bohannon comfortable 1.27-1.46"
+    },
+    {
+     "tier": "brisk_walk",
+     "v_open": 1.75,
+     "basis": "Fujiyama fast walk 1.71-1.84; Bohannon max walk 2.0-2.5"
+    },
+    {
+     "tier": "jog",
+     "v_open": 2.5,
+     "basis": "9 km/h = 60-65 % of a 15 km/h VMA"
+    },
+    {
+     "tier": "run",
+     "v_open": 3.3,
+     "basis": "12 km/h = 75-80 % of a 15-16 km/h VMA"
+    },
+    {
+     "tier": "sprint",
+     "v_open": 4.2,
+     "basis": "15 km/h = 95-100 % VMA; only meaningful in an empty station"
+    }
+   ],
+   "vma_kmh": "v_open = k_effort * VMA / 3.6 with k_effort = 0.75 (comfortable, default), 0.90 (committed), 1.00 (all-out; only for legs <= 90 s). Typical VMA: 10-12 km/h beginner, 13-16 recreational, 17-20 trained, above 20 competitive.",
+   "recent_5k_time_s": "VMA_ms = (5000 / t5k) / f5k with f5k = 0.90 (t5k > 30 min), 0.92 (22-30 min), 0.95 (< 22 min); then treat as VMA.",
+   "strava": "VMA_est from Part 1 (median of v1k/1.03, v5k/0.92, race_avg/0.92, recent_avg/0.70); confidence high if a 1k or 5k best effort from the last 90 days exists, low if only recent_avg.",
+   "tier_from_vma_for_display": "map VMA_est to the nearest preset so the UI can always say, e.g., 'you are a run-tier commuter'."
+  },
+  "formula": {
+   "definition": "sprint_time_s = t_alight + t_react + sum_over_segments(L_i / v_seg_i) + n_up * t_up + n_down * t_down + n_doors * t_door + t_board",
+   "v_eff": "v_eff = min( v_open * f_crowd * f_luggage , v_cap(crowd) )",
+   "f_crowd": {
+    "empty": 1.0,
+    "light": 0.85,
+    "commuter_peak": 0.7,
+    "packed_event": 0.5,
+    "basis": "Weidmann FD multipliers 0.97 / 0.79 / 0.45 at 0.5 / 1 / 2 P/m^2 smoothed to four UI levels; derived, medium confidence"
+   },
+   "v_cap_m_s": {
+    "empty": 4.5,
+    "light": 3.5,
+    "commuter_peak": 3.0,
+    "packed_event": 1.5,
+    "basis": "weaving through people caps running regardless of fitness; derived, low-medium confidence -> calibrate with logged attempts"
+   },
+   "f_luggage": {
+    "none": 1.0,
+    "backpack_le_5kg": 0.93,
+    "heavy_backpack_10kg": 0.87,
+    "trolley_suitcase": 0.75,
+    "basis": "1 % speed per 1 % body mass (PMID 29216289) for a 75 kg person; trolley value from experience, low confidence"
+   },
+   "level_change_s_per_5m": {
+    "stairs_up": {
+     "walk_tiers": 16,
+     "jog_run_tiers": 12,
+     "sprint": 10
+    },
+    "stairs_down": {
+     "walk_tiers": 13,
+     "jog_run_tiers": 10,
+     "sprint": 8
+    },
+    "escalator_standing": 18,
+    "escalator_walking": 10,
+    "note": "scale linearly with height / 5 m; multiply by 1 / f_crowd on stairs (queues at escalator entries in peak add 10-20 s, so prefer stairs in the model when both exist). Values = Fujiyama & Tyler speeds + 2-3 s transitions; medium confidence."
+   },
+   "t_alight_s": {
+    "at_door_ready": 6,
+    "default": 12,
+    "seated_crowded": 20,
+    "basis": "Lin & Wilson constants 3-15 s + 0.5 s per passenger ahead; derived"
+   },
+   "t_react_s": 3,
+   "t_door_s": 2.5,
+   "t_board_s": {
+    "platform_known_and_train_visible": 10,
+    "must_read_board_and_find_sector": 25,
+    "basis": "TCQSM 3 s start-up + walking to the nearest open door of a 200-300 m train; derived, medium"
+   },
+   "slack_and_decision": {
+    "slack_s": "slack = t_dep_train_actual - t_arr_tram_actual - sprint_time - door_close_lead",
+    "door_close_lead_s": "20 s default (SBB long-distance doors close before departure; exact lead time NOT verified today -> uncertainty; make it a config constant)",
+    "margin_s": "margin = max(45, 0.15 * sprint_time) + sigma_tram, where sigma_tram = 30 s if the tram has no realtime delay field in the API response, else 0",
+    "bands": {
+     "GO": "slack >= margin",
+     "RISKY": "0 <= slack < margin",
+     "NO": "slack < 0",
+     "basis": "policy; the 45 s floor covers a red light on the Bahnhofbrücke or one missed door; 15 % covers pace variance (Weidmann SD/mean about 0.28 for walking speed; runners tighter)"
+    }
+   },
+   "worked_example_zurich_central": {
+    "assumptions": "path about 400 m Central -> Bahnhofbrücke -> Bahnhofquai entrance -> surface platform head (straight line 282 m; real path length to be measured by the geometry task), 0 level changes for platforms 3-18, commuter_peak crowd, backpack, tier run (v_open 3.3)",
+    "v_eff": "min(3.3 * 0.70 * 0.93, 3.0) = 2.15 m/s",
+    "sprint_time": "12 + 3 + 400 / 2.15 (186) + 0 + 10 = 211 s = about 3.5 min",
+    "margin": "max(45, 32) = 45 s (+30 s if no realtime tram delay)",
+    "budget_vs_sbb": "about 4.3-4.8 min door-to-door vs SBB's 9 min walk budget from Central (and vs riding two more stops, about 3 min, plus 7 min from Bahnhofquai). Gain about 5-7 min, consistent with the commuter's 'saves up to 5 min'. Underground platforms 21-24 / 31-34 add 1-2 level changes (+12-24 s) and a longer path, eroding the gain, which matches his remark that it pays off on the surface platforms.",
+    "confidence": "medium (path length unmeasured)"
+   }
+  },
+  "honest_display": [
+   "Show the number the user can act on: 'be on platform X by hh:mm:ss' and the implied average speed as min/km AND as the nearest tier name ('jog pace with a backpack'), not a probability.",
+   "Show GO / RISKY / NO as colour plus text; in RISKY, state explicitly what breaks it ('a 30 s tram delay kills this').",
+   "Only recommend a hack when it is dominance-safe: the fallback if the sprint fails must be the connection SBB proposed anyway (same or later train from the same station). Never propose a hack whose failure strands the user (e.g. the last train).",
+   "Use realtime delay from transport.opendata.ch for both the tram (arrival at the alighting stop) and the train (departure); if the tram record has delay == null, widen the margin (sigma_tram) and label 'no live data'.",
+   "Let the user log the outcome (made it / missed / abandoned) with the measured sprint time; keep a per-hack empirical distribution and replace the model's sprint_time by the user's 80th-percentile logged time after 3 attempts.",
+   "Display the pace source and its confidence ('from Strava: 1k best 4:12 on 2026-08-30' vs 'from preset tier: assumed').",
+   "Never show Strava-derived pace numbers to anyone except the athlete (API Agreement 2024-11-11); community hack tables carry only tier-based defaults."
+  ]
+ },
+ "uncertainties": [
+  "Whether Strava's 1 -> 10 athlete step is automatic or needs the Developer Program form; only the review beyond 10 is unambiguous.",
+  "per_page maximum for /athlete/activities is not stated in current docs (community: 200).",
+  "The statement 'A Strava subscription is a prerequisite for creating an app' came from the fetched getting-started page summary; verify on the page before relying on it.",
+  "best_efforts is present in the model file activity.json but absent from the rendered reference page; community reports it populated for runs only; whether Strava has moved best efforts behind subscription-only endpoints was not verifiable today.",
+  "Weidmann/Kladek FD parameters (1.34, 1.913, 5.4) are from memory; the review fetched today confirms 1.34 m/s but not gamma / rho_max.",
+  "SBB door-closing lead time before scheduled departure (assumed 20 s) not verified.",
+  "SBB per-stop transfer times (2 min standard, 7 min Zürich HB) come from a community thread summary, not an official document; HRDF/METABHF or GTFS transfers.txt on opentransportdata.swiss would give official values.",
+  "All crowd multipliers/caps and level-change costs are derived estimates (medium/low confidence) and need calibration from logged attempts.",
+  "Path lengths (Central -> platform, IWB -> south entrance -> platform) were not measured in this task; the worked example assumes 400 m."
+ ],
+ "sources": [
+  "https://developers.strava.com/docs/authentication/",
+  "https://developers.strava.com/docs/reference/",
+  "https://developers.strava.com/swagger/swagger.json",
+  "https://developers.strava.com/swagger/activity.json",
+  "https://developers.strava.com/swagger/activity_stats.json",
+  "https://developers.strava.com/swagger/activity_total.json",
+  "https://developers.strava.com/swagger/segment_effort.json",
+  "https://developers.strava.com/docs/rate-limits/",
+  "https://developers.strava.com/docs/getting-started/",
+  "https://developers.strava.com/guidelines/",
+  "https://groups.google.com/g/strava-api/c/y36qXgXgeuI",
+  "https://communityhub.strava.com/developers-api-7/number-of-athletes-allowed-to-connect-1874",
+  "https://communityhub.strava.com/developers-api-7/personal-bests-best-efforts-in-api-8262",
+  "http://strava.github.io/api/v3/activities/",
+  "https://press.strava.com/articles/updates-to-stravas-api-agreement",
+  "https://support.strava.com/en-us/articles/15401608-api-agreement-update-how-data-appears-on-3rd-party-apps",
+  "https://discovery.ucl.ac.uk/1243/1/2004_21.pdf",
+  "https://onlinepubs.trb.org/Onlinepubs/trr/1992/1361/1361-041.pdf",
+  "https://onlinepubs.trb.org/onlinepubs/tcrp/docs/tcrp100/Part3.pdf",
+  "https://europepmc.org/abstract/MED/9143432",
+  "https://europepmc.org/abstract/MED/21820535",
+  "https://europepmc.org/abstract/MED/29216289",
+  "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0083355",
+  "https://d-nb.info/1145310427/34",
+  "https://en.wikipedia.org/wiki/Preferred_walking_speed",
+  "https://fr.wikipedia.org/wiki/Vitesse_maximale_a%C3%A9robie",
+  "https://www.wanarun.net/tableau-calcul-vma/",
+  "https://run-motion.com/calcul-vma-test/",
+  "https://exterieursport.fr/tableau-allures-vma/",
+  "https://la-grazia.com/e-learning/authorized-speed-for-escalator-and-moving-walk/",
+  "https://sbbcffffs-community.sbb.ch/t5/Fehler/Fahrplan-Umsteigen-Fussweg-Angaben-sind-verwirrend/td-p/11134",
+  "https://transport.opendata.ch/v1/locations?query=Z%C3%BCrich%20HB&type=station"
+ ]
+}

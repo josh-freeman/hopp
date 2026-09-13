@@ -1,0 +1,16 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 844, "title": "1 · Plan" },
+    { "file": "Results.dc.html", "x": 490, "y": 0, "w": 390, "h": 844, "title": "2 · Results + sprint route offer" },
+    { "file": "TryIt.dc.html", "x": 980, "y": 0, "w": 390, "h": 844, "title": "3 · Try it (sheet)" },
+    { "file": "RouteMap.dc.html", "x": 1470, "y": 0, "w": 390, "h": 844, "title": "4 · Your run (map)" },
+    { "file": "Result.dc.html", "x": 1960, "y": 0, "w": 390, "h": 844, "title": "5 · Sprint route detail" },
+    { "file": "Go.dc.html", "x": 2450, "y": 0, "w": 390, "h": 844, "title": "6 · Go (live)" },
+    { "file": "Shortcut.dc.html", "x": 2940, "y": 0, "w": 390, "h": 844, "title": "7 · Shortcut" },
+    { "file": "Pace.dc.html", "x": 3430, "y": 0, "w": 390, "h": 844, "title": "8 · Sprint settings" }
+  ],
+  "annotations": [
+    { "id": "assumptions", "x": 0, "y": -360, "w": 760, "text": "Athlete mode — phone flow, v3\nThe use case: the official plan says you miss your train; a sprint route lets you still make it. Search a trip as usual; when a shortcut exists, a 'You can still make the 17:32' card sits above the normal connections. Try it → sheet (full sprint 3:00 · 1:00 spare · walking impossible) → optional map of the run → sprint route detail → Go live. No pace tiers: one calibrated sprint pace in settings (3.5 m/s default, learned from timed runs). The official plan is never hidden.\nMap: OpenStreetMap tiles with the run drawn from OSM node coordinates in the research. Original UI, no SBB branding or components copied.\nNumbers: 460 m from Central to the hall, official 9:00 walk budget. 'SOON' chips mark phase-2 items (Strava, crowd timing)." }
+  ],
+  "launch": { "view": "canvas" }
+}

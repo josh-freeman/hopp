@@ -1,0 +1,1237 @@
+{
+ "key": "basel-geo",
+ "generated": "2026-09-13",
+ "method": {
+  "overpass": "POST to https://overpass-api.de/api/interpreter (kumi/z mirrors were busy); queries kept within ~600-750 m of 47.5474,7.5896; 'out body geom'",
+  "coordinate_frame": "Local ENU metres; station axis fitted by PCA on OSM platform polygons 5/6-11/12: track direction bearing -25.2 deg from east (WNW-ESE). 'offset' = lateral metres, + = north/Centralbahnplatz side, - = south/Gundeldingen side; 'along' = metres east of the PCA centroid (RailCity Passerelle is at along ~0).",
+  "distances": "Haversine chain over OSM node coordinates (way vertices, stair end nodes, entrance nodes); no routing engine; stairs counted as horizontal chain only; +-10 % typical error, sector position of train NOT included.",
+  "other_sources": [
+   "transport.opendata.ch/v1 stationboard, connections, locations (2026-09-13)",
+   "SBB Trafimage Bahnhofplan Basel SBB A4 PDF, dated 02/2026 (company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-basel-sbb-a4.pdf)",
+   "bz Basel article on opening of platform 19/20 (bzbasel.ch ld.2602170)",
+   "bahnonline.ch/15432 (new platform + provisional passerelle)",
+   "de.wikipedia.org Bahnhof_Basel_SBB (raw wikitext)",
+   "SBB project page inhalt-des-projektpakets.html"
+  ]
+ },
+ "tram_stops_osm": {
+  "note": "Coordinates are OSM platform-way centres (from Overpass 'out center') or stop_position nodes; side = position relative to the track field.",
+  "IWB": {
+   "opendata_id": 8500160,
+   "opendata_coord": [
+    47.546673,
+    7.584368
+   ],
+   "side": "SOUTH-WEST (Gundeldingen side), at the SW abutment of the Margarethenbruecke on Margarethenstrasse; ~100 m NW of the west tip of platform 19/20",
+   "lines": "2 (Kante A/B), 16 and 12 (Kante C/D on Guetersstrasse) per SBB Umgebungsplan 02/2026 and opendata stationboard",
+   "platforms": {
+    "A": [
+     47.5465746,
+     7.5839506
+    ],
+    "B": [
+     47.5465349,
+     7.5840273
+    ],
+    "C": [
+     47.5466538,
+     7.5847234
+    ],
+    "D": [
+     47.5465629,
+     7.5847152
+    ]
+   },
+   "tram2_towards_Bahnhof_SBB_uses": "platform B (OSM relation 12092754 member way 377466170; stop node 1954972212 at 47.5466837,7.5841482)"
+  },
+  "Margarethen": {
+   "opendata_id": 8589340,
+   "opendata_coord": [
+    47.54414,
+    7.581731
+   ],
+   "side": "SOUTH-WEST, on Margarethenstrasse 330 m SW of IWB (not on the bridge)",
+   "platforms": {
+    "377471149 (tram 2 towards city)": [
+     47.5444139,
+     7.5819062
+    ],
+    "377471153": [
+     47.5444542,
+     7.5818134
+    ]
+   }
+  },
+  "Markthalle": {
+   "opendata_id": 8500193,
+   "opendata_coord": [
+    47.548874,
+    7.586008
+   ],
+   "side": "NORTH (city side), at the NE end of the Margarethenbruecke / Centralbahnstrasse, ~250 m west of Centralbahnplatz",
+   "platforms": {
+    "N": [
+     47.5486616,
+     7.5858771
+    ],
+    "O": [
+     47.5484861,
+     7.5855963
+    ],
+    "P": [
+     47.5488904,
+     7.5852183
+    ],
+    "Q": [
+     47.5490006,
+     7.5855875
+    ],
+    "R": [
+     47.548842,
+     7.5868614
+    ],
+    "S": [
+     47.548772,
+     7.5868462
+    ]
+   },
+   "tram2_towards_Bahnhof_SBB_uses": "platform S (way 1098014202; stop node 6816738640 at 47.5487598,7.5871935)"
+  },
+  "Bahnhof SBB (Centralbahnplatz)": {
+   "opendata_id": 8578143,
+   "opendata_coord": [
+    47.548284,
+    7.590297
+   ],
+   "side": "NORTH (Centralbahnplatz, in front of the Schalterhalle)",
+   "platforms": {
+    "A": [
+     47.5482234,
+     7.5884511
+    ],
+    "B": [
+     47.5479315,
+     7.5892922
+    ],
+    "C": [
+     47.5481219,
+     7.5894516
+    ],
+    "D": [
+     47.5484023,
+     7.5901066
+    ],
+    "E": [
+     47.5483807,
+     7.5901807
+    ],
+    "F (way 377305122)": [
+     47.5483167,
+     7.5903389
+    ],
+    "H": [
+     47.5482542,
+     7.5904962
+    ],
+    "J": [
+     47.5482273,
+     7.5905673
+    ],
+    "K": [
+     47.5472988,
+     7.590848
+    ]
+   },
+   "tram2_towards_Badischer_Bahnhof_uses": "platform F (stop node 1435404353 at 47.5485012,7.5903768)"
+  },
+  "Bahnhofeingang Gundeldingen": {
+   "opendata_id": 8500146,
+   "opendata_coord": [
+    47.545535,
+    7.587473
+   ],
+   "side": "SOUTH (Gundeldingen), on Guetersstrasse at Meret Oppenheim-Platz = south entrance of the RailCity Passerelle",
+   "lines": "16, 12",
+   "platforms": {
+    "L": [
+     47.5455048,
+     7.5874424
+    ],
+    "M": [
+     47.5455696,
+     7.587513
+    ]
+   }
+  },
+  "Peter Merian": {
+   "opendata_id": 8588071,
+   "opendata_coord": [
+    47.545326,
+    7.596173
+   ],
+   "side": "SOUTH-EAST (Gundeldingen side, east end of station; BLT trams 10/11)",
+   "platforms": {
+    "316207352": [
+     47.5453484,
+     7.5962713
+    ],
+    "316207353": [
+     47.5452748,
+     7.5962302
+    ]
+   }
+  },
+  "Meret Oppenheim-Platz / Bahnhof SBB Sued": {
+   "opendata_id": null,
+   "note": "No tram stop of that name; opendata 'locations' returns only addresses. OSM has bus platform node 6877818089 'Bahnhof Basel SBB Meret-Oppenheim-Platz' at 47.545415,7.5907584 and Flixbus platform 5148926872 at 47.5454723,7.5906663 (international bus station, south side)."
+  },
+  "Solothurnerstrasse": {
+   "side": "SOUTH-EAST (Gundeldingen), trams 16/12; near the Postpasserelle east exit",
+   "platforms": {
+    "377480946": [
+     47.5442381,
+     7.5909302
+    ],
+    "377480947": [
+     47.5441036,
+     7.5910275
+    ]
+   }
+  }
+ },
+ "bridges_and_access": {
+  "Margarethenbruecke": {
+   "osm": "man_made=bridge 1329985938 (layer 2); road ways 1329985941, 1329985935 (highway=primary, bridge=yes, layer 2); tram tracks ON the bridge: railway=tram bridge=yes layer 2 ways 1329985940, 1329985942, 184925664, 184925669",
+   "geometry": "SW abutment 47.5473749,7.5847456 (Margarethenstrasse/IWB side) -> mid 47.5478021,7.5850999 -> NE end 47.548479,7.5856638 (Markthalle side); ~150 m; crosses the whole west end of the track field (along -294..-305 m, i.e. ~300 m west of the RailCity Passerelle)",
+   "carries_trams": "YES: tram 2 (IWB <-> Markthalle) and 16/12; Wikipedia: closed to trams/buses 2023-07-01..2024-03-10 for structural repair",
+   "platform_access_from_bridge": [
+    {
+     "to": "platform 19/20 (west tip, sector H)",
+     "type": "RAMP (no stairs)",
+     "osm": "footway 1273058927 incline=up level=0;1, from bridge SE-sidewalk SW end 47.5473402,7.5848733 down to 47.5471411,7.5856005 on platform 19/20 (node lies on the 19;20 platform polygon); length 59 m; est. ~5 m descent",
+     "corroboration": "bz Basel 2024-04 (opening of Perron 19/20): 'Eine Rampe schafft den Zugang von der Margarethenbruecke auf die Gleise 19/20.'",
+     "confidence": "high",
+     "verified": "ramp foot node 47.5471411,7.5856005 is a vertex of the 19;20 platform outer ring (OSM relation 17916175); ramp foot is 45 m east of the platform's west tip"
+    },
+    {
+     "to": "platform 16/18 (west tip, sector E)",
+     "type": "stairs, 27 steps, width 3 m, unlit",
+     "osm": "steps 217965086 level=0;1 from 47.5474729,7.5851521 (platform) up to 47.5475175,7.5850144; joined via footway 380815411 (layer 2, embankment) to the bridge SE sidewalk 380815413",
+     "corroboration": "none found outside OSM (outside SBB Innenplan frame)",
+     "confidence": "medium"
+    },
+    {
+     "to": "platform 14/15 (west tip, sector E)",
+     "type": "stairs, 30 steps, width 3 m, unlit",
+     "osm": "steps 217965087 level=0;1 from 47.547676,7.5852895 (platform) up to 47.5477114,7.5851657; joined via footway 380815410 (layer 2) to bridge SE sidewalk",
+     "corroboration": "none found outside OSM",
+     "confidence": "medium"
+    },
+    {
+     "to": "platforms 30-35 / 11-12 / 9-10 and north",
+     "type": "NONE",
+     "note": "No stairs mapped; SBB plans a new 15 m wide 'Perronzugang Margarethen' footbridge east of the Margarethenbruecke serving ALL platforms (earliest construction 2031, commissioning 2037)."
+    }
+   ],
+   "street_to_bridge": "from IWB: sidewalk 1013478227/1013478226/380815412 climbs to the SE sidewalk SW end at 47.5473402,7.5848733 (short slope); also ramp 1349193380 (incline=up) 47.547162,7.5845047 -> 47.5473918,7.584669 to the NW sidewalk"
+  },
+  "RailCity_Passerelle": {
+   "facts": "Opened 2003 (Cruz y Ortiz), 185 m long, 30 m wide, level 1, at the west end of the platform hall (along ~0 in our frame), runs from the Schalterhalle (Centralbahnplatz) over all platforms to Meret Oppenheim-Platz (Gundeldingen)",
+   "osm": "indoor footway ways 376382304, 864597440, 376386226, 864597436, 1349072416 (level 1); S end 47.5460291,7.5883107; N end 47.5474111,7.5892806",
+   "south_access": "Meret Oppenheim-Platz / 'Bahnhofeingang Gundeldingen' (entrance node 267823194 at 47.5455761,7.5877823): stairs 1518317194 (19 steps) 47.5457497,7.5878282 -> 47.5459567,7.5880092, escalator 376386237 (up), stairs 1227358519 (down), elevator 3798200760 at 47.5458912,7.5880868",
+   "north_access": "Schalterhalle at level 0: 4 escalators/stairs T03-T06 (refs T03-42906942..T06-42906945) from 47.5475714,7.5894575 up to 47.5474237,7.5893268, plus a split stair (0->0.25->0.5->1). Main station entrance nodes 1435404743 (47.5478058,7.5895723) and 3798265560 (47.5476247,7.5900498).",
+   "stairs_to_platforms": {
+    "3/4": "T07 376386231, T08 376386236 (foot ~47.5472407,7.5896665)",
+    "5/6": "T09 376353264, T10 376353266, T11 376382330 (+ unref 124630366, 376382309)",
+    "7/8": "T12 376353262, T13 376353257, T14 376382311",
+    "9/10": "T15 376353260, T16 376353268, T17 376382312",
+    "11/12": "T18 376353265, T19 376353263, T20 376382327",
+    "14/15": "T21 376382319, T22 376382329, T23 376382313 (+376382320, 376382318)",
+    "16/18": "T24 376382326, T25 376382325 (+376382316, 376382356)",
+    "19/20": "unref stairs 1273058930, 1273058932 (down, foot 47.5463718,7.5881974) and 1273058934, 1095089371 (added 2024, 'Treppe und Rolltreppe neben dem Coop Pronto' per bz Basel)",
+    "elevators": "3798166640, 3798166972, 3798167023, 3798167051, 3798167082, 3798167107, 3798167148 (level 0;1)"
+   },
+   "mapping_method": "lateral offset of stair midpoint vs platform polygon offsets (see platforms)"
+  },
+  "Provisional_Passerelle_West": {
+   "facts": "'Temporaere Passarelle Basel SBB' (OSM description), covered, 10 m wide, ~147 m long, opened 2025-12-06 (OSM start_date; Wikipedia 'Ende 2025'); located between the RailCity Passerelle and the Margarethenbruecke (along ~-162 m, i.e. ~160 m west of the RailCity Passerelle, ~135 m east of the Margarethenbruecke); serves platforms 5/6 .. 19/20 and the SNCF station",
+   "osm": "way 1306147453 (bridge, layer 2, level 1) S end 47.5467609,7.5864257 -> N end 47.5478536,7.5871621; branch 1457521486 to 9/10 stair + lift 13367285429",
+   "south_access": "Meret Oppenheim-Strasse street entrances (nodes 13358032654 47.5467534,7.5863042; 13358032657 47.5466955,7.5864855; 'main'): stairs 1456541176 (13 steps) + flight 1456541179 to passerelle level; elevator 13358032661 (47.5467373,7.586456)",
+   "north_access": "lands on the west end of platform 5/6 = Elsaesserbahnhof / SNCF platform area (tracks 4 and 5 were cut to stub tracks at the west end for this); stairs 1456541184 (foot 47.5478139,7.5874189), elevators 13367285421 (47.5478723,7.5870718), 13367285422 (47.5477135,7.5869644). bahnonline: 'Nord: Elsaesserbahnhof auf Gleis 30/31'. Street link: Centralbahnstrasse -> steps 642113468 (47.5483281,7.5880656 down to 47.5482581,7.5880047) -> path 1165497046",
+   "stairs_to_platforms (top -> foot)": {
+    "19/20": "1306147448 47.5468629,7.586575 -> 47.5467975,7.586798 (sector G)",
+    "16/18": "1306147437 47.547046,7.5866988 -> 47.5469753,7.5869312",
+    "14/15": "1374688574 47.5472217,7.5868434 -> 47.5471581,7.58706",
+    "11/12": "1349207002 47.5474441,7.5870013 -> 47.5473878,7.5871956",
+    "9/10": "1456541188 47.5474527,7.5874875 -> 47.5473913,7.5876903 (via branch)",
+    "7/8": "1456541190 47.5476736,7.5871663 -> 47.5476291,7.5873613",
+    "5/6 & 30-35": "1456541184 47.5478469,7.5872008 -> 47.5478139,7.5874189 (north landing)"
+   }
+  },
+  "Postpasserelle_East": {
+   "facts": "SBB Innenplan 02/2026 shows a further footbridge at the EAST end ('Postpasserelle') from 'Ausgang Solothurnerstrasse Gundeldingen' over platforms 11/12..1/2 to the Post; OSM footway bridge 23585585 (level 2, 47.545802,7.5912409 -> 47.5468935,7.5921614) with stairs 124430861-124430864, 124258303, 377279305, 23585582 (level 0;1). Irrelevant for the IWB hack (east end).",
+   "confidence": "medium-high"
+  },
+  "Unterfuehrung_from_Gundeldingen": {
+   "answer": "NO public pedestrian underpass from Gundeldingen today.",
+   "detail": "OSM: tunnel footway 1005882100 (level -1, access=private) from the Schalterhalle basement (47.5472267,7.5897289) under platforms to ~platform 11/12 (47.5466854,7.5892784), with private ramps/stairs 1005882095-1005882099 up to platforms 3/4..11/12; it does not continue south. Wikipedia: the historic Personenunterfuehrung was extended to Gundeldingen when tracks 11/12 were built, was replaced by the 2003 Passerelle, and since 2020 is opened in peak hours 'von den Gleisen 5 bis 12 wieder als direkter Bahnhofsausgang' (towards the hall/Centralbahnplatz side).",
+   "confidence": "medium"
+  }
+ },
+ "platform_layout": {
+  "orientation": "Through station; tracks run WNW-ESE. NORTH side = Centralbahnplatz/Schalterhalle/Centralbahnstrasse (city). SOUTH side = Gundeldingen (Meret Oppenheim-Strasse, Guetersstrasse), separated by a retaining wall. WEST end = Margarethenbruecke + Elsaesserbahnhof (SNCF) + provisional passerelle. EAST end = Ostfluegel, Post, Postpasserelle, Peter Merian.",
+  "all_level_0": "All train platforms are OSM level=0 (same level as Schalterhalle). Both passerelles are level 1. Meret Oppenheim-Platz/-Strasse are a few metres above platform level (19 / 13-step flights).",
+  "north_to_south_order (lateral offset m, + = north)": [
+   {
+    "platform": "1/2",
+    "offset": 51,
+    "along_m": "120..345 (east bay only, next to Ostfluegel; reached at level 0 from the hall)",
+    "tracks": "1 (+61), 2 (+49)",
+    "usage_sample": "S-Bahn to Basel Bad Bf"
+   },
+   {
+    "platform": "3/4",
+    "offset": 39,
+    "along_m": "-71..392",
+    "tracks": "3 (+44, east part), 4 (+35.5)",
+    "usage_sample": "IR Luzern; ICE/IR Chur, Zuerich Flughafen, Interlaken"
+   },
+   {
+    "platform": "5/6",
+    "offset": 21,
+    "along_m": "-188..457",
+    "tracks": "5 (+30), 6 (+18)",
+    "usage_sample": "IC/IR/EC Zuerich, Chur, Lugano; TGV Mulhouse"
+   },
+   {
+    "platform": "7/8",
+    "offset": 5,
+    "along_m": "-188..344",
+    "tracks": "7 (+13), 8 (+1)",
+    "usage_sample": "IC Brig/Domodossola/Interlaken"
+   },
+   {
+    "platform": "9/10",
+    "offset": -11.5,
+    "along_m": "-187..317",
+    "tracks": "9 (-5), 10 (-17)",
+    "usage_sample": "ICE/IR Zuerich, Bad Bf, Chur"
+   },
+   {
+    "platform": "11/12",
+    "offset": -28,
+    "along_m": "-220..224",
+    "tracks": "11 (-22), 12 (-34)",
+    "usage_sample": "IR/ICE Zuerich; S1 Frick/Laufenburg"
+   },
+   {
+    "platform": "14/15",
+    "offset": -52,
+    "along_m": "-282..125",
+    "tracks": "14 (-43), 15 (-56)",
+    "usage_sample": "S3 Liestal/Laufen; TGV"
+   },
+   {
+    "platform": "16/18",
+    "offset": -77,
+    "along_m": "-292..50",
+    "tracks": "16 (-60), 18 (-77); two halves of different height joined by ramps/steps (OSM steps 1306147447 10 steps, 1306147445 8 steps); no track 17 any more",
+    "usage_sample": "S3 Laufen"
+   },
+   {
+    "platform": "19/20",
+    "offset": -90,
+    "along_m": "-281..175",
+    "tracks": "19 (-81), 20 (-98, southernmost, against retaining wall)",
+    "opened": "2024-04-15",
+    "usage_sample": "19: S3 Olten; 20: IC/IR Grenchen Nord (via Laufen/Delemont)",
+    "note": "SOUTHERNMOST platform, nearest Meret Oppenheim-Strasse; west tip reached by RAMP from the Margarethenbruecke"
+   },
+   {
+    "platform": "30/31, 33/35 (SNCF, Elsaesserbahnhof)",
+    "offset": "tracks 30 +26, 31 +42, 33 +50, 35 +60 (stop_position nodes at along -157..-181)",
+    "along_m": "-490..-120 (west end, NORTH-middle side, along Centralbahnstrasse / Westfluegel)",
+    "note": "OSM platform polygons 179608402 (30;31), 179608759 (33;35) extend west under the Margarethenbruecke; tracks 4 -> 30 continuous (Wikipedia); usage: TER Saint-Louis/Mulhouse",
+    "confidence": "medium-high"
+   }
+  ],
+  "platforms_19_20_explained": "Real platform (Perron 19/20), opened 15 April 2024, built south of former through-track 19; track 20 is new; it is the southernmost platform of the station, directly below Meret Oppenheim-Strasse. Reached from (a) the RailCity Passerelle (new stair+escalator next to Coop Pronto, sector D), (b) the provisional west passerelle (sector G), (c) a RAMP from the Margarethenbruecke (west tip, sector H). Stationboard sample: platform 19 = S3 Olten, platform 20 = IC/IR Grenchen Nord.",
+  "sectors": "From the SBB Innenplan 02/2026 (isometric, read visually; medium confidence): sector letters run A at the EAST end and increase WESTWARD. Platform 19/20: A-C east of RailCity Passerelle, D at the Passerelle, E, F, G (at provisional passerelle), H at the west tip near the Margarethenbruecke. Platforms 16/18 and 14/15: B at the Passerelle, C, D (at provisional passerelle), E at the west tip. Platforms 5/6-11/12: C at the Passerelle, D at the west end. SNCF 30-35: D (east, near provisional passerelle), C (west). OSM has no sector tags for train platforms (the 'platform_edge' refs E-H near Centralbahnplatz are tram platform edges).",
+  "nearest_to_gundeldingen_south": "19/20, then 16/18, 14/15",
+  "nearest_to_margarethenbruecke_west": "By direct access: 19/20 (ramp), 16/18 and 14/15 (stairs). Physically the SNCF platforms 30-35 also pass under the bridge but have no mapped access from it.",
+  "nearest_to_centralbahnplatz_north": "1/2 (level 0 from hall), 3/4",
+  "west_tips_osm": {
+   "19/20": [
+    47.5473133,
+    7.5850478
+   ],
+   "16/18": [
+    47.5474655,
+    7.5850057
+   ],
+   "14/15": [
+    47.5476084,
+    7.5852444
+   ],
+   "note": "westernmost outer-ring nodes of OSM platform multipolygons; all lie at along ~-282..-292 m, i.e. directly at/under the Margarethenbruecke (bridge centreline along -294..-305)"
+  }
+ },
+ "tram2_stop_sequence": {
+  "source": "transport.opendata.ch stationboard at 8500160 (2026-09-13) passList + OSM relation 12092754 (Tram 2 Binningen -> Fondation Beyeler) member order + SBB Innenplan p.3",
+  "direction_Binningen_to_city": [
+   "Binningen, Kronenplatz",
+   "Binningen, Hohle Gasse",
+   "Basel, Zoo Dorenbach",
+   "Basel, Margarethen (8589340)",
+   "Basel, IWB (8500160) [platform B]",
+   "-- crosses Margarethenbruecke (tram tracks layer 2) --",
+   "Basel, Markthalle (8500193) [platform S]",
+   "Basel, Bahnhof SBB (8578143) [platform F, Centralbahnplatz]",
+   "Basel, Kirschgarten",
+   "Basel, Bankverein",
+   "Basel, Kunstmuseum",
+   "Basel, Wettsteinplatz",
+   "Basel, Messeplatz",
+   "Basel, Gewerbeschule",
+   "Basel, Badischer Bahnhof",
+   "(Basel, Eglisee / Riehen, Fondation Beyeler)"
+  ],
+  "intermediate_stops_between_IWB_and_Bahnhof_SBB": [
+   "Basel, Markthalle"
+  ],
+  "scheduled_times": "IWB dep :15 -> Markthalle :16 -> Bahnhof SBB arr :18 (3 min); Margarethen -> Bahnhof SBB 5 min (opendata connections 2026-09-13); tram 2 runs every 10 min (:05/:15/:25...)",
+  "tram16_from_IWB": "towards Bruderholz: IWB -> Basel, Bhfeingang Gundeldingen (8500146) -> Solothurnerstrasse ...; i.e. tram 16 (and 12) turns into Guetersstrasse and stops right at the Passerelle south entrance (Meret Oppenheim-Platz) 1 stop / ~1-2 min after IWB. Alternative hack for platforms 14-20."
+ },
+ "distance_table": [
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "19-20",
+   "route_code": "R",
+   "route": "Margarethenstrasse sidewalk -> SE sidewalk of Margarethenbruecke (SW abutment) -> RAMP (OSM 1273058927, level 1->0) down onto west tip of platform 19/20 (sector H)",
+   "metres": 173,
+   "level_changes": "0 stairs (1 ramp down, ~5 m est.)",
+   "confidence": "high (bz Basel 2024-04: \"Eine Rampe schafft den Zugang von der Margarethenbruecke auf die Gleise 19/20\"; OSM ramp way)",
+   "note": "lands at extreme west tip; add up to ~280 m along platform 19/20 depending on train sector (sector D = at RailCity Passerelle)"
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "16-18",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 331,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "14-15",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 352,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "11-12",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 377,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "9-10",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 433,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "7-8",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 405,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "5-6",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 425,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "16-18",
+   "route_code": "A",
+   "route": "Margarethenbruecke SE sidewalk -> stair (27 steps, OSM level 0;1) down to west tip of platform 16/18",
+   "metres": 150,
+   "level_changes": "1 (down)",
+   "confidence": "medium (OSM only: steps 217965086/217965087 joined to layer-2 bridge footways; outside SBB plan frame; no web corroboration)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "14-15",
+   "route_code": "A",
+   "route": "Margarethenbruecke SE sidewalk -> stair (30 steps, OSM level 0;1) down to west tip of platform 14/15",
+   "metres": 173,
+   "level_changes": "1 (down)",
+   "confidence": "medium (OSM only: steps 217965086/217965087 joined to layer-2 bridge footways; outside SBB plan frame; no web corroboration)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "19-20",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 267,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "16-18",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 290,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "14-15",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 311,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "11-12",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 336,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "9-10",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 392,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "7-8",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 364,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "5-6",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 384,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "30-35",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle -> north landing stair down (Elsaesserbahnhof / west end of platform 5/6) -> SNCF platforms",
+   "metres": 411,
+   "level_changes": "2 (up, down)",
+   "confidence": "medium-high (bahnonline: north access = Elsaesserbahnhof on tracks 30/31)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "19-20",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 553,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "16-18",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 581,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "14-15",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 599,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "11-12",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 620,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "9-10",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 638,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "7-8",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 655,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "5-6",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 672,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "3-4",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 690,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "IWB (tram 2 platform B; 8500160)",
+   "group": "1-2",
+   "route_code": "C",
+   "route": "RailCity Passerelle full length -> escalator down into Schalterhalle -> level 0 east to platform 1/2 (east bay)",
+   "metres": 820,
+   "level_changes": "2 (up, down)",
+   "confidence": "medium",
+   "note": "platform 1/2 position along its length unknown"
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "19-20",
+   "route_code": "R",
+   "route": "Margarethenstrasse sidewalk -> SE sidewalk of Margarethenbruecke (SW abutment) -> RAMP (OSM 1273058927, level 1->0) down onto west tip of platform 19/20 (sector H)",
+   "metres": 457,
+   "level_changes": "0 stairs (1 ramp down, ~5 m est.)",
+   "confidence": "high (bz Basel 2024-04: \"Eine Rampe schafft den Zugang von der Margarethenbruecke auf die Gleise 19/20\"; OSM ramp way)",
+   "note": "lands at extreme west tip; add up to ~280 m along platform 19/20 depending on train sector (sector D = at RailCity Passerelle)"
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "16-18",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 615,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "14-15",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 636,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "11-12",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 661,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "9-10",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 717,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "7-8",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 689,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "5-6",
+   "route_code": "R2",
+   "route": "Ramp onto platform 19/20 -> ~100 m east along 19/20 -> provisional passerelle stair up -> across -> stair down",
+   "metres": 709,
+   "level_changes": "2 (up, down) + ramp",
+   "confidence": "medium-high",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "16-18",
+   "route_code": "A",
+   "route": "Margarethenbruecke SE sidewalk -> stair (27 steps, OSM level 0;1) down to west tip of platform 16/18",
+   "metres": 434,
+   "level_changes": "1 (down)",
+   "confidence": "medium (OSM only: steps 217965086/217965087 joined to layer-2 bridge footways; outside SBB plan frame; no web corroboration)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "14-15",
+   "route_code": "A",
+   "route": "Margarethenbruecke SE sidewalk -> stair (30 steps, OSM level 0;1) down to west tip of platform 14/15",
+   "metres": 457,
+   "level_changes": "1 (down)",
+   "confidence": "medium (OSM only: steps 217965086/217965087 joined to layer-2 bridge footways; outside SBB plan frame; no web corroboration)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "19-20",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 551,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "16-18",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 574,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "14-15",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 595,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "11-12",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 620,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "9-10",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 676,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "7-8",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 648,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "5-6",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle south stair tower (13 steps + 1 flight up) -> across -> stair down",
+   "metres": 668,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM way 1306147453 start_date 2025-12-06; SBB Innenplan 02/2026; Wikipedia)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "30-35",
+   "route_code": "B",
+   "route": "Meret Oppenheim-Strasse -> provisional passerelle -> north landing stair down (Elsaesserbahnhof / west end of platform 5/6) -> SNCF platforms",
+   "metres": 695,
+   "level_changes": "2 (up, down)",
+   "confidence": "medium-high (bahnonline: north access = Elsaesserbahnhof on tracks 30/31)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "19-20",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 837,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "16-18",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 865,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "14-15",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 883,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "11-12",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 904,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "9-10",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 922,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "7-8",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 939,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "5-6",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 956,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "3-4",
+   "route_code": "C",
+   "route": "Meret Oppenheim-Strasse -> Meret Oppenheim-Platz (Bahnhofeingang Gundeldingen; 19 steps/escalator up) -> RailCity Passerelle -> stair/escalator down",
+   "metres": 974,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (OSM + SBB Innenplan)",
+   "note": ""
+  },
+  {
+   "origin": "Margarethen (tram 2 platform; 8589340)",
+   "group": "1-2",
+   "route_code": "C",
+   "route": "RailCity Passerelle full length -> escalator down into Schalterhalle -> level 0 east to platform 1/2 (east bay)",
+   "metres": 1104,
+   "level_changes": "2 (up, down)",
+   "confidence": "medium",
+   "note": "platform 1/2 position along its length unknown"
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "30-35",
+   "route_code": "D",
+   "route": "Centralbahnstrasse east -> steps down into Elsaesserbahnhof (OSM 642113468) -> SNCF platforms",
+   "metres": 195,
+   "level_changes": "1 (down, short)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "5-6",
+   "route_code": "D",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> west end of platform 5/6 at level 0 (tracks 4/5 now stub tracks)",
+   "metres": 195,
+   "level_changes": "1 (down, short)",
+   "confidence": "medium (Wikipedia: Gleise 4/5 zu Kopfgleisen umfunktioniert)",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "7-8",
+   "route_code": "D2",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> provisional passerelle north stair up -> across -> stair down",
+   "metres": 250,
+   "level_changes": "3 (down short, up, down)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "9-10",
+   "route_code": "D2",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> provisional passerelle north stair up -> across -> stair down",
+   "metres": 304,
+   "level_changes": "3 (down short, up, down)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "11-12",
+   "route_code": "D2",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> provisional passerelle north stair up -> across -> stair down",
+   "metres": 277,
+   "level_changes": "3 (down short, up, down)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "14-15",
+   "route_code": "D2",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> provisional passerelle north stair up -> across -> stair down",
+   "metres": 306,
+   "level_changes": "3 (down short, up, down)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "16-18",
+   "route_code": "D2",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> provisional passerelle north stair up -> across -> stair down",
+   "metres": 330,
+   "level_changes": "3 (down short, up, down)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "19-20",
+   "route_code": "D2",
+   "route": "Centralbahnstrasse -> Elsaesserbahnhof -> provisional passerelle north stair up -> across -> stair down",
+   "metres": 351,
+   "level_changes": "3 (down short, up, down)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "3-4",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 321,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "5-6",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 327,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "7-8",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 344,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "9-10",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 362,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "11-12",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 379,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "14-15",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 401,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "16-18",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 418,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "19-20",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair down",
+   "metres": 447,
+   "level_changes": "2 (up, down)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "origin": "Markthalle (tram 2 platform S; 8500193)",
+   "group": "1-2",
+   "route_code": "E",
+   "route": "Centralbahnstrasse -> Schalterhalle -> level 0 east to platform 1/2",
+   "metres": 372,
+   "level_changes": "0",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "3-4",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 161,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "5-6",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 166,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "7-8",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 184,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "9-10",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 202,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "11-12",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 219,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "14-15",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 241,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "16-18",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 258,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "19-20",
+   "route_code": "F",
+   "route": "Centralbahnplatz -> Schalterhalle -> escalator up to RailCity Passerelle -> stair/escalator down",
+   "metres": 286,
+   "level_changes": "2 (up, down)",
+   "confidence": "high (SBB planner budgets 6 min tram stop -> Basel SBB)",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "1-2",
+   "route_code": "F",
+   "route": "Schalterhalle -> level 0 east to platform 1/2",
+   "metres": 212,
+   "level_changes": "0",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "origin": "Bahnhof SBB tram stop (platform F, Centralbahnplatz; 8578143)",
+   "group": "30-35",
+   "route_code": "F2",
+   "route": "Centralbahnstrasse west -> Elsaesserbahnhof steps -> SNCF platforms",
+   "metres": 297,
+   "level_changes": "1 (down, short)",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "key_leg_distances_m": {
+  "IWB platform B -> Margarethenbruecke SE sidewalk SW end (ramp top)": 114,
+  "ramp length": 59,
+  "IWB platform B -> platform 19/20 west tip (via ramp)": 173,
+  "platform 19/20 ramp foot -> provisional passerelle 19/20 stair foot (along platform)": 98,
+  "platform 19/20 ramp foot -> RailCity Passerelle 19/20 stair foot (along platform)": 213,
+  "IWB platform B -> provisional passerelle south entrance": 232,
+  "IWB platform B -> Meret Oppenheim-Platz entrance": 443,
+  "Margarethen -> IWB junction": 381,
+  "Markthalle S -> Schalterhalle entrance": 241,
+  "Bahnhof SBB tram platform F -> Schalterhalle entrance": 81,
+  "IWB platform B -> Bahnhof SBB tram platform F (straight line)": 513,
+  "provisional passerelle length S-N": 133,
+  "RailCity Passerelle S top -> N top": 170
+ },
+ "interpretation_of_commuter_hack": {
+  "what_he_does": "Tram 2 from Binningen stops at IWB at the south-west foot of the Margarethenbruecke, two stops (Markthalle, Bahnhof SBB; 3 min scheduled) before Centralbahnplatz. He gets off at IWB, goes ~110 m up onto the bridge's east (SE) sidewalk ('run over the bridge'), and takes the RAMP ('a passage') down onto the west tip of platform 19/20 ('gate 20' = Gleis 20) - entering the station from the west end instead of from Centralbahnplatz ('the other side'). From there he runs east along platform 19/20 ('run through the station') to his train, or up the provisional passerelle (98 m along the platform, opened Dec 2025) / RailCity Passerelle (213 m) to cross to another platform.",
+  "why_close_to_20_pays": "Platform 19/20 needs 0 stairs (173 m from the tram door). 16/18 and 14/15 have their own stairs from the bridge (150-173 m, 1 flight down) or are 1-2 stairs away on the provisional passerelle. Each platform further north adds ~20-25 m of passerelle plus the same 2 level changes, and for 3/4 and 1/2 the west accesses do not help at all (must use RailCity Passerelle 690-820 m, or stay on the tram). Via the tram: 3 min ride + SBB's 6-min transfer budget from Centralbahnplatz (286 m + 2 level changes to 19/20), so ~9 min vs ~2-3 min running -> 'up to 5 min' saving is consistent.",
+  "gate_20_alternatives_considered": "'Gate 20' is not a station exit/entrance name; SBB names are 'Bahnhofeingang Gundeldingen', 'Ausgang Elsaessertor', etc. The stationboard platforms 19 and 20 are real. Most consistent reading: Gleis 20 = the platform the Margarethenbruecke ramp lands on.",
+  "app_model_hint": "Sprint distance from IWB door = 173 m + along-platform distance to the train's sector (sector H = at ramp, D = at RailCity Passerelle ~215 m east, A = ~400 m east); if the target platform is not 19/20: add 98 m + 1 up + 1 down via provisional passerelle (or 1 down via bridge stairs for 16/18 and 14/15 if confirmed)."
+ },
+ "uncertainties": [
+  "Margarethenbruecke stairs to 14/15 (30 steps) and 16/18 (27 steps) are attested only by OSM (ways 217965086/217965087, joined to layer-2 bridge footways); not visible in the SBB Innenplan (bridge is outside its frame) and not mentioned in press; opening hours/gates unknown.",
+  "Vertical heights are estimates from step counts (13, 19, 27, 30 steps) and typical rail clearance; OSM level tags are ordinal, not metres.",
+  "Sector letters were read from an isometric SBB drawing (Innenplan 02/2026), medium confidence; where a given train stops along the 400 m platforms is not derivable here - use the stationboard's platform+sector string.",
+  "SNCF platform polygons in OSM are large diagonal shapes; their mean lateral offsets are unreliable, so the SNCF position is taken from stop_position nodes (tracks 30/31/33/35 north-middle, west end).",
+  "The historic underpass is tagged access=private in OSM; Wikipedia says it is opened at peak hours from platforms 5-12 as an exit; whether it reaches Centralbahnplatz or only the hall basement is unclear; it does NOT reach Gundeldingen.",
+  "transport.opendata.ch 'connections' IWB -> Basel SBB returned a 0-s walk section (API artefact), so the SBB 8-min walk budget could not be reproduced from that endpoint.",
+  "OSM data is a snapshot (Overpass 2026-09-13); the provisional passerelle is by definition temporary (planned permanent Perronzugang Margarethen 2031-2037)."
+ ],
+ "sources": [
+  "https://overpass-api.de/api/interpreter (OSM, ODbL; queries q_stops.ql, q_infra2.ql, q_plat.ql, q_routes3.ql, q_steps.ql, q_misc.ql, q_ramp.ql in scratchpad/research)",
+  "https://transport.opendata.ch/v1/stationboard?id=8500160 ; ?id=8500010 ; /connections?from=8500160&to=8578143 ; /locations",
+  "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-basel-sbb-a4.pdf (SBB 02/2026)",
+  "https://www.bzbasel.ch/basel/basel-stadt/mehr-leistung-ausbau-bahnhof-sbb-in-basel-am-montag-geht-das-neue-perron-1920-in-betrieb-ld.2602170",
+  "https://www.bahnonline.ch/15432/neues-perron-und-zusaetzliche-passerelle-fuer-den-bahnhof-basel-sbb/",
+  "https://de.wikipedia.org/wiki/Bahnhof_Basel_SBB",
+  "https://company.sbb.ch/de/bahnentwicklung/projekte/deutschschweiz/region-basel/ausbau-bahnhof-basel-sbb/inhalt-des-projektpakets.html",
+  "https://news.sbb.ch/medien/artikel/126071/studienauftrag-fuer-perronzugang-margarethen-und-neue-margarethenbruecke (via search snippet; page itself returned 403)"
+ ]
+}

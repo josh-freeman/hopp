@@ -1,0 +1,221 @@
+{
+  "key": "api-audit",
+  "audited_on": "2026-09-13",
+  "recommendation": {
+    "primary_api": "transport.opendata.ch v1 (REST/JSON, no key, CORS *), called directly from the browser",
+    "optional_upgrade": "opentransportdata.swiss OJP 2.0 (POST XML, free key, 50 req/min & 20'000 req/day per key) behind a trivial serverless proxy that injects the Bearer key; use only if the search.ch-derived route quota (1000 route searches/day) becomes a problem",
+    "not_recommended": "SBB Journey-Service / B2P: registration + SBB approval, OAuth2 client credentials (Azure AD), B2P is commercial (business partners, min. CHF 100'000 turnover/yr after 2 yrs); developer.sbb.ch is JS-rendered and could not be audited",
+    "why_stitching_is_needed": "No audited API lets you set a faster walk/transfer speed for the transfer at Zurich HB / Basel SBB: transport.opendata.ch has no walk/transfer parameter at all; OJP 2.0 Switzerland marks WalkSpeed as 'Das Feature steht nicht zur Verfuegung' and does not expose AdditionalTransferTime/MinimumTransferTime; OJP's IndividualTransportOptions/Speed only affects the access/egress leg (origin->first stop, last stop->destination), and even then the router walks its own OSM path, not the curated shortcut. Therefore compute athlete connections by stitching: baseline connection -> detect hack -> re-query the train leg from the hack station at (tram arrival at hack stop + sprint budget)."
+  },
+  "transport_opendata_ch": {
+    "base_url": "https://transport.opendata.ch/v1",
+    "docs": "https://transport.opendata.ch/docs.html",
+    "auth": "none (no API key)",
+    "connections_parameters_documented": {
+      "from": "required; departure location (name or id)",
+      "to": "required; arrival location",
+      "via": "optional; 'Specifies up to five via locations. When specifying several vias, array notation (via[]=via1&via[]=via2) is required.'",
+      "date": "optional; YYYY-MM-DD",
+      "time": "optional; hh:mm (hh:mm:ss was also accepted live, results identical to hh:mm - seconds probably ignored)",
+      "isArrivalTime": "optional; 'defaults to 0, if set to 1 the passed date and time is the arrival time'",
+      "transportations": "optional; 'one or more of train, tram, ship, bus, cableway' as transportations[]=tram&transportations[]=bus",
+      "limit": "optional; '1 - 16. Specifies the number of connections to return. If several connections depart at the same time they are counted as 1.' (limit=99 -> {\"errors\":[\"Maximal value of argument `limit` is 16.\"]})",
+      "page": "optional; '0 - 3. Allows pagination of connections. Zero-based'",
+      "fields": "optional; 'If any fields[] is passed, only the specified fields are in the response. The API is aware of the hierarchy' e.g. fields[]=connections/from/departure&fields[]=connections/sections/journey/number (live: response shrank to 344 bytes)"
+    },
+    "connections_parameters_NOT_documented": {
+      "direct": "not in docs.html; live test direct=1 accepted silently but IGNORED (a 1-transfer connection was still returned)",
+      "sleeper": "not in docs.html; not tested",
+      "couchette": "not in docs.html; not tested",
+      "bike": "not in docs.html; bike=1 accepted without error, effect not observable",
+      "accessibility": "not in docs.html; accessibility=independent_boarding accepted without error, effect not observable"
+    },
+    "locations_parameters": {
+      "query": "location name",
+      "x": "latitude",
+      "y": "longitude",
+      "type": "all|station|poi|address (only with query)",
+      "note": "x/y search returns stations with distance in metres: Basel SBB 0 m, Basel, Bahnhof SBB 112 m, Basel, Bhfeingang Gundeldingen 261 m, Basel, Markthalle 315 m, Basel, IWB 400 m"
+    },
+    "stationboard_parameters": {
+      "station": "name",
+      "id": "station id e.g. 8500010",
+      "limit": "number of entries",
+      "transportations": "transportations[]=train ...",
+      "datetime": "'YYYY-MM-DD hh:mm'",
+      "type": "departure (default) | arrival",
+      "note": "each entry has stop.departure, stop.delay (int minutes), stop.platform (e.g. '11', '2B', '41/42', '3AB'), stop.prognosis.departure (ISO), and passList[] of stops (station id/name + times) -> can be used to find the earliest train passing the destination without spending a route request"
+    },
+    "response_structure": {
+      "connection": [
+        "from",
+        "to",
+        "duration (00d00:53:00)",
+        "transfers",
+        "service",
+        "products (e.g. ['IC 3'])",
+        "capacity1st",
+        "capacity2nd",
+        "sections[]"
+      ],
+      "section": [
+        "journey (null for walks)",
+        "walk ({'duration': seconds} or {'duration': null} when the walk is the first section from the origin; then use departure/arrival timestamps)",
+        "departure (stop)",
+        "arrival (stop)"
+      ],
+      "journey": [
+        "name",
+        "category (T=tram, B=bus, IC, IR, S, RE, ICE, TER)",
+        "subcategory",
+        "categoryCode",
+        "number",
+        "operator",
+        "to",
+        "passList[] (stops with arrival/departure/platform - includes intermediate tram stops, e.g. 8500160 Basel, IWB arrival 08:24 on tram 2 002059)",
+        "capacity1st",
+        "capacity2nd"
+      ],
+      "stop": [
+        "station {id,name,coordinate{x=lat,y=lon}}",
+        "arrival",
+        "arrivalTimestamp",
+        "departure",
+        "departureTimestamp",
+        "delay (int minutes, null when no realtime)",
+        "platform",
+        "prognosis {platform, arrival, departure, capacity1st, capacity2nd}",
+        "realtimeAvailability (null in all samples)",
+        "location"
+      ]
+    },
+    "rate_limits": {
+      "docs_quote": "Rate Limit: The number of HTTP requests you can send is constraint by the rate limit of timetable.search.ch.",
+      "search_ch_quote": "Anfragebegrenzung: Die Anzahl taeglicher Anfragen ist limitiert auf 1000 Routensuchen und 10080 Abfahrtstabellen. Bitte kontaktieren Sie uns bei Erreichung dieses Limits. (https://search.ch/timetable/api/help)",
+      "observed_per_minute_limit": "After ~15 /connections calls within ~2 minutes the API returned HTTP 200 with body {\"errors\":[{\"message\":\"Rate limit error from timetable.search.ch: Too many requests this minute\"}]} and no 'connections' key; recovered after a 75 s pause. Exact per-minute threshold unknown.",
+      "daily_limit_symptom": "Home Assistant users report HTTP 429 'Too Many Requests' from transport.opendata.ch when exceeding '1000 requests per 24 hours' (community.home-assistant.io/t/675879).",
+      "scope_unknown": "Not documented whether the 1000/day route limit is per client IP or for the whole transport.opendata.ch proxy; the '3 requests per second per IP' figure that appears in a search snippet is NOT present in docs.html (unverified).",
+      "client_handling": "Treat both HTTP 429 and HTTP 200 + errors[] containing 'Rate limit' as retryable with exponential backoff (min 60 s); never poll faster than 1 request / 30 s per user in live mode."
+    },
+    "cors": {
+      "docs_quote": "Cross Origin Resource Sharing (CORS) is enabled, so you can easily use the API on transport.opendata.ch from any website (avoid setting custom headers though).",
+      "observed": "curl -sI -H 'Origin: https://example.com' https://transport.opendata.ch/v1/locations?query=Basel -> HTTP/2 200, access-control-allow-origin: *; same on /v1/connections. OPTIONS preflight -> HTTP 405 but still access-control-allow-origin: *; therefore use simple GET requests with no custom headers so the browser never preflights."
+    },
+    "live_checks": {
+      "isArrivalTime": "GET /v1/connections?from=8500010&to=8503000&date=2026-09-14&time=09:00&isArrivalTime=1&limit=3 -> arrivals 08:26 (IC 3, pl 8->12), 08:49 (IR 36, pl 12->33), 08:52 (IR 37, pl 10->12): all <= 09:00 => WORKS",
+      "via_strict": "GET /v1/connections?from=Zürich HB&to=Bern&via[]=Luzern&date=2026-09-14&time=08:00&limit=1 -> IR 70 Zürich HB 08:10 -> Luzern 08:51, IR 15 Luzern 09:00 -> Bern 10:00 => WORKS (via=Luzern without [] also works)",
+      "via_quirks": "(1) The response's top-level 'to' echoes the via location (e.g. 'Luzern', 'Basel, IWB') instead of the real destination - read the destination from connections[].to instead. (2) via[]=Basel, IWB on Margarethen->Zürich HB was satisfied by tram 2 merely PASSING THROUGH IWB (passList: 8500160 arr 08:24) - it did not force alighting there. So 'via' cannot express the hack; stitch two legs instead.",
+      "walk_budgets_visible": "walk.duration 360 s for Basel, Bahnhof SBB -> Basel SBB; 420 s for Zürich, Bahnhofquai/HB -> Zürich HB; origin-walks have walk.duration null but timestamps give IWB 08:25 -> Basel SBB 08:33 (8 min), Margarethen 08:25 -> 08:36 (11 min), Zürich, Central 08:57 -> Zürich HB 09:06 (9 min) - consistent with the previously verified SBB budgets",
+      "realtime_now": "2026-09-13 ~11:52 CEST query Zürich, Central -> Bern: B 46 delay 1, prognosis.departure 11:59; arrival delay 2, prognosis.arrival 12:01; IC 8 delay 0 pl 31 prognosis.departure 12:02. Stationboard Zürich HB: S 14 delay 3 pl 31 prognosis.departure 11:52. => delay + prognosis are populated for today's trips; prognosis.platform and realtimeAvailability were always null."
+    }
+  },
+  "opentransportdata_swiss_ojp2": {
+    "endpoint": "https://api.opentransportdata.swiss/ojp20 (OJP 1.0: https://api.opentransportdata.swiss/ojp2020)",
+    "protocol": "HTTP POST, XML body (OJP 2.0, xmlns=http://www.vdv.de/ojp, xmlns:siri=http://www.siri.org.uk/siri, version=\"2.0\"); 'Die OJP-Schnittstelle entspricht mehr einer klassischen SOAP XML-Schnittstelle als einer REST-Schnittstelle.'",
+    "auth": "headers 'Content-Type: application/xml' and 'Authorization: Bearer <Key>'; key from https://api-manager.opentransportdata.swiss/ (registration with e-mail, name, password; 'Only one key can be obtained per API'). Without key: HTTP 401 {\"error\": \"Authorization field missing\"} (tyk.io gateway).",
+    "cost_and_limits": "https://opentransportdata.swiss/en/limits-and-costs/ (valid from 01/01/2023): free tier 'Limit A: 50 requests per minute and API-key', 'Limit B: 20'000 requests per day and API-key'; paid tier 1 CHF 500/month (2'500/min, 1'000'000/day); tier 2 CHF 1'000/month (5'000/min, 2'000'000/day). OJP page: 'Die Nutzung des OJPs ist bis zu einem bestimmten Volumen kostenfrei. Bei mehr als 50 Anfragen pro Minute oder 20'000 Anfragen pro Tag fallen minimale Gebuehren an.'",
+    "cors": "OPTIONS https://api.opentransportdata.swiss/ojp20 with Origin + Access-Control-Request-Headers: authorization,content-type -> HTTP 204, Access-Control-Allow-Origin: *, Access-Control-Allow-Methods: POST, Access-Control-Allow-Headers: authorization,content-type. => Browser calls are technically possible, but the Bearer key would be exposed in client JS -> put it behind a serverless proxy.",
+    "trip_request_params_swiss_support": {
+      "source": "https://opentransportdata.swiss/en/cookbook/ojptriprequest-2-0/ (tables 'Struktur Origin/Destination', 'Struktur IndividualTransportOption', 'Struktur TripParamStructure')",
+      "WalkSpeed": "listed in TripParamStructure: 'Abweichung vor normalen Laufgeschwindigkeit. 100% normal. Das Feature steht nicht zur Verfuegung.' => NOT SUPPORTED",
+      "MinimumTransferTime": "not present on the Swiss page at all => not available",
+      "AdditionalTransferTime": "not present on the Swiss page; exists in the VDV OJP 2.0 XSD (OJP_Trips.xsd: xs:duration 'Additional time added to all transfers') => undocumented for CH, assume unsupported",
+      "NumberOfResults": "SUPPORTED ('<NumberOfResults>10</NumberOfResults>'); also NumberOfResultsBefore / NumberOfResultsAfter supported",
+      "IncludeIntermediateStops": "SUPPORTED ('<IncludeIntermediateStops>true</IncludeIntermediateStops>')",
+      "IncludeTrackSections": "SUPPORTED (table row 'IncludeTrackSection', example '<IncludeTrackSections>true</IncludeTrackSections>'; returns TrackStart/TrackEnd/Duration)",
+      "IncludeLegProjection": "SUPPORTED",
+      "IncludeTurnDescription": "SUPPORTED (PathGuidance)",
+      "TransferLimit": "SUPPORTED ('Maximale Anzahl Umstiege')",
+      "UseRealtimeData": "SUPPORTED: full | explanatory | none",
+      "OptimisationMethod": "only 'minChanges' available",
+      "TimeWindow": "not supported",
+      "IncludeFare": "not supported (OJPFare only on OJP 1.0)",
+      "ItModesToCover": "n/a",
+      "NoSingleStep/NoStairs/NoEscalator/NoElevator/NoRamp/LevelEntrance": "not available",
+      "ModeAndModeOfOperationFilter": "SUPPORTED: rail, bus, tram, water (+ siri:RailSubmode international/highSpeedRail/interregionalRail/local/railShuttle)",
+      "Origin/Destination.DepArrTime": "ISO 8601 WITH seconds, Zulu preferred ('2025-01-20T12:00:00Z'); DepArrTime on Destination = arrival-time search",
+      "Origin/Destination.TimeAllowance": "xs:duration 'Anstelle von DepArrTime. Zusatzzeit, die fuer das Erreichen und Verlassen der Location noetig ist.'",
+      "Origin/Destination.IndividualTransportOptions": "Mode (walk...), MaxDistance (m), MaxDuration (xs:duration), Speed ('Relative Geschwindigkeit in Prozent, normal ist (Default) 100%', example <Speed>150</Speed>); MinDistance/MinDuration 'Wird nicht unterstuetzt'. Applies to the access/egress leg only, not to PT-to-PT transfers.",
+      "Via": "'Maximal ein Via wird unterstuetzt'; optional DwellTime (xs:duration)",
+      "PlaceRef": "siri:StopPointRef / StopPlaceRef use SLOID (ch:1:sloid:3000 = Bern); GeoPosition (WGS84) also accepted"
+    }
+  },
+  "sbb_journey_service": {
+    "mention_only": true,
+    "portal": "https://developer.sbb.ch/apis/journey-service (JS-rendered; not fetchable by curl/WebFetch)",
+    "public_docs": "https://github.com/SchweizerischeBundesbahnen/journey-service - 'available for properly registered users through the SBB Developer Portal'",
+    "access": "register a client on developer.sbb.ch, choose an API plan (plans define usage limits and 'all plans need SBB approval'; client stays 'Pending' until SBB activates it), OAuth2 client-credentials via Azure AD (Client ID + Client Secret) - from the B2P web-service docs b2p.app.sbb.ch/docs",
+    "commercial_terms": "SBB Swiss Mobility APIs (B2P) are for business partners: 'minimum turnover of CHF 100,000 per year after two years', security deposit ~2 months turnover, credit check, standard contracts, monthly invoicing; no free tier mentioned (company.sbb.ch). Journey-Service B2C pricing not visible in public docs.",
+    "walk_speed_params": "not found in the public v3 model docs (grep for walkSpeed/transferTime returned nothing); unknown"
+  },
+  "computation_strategy": {
+    "architecture": "static SPA (no server). All calls are simple GETs to transport.opendata.ch (no custom headers -> no preflight). Optional Cloudflare Worker / Netlify function only if OJP 2.0 is added later (to hide the Bearer key).",
+    "hack_table_schema": {
+      "station_id": "8503000 | 8500010",
+      "alight_stop_id": "8588078 (Zürich, Central) | 8500160 (Basel, IWB)",
+      "replaces_stop_ids": "[8587349 Bahnhofquai/HB, 8587348 Bahnhofplatz/HB] | [8578143 Basel, Bahnhof SBB]",
+      "served_by": "tram categories/numbers that pass alight_stop before the replaced stop (T 3,4,6,7,10,15 / Polybahn | T 2, T 16)",
+      "sbb_walk_budget_s": "540 (Central->HB) | 480 (IWB->Basel SBB)",
+      "sbb_baseline_transfer_s": "tram ride to replaced stop + walk budget: Central->Bahnhofquai 60 s + 420 s = 480 s | IWB->Bahnhof SBB 180 s + 360 s = 540 s",
+      "shortcut_distance_m": "from the geo task (do not invent)",
+      "fixed_overhead_s": "stairs/passage/doors, per hack, e.g. 45-90 s (tunable)",
+      "platform_good": "[3..18] surface platforms at Zürich HB (commuter's claim) | platforms near '20' at Basel SBB (commuter's claim; verify in geo task)",
+      "platform_penalty_s": "extra seconds when the train leaves from a far/underground platform (e.g. 21-24, 31-34, 41-44 at Zürich HB)"
+    },
+    "pseudo_code": [
+      "resolveStop(q): cache = localStorage['loc:'+q] (TTL 30 d); else GET https://transport.opendata.ch/v1/locations?query={q}&type=station -> stations[0].id",
+      "sprintSeconds(hack, pace_m_per_s, margin_s) = hack.shortcut_distance_m / pace_m_per_s + hack.fixed_overhead_s + margin_s",
+      "baseline = GET https://transport.opendata.ch/v1/connections?from={O}&to={D}&date={YYYY-MM-DD}&time={hh:mm}&limit=4   (add &isArrivalTime=1 when the user enters an arrival time)",
+      "for conn in baseline.connections:",
+      "  for i, sec in enumerate(conn.sections):",
+      "    if sec.journey and sec.journey.category in ['T','B'] (or origin is a tram stop) and sec.arrival.station.id in hack.replaces_stop_ids and next section is a walk into hack.station_id and the section after is a train leg:",
+      "      stop = first passList entry with station.id == hack.alight_stop_id   # tram passes the hack stop before the replaced stop",
+      "      tramArr = stop.prognosis.arrival or stop.arrival   # realtime if available",
+      "      readyAt = tramArr + sprintSeconds(...)",
+      "      trainLeg = conn.sections[i+2]; dest = trainLeg.arrival.station.id (first train station after the hack, or D)",
+      "      candidates = GET https://transport.opendata.ch/v1/connections?from={hack.station_id}&to={dest}&date={date(readyAt)}&time={hh:mm(readyAt) rounded UP}&limit=3&transportations[]=train   # isArrivalTime=0 default",
+      "        # cheaper alternative (stationboard budget 10080/day instead of route 1000/day): GET https://transport.opendata.ch/v1/stationboard?id={hack.station_id}&datetime={YYYY-MM-DD hh:mm(readyAt)}&limit=15&transportations[]=train and keep entries whose passList contains dest (arrival time from passList)",
+      "      for c in candidates: dep = c.from.prognosis.departure or c.from.departure; plat = c.from.platform; if plat not in hack.platform_good: dep_needed = readyAt + platform_penalty_s else readyAt; keep if dep >= dep_needed",
+      "      best = earliest kept candidate; gain_s = conn.to.arrival - arrivalAtD(best)   # if best only reaches dest (intermediate), re-stitch the remaining baseline sections after dest, or re-query from dest",
+      "      if gain_s > 0: emit AthletePlan{alightAt: hack.alight_stop, alightTime: tramArr, sprintBudget_s: dep(best) - tramArr, margin_s: dep(best) - readyAt, train: best.products, platform: plat, arrival: arrivalAtD(best), gain_s, baselineArrival: conn.to.arrival}",
+      "      else: emit NoImprovement{reason: 'earliest catchable train equals SBB plan', nextEarlierTramNeeded: dep(best_prev) - sprint..., i.e. the tram you would have to catch}",
+      "realtime: while now in [tramDeparture-15min, trainDeparture]: every 60 s re-GET the stationboard for hack.station_id (cheap) and every 120 s the tram's connection; recompute margin with prognosis; warn when margin_s < margin threshold; show delay (int minutes) from stop.delay",
+      "caching: locations 30 d; connections responses 60 s keyed by full URL; stationboard 30 s; dedupe in-flight; on HTTP 429 or errors[] with 'Rate limit' -> backoff 60 s, 120 s, 240 s and show cached data",
+      "budget: 1 search = 1 route request (baseline) + 1 stationboard (candidate) [+1 route request if exact candidate arrival is needed] -> ~1-2 route requests/search; 1000 route/day => ~500-1000 searches/day; live mode uses only stationboard (10080/day => e.g. 20 users x 8 polls/day x 60 = fine). Use fields[] to cut payload, e.g. &fields[]=connections/from&fields[]=connections/to&fields[]=connections/sections"
+    ],
+    "worked_example_from_live_data": "Basel, Margarethen -> Zürich HB, 2026-09-14 08:15. Baseline (SBB): T 2 08:23 Margarethen -> 08:27 Basel, Bahnhof SBB (passes IWB 08:24, Markthalle 08:26), walk 360 s, IC 3 08:33 pl 11 -> Zürich HB 09:26 pl 4. Athlete: alight IWB 08:24, sprint budget 4 min -> readyAt 08:28; stationboard Basel SBB 08:28: IC 6 08:30 pl 6 (Brig, no), S 3 08:30 pl 19, IC 51 08:32 pl 20 (Lausanne, no), IC 3 08:33 pl 11 -> Zürich HB (yes). Earliest catchable Zürich train is still IC 3 => NoImprovement for this tram. The hack pays off when the tram reaches IWB between 08:25 and 08:29: SBB would then push you to IR 36 08:36 (arr 09:49) but the sprint still makes IC 3 08:33 (arr 09:26) => gain 23 min. Effective window = SBB transfer budget (180 s ride + 360 s walk = 540 s) minus athlete time (~240 s) = ~5 min, matching the commuter's 'saves up to 5 minutes'.",
+    "no_improvement_handling": "Report 'SBB plan is already optimal' and show the next-earlier tram that WOULD unlock an earlier train (compute backwards: latest readyAt that still catches candidate k -> required tramArr -> required tram departure at origin), so the user can decide to leave earlier.",
+    "edge_cases": [
+      "tram delayed: use stop.prognosis.arrival at the hack stop; if null fall back to scheduled + stop.delay minutes",
+      "train platform unknown (platform null): assume worst case penalty",
+      "user starts AT a tram stop near the station (origin walk with walk.duration null): treat the origin itself as the alight stop",
+      "date rollover: build date/time from readyAt in Europe/Zurich, not UTC",
+      "rate-limit body arrives with HTTP 200: check for 'errors' key before reading 'connections'"
+    ]
+  },
+  "exact_request_urls": [
+    "https://transport.opendata.ch/v1/locations?query=Basel%2C%20IWB&type=station",
+    "https://transport.opendata.ch/v1/locations?x=47.547403&y=7.589564&type=station",
+    "https://transport.opendata.ch/v1/connections?from=8589340&to=8503000&date=2026-09-14&time=08:15&limit=4",
+    "https://transport.opendata.ch/v1/connections?from=8500010&to=8503000&date=2026-09-14&time=09:00&isArrivalTime=1&limit=3",
+    "https://transport.opendata.ch/v1/connections?from=8500010&to=8503000&date=2026-09-14&time=08:28&limit=3&transportations[]=train",
+    "https://transport.opendata.ch/v1/stationboard?id=8500010&datetime=2026-09-14%2008:28&limit=15&transportations[]=train",
+    "https://transport.opendata.ch/v1/connections?from=8500010&to=8503000&date=2026-09-14&time=08:00&limit=2&fields[]=connections/from/departure&fields[]=connections/to/arrival&fields[]=connections/sections/journey/number&fields[]=connections/sections/departure/platform",
+    "POST https://api.opentransportdata.swiss/ojp20  (headers: Content-Type: application/xml, Authorization: Bearer <key>; body: OJPTripRequest with Origin.PlaceRef.StopPlaceRef=ch:1:sloid:..., Origin.DepArrTime=YYYY-MM-DDThh:mm:ssZ, Params.NumberOfResults, Params.IncludeIntermediateStops, Params.UseRealtimeData=explanatory)"
+  ],
+  "sources": [
+    "https://transport.opendata.ch/docs.html",
+    "https://search.ch/timetable/api/help",
+    "https://opentransportdata.swiss/en/cookbook/ojptriprequest-2-0/",
+    "https://opentransportdata.swiss/en/cookbook/open-journey-planner-ojp/",
+    "https://opentransportdata.swiss/en/limits-and-costs/",
+    "https://opentransportdata.swiss/en/cookbook/development-miscellaneous-cookbook/howto-access-apis/",
+    "https://opentransportdata.swiss/en/cookbook/ojptriprequest/ (OJP 1.0 page: WalkSpeed listed as unsupported)",
+    "https://github.com/VDVde/OJP (OJP/OJP_Trips.xsd, OJP/OJP_JourneySupport.xsd)",
+    "https://github.com/SchweizerischeBundesbahnen/journey-service (README.md, Developer-Manual.md, business/BusinessAspects.md, technical/ApiClient.md)",
+    "https://company.sbb.ch/en/sbb-as-business-partner/services/sbb-swiss-mobility-solutions/sbb-swiss-mobility-apis.html",
+    "https://b2p.app.sbb.ch/docs/index.html (via search summary)",
+    "https://community.home-assistant.io/t/swiss-public-transport-integration-hits-the-api-limit-429/675879",
+    "live API responses saved in /private/tmp/claude-501/-Users-joshua/d9b722cc-c905-4ede-8387-8ec9e6fa26f6/scratchpad/research/q*.json"
+  ]
+}

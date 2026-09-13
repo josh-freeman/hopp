@@ -1,0 +1,499 @@
+{
+ "key": "lausanne-geo",
+ "generated": "2026-09-13",
+ "verdict": {
+  "comparable_get_off_early_shortcut_exists": false,
+  "reason": "The m2 station 'Lausanne-Gare' sits at underpass level (-1) directly under Place de la Gare with a 51 m step-free corridor (OSM way 313989605) into the passage sous-voies est; from the m2 platform any platform is 155-205 m + one 28-step flight (runner ~1:40-1:55). Getting off one stop early at Grancy (south, 427 m a.s.l.) means 205-275 m + a 12 m street climb + 54 steps (runner ~2:30-2:55) vs the 2-min m2 ride + 1:40-1:55: net physical saving <= ~1 min and only for platforms 7/8. From the north (Flon, 476 m) the 700-750 m downhill run (~5:20-5:40) is slower than the m2 (2 min ride + ~1:50). The exploitable slack at Lausanne is the SBB planner's fixed transfer budgets, not a routing trick: 'Lausanne, gare' -> Lausanne train = 300 s (runner needs ~100-115 s), Grancy -> Lausanne direct = 9 min (runner ~2:30-2:55), Lausanne-Flon -> Lausanne = 13 min.",
+  "if_encoded_anyway": "m2 northbound (from Ouchy) -> alight Grancy (E entrance 46.514930,6.628963) -> footway N to Rue du Simplon -> E to Place des Saugettes lower entrance of passage est (level -2, mouth 46.516165,6.630012, ground 438.6 m) -> 26 steps up -> passage est -> 28 steps up -> platform 7/8 (205 m, runner ~2:29). Best for Geneve-bound IR90/IR95/RE33 which depart from voie 8 (stationboard 2026-09-13). Saves ~4.5 min vs planner (2 min m2 + 5 min transfer) but only ~1 min vs staying on the m2 and sprinting from Lausanne-Gare (~3:55)."
+ },
+ "runner_model": {
+  "flat_speed_m_s": 3.0,
+  "stairs_up_s_per_step": 0.6,
+  "stairs_down_s_per_step": 0.4,
+  "street_ascent_s_per_m": 1.5,
+  "friction_s": 15,
+  "alight_to_origin_s": {
+   "m2": 15,
+   "bus": 5
+  },
+  "note": "assumptions, not measured; SBB budget applies from scheduled vehicle arrival"
+ },
+ "distance_method": "Dijkstra on the OSM pedestrian graph (all highway=* ways except motorway/trunk/private, 1,480 ways from Overpass bbox 46.5130,6.6240,46.5220,6.6345 on 2026-09-13 plus tunnel/level-tagged ways within 750 m) with haversine edge lengths; targets = level-0 end nodes of steps/elevator/ramp ways lying inside the OSM platform multipolygons (relations 11779533 '7;8', 11779534 '5;6', 11779535 '1;70', 11779536 '3;4'). For platforms 3/4 and 5/6 the east-passage stairs (OSM 637107267-270) are not node-connected to the passage in OSM, so the adjacent lift-shaft node was used (+~5 m) and the 28-step flight was added by hand. Voie 70: platform-1 access + 56 m straight-line along platform 1. Voie 9: no platform polygon in OSM and no departures in the stationboard sample -> no distance given.",
+ "stops": [
+  {
+   "name": "Lausanne (train)",
+   "id": "8501120",
+   "lat": 46.516795,
+   "lon": 6.629087,
+   "mode": "SBB station",
+   "side": "-",
+   "note": "OSM station node 46.517002,6.629169; platforms ~447 m, Place de la Gare 449.2 m (swisstopo)"
+  },
+  {
+   "name": "Lausanne, gare (m2)",
+   "id": "8592050",
+   "lat": 46.5176,
+   "lon": 6.629648,
+   "mode": "m2 (OSM 'Lausanne-Gare' halt 46.517528,6.629633, level -1)",
+   "side": "north (under Place de la Gare)",
+   "note": "surface exits OSM 8220208766 46.517496,6.629727; 3218862499 46.517514,6.629563; 3218862496 46.517480,6.629397; 8498045911 46.517536,6.629441. Same stop id carries the tl bus stops A-I."
+  },
+  {
+   "name": "Lausanne, gare - tl bus stops A/B/G/F (Av. de la Gare) and H (Place de la Gare)",
+   "id": "8592050",
+   "lat": 46.517232,
+   "lon": 6.630824,
+   "mode": "tl bus (bus 1 uses A)",
+   "side": "north / north-east",
+   "note": "A 46.517182,6.631438; B 46.517232,6.630824; F 46.517074,6.632988; G 46.517210,6.631855; H 46.517410,6.629997"
+  },
+  {
+   "name": "Lausanne, gare - tl bus stops C/D/E/I (Av. Louis-Ruchonnet)",
+   "id": "8592050",
+   "lat": 46.518064,
+   "lon": 6.627202,
+   "mode": "tl bus",
+   "side": "north-west",
+   "note": "C 46.518250,6.626734; D 46.518064,6.627202; E 46.518394,6.626387; I 46.518755,6.625424"
+  },
+  {
+   "name": "Lausanne, Grancy",
+   "id": "8592052",
+   "lat": 46.514923,
+   "lon": 6.628867,
+   "mode": "m2 (OSM halt 46.514930,6.628868; entrances 46.514930,6.628963 E and 46.514925,6.628781 W; OSM level 0)",
+   "side": "south (Sous-Gare, Bd de Grancy; ground 427.0 m)",
+   "note": "1 stop south of Lausanne-Gare; m2 Grancy->gare scheduled 2 min"
+  },
+  {
+   "name": "Lausanne, Delices",
+   "id": "8592028",
+   "lat": 46.512029,
+   "lon": 6.628038,
+   "mode": "m2 + tl bus 25 (OSM halt 46.512222,6.628065)",
+   "side": "south, 2 stops",
+   "note": "m2 Delices->gare scheduled 3 min"
+  },
+  {
+   "name": "Lausanne, Jordils",
+   "id": "8592061",
+   "lat": 46.509928,
+   "lon": 6.627431,
+   "mode": "m2",
+   "side": "south, 3 stops",
+   "note": ""
+  },
+  {
+   "name": "Lausanne, Flon (m2)",
+   "id": "8591818",
+   "lat": 46.520575,
+   "lon": 6.630568,
+   "mode": "m2 (OSM stop 46.520345,6.630449, level -2); entrance OSM 1420431456 46.520547,6.630783",
+   "side": "north (city centre; ground 476.5 m)",
+   "note": "m2 Flon->gare scheduled 2 min; 1 stop north of Lausanne-Gare"
+  },
+  {
+   "name": "Lausanne-Flon (m1 / LEB)",
+   "id": "8501181",
+   "lat": 46.520798,
+   "lon": 6.63033,
+   "mode": "m1 (OSM 46.520151,6.629655, level -1) and LEB (OSM 46.520673,6.630333, level -2)",
+   "side": "north",
+   "note": "planner: Lausanne-Flon -> 'Lausanne, Flon' walk 3 min; Lausanne-Flon -> Lausanne train direct walk 13 min"
+  },
+  {
+   "name": "Lausanne, Epinettes",
+   "id": "8592040",
+   "lat": 46.51616,
+   "lon": 6.625826,
+   "mode": "tl bus 1 (OSM platforms 46.516131,6.625729 / 46.516106,6.625961)",
+   "side": "south-west (Sous-Gare; ground 429.6 m)",
+   "note": "bus 1 Epinettes->'Lausanne, gare' stop A 3 min"
+  },
+  {
+   "name": "Lausanne, Closelet",
+   "id": "8592020",
+   "lat": 46.515465,
+   "lon": 6.633068,
+   "mode": "tl bus (OSM 46.515742,6.633056 / 46.515247,6.633057)",
+   "side": "south-east (Av. d'Ouchy; ground 442.6 m)",
+   "note": "planner direct walk to Lausanne 5 min"
+  },
+  {
+   "name": "Lausanne, Mont-Fleuri",
+   "id": "8592079",
+   "lat": 46.514484,
+   "lon": 6.63178,
+   "mode": "tl bus (OSM 46.514683,6.631922 / 46.514240,6.631587)",
+   "side": "south-east (Sous-Gare)",
+   "note": ""
+  },
+  {
+   "name": "Lausanne, Dapples",
+   "id": "8592027",
+   "lat": 46.514592,
+   "lon": 6.625445,
+   "mode": "tl bus",
+   "side": "south-west",
+   "note": ""
+  },
+  {
+   "name": "Lausanne, Montbenon",
+   "id": "8579253",
+   "lat": 46.519795,
+   "lon": 6.629655,
+   "mode": "tl bus (OSM 46.519771,6.629651)",
+   "side": "north (top of Rue du Petit-Chene)",
+   "note": "planner direct walk 13 min; to 'Lausanne, Flon' 3 min"
+  },
+  {
+   "name": "Lausanne, Mirabeau",
+   "id": "8592072",
+   "lat": 46.516926,
+   "lon": 6.634793,
+   "mode": "tl bus",
+   "side": "east, north of tracks (Av. de la Gare E end) - low confidence",
+   "note": ""
+  },
+  {
+   "name": "Lausanne, Villard",
+   "id": "8592134",
+   "lat": 46.519555,
+   "lon": 6.623703,
+   "mode": "tl bus",
+   "side": "north-west, ~500 m",
+   "note": "not relevant"
+  }
+ ],
+ "platforms": {
+  "in_service_2026_09_13_stationboard_sample_60_departures": {
+   "1": 8,
+   "3": 12,
+   "4": 8,
+   "5": 5,
+   "6": 7,
+   "7": 7,
+   "8": 11,
+   "70": 3
+  },
+  "layout": [
+   {
+    "ref": "1",
+    "type": "house platform along station building (north), through track",
+    "osm_stop_position": "46.516811,6.629218",
+    "notes": "hall/Place de la Gare at grade (449 m), platform ~447 m; Fribourg/Bern IC1, IC5, IR15 mostly here"
+   },
+   {
+    "ref": "70",
+    "type": "bay/stub track at east end of platform 1 (OSM relation 11779535 ref '1;70'), terminating",
+    "osm_stop_position": "46.516674,6.630820",
+    "notes": "S40/S41 RER to Fribourg; ~56 m east of the passage-est hall stairs"
+   },
+   {
+    "ref": "3;4",
+    "type": "island platform, through tracks (OSM relation 11779536)",
+    "osm_stop_position": "3: 46.516735,6.629193; 4: 46.516694,6.628805",
+    "notes": "IC1 to Geneve from 4; Brig/Valais IR from 3"
+   },
+   {
+    "ref": "5;6",
+    "type": "island platform, through tracks (OSM relation 11779534)",
+    "osm_stop_position": "5: 46.516605,6.629152; 6: 46.516504,6.629119",
+    "notes": "regional trains"
+   },
+   {
+    "ref": "7;8",
+    "type": "island platform, through tracks (OSM relation 11779533), southernmost in service",
+    "osm_stop_position": "7: 46.516468,6.629108; 8: 46.516379,6.629080",
+    "notes": "Geneve-bound IR90/IR95/RE33 mostly from 8"
+   },
+   {
+    "ref": "9",
+    "type": "side platform south of 7/8 along Rue du Simplon; NOT seen in stationboard; construction zone of future 'quai 5' (SBB Aug 2025: 'nouveau quai 5 (actuelle voie 9)'; Feb 2026: 650 anchors along voie 9)",
+    "osm_stop_position": "46.516421,6.628421",
+    "notes": "treat as out of service (medium confidence)"
+   },
+   {
+    "ref": "2",
+    "type": "does not exist (no voie 2 in stationboard or OSM)",
+    "osm_stop_position": null,
+    "notes": ""
+   }
+  ],
+  "sectors": "stationboard returned plain platform numbers only; sector letters not observed (unknown)",
+  "track_orientation": "WSW-ENE; going east 138 m the same platform shifts ~30 m south (from east vs west stair positions)"
+ },
+ "underpasses": [
+  {
+   "name": "Passage sous-voies Ouest (cote Geneve)",
+   "osm_way": 44180386,
+   "length_m": 141,
+   "level": -1,
+   "north_end": "46.517596,6.628612 (20 steps down from Place de la Gare W / hall, OSM 44180384; ramp 344135870 from m2 W exit)",
+   "south_end": "46.516360,6.628228 -> temporary passerelle (OSM 1425301684/1425301685, bridge layer 1) + stairs (OSM 1425301687) [+ lift per SBB] down to Rue du Simplon (ground 437.8 m)",
+   "platform_access": "ramps 637107284/285/286 (step-free) and stairs 637107281/282/283 to 5/6, 3/4, 7/8; stairs 637107289 (24 steps) to platform 1",
+   "status_2026": "open; south access via passerelle since 25 Aug 2025 04:00 (works 22-25 Aug 2025); parking du Simplon demolition from summer 2026 - south access geometry may change"
+  },
+  {
+   "name": "Passage sous-voies Est (cote Vevey)",
+   "osm_way": 315754585,
+   "length_m": 93,
+   "level": -1,
+   "north_end": "46.517333,6.630323 under Place de la Gare; direct 51 m level -1 corridor (OSM 313989605) to m2 Lausanne-Gare mezzanine; stairs 52064918 up to hall/Av. de la Gare",
+   "south_end": "46.516571,6.630086 -> 26 steps down (OSM 637107274) [+ escalator 1224458670] to level -2 corridor 'Passage des Saugettes' (OSM 862070127, 13 m) exiting at Place des Saugettes / Rue du Simplon 46.516165,6.630012 (ground 438.6 m); lift 862069095 serves 0/-1/-2 at platform 7/8",
+   "platform_access": "28-step stairs 637107267-273 (two per island) + lifts 862069095/96/97",
+   "status_2026": "SBB (May 2025): 'passage inferieur est (cote Vevey) toujours accessible sans obstacle pendant tout le chantier'"
+  },
+  {
+   "name": "Leman 2030 future",
+   "note": "3 new underpasses 3.5 m wider between Place de la Gare and Rue du Simplon; main platform/underpass works start end 2026 (SBB news) or end 2027 (CFF project page); two underpasses always kept open; new platforms in stages 2030-2036 starting with platform 5; full completion 2037 (Wikipedia) / partial 2032, full 2034 (SBB news May 2025) - sources disagree"
+  }
+ ],
+ "heights_swisstopo_m": {
+  "Place_de_la_Gare_surface_m2_exit_E (OSM node 8220208766)": "449.2",
+  "Grancy_m2_entrance_E (OSM 673613132)": "427.0",
+  "Rue_du_Simplon_at_west_passage_S_end (OSM way 44180386 S end)": "447.7",
+  "Rue_du_Simplon_at_east_passage_S_end (OSM way 315754585 S end)": "447.2",
+  "Platform_3-4_stop_position (OSM 564276583)": "447.1",
+  "Flon_m2_entrance (OSM 1420431456)": "476.5",
+  "Epinettes_bus_stop (OSM 408169939)": "429.6",
+  "Closelet_bus_stop (OSM 347352091)": "442.6",
+  "Rue_du_Simplon_20m_S_of_west_passage_mouth": "437.8",
+  "Rue_du_Simplon_20m_S_of_east_passage_mouth": "447.4",
+  "Bd_de_Grancy_at_Av_William-Fraisse_corner": "428.3",
+  "Av_William-Fraisse_midway": "434.3",
+  "East_passage_S_stair_bottom_node (way 637107274 S end 46.51620,6.62996)": "443.3",
+  "Rue_du_Simplon_centre_E_of_Saugettes (46.5158,6.6302)": "438.6"
+ },
+ "planner_budgets_transport_opendata_2026_09_13": {
+  "Lausanne, gare (m2/bus) -> Lausanne (train) transfer": "300 s (5 min) in all 40+ connections sampled (m2 from Grancy/Flon/Delices, bus 1 from Epinettes)",
+  "Lausanne, Grancy -> Lausanne direct walk": "9 min (08:40->08:49)",
+  "Lausanne-Flon (8501181) -> Lausanne direct walk": "13 min (08:36->08:49)",
+  "Lausanne-Flon -> Lausanne, Flon (m2)": "3 min",
+  "Lausanne, Montbenon -> Lausanne direct walk": "13 min; Montbenon -> Lausanne, Flon 3 min",
+  "Lausanne, Epinettes -> Lausanne direct walk": "10 min (08:39->08:49)",
+  "Lausanne, Closelet -> Lausanne direct walk": "5 min (08:10->08:15)",
+  "m2 scheduled": "Grancy->gare 2 min; Flon->gare 2 min; Delices->gare 3 min; bus 1 Epinettes->gare 3 min",
+  "example": "Grancy dep 08:07 -> gare 08:09 -> walk 300 s -> IR90 08:15 voie 8 (planner). Direct walk alternative: dep 08:40 -> IR95 08:49 voie 8."
+ },
+ "distance_table": [
+  {
+   "from": "m2 Grancy (8592052) entrance E, 427 m a.s.l.",
+   "side": "south (Sous-Gare, Bd de Grancy)",
+   "to_1_m": 275,
+   "to_70_m": 335,
+   "to_3_4_m": 240,
+   "to_5_6_m": 220,
+   "to_7_8_m": 205,
+   "to_9_m": null,
+   "route": "exit E entrance -> unnamed footway N to Rue du Simplon -> E along Rue du Simplon to Place des Saugettes lower entrance (level -2, OSM way 862070127) -> 26 steps up to passage est (level -1) -> 28 steps up to platform; platform 1/70 via hall stairs",
+   "level_changes": "street +12 m (427->438.6 m over ~150 m, ~8 %); stairs 26 up + 28 up (=+8.5 m to 447 m); 0 down",
+   "planner_walk_budget": "direct Grancy->Lausanne 9 min (08:40->08:49); or m2 2 min + 'Lausanne, gare'->Lausanne 5 min (300 s)",
+   "runner_estimate_mm_ss": {
+    "1": "2:52",
+    "3-4": "2:40",
+    "5-6": "2:34",
+    "7-8": "2:29"
+   },
+   "confidence": "medium-high (OSM Dijkstra; east stair links for 3/4, 5/6 missing in OSM -> lift-shaft node used +~5 m; +28 steps added manually)"
+  },
+  {
+   "from": "m2 Lausanne-Gare (8592050) platform, level -1 under Place de la Gare",
+   "side": "north (under Place de la Gare; direct level -1 link to passage est)",
+   "to_1_m": 155,
+   "to_70_m": 215,
+   "to_3_4_m": 165,
+   "to_5_6_m": 185,
+   "to_7_8_m": 205,
+   "to_9_m": null,
+   "route": "m2 mezzanine -> 51 m level -1 corridor (OSM way 313989605) -> passage est -> 28-step stairs (or lift) to platform; platform 1/hall via stairs at N end; step-free alternative via passage ouest ramps 185/200/214 m",
+   "level_changes": "0 on street; 1 flight up 28 steps (-1 -> 0); OSM shows m2 platform at level -1 (no stairs) - unverified whether m2 platform is one level lower with escalator",
+   "planner_walk_budget": "'Lausanne, gare' -> Lausanne = 300 s (5 min) in every connection sampled",
+   "runner_estimate_mm_ss": {
+    "1": "1:38",
+    "3-4": "1:42",
+    "5-6": "1:48",
+    "7-8": "1:55"
+   },
+   "confidence": "medium-high (OSM Dijkstra to lift-shaft nodes 158/178/197 m +~7 m to stair top)"
+  },
+  {
+   "from": "m2 Lausanne-Flon (8591818) entrance, 476.5 m a.s.l.",
+   "side": "north (city centre, Flon)",
+   "to_1_m": 690,
+   "to_70_m": null,
+   "to_3_4_m": 720,
+   "to_5_6_m": 735,
+   "to_7_8_m": 750,
+   "to_9_m": null,
+   "route": "Flon -> Rue Centrale/Escaliers du Grand-Pont -> Rue du Petit-Chene (steep, -27 m) -> Place de la Gare -> passage (est or ouest) -> platform",
+   "level_changes": "descent 27 m on street; 3-5 flights down (~95-109 steps on Escaliers du Grand-Pont/Petit-Chene); 1 flight up 28 steps",
+   "planner_walk_budget": "direct Lausanne-Flon (8501181)->Lausanne 13 min (08:36->08:49); Lausanne-Flon->'Lausanne, Flon' 3 min; m2 Flon->gare 2 min + 5 min",
+   "runner_estimate_mm_ss": {
+    "1": "5:17",
+    "3-4": "5:27",
+    "5-6": "5:32",
+    "7-8": "5:37"
+   },
+   "confidence": "medium (OSM Dijkstra; step counts partly untagged)"
+  },
+  {
+   "from": "tl bus 'Lausanne, gare' stop B (Av. de la Gare)",
+   "side": "north (Place de la Gare / Av. de la Gare)",
+   "to_1_m": 90,
+   "to_70_m": null,
+   "to_3_4_m": 131,
+   "to_5_6_m": 150,
+   "to_7_8_m": 168,
+   "to_9_m": null,
+   "route": "Av. de la Gare -> Place de la Gare -> down into passage est (N end, under the square) -> 28 steps up to platform; platform 1 direct through hall",
+   "level_changes": "1 flight down (~24 steps, untagged) + 1 flight up 28 steps; platform 1: none",
+   "planner_walk_budget": "'Lausanne, gare' -> Lausanne = 300 s (5 min)",
+   "runner_estimate_mm_ss": {
+    "1": "1:16",
+    "3-4": "1:30",
+    "5-6": "1:36",
+    "7-8": "1:42"
+   },
+   "confidence": "medium-high (stops A: 137/178/198/216 m; F: 257/297/317/335 m)"
+  },
+  {
+   "from": "tl bus 'Lausanne, gare' stop D (Av. Louis-Ruchonnet)",
+   "side": "north-west (Av. Ruchonnet)",
+   "to_1_m": 200,
+   "to_70_m": null,
+   "to_3_4_m": 217,
+   "to_5_6_m": 232,
+   "to_7_8_m": 246,
+   "to_9_m": null,
+   "route": "Av. Ruchonnet -> Place de la Gare W -> 20 steps down into passage ouest (OSM way 44180384) -> ramps up to platforms",
+   "level_changes": "1 flight down 20 steps + ramp up (step-free)",
+   "planner_walk_budget": "'Lausanne, gare' -> Lausanne = 300 s (5 min)",
+   "runner_estimate_mm_ss": {
+    "1": "1:35",
+    "3-4": "1:40",
+    "5-6": "1:45",
+    "7-8": "1:50"
+   },
+   "confidence": "medium-high (stop C: 241/258/274/288 m)"
+  },
+  {
+   "from": "tl bus Epinettes (8592040), 430 m a.s.l.",
+   "side": "south-west (Sous-Gare)",
+   "to_1_m": 315,
+   "to_70_m": null,
+   "to_3_4_m": 285,
+   "to_5_6_m": 270,
+   "to_7_8_m": 260,
+   "to_9_m": null,
+   "route": "Av. William-Fraisse -> Rue du Simplon E -> temporary passerelle (since 25 Aug 2025; stairs + lift) into passage ouest (level -1) -> ramps up to platforms",
+   "level_changes": "street +8 m (430->438); passerelle stairs up ~4 m (count untagged, est. ~25); ramps up to platform (+5 m)",
+   "planner_walk_budget": "direct Epinettes->Lausanne 10 min (08:39->08:49); bus 1 Epinettes->'Lausanne, gare' 3 min + 5 min",
+   "runner_estimate_mm_ss": {
+    "1": "2:32",
+    "3-4": "2:22",
+    "5-6": "2:17",
+    "7-8": "2:14"
+   },
+   "confidence": "medium (passerelle geometry temporary; parking du Simplon demolition summer 2026 may alter it)"
+  },
+  {
+   "from": "tl bus Closelet (8592020), 443 m a.s.l.",
+   "side": "south-east (Av. d'Ouchy)",
+   "to_1_m": 460,
+   "to_70_m": null,
+   "to_3_4_m": 500,
+   "to_5_6_m": 520,
+   "to_7_8_m": 540,
+   "to_9_m": null,
+   "route": "OSM graph routes N along Av. d'Ouchy to Place de la Gare then passage est; straight line to Place des Saugettes lower entrance is 240 m but no pedestrian link found in OSM graph",
+   "level_changes": "1 flight down + 1 flight up 28 (via Place de la Gare)",
+   "planner_walk_budget": "direct Closelet->Lausanne 5 min (08:10->08:15)",
+   "runner_estimate_mm_ss": {
+    "1": "3:20",
+    "3-4": "3:33",
+    "5-6": "3:40",
+    "7-8": "3:46"
+   },
+   "confidence": "low (graph may be missing a Rue du Simplon E link)"
+  },
+  {
+   "from": "tl bus Mont-Fleuri (8592079)",
+   "side": "south-east (Sous-Gare)",
+   "to_1_m": 430,
+   "to_70_m": null,
+   "to_3_4_m": 390,
+   "to_5_6_m": 370,
+   "to_7_8_m": 350,
+   "to_9_m": null,
+   "route": "Av. d'Ouchy -> Rue de l'Eglise Anglaise -> Rue du Simplon -> Place des Saugettes lower entrance -> 26 + 28 steps up",
+   "level_changes": "stairs 26 up + 28 up",
+   "planner_walk_budget": "not sampled",
+   "runner_estimate_mm_ss": {
+    "1": "3:22",
+    "3-4": "3:08",
+    "5-6": "3:02",
+    "7-8": "2:55"
+   },
+   "confidence": "medium"
+  },
+  {
+   "from": "tl bus Montbenon (8579253)",
+   "side": "north (top of Rue du Petit-Chene)",
+   "to_1_m": 640,
+   "to_70_m": null,
+   "to_3_4_m": 670,
+   "to_5_6_m": 685,
+   "to_7_8_m": 700,
+   "to_9_m": null,
+   "route": "Rue du Petit-Chene down -> Place de la Gare -> passage -> platform",
+   "level_changes": "descent ~20 m; ~95 steps down; 28 up",
+   "planner_walk_budget": "direct Montbenon->Lausanne 13 min; Montbenon->'Lausanne, Flon' 3 min",
+   "runner_estimate_mm_ss": {
+    "1": "4:48",
+    "3-4": "4:58",
+    "5-6": "5:03",
+    "7-8": "5:08"
+   },
+   "confidence": "medium"
+  }
+ ],
+ "baseline_comparison_s": {
+  "Grancy sprint -> 7/8": 149,
+  "Grancy sprint -> 3/4": 160,
+  "Grancy sprint -> 1": 172,
+  "stay on m2 (120 s ride) + sprint from Lausanne-Gare -> 7/8": 235,
+  "-> 3/4": 222,
+  "-> 1": 217,
+  "planner via m2": 420,
+  "planner direct walk from Grancy": 540,
+  "Flon sprint -> 7/8": 337,
+  "planner Flon direct": 780
+ },
+ "sources": [
+  "https://transport.opendata.ch/v1/locations?query=Lausanne ; ?x=46.5167&y=6.6290 ; ?query=Lausanne, Grancy|Delices|Jordils|Villard|... (2026-09-13)",
+  "https://transport.opendata.ch/v1/stationboard?station=Lausanne&limit=60 (2026-09-13 13:40-15:57)",
+  "https://transport.opendata.ch/v1/connections from Lausanne, Grancy / Lausanne-Flon / Lausanne, gare / Lausanne, Epinettes / Lausanne, Montbenon / Lausanne, Delices / Lausanne, Closelet to Geneve and Fribourg, time=08:00 (2026-09-13)",
+  "Overpass API (overpass-api.de) 2026-09-13: around:750 46.5167,6.6290 stops/platforms/tunnels; bbox 46.5130,6.6240,46.5220,6.6345 all highway ways; ways 42775687,46612813,42775780,42775742",
+  "https://api3.geo.admin.ch/rest/services/height (swissALTI3D) for 14 points",
+  "https://fr.wikipedia.org/wiki/Gare_de_Lausanne",
+  "https://news.sbb.ch/fr/019d7b77-5df7-7705-855a-c1a85fe9c254/gare-de-lausanne-mise-en-place-d-une-nouvelle-passerelle-a-la-rue-du-simplon",
+  "https://news.sbb.ch/fr/019d7b77-3a38-7ecc-b53a-55cb1a2b65c8/demarrage-des-travaux-du-sous-sol-de-la-place-de-la-gare-de-lausanne",
+  "https://news.sbb.ch/fr/019d7b77-2ee6-7440-82c6-0148ce2dc460/des-nouvelles-des-chantiers-de-la-gare-de-lausanne",
+  "https://company.sbb.ch/fr/developpement-ferroviaire/projets/suisse-romande-valais/leman-2030/nos-projets/gare-lausanne.html",
+  "https://www.lausanne.ch/officiel/grands-projets/pole-gare/agrandissement-et-modernisation-gare.html",
+  "https://www.lausanne.ch/officiel/grands-projets/pole-gare/place-gare-et-rues-connexes/amenagements-actuels.html",
+  "WebSearch snippets: 24heures.ch / 20min.ch on the Simplon passerelle (Aug 2025)"
+ ],
+ "uncertainties": [
+  "m2 Lausanne-Gare platform level: OSM tags it level -1 with a step-free corridor to the passage est; if the m2 platforms are actually one level lower (escalator to mezzanine) add ~20 steps / ~15 s to every m2-origin estimate.",
+  "East-passage stairs to platforms 3/4 and 5/6 are not node-connected to the passage in OSM (topology gap); distances use the adjacent lift shaft (+~5 m) and the 28-step flight was added manually.",
+  "Closelet: OSM graph gives 460-540 m via Av. d'Ouchy/Place de la Gare; straight-line to the Saugettes lower entrance is 240 m - a missing pedestrian link is likely; low confidence.",
+  "Passage des Saugettes level -2 entrance: opening hours / night closure unknown; DTM height at the mouth (438.6 m) sampled 40 m south of the door.",
+  "Voie 9 status inferred (absent from a 60-departure sample + SBB anchor/quai-5 news), not from an official closure notice; platform sector letters unknown.",
+  "Timeline for start of main works conflicts: 'fin 2026' (SBB news May 2025, lausanne.ch search snippet) vs 'fin 2027' (CFF project page); completion 2034 vs 2037.",
+  "Runner times are model outputs (3.0 m/s, 0.6 s/step up, 1.5 s per m ascent, 15 s friction), not measured; SBB 300 s transfer budget starts at scheduled m2/bus arrival, real m2 dwell/alighting not modelled.",
+  "The temporary Simplon passerelle geometry (stairs + lift) is from SBB text; OSM shows bridge ways 1425301684/85 and stairs 1425301687 without step counts; parking du Simplon demolition (summer 2026) may move it.",
+  "Mirabeau side-of-tracks classification is by latitude only (low confidence)."
+ ]
+}

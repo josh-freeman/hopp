@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #fbfbfa; }
+    a { color: #d23b2f; } a:hover { color: #a82a21; }
+  </style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 56px 20px 28px; background: #fbfbfa; color: #111111; font-family: Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; gap: 18px;">
+
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <div style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-left: -12px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg>
+    </div>
+    <div style="font-size: 16px; font-weight: 600;">Sprint routes</div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px; border: 1px solid #e6e5e0; border-radius: 12px; background: #ffffff;">
+    <div style="flex-grow: 1; font-size: 16px; font-weight: 600;">Offer sprint routes</div>
+    <div style="display: flex; align-items: center; justify-content: flex-end; width: 46px; height: 28px; padding: 3px; box-sizing: border-box; border-radius: 14px; background: #111111;">
+      <div style="width: 22px; height: 22px; border-radius: 11px; background: #ffffff;"></div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b66;">Your sprint pace</div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid #e6e5e0; border-radius: 12px; background: #ffffff;">
+      <div style="display: flex; align-items: baseline; gap: 10px;">
+        <div style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;">3.5 m/s</div>
+        <div style="font-size: 13px; color: #6b6b66;">12.6 km/h · 460 m in about 3:00 with crossings and stairs</div>
+      </div>
+      <div style="font-size: 12px; line-height: 1.4; color: #6b6b66;">Default for a fit adult carrying a bag. It gets more accurate every time you sprint a route and tap "On the platform".</div>
+      <div style="display: flex; gap: 8px;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-grow: 1; height: 44px; border: 1px solid #111111; border-radius: 10px; background: #ffffff; font-size: 14px; font-weight: 600;">
+          <span>Connect Strava</span>
+          <div style="display: flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 10px; background: #ececea; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: #6b6b66;">SOON</div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; width: 120px; height: 44px; border: 1px solid #d9d8d2; border-radius: 10px; background: #ffffff; font-size: 14px; font-weight: 600;">Set manually</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b66;">Safety</div>
+    <div style="display: flex; flex-direction: column; border: 1px solid #e6e5e0; border-radius: 12px; background: #ffffff; overflow: hidden;">
+      <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px; border-bottom: 1px solid #e6e5e0;">
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+          <div style="font-size: 15px; font-weight: 500;">Minimum spare time</div>
+          <div style="font-size: 12px; color: #6b6b66;">Routes with less spare are not offered</div>
+        </div>
+        <div style="font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums;">45 s</div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b6b66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 16px;">
+        <div style="flex-grow: 1; font-size: 15px; font-weight: 500;">Carrying luggage today</div>
+        <div style="display: flex; align-items: center; width: 46px; height: 28px; padding: 3px; box-sizing: border-box; border-radius: 14px; background: #d9d8d2;">
+          <div style="width: 22px; height: 22px; border-radius: 11px; background: #ffffff;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b66;">Your runs</div>
+    <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px; border: 1px solid #e6e5e0; border-radius: 12px; background: #ffffff;">
+      <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+        <div style="font-size: 15px; font-weight: 600;">Zürich HB via Central</div>
+        <div style="font-size: 12px; color: #6b6b66;">3 runs · best 2:48 · crowd median 3:20</div>
+      </div>
+      <div style="display: flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 11px; background: #ececea; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #6b6b66;">SOON</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
