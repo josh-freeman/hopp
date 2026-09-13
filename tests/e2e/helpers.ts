@@ -38,7 +38,16 @@ export async function screenshotScreen(page: Page, testInfo: TestInfo, screen: S
   await testInfo.attach(`${screen} (${testInfo.project.name})`, { path, contentType: 'image/png' });
 }
 
+/** Wait for fonts and every finite CSS animation (screen entrances, band flips) so layout and contrast are measured at rest. */
+export async function settle(page: Page) {
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.all(document.getAnimations().filter(animation => { const timing = animation.effect?.getTiming(); return !!timing && timing.iterations !== Infinity; }).map(animation => animation.finished.catch(() => undefined)));
+  });
+}
+
 export async function auditLayout(page: Page, screen: Screen) {
+  await settle(page);
   const audit = await page.evaluate(() => {
     const problems: string[] = [];
     const width = window.innerWidth;

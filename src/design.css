@@ -485,7 +485,8 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
 
 /* Three intentional motions: the screen rises in, the map fades in, the live dot breathes. */
 @keyframes rise-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-#app[data-enter] .screen { animation: rise-in .22s ease-out both; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+#app[data-enter] .screen { animation: fade-in .2s ease-out both; }
 #app[data-enter] .live-instruction { animation: rise-in .3s cubic-bezier(.2, .8, .2, 1) both; }
 #app[data-enter] .live-numbers { animation: rise-in .3s cubic-bezier(.2, .8, .2, 1) .08s both; }
 #app[data-enter] .live-budget, #app[data-enter] .live-bottom { animation: rise-in .3s ease-out .14s both; }
@@ -582,3 +583,9 @@ h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; 
 .is-live .app-header { height: 56px; padding-block: 6px; }
 .is-live .screen { min-height: calc(100dvh - 56px); }
 .is-live .demo-banner + main .screen { min-height: calc(100dvh - 85px); }
+
+/* Narrow phones: both Results actions on one line each. */
+@media (max-width: 359px) {
+  .results-actions .primary { font-size: 15px; padding-inline: 14px; }
+  .results-actions > .text-button { min-width: auto; padding-inline: 6px; font-size: 13px; }
+}

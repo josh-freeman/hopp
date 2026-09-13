@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { allScreens, auditLayout, expectScreen, findConnections, showScreen, startDemo } from './helpers';
+import { allScreens, auditLayout, expectScreen, findConnections, showScreen, startDemo, settle } from './helpers';
 
 test('fresh profile reaches live in one tap after search, with honest budget and fallback', async ({ page }) => {
   await startDemo(page);
@@ -117,6 +117,7 @@ test('every screen has no serious or critical accessibility violations', async (
   test.setTimeout(120_000);
   await startDemo(page);
   const audit = async (screen: string) => {
+    await settle(page);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
     const significant = results.violations.filter(({ impact }) => impact === 'serious' || impact === 'critical');
     expect(significant.map(({ id, impact, nodes }) => ({ id, impact, elements: nodes.map(({ target }) => target) })), `${screen}: axe serious/critical violations`).toEqual([]);
@@ -256,6 +257,9 @@ test('accounts are optional and the demo never contacts real account or timetabl
   await page.getByRole('button', { name: 'Guide me there', exact: true }).click();
   await expectScreen(page, 'live');
   await expect(page.getByTestId('live-status')).toHaveText('GET OFF EARLY AT');
+  await expect(page.getByRole('button', { name: 'Your profile', exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Go back', exact: true }).click();
+  await expectScreen(page, 'results');
   await openDemoProfile(page);
   await expect(page.getByTestId('practice-points')).toHaveText('0');
   expect(externalRequests, 'Demo planning and sign-in stay entirely local').toEqual([]);
@@ -395,6 +399,7 @@ test('signed-in profile controls remain readable and accessible in light and dar
     await page.emulateMedia({ colorScheme });
     await page.evaluate(async () => { await document.fonts.ready; window.scrollTo(0, 0); });
     await auditLayout(page, 'account');
+    await settle(page);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
     const significant = results.violations.filter(({ impact }) => impact === 'serious' || impact === 'critical');
     expect(significant.map(({ id, impact, nodes }) => ({ id, impact, elements: nodes.map(({ target }) => target) })), `${colorScheme} account: axe serious/critical violations`).toEqual([]);
