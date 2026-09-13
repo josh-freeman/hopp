@@ -536,3 +536,49 @@ h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; 
 .time-field { border-radius: 0 0 11px 11px; }
 .brand-mark { border-radius: 5px; }
 .offer-timing { background: transparent; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 10px 0 4px; margin-top: 2px; }
+
+/* Vertical rhythm on a 4px grid. */
+.plan-screen { padding-top: 24px; gap: 24px; }
+.station-field { min-height: 88px; padding: 12px 8px 12px 16px; gap: 12px; }
+.station-field:first-child .field-icon::after { height: 77px; }
+.results-screen:has(.integrated-offer) { padding-top: 12px; }
+.results-screen .integrated-offer { padding: 16px; gap: 8px; }
+.integrated-route .route-map { margin-inline: -16px; }
+.integrated-route .route-directions { padding-block: 4px 8px; gap: 8px; }
+.live-screen { padding-top: 16px; gap: 16px; }
+.live-numbers > div { gap: 8px; }
+.live-budget { padding-block: 12px; }
+.connection-times { gap: 12px; }
+.account-screen { gap: 24px; }
+.account-benefits { gap: 16px; }
+.profile-pass { padding: 20px; }
+.practice-toggle { min-height: 80px; padding: 16px; }
+.practice-content { padding: 0 16px 16px; }
+.history-empty { padding: 16px; }
+.milestone-list > span { padding: 8px 12px; }
+.setting-switch { min-height: 92px; }
+.app-header { height: 64px; padding-block: 8px; }
+.screen { min-height: calc(100dvh - 64px); }
+.demo-banner + main .screen { min-height: calc(100dvh - 93px); }
+@media (max-height: 740px) {
+  .app-header { height: 56px; padding-block: 4px; }
+  .screen { min-height: calc(100dvh - 56px); }
+  .demo-banner + main .screen { min-height: calc(100dvh - 85px); }
+  .plan-screen { padding-top: 20px; gap: 20px; }
+  .station-field { min-height: 80px; padding-block: 8px; }
+  .station-field:first-child .field-icon::after { height: 69px; }
+  .live-screen { gap: 12px; padding-top: 12px; }
+  .live-numbers > div { gap: 4px; }
+  .live-budget { padding-block: 8px; }
+}
+@media (max-height: 620px) {
+  .plan-screen { padding-top: 12px; gap: 16px; }
+  .plan-screen .station-field { min-height: 68px; padding-block: 4px; }
+  .station-field:first-child .field-icon::after { height: 57px; }
+  .live-screen { gap: 8px; padding-top: 8px; }
+  .live-numbers > div { gap: 4px; }
+  .live-budget { padding-block: 4px; }
+}
+.is-live .app-header { height: 56px; padding-block: 6px; }
+.is-live .screen { min-height: calc(100dvh - 56px); }
+.is-live .demo-banner + main .screen { min-height: calc(100dvh - 85px); }
