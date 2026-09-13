@@ -25,7 +25,7 @@ Open `http://localhost:5173/hopp/` for real timetable searches. Open `http://loc
 
 - Swiss origin/destination search, nearby stops, departure time in Europe/Zurich, and recent destinations.
 - Regular connections plus a sprint offer only when a curated route leaves the full margin and improves arrival.
-- Search → results with the route map, timing, directions and fallback together → one tap on **Go live**. Route sources expand in place.
+- Search → results with the route map, timing, directions and fallback together → one tap on **Guide me there**. Route sources expand in place.
 - Live countdown, a separate **Start sprint** action, and platform self-confirmation.
 - One configurable sprint pace (3.5 m/s default), luggage adjustment, minimum margin and offer toggle; local preferences work without an account.
 - Isolated demo profiles with practice, daily-check points, cumulative milestones and six selectable profile styles. Account controls stay outside the trip flow.

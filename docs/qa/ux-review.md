@@ -22,7 +22,7 @@ The current flow is **Plan → Results → Live**, with Settings, platform confi
 | Short viewports need both legible guidance and a reachable action. | Primary actions remain in the lower viewport quarter. Live's decision, countdown, platform and fallback fit without scrolling at 320 × 568. Controls and text have explicit minimum sizes. |
 | WebKit reduced the native departure selector's height. | An explicit selector height and appearance keep the control usable across the WebKit viewport matrix. |
 
-The browser suite also covers no-offer trips, passed stops, unknown platforms, offline and rate-limit errors, Not now dismissal, and a late feeder that changes the decision to STAY ON. The suite checks all six screens and the signed-in Profile for serious/critical axe issues on representative WebKit and Chromium phones. The full 56-check browser suite passed; results are recorded in the QA guide. These checks cover only part of accessibility.
+The browser suite also covers no-offer trips, passed stops, unknown platforms, offline and rate-limit errors, Skip the sprint dismissal, and a late feeder that changes the decision to STAY ON. The suite checks all six screens and the signed-in Profile for serious/critical axe issues on representative WebKit and Chromium phones. The full 56-check browser suite passed; results are recorded in the QA guide. These checks cover only part of accessibility.
 
 ## Visual design
 
@@ -49,3 +49,18 @@ The browser suite replays unmodified Winterthur Archstrasse → Aarau timetable 
 - No participant think-aloud sessions have been conducted. [The script](think-aloud-script.md) is ready; three-second understanding, one-handed comfort and trust have not been established with users.
 - VoiceOver/TalkBack, software keyboard overlap, OS text scaling, browser chrome, safe areas, vibration and wake lock still need physical-device checks.
 - Demo and captured-timetable results do not field-verify walking routes, train stopping positions, station access or current transport conditions.
+
+
+## Design review · 2026-09-13 (evening)
+
+A designer-eye audit (six lenses over fresh light/dark screenshots at 390 × 844 and 344 × 882, plus an independent source audit) graded the app **C-** overall and **D-** for generic patterns. Thirty findings were fixed as separate `style(design): FINDING-NNN` commits; the audit report, before/after screenshots and grades live outside the repo in the reviewer's gstack project folder.
+
+What changed, in the rider's terms:
+
+- **Results** leads with the decision: `Get off early at Central`, then `Arrive 23:50 · 10 min earlier`, then the map; the GO pill is gone; the timing reads `0:52 to spare` with the derivation `5:00 at the door − 3:04 run − 1:05 margin` underneath; directions are numbered steps; the actions are **Guide me there** and **Skip the sprint** (reversible).
+- **Live** shows `Your stop in 0:58` as a third mono number, `LIVE / TIMETABLE / PAUSED`, an amber **STAY ON** state, a hairline `Miss it? Stay on the tram` row (never “fallback”, never “Gl.”), a quiet header without profile/settings, a band flip with a screen-reader announcement, and an urgent-red countdown under 30 s.
+- **Brand**: the ↗-in-a-square mark became the hop line (header, PWA icon, profile pass); the stroke runner left the headline; every clock time and duration is IBM Plex Mono with a tight colon.
+- **System**: a 12/14/16/20/24/32/40 type scale, three radii (4/8/12), a 4 px rhythm, one focus ring, pressed states on every control, hover only where hover exists, and an entrance/map-reveal/live-dot motion set that respects reduced motion.
+- **Copy**: Settings say “Your sprint pace” and “Safety margin”; Profile is “Optional. Free. Private.”; provenance is one sentence (“Platform from the timetable · route not yet run by Hopp”).
+
+Verification: `bun test` (110) and the full WebKit/Chromium suite (56 checks) pass. Test updates were limited to renamed labels, the new budget wording, an animation-settle helper before layout/axe measurements, and opening the profile from Results (the Live header hides it on purpose).

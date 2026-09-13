@@ -1,6 +1,6 @@
 # Phone QA
 
-Hopp's automated phone checks exercise the flow in design spec §0: Plan → Results with map, timing, directions and fallback → **Go live** → **Start sprint** → **On the platform**. Settings and Profile are optional. Profile adds practice, daily-use progress and saved private trip notes without adding a step to the trip flow. Route notes and sources expand within Results. Start sprint records when the passenger leaves the feeder so passing the alight stop does not incorrectly cancel a run already in progress. Demo scenarios run without transport API access or real account setup; **Open demo profile** uses isolated local data.
+Hopp's automated phone checks exercise the flow in design spec §0: Plan → Results with map, timing, directions and fallback → **Guide me there** → **Start sprint** → **On the platform**. Settings and Profile are optional. Profile adds practice, daily-use progress and saved private trip notes without adding a step to the trip flow. Route notes and sources expand within Results. Start sprint records when the passenger leaves the feeder so passing the alight stop does not incorrectly cancel a run already in progress. Demo scenarios run without transport API access or real account setup; **Open demo profile** uses isolated local data.
 
 Current validation, 2026-09-13: **110 frontend unit tests passed with 564 assertions; 68 backend tests passed** (32 Hopp checks plus 36 website/member/Stripe regressions). The full **56 browser checks passed in 21.3 seconds** after the account and map integration fixes. The current matrix covers 16 viewport classes and six screens, producing 96 screenshots. Five isolated backend response fixtures also passed the frontend Zod schemas. See [the UX review](ux-review.md) for changes and checks that still require physical devices or participants.
 
@@ -30,18 +30,18 @@ The browser preview at `/hopp/phone.html` has viewport, screen, and scenario sel
 Each viewport project runs one complete flow, audits Plan, Results, Live, Settings, On the platform and Profile, and writes screenshots to `docs/qa/<project>/<screen>.png`. Each image captures the visible phone viewport at one image pixel per CSS pixel, preserving the specified device dimensions. Scrollable content below the screenshot is also checked by the DOM layout audit and can be reviewed in the interactive preview. The suite checks:
 
 - No horizontal overflow; visible text at least 12 px; text inputs at least 16 px; interactive hit areas at least 44 × 44 px. A labeled checkbox or radio may use its associated label as its hit area.
-- Primary actions in the lower quarter of the viewport and above its bottom edge, including the Results **Go live** action.
+- Primary actions in the lower quarter of the viewport and above its bottom edge, including the Results **Guide me there** action.
 - Live countdown, alight stop, platform, and fallback fully visible before scrolling, including at 320 × 568.
 - A sprint offer shows its public train number and departure time above normal connections, with the matching route included in the same screen.
-- Across all sixteen viewport classes, the entire Results map image is visible above the fixed **Go live** action, is at least 180 px high and uses `object-fit: contain`; both endpoints remain in view, including at 320 × 568.
+- Across all sixteen viewport classes, the entire Results map image is visible above the fixed **Guide me there** action, is at least 180 px high and uses `object-fit: contain`; both endpoints remain in view, including at 320 × 568.
 
 The behavior and accessibility suite runs on one representative WebKit phone (390 × 844) and one Chromium phone (412 × 915), avoiding duplicated scenario runs on every size. It checks:
 
-- Fresh storage requires no account, pace setup, or location permission. Results → **Go live** takes one action tap after search.
+- Fresh storage requires no account, pace setup, or location permission. Results → **Guide me there** takes one action tap after search.
 - The budget says “You have”, “need”, and “margin”; walking remains a comparison; fallback stays visible through commitment and live mode.
 - The route map loads within Results, begins in the upper half of the representative phone viewports, and has at least 140 px of visible map height. Directions and sources can be read before starting the sprint.
 - Legacy `#try`, `#route`, `#detail` and `#shortcut` links resolve to the combined `#results` screen.
-- Not now dismisses the offer while retaining regular connections and the fallback.
+- Skip the sprint dismisses the offer while retaining regular connections and the regular-connection row; a text link restores it.
 - `?mock=nohack`, `passed`, and `unknown` show normal connections without a sprint offer.
 - `?mock=offline` and `ratelimit` finish loading, explain the error, and allow retry.
 - `?mock=late&poll=1000` updates the live verdict to STAY ON while retaining the fallback.
