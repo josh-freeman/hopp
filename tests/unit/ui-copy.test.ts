@@ -77,7 +77,7 @@ test('bus and origin shortcuts use the correct arrival instruction', async () =>
   const now = Date.now() / 1000;
   const result = await planTrip(createMockClient('happy'), { from: 'Zürich, Bellevue', to: 'Bern', when: now }, DEFAULT_PROFILE);
   result.opportunity!.feeder!.journey!.category = 'BUS';
-  expect(arrivalText(result, now)).toStartWith('Bus arrives in');
+  expect(arrivalText(result, now)).toStartWith('Your stop in');
   expect(liveScreen(result, result.recommended!, now, false)).not.toContain('Tram arrives');
   delete result.opportunity!.feeder;
   result.opportunity!.kind = 'origin';
