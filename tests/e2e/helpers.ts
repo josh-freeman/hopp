@@ -83,7 +83,10 @@ export async function auditLayout(page: Page, screen: Screen) {
   for (let index = 0; index < await actions.count(); index++) {
     const action = actions.nth(index);
     if (!(await action.isVisible())) continue;
-    const rect = await action.boundingBox();
+    const rect = await action.evaluate(element => {
+      const box = element.getBoundingClientRect();
+      return { y: box.y, height: box.height, width: box.width };
+    });
     const viewport = page.viewportSize()!;
     expect(rect, `${screen}: primary action has a visible hit area`).not.toBeNull();
     expect(rect!.y + rect!.height / 2, `${screen}: primary action in lower quarter`).toBeGreaterThanOrEqual(viewport.height * 0.75);
@@ -94,10 +97,9 @@ export async function auditLayout(page: Page, screen: Screen) {
     await expect(page.locator('.demo-banner')).toBeInViewport({ ratio: 1 });
     for (const id of ['countdown', 'platform', 'alight', 'fallback']) {
       const element = page.getByTestId(id);
-      await expect(element).toBeVisible();
-      const rect = await element.boundingBox();
-      expect(rect!.y, `${id}: above viewport top`).toBeGreaterThanOrEqual(-1);
-      expect(rect!.y + rect!.height, `${id}: fully above fold`).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+      // The first live tick may replace the nodes between browser protocol
+      // calls. This locator assertion re-reads the current node atomically.
+      await expect(element, `${id}: fully visible before scrolling`).toBeInViewport({ ratio: 1 });
     }
   }
 }
