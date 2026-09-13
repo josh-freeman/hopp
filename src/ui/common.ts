@@ -16,7 +16,7 @@ export function connectionRow(c: Connection): string {
   const rides = c.sections.filter(s => s.journey);
   const duration = Math.max(0, Math.round((arrival - departure) / 60));
   const names = rides.map(s => journeyLabel(s.journey)).join(' → ');
-  return `<article class="connection-row" data-testid="connection-row"><div class="connection-times"><strong>${t(formatTime(departure))}</strong><span class="journey-line"></span><strong>${t(formatTime(arrival))}</strong><span>${duration} min</span></div><p>${icon('train')} ${esc(names || 'Walk')}<span>${Math.max(0, rides.length - 1)} changes</span></p></article>`;
+  return `<article class="connection-row" data-testid="connection-row"><div class="connection-times"><strong>${t(formatTime(departure))}</strong><span class="journey-line"></span><strong>${t(formatTime(arrival))}</strong><span>${duration} min</span></div><p>${icon('train')} ${esc(names || 'Walk')}<span>${rides.length <= 1 ? 'Direct' : rides.length === 2 ? '1 change' : `${rides.length - 1} changes`}</span></p></article>`;
 }
 export function fallback(result: PlanResult, compact = false, alreadyOff = false): string {
   const connection = result.fallback ?? (result.fallbackAtRisk ? undefined : result.connections[0]);
