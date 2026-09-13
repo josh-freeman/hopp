@@ -475,3 +475,9 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
   .primary[aria-busy="true"] { background: #d7e3dc; }
   .primary[aria-busy="true"] .spinner { border-color: #18252d33; border-top-color: #18252d; }
 }
+
+/* The band flip is the one motion that must be felt: GO to STAY ON. */
+@keyframes band-flip { 0% { transform: scale(1); opacity: 1; } 35% { transform: scale(.97); opacity: .35; } 100% { transform: scale(1); opacity: 1; } }
+.live-instruction[data-flip] { animation: band-flip .36s ease-out both; }
+.live-numbers strong { transition: color .25s ease-out; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

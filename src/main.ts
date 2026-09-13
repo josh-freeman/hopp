@@ -11,7 +11,7 @@ import { esc, icon, button, t } from './ui/html';
 import { planScreen, settingsScreen } from './ui/plan';
 import { resultsScreen, doneScreen } from './ui/journey';
 import { liveScreen } from './ui/live';
-import { arrivalText, trainName } from './ui/common';
+import { arrivalText, shortStop, trainName } from './ui/common';
 import { createAccountIntegration } from './account/integration';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
@@ -65,7 +65,7 @@ function render(): void {
   else if (screen === 'live') content = liveScreen(result!, selected!, now(), running);
   else if (screen === 'done') content = doneScreen(result!, selected);
   else content = planScreen(profile, from, to);
-  app.innerHTML = `${header()}${mock ? '<div class="demo-banner">Demo · example times</div>' : ''}<main id="main" tabindex="-1">${content}</main><div class="toast" role="status" id="toast"></div>`;
+  app.innerHTML = `${header()}${mock ? '<div class="demo-banner">Demo · example times</div>' : ''}<main id="main" tabindex="-1">${content}</main><div class="toast" role="status" id="toast"></div><div id="announce" class="sr-only" aria-live="assertive"></div>`;
   app.classList.toggle('is-live', screen === 'live');
   if (error && screen === 'plan') showSearchError();
   if (loading && !refreshing) showLoading();
@@ -136,7 +136,14 @@ function updateLive(): void {
   if (sig !== liveSignature) {
     if (liveSignature.startsWith('true') && !active && 'vibrate' in navigator) navigator.vibrate([200, 100, 200]);
     const focused = (document.activeElement as HTMLElement | null)?.dataset.action;
-    document.querySelector('#main')!.innerHTML = liveScreen(result, selected, seconds, running); liveSignature = sig;
+    const wasActive = liveSignature.startsWith('true');
+    document.querySelector('#main')!.innerHTML = liveScreen(result, selected, seconds, running);
+    if (liveSignature && wasActive !== active) {
+      document.querySelector('.live-instruction')?.setAttribute('data-flip', '');
+      const announce = document.querySelector('#announce');
+      if (announce) announce.textContent = active ? `Go. Get off at ${shortStop(result.opportunity?.hack.alight.name ?? '')}.` : 'Stay on. The tram is late.';
+    }
+    liveSignature = sig;
     if (focused) document.querySelector<HTMLElement>(`[data-action="${focused}"]`)?.focus({ preventScroll: true });
   } else if (active) {
     const countdown = document.querySelector('[data-testid="countdown"]');
