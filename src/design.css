@@ -115,10 +115,10 @@ h1, h2, h3 { font-weight: 650; }
 .integrated-route > h3 svg { display: none; }
 .integrated-route .route-map, .integrated-route .route-diagram { grid-column: 1; }
 .integrated-route .route-map { margin-inline: -14px; border-color: var(--line); background: #f2f2ec; }
-.integrated-route .route-map img { height: clamp(180px, 24dvh, 230px); }
-.integrated-route .route-map figcaption { padding: 8px 14px; font-size: 12px; }
-.integrated-route .route-map-link { display: inline-flex; align-items: center; gap: 3px; min-height: 44px; width: auto; padding: 0; font-size: 12px; color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
-.integrated-route .route-map-link svg { width: 13px; height: 13px; transform: rotate(-45deg); }
+.integrated-route .route-map img { height: clamp(180px, 24dvh, 230px); object-fit: cover; object-position: 50% 45%; }
+.integrated-route .route-map figcaption { padding: 8px 16px; font-size: 12px; }
+.integrated-route .route-map-link { display: inline; min-height: 0; padding-block: 14px; font-size: 12px; color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.integrated-route .route-map-link svg { width: 13px; height: 13px; margin-left: 3px; vertical-align: -2px; transform: rotate(-45deg); }
 .integrated-route .route-directions { grid-column: 1 / -1; padding-block: 3px 8px; gap: 7px; }
 .integrated-route .route-directions h3 { font-size: 16px; font-weight: 650; }
 .integrated-route .route-directions p { font-size: 14px; line-height: 1.6; }
@@ -222,7 +222,7 @@ h1, h2, h3 { font-weight: 650; }
 .account-button.has-account::after { content: ''; position: absolute; right: 9px; top: 8px; width: 6px; height: 6px; background: var(--green); border-radius: 50%; border: 1px solid var(--paper); }
 .results-screen .integrated-offer .offer-directive { display: block; font-size: 28px; letter-spacing: -.03em; line-height: 1.1; }
 .offer-directive > span { color: var(--red); }
-.offer-regular-stop { font-size: 12px; color: var(--muted); margin-top: -3px; }
+.results-screen .integrated-offer .offer-regular-stop { font-size: 12px; color: var(--muted); margin-top: -3px; }
 .offer-service { display: flex; align-items: baseline; gap: 5px; font-size: 12px; flex-wrap: wrap; }
 .offer-service .service-name { font-size: 14px; }
 .offer-service .departure-time { font-size: 15px; letter-spacing: 0; }
@@ -360,7 +360,6 @@ h1, h2, h3 { font-weight: 650; }
   .plan-screen .local-note small { display: none; }
   .results-screen .integrated-offer { gap: 6px; }
   .results-screen .integrated-offer .offer-directive { font-size: 21px; }
-  .offer-regular-stop { font-size: 12px; }
   .live-instruction .eyebrow { font-size: 12px; }
 }
 @media (max-width: 359px) {
@@ -586,8 +585,9 @@ h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; 
 
 /* Narrow phones: both Results actions on one line each. */
 @media (max-width: 359px) {
-  .results-actions .primary { font-size: 15px; padding-inline: 14px; }
-  .results-actions > .text-button { min-width: auto; padding-inline: 6px; font-size: 13px; }
+  .bottom-actions.results-actions { gap: 6px; }
+  .results-actions .primary { white-space: nowrap; padding-inline: 14px; gap: 8px; font-size: 16px; }
+  .results-actions > .text-button { min-width: 0; padding-inline: 4px; font-size: 14px; }
 }
 
 /* Short phones: the map must stay above the action bar; secondary lines give way first. */
