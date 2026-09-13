@@ -7,7 +7,7 @@ import { planTrip, refreshPlan, journeyKey } from './planner';
 import { formatDuration, swissDateTime } from './engine';
 import { readProfile, saveProfile, rememberDestination } from './storage/prefs';
 import { keepAwake } from './pwa/wakelock';
-import { esc, icon, button } from './ui/html';
+import { esc, icon, button, t } from './ui/html';
 import { planScreen, settingsScreen } from './ui/plan';
 import { resultsScreen, doneScreen } from './ui/journey';
 import { liveScreen } from './ui/live';
@@ -137,7 +137,7 @@ function updateLive(): void {
     if (focused) document.querySelector<HTMLElement>(`[data-action="${focused}"]`)?.focus({ preventScroll: true });
   } else if (active) {
     const countdown = document.querySelector('[data-testid="countdown"]');
-    if (countdown) countdown.textContent = formatDuration(Math.max(0, selected.departureTs - 20 - seconds));
+    if (countdown) countdown.innerHTML = t(formatDuration(Math.max(0, selected.departureTs - 20 - seconds)));
     const arrival = document.querySelector('.live-instruction > p:last-child');
     if (arrival && !running) arrival.textContent = arrivalText(result, seconds);
     if (!running) {

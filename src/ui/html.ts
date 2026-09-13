@@ -1,4 +1,6 @@
 export const esc = (value: unknown): string => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+// Times and durations: mono digits with a visually tight colon.
+export const t = (s: string) => `<span class="t">${esc(s).replace(':', '<span class="colon">:</span>')}</span>`;
 const paths: Record<string, string> = {
   arrow: '<path d="M5 12h14m-6-6 6 6-6 6"/>', back: '<path d="m14 6-6 6 6 6"/>',
   pin: '<path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/>',

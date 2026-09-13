@@ -107,7 +107,7 @@ h1, h2, h3 { font-weight: 650; }
 .go-word { background: var(--green-bg); border: 1px solid #d2e2d6; border-radius: 4px; padding: 2px 7px; font-size: 12px; letter-spacing: .04em; }
 .results-screen .integrated-offer h2 { display: flex; align-items: center; gap: 8px; font-size: 24px; letter-spacing: -.6px; }
 .service-name { font-size: 21px; font-weight: 650; }
-.departure-time { font-family: var(--mono); font-weight: 500; font-size: 25px; letter-spacing: -1px; }
+.departure-time { font-family: var(--mono); font-weight: 500; font-size: 25px; letter-spacing: 0; }
 .results-screen .offer-access { font-size: 13px; }
 .results-screen .offer-arrival { display: flex; align-items: center; gap: 7px; }
 .offer-arrival strong { color: var(--green); font-weight: 600; }
@@ -129,7 +129,7 @@ h1, h2, h3 { font-weight: 650; }
 .integrated-offer .route-notes { margin-top: 5px; }
 .fallback { background: var(--card); }
 .fallback-icon { color: var(--ink); }
-.connection-times strong { font-family: var(--mono); font-weight: 500; font-size: 21px; letter-spacing: -.8px; }
+.connection-times strong { font-family: var(--mono); font-weight: 500; font-size: 21px; letter-spacing: -.02em; }
 .journey-line { background: #9ba6a4; }
 .connection-row p { font-size: 13px; }
 .connection-row p > span { font-size: 12px; }
@@ -144,7 +144,7 @@ h1, h2, h3 { font-weight: 650; }
 .live-instruction > p:last-child { color: #d6dfdc; }
 .live-numbers { align-items: flex-start; padding: 2px 0; }
 .live-numbers > div { gap: 10px; }
-.live-numbers strong { font-family: var(--mono); font-weight: 500; font-size: clamp(43px, 14vw, 60px); line-height: 1.25; letter-spacing: -2.6px; }
+.live-numbers strong { font-family: var(--mono); font-weight: 500; font-size: clamp(43px, 14vw, 60px); line-height: 1.25; letter-spacing: -.04em; }
 .live-numbers [data-testid=platform] { min-width: 70px; align-self: flex-start; text-align: center; font-size: 44px; background: var(--ink); color: var(--card); border-radius: 6px; padding: 3px 10px; line-height: 1.4; letter-spacing: -2px; }
 .live-numbers [data-testid=countdown] { padding-top: 3px; }
 .live-budget { padding-block: 14px; }
@@ -225,7 +225,7 @@ h1, h2, h3 { font-weight: 650; }
 .offer-regular-stop { font-size: 12px; color: var(--muted); margin-top: -3px; }
 .offer-service { display: flex; align-items: baseline; gap: 5px; font-size: 12px; flex-wrap: wrap; }
 .offer-service .service-name { font-size: 14px; }
-.offer-service .departure-time { font-size: 15px; letter-spacing: -.5px; }
+.offer-service .departure-time { font-size: 15px; letter-spacing: 0; }
 .offer-service strong { font-size: 12px; }
 .results-screen .integrated-offer { gap: 7px; }
 .live-instruction .eyebrow { font-weight: 650; font-size: 14px; }
@@ -379,3 +379,10 @@ h1, h2, h3 { font-weight: 650; }
   .results-screen .integrated-route { gap: 6px; }
   .results-screen .integrated-route .route-map img { height: 190px; }
 }
+
+/* Every clock time and duration: mono digits, tabular, with the colon pulled in. */
+.t { font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.t .colon { display: inline-block; margin-inline: -.13em; }
+.live-numbers .t .colon { margin-inline: -.1em; position: relative; top: -.04em; }
+.fallback .t, .live-train .t { font-size: 1em; }
+.arrival-info .t { font-size: .95em; }

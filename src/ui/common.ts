@@ -1,6 +1,6 @@
 import type { Candidate, Connection, PlanResult, Journey } from '../types';
 import { formatDuration, formatTime, stopTime } from '../engine';
-import { esc, icon } from './html';
+import { esc, icon, t } from './html';
 export const shortStop = (value: string) => value.replace(/^[^,]+,\s*/, '');
 export const journeyLabel = (j?: Journey | null) => j?.category && j?.number ? `${j.category} ${j.number}` : j?.name || j?.category || 'Train';
 export function arrivalText(result: PlanResult, now: number): string {
@@ -17,7 +17,7 @@ export function connectionRow(c: Connection): string {
   const rides = c.sections.filter(s => s.journey);
   const duration = Math.max(0, Math.round((arrival - departure) / 60));
   const names = rides.map(s => journeyLabel(s.journey)).join(' → ');
-  return `<article class="connection-row" data-testid="connection-row"><div class="connection-times"><strong>${formatTime(departure)}</strong><span class="journey-line"></span><strong>${formatTime(arrival)}</strong><span>${duration} min</span></div><p>${icon('train')} ${esc(names || 'Walk')}<span>${Math.max(0, rides.length - 1)} changes</span></p></article>`;
+  return `<article class="connection-row" data-testid="connection-row"><div class="connection-times"><strong>${t(formatTime(departure))}</strong><span class="journey-line"></span><strong>${t(formatTime(arrival))}</strong><span>${duration} min</span></div><p>${icon('train')} ${esc(names || 'Walk')}<span>${Math.max(0, rides.length - 1)} changes</span></p></article>`;
 }
 export function fallback(result: PlanResult, compact = false, alreadyOff = false): string {
   const connection = result.fallback ?? (result.fallbackAtRisk ? undefined : result.connections[0]);
@@ -29,7 +29,7 @@ export function fallback(result: PlanResult, compact = false, alreadyOff = false
   const label = journeyLabel(train?.journey);
   const title = result.fallbackAtRisk ? 'SBB connection also at risk' : compact ? 'Your SBB fallback' : 'Your regular SBB connection';
   const stayOn = alreadyOff ? undefined : result.opportunity?.feeder?.arrival.station.name;
-  return `<aside class="fallback ${compact ? 'compact' : ''}" data-testid="fallback"><span class="fallback-icon">${icon('train')}</span><div><strong>${title}</strong>${stayOn ? `<p class="muted">Stay on to ${esc(shortStop(stayOn))}</p>` : ''}<p>${esc(label || 'Train')} ${formatTime(dep)}${platform ? ` · Gl. ${esc(platform)}` : ''} · arrives ${formatTime(stopTime(connection.to, 'arrival'))}</p>${!compact ? `<p class="muted">${result.fallbackAtRisk ? 'Refresh connections before continuing.' : 'Follow the regular transfer.'}</p>` : ''}</div></aside>`;
+  return `<aside class="fallback ${compact ? 'compact' : ''}" data-testid="fallback"><span class="fallback-icon">${icon('train')}</span><div><strong>${title}</strong>${stayOn ? `<p class="muted">Stay on to ${esc(shortStop(stayOn))}</p>` : ''}<p>${esc(label || 'Train')} ${t(formatTime(dep))}${platform ? ` · Gl. ${esc(platform)}` : ''} · arrives ${t(formatTime(stopTime(connection.to, 'arrival')))}</p>${!compact ? `<p class="muted">${result.fallbackAtRisk ? 'Refresh connections before continuing.' : 'Follow the regular transfer.'}</p>` : ''}</div></aside>`;
 }
 export function badges(result: PlanResult, c: Candidate): string {
   return `<div class="badges"><span>Not yet timed on foot</span><span>${c.live ? 'Timing updated' : 'Scheduled times'}</span><span>Platform as scheduled</span>${c.route?.helps === 'marginal' ? '<span>Small gain</span>' : ''}</div>`;
