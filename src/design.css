@@ -124,7 +124,7 @@ h1, h2, h3 { font-weight: 650; }
 .integrated-route .route-directions { grid-column: 1 / -1; padding-block: 3px 8px; gap: 7px; }
 .integrated-route .route-directions h3 { font-size: 16px; font-weight: 650; }
 .integrated-route .route-directions p { font-size: 14px; line-height: 1.6; }
-.badges span { border-radius: 4px; background: #f0f1eb; }
+.route-status { font-size: 12px; color: var(--muted); line-height: 1.5; }
 .integrated-offer .route-notes { margin-top: 5px; }
 .fallback, .results-screen .fallback { background: transparent; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 12px 0; gap: 12px; }
 .fallback-icon { color: var(--ink); }
@@ -199,7 +199,7 @@ h1, h2, h3 { font-weight: 650; }
   :root { --paper: #182127; --card: #202c33; --ink: #f0f3ed; --muted: #b2bdbd; --line: #39484c; --red: #d96b53; --green: #b4d7bb; --green-bg: #2a4038; background: #11191f; }
   .demo-banner { background: #303b3e; color: #d0d7d4; border-color: var(--line); }
   .journey-fields, .results-screen .integrated-offer { border-color: var(--line); }
-  .time-field, .badges span { background: #28363c; }
+  .time-field { background: #28363c; }
   .offer-timing { background: #293b33; }
   .primary:hover, .results-actions .primary:hover, .live-bottom .primary:hover { background: #d7e3dc; }
   .live-instruction { background: #edf1e9; color: #18252d; }

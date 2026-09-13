@@ -31,5 +31,5 @@ export function fallback(result: PlanResult, compact = false, alreadyOff = false
   return `<aside class="fallback ${compact ? 'compact' : ''}" data-testid="fallback"><span class="fallback-icon">${icon('train')}</span><div><strong>${title}</strong><p>${esc(label || 'Train')} · ${t(formatTime(dep))}${stayOn ? ` from ${esc(shortStop(stayOn))}` : ''}${platform ? ` · Platform ${esc(platform)}` : ''} · arrives ${t(formatTime(stopTime(connection.to, 'arrival')))}</p>${!compact ? `<p class="muted">${result.fallbackAtRisk ? 'Refresh connections before continuing.' : 'Follow the regular transfer.'}</p>` : ''}</div></aside>`;
 }
 export function badges(result: PlanResult, c: Candidate): string {
-  return `<div class="badges"><span>Not yet timed on foot</span><span>${c.live ? 'Timing updated' : 'Scheduled times'}</span><span>Platform as scheduled</span>${c.route?.helps === 'marginal' ? '<span>Small gain</span>' : ''}</div>`;
+  return `<p class="route-status">Platform from the timetable · route drawn from maps, not yet run by Hopp${c.route?.helps === 'marginal' ? ' · saves only a few minutes' : ''}</p>`;
 }
