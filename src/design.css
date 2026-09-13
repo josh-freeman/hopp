@@ -104,13 +104,12 @@ h1, h2, h3 { font-weight: 650; }
 .results-screen .integrated-offer { background: var(--card); border-color: #d2d6d0; border-radius: 13px; padding: 14px; gap: 8px; }
 .offer-label { color: var(--muted); font-size: 12px; font-weight: 500; }
 .offer-label > svg { color: var(--red); width: 18px; height: 18px; }
-.go-word { background: var(--green-bg); border: 1px solid #d2e2d6; border-radius: 4px; padding: 2px 7px; font-size: 12px; letter-spacing: .04em; }
 .results-screen .integrated-offer h2 { display: flex; align-items: center; gap: 8px; font-size: 24px; letter-spacing: -.6px; }
 .service-name { font-size: 21px; font-weight: 650; }
 .departure-time { font-family: var(--mono); font-weight: 500; font-size: 25px; letter-spacing: 0; }
 .results-screen .offer-access { font-size: 13px; }
-.results-screen .offer-arrival { display: flex; align-items: center; gap: 7px; }
-.offer-arrival strong { color: var(--green); font-weight: 600; }
+.results-screen .offer-arrival { display: flex; align-items: baseline; gap: 6px; font-size: 14px; color: var(--ink); margin-top: -2px; }
+.offer-arrival strong { color: var(--green); font-weight: 650; }
 .offer-timing { background: #f0f3ed; border: 0; padding: 8px 10px; border-radius: 6px; margin-top: 2px; gap: 2px; }
 .budget strong, .offer-spare strong { font-family: var(--mono); font-weight: 500; letter-spacing: -.4px; }
 .results-screen .offer-spare strong { font-size: 14px; }
@@ -201,7 +200,6 @@ h1, h2, h3 { font-weight: 650; }
   .journey-fields, .results-screen .integrated-offer { border-color: var(--line); }
   .time-field, .badges span { background: #28363c; }
   .offer-timing { background: #293b33; }
-  .go-word { border-color: #445e4e; }
   .primary:hover, .results-actions .primary:hover, .live-bottom .primary:hover { background: #d7e3dc; }
   .live-instruction { background: #edf1e9; color: #18252d; }
   .live-instruction .eyebrow, .live-instruction > p:last-child { color: #4d605e; }
