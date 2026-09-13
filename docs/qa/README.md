@@ -63,6 +63,12 @@ The metrics checks cover authenticated DAU/WAU/MAU/YAU, activation, DAU/MAU stic
 
 Passing these suites does not establish a human Google consent round trip. Frontend Pages publication and the account API deployment are separate; a successful anonymous planner request does not prove authenticated production mutations work. No production account is created or deleted by the mock browser suite.
 
+## Published release checks
+
+GitHub [run 34775535766](https://github.com/josh-freeman/hopp/actions/runs/34775535766) passed all 56 browser tests on Linux and deployed frontend revision `d87b17c` on 2026-09-13. A direct browser check on the public site then confirmed the SVG headline, early-exit result, isolated demo signup, a 25-point practice award and the Forest style surviving reload, with no uncaught errors or external demo requests. The public video played successfully: HTTP 200, 40.04 seconds, 780 × 1688, with no horizontal overflow.
+
+The real sign-in availability check received HTTP 404 from the undeployed account endpoint and displayed the unavailable message inside Hopp. This confirms the fallback behavior, not live Google authentication. Backend revision `f924884` is ready to deploy after Fly billing is resolved.
+
 ## Physical-device and human checks
 
 These projects emulate viewport dimensions, mobile input, and browser engines. They do **not** establish that a physical iPhone or Samsung device was tested. Device names identify viewport classes, not certified model coverage. The one-pixel screenshot scale also does not simulate native pixel density. Browser chrome, notches and safe-area values, software keyboard behavior, OS text scaling, thermal/network conditions, vibration, and wake lock need checks on real hardware.
