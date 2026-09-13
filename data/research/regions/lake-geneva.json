@@ -1,0 +1,62 @@
+[
+  {
+    "id": "nyon.centre-ville",
+    "station": "Nyon",
+    "region": "Lake Geneva",
+    "from": "Nyon, centre ville",
+    "title": "Nyon, centre ville → Nyon, Voie 1 via Rue de la Gare",
+    "status": "researched",
+    "summary": "A verified public surface path to Voie 1 can fit inside the observed five-minute planner walk for some departure windows. Earlier arrival must still be established from the actual timetable.",
+    "access": "From centre ville, follow the public pavement of Rue de la Gare uphill towards the station. Use the marked crossings at the station forecourt, then follow the public footpath to Voie 1. Remain on the station-building side of the railway; this route does not use an underpass or cross railway tracks.",
+    "platforms": [
+      "1"
+    ],
+    "distanceM": 202,
+    "plannerBudgetS": 300,
+    "sources": [
+      {
+        "title": "Actual Geneva-bound connections",
+        "url": "https://transport.opendata.ch/v1/connections?from=8593874&to=8501008&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OSM full station extract",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=6.2305,46.3815,6.2395,46.3880",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Mapped centre ville bus platform",
+        "url": "https://www.openstreetmap.org/node/1837005634",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Voie 1 platform polygon",
+        "url": "https://www.openstreetmap.org/way/210675017",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Connected public path landing",
+        "url": "https://www.openstreetmap.org/node/5149171869",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "City station project and future works",
+        "url": "https://www.nyon.ch/nyon-officiel/grands-projets/gare-de-nyon/",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "All four real Geneva-bound connections use Voie 1 after a 300-second leading walk.",
+      "Selected step-free graph trace is 201.6 m; the model rounds to 225 m and adds two crossing delays plus a 150 m door allowance.",
+      "The graph contains public footways, a pedestrian street and Rue de la Gare living street with both sidewalks; no railway crossing or private gate is used.",
+      "A shorter 154.8 m graph route used stairs without measured rise and was excluded.",
+      "The City describes a future Viollier underpass as a planning project; it is not included."
+    ],
+    "fieldChecks": [
+      "Time the public pavement route, including the marked crossings, on foot.",
+      "Confirm the alighting kerb and current signage at Rue de la Gare.",
+      "Check train stopping positions: the 150 m door approach is a modelling allowance, not a measured train formation."
+    ],
+    "activeHackId": "nyon.centre-ville"
+  }
+]

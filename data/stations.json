@@ -1,0 +1,207 @@
+{
+  "8500010": {
+    "name": "Basel SBB",
+    "minTransferS": 360,
+    "observedPlatforms": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "14",
+      "15",
+      "16",
+      "16A-C",
+      "19",
+      "20",
+      "31",
+      "33",
+      "35",
+      "7CD"
+    ]
+  },
+  "8500160": {
+    "name": "Basel, IWB",
+    "minTransferS": 480,
+    "observedPlatforms": []
+  },
+  "8500193": {
+    "name": "Basel, Markthalle",
+    "minTransferS": 480,
+    "observedPlatforms": []
+  },
+  "8501008": {
+    "name": "Genève",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8501030": {
+    "name": "Nyon",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8501120": {
+    "name": "Lausanne",
+    "minTransferS": 300,
+    "observedPlatforms": [
+      "1",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "70"
+    ]
+  },
+  "8503000": {
+    "name": "Zürich HB",
+    "minTransferS": 300,
+    "observedPlatforms": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "31",
+      "32",
+      "33",
+      "34",
+      "41/42",
+      "43/44"
+    ]
+  },
+  "8503006": {
+    "name": "Zürich Oerlikon",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8504221": {
+    "name": "Neuchâtel",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8504300": {
+    "name": "Biel/Bienne",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8506000": {
+    "name": "Winterthur",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8507000": {
+    "name": "Bern",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8509000": {
+    "name": "Chur",
+    "minTransferS": 0,
+    "observedPlatforms": []
+  },
+  "8571313": {
+    "name": "Chur, Post I",
+    "minTransferS": 240,
+    "observedPlatforms": []
+  },
+  "8576391": {
+    "name": "Biel/Bienne, Bahnhof/Gare",
+    "minTransferS": 300,
+    "observedPlatforms": []
+  },
+  "8576646": {
+    "name": "Bern, Bahnhof",
+    "minTransferS": 360,
+    "observedPlatforms": []
+  },
+  "8578143": {
+    "name": "Basel, Bahnhof SBB",
+    "minTransferS": 360,
+    "observedPlatforms": []
+  },
+  "8579625": {
+    "name": "Neuchâtel, gare nord",
+    "minTransferS": 240,
+    "observedPlatforms": []
+  },
+  "8579896": {
+    "name": "Bern, Hirschengraben",
+    "minTransferS": 540,
+    "observedPlatforms": []
+  },
+  "8587348": {
+    "name": "Zürich, Bahnhofplatz/HB",
+    "minTransferS": 420,
+    "observedPlatforms": []
+  },
+  "8587349": {
+    "name": "Zürich, Bahnhofquai/HB",
+    "minTransferS": 420,
+    "observedPlatforms": []
+  },
+  "8587619": {
+    "name": "Biel/Bienne, Place Guisan",
+    "minTransferS": 420,
+    "observedPlatforms": []
+  },
+  "8588078": {
+    "name": "Zürich, Central",
+    "minTransferS": 540,
+    "observedPlatforms": []
+  },
+  "8591062": {
+    "name": "Zürich Oerlikon, Bahnhof Nord",
+    "minTransferS": 240,
+    "observedPlatforms": []
+  },
+  "8591067": {
+    "name": "Zürich, Bahnhofstrasse/HB",
+    "minTransferS": 420,
+    "observedPlatforms": []
+  },
+  "8591367": {
+    "name": "Zürich, Sihlpost/HB",
+    "minTransferS": 540,
+    "observedPlatforms": []
+  },
+  "8592050": {
+    "name": "Lausanne, gare (m2)",
+    "minTransferS": 300,
+    "observedPlatforms": []
+  },
+  "8592850": {
+    "name": "Genève, Lyon",
+    "minTransferS": 420,
+    "observedPlatforms": []
+  },
+  "8593874": {
+    "name": "Nyon, centre ville",
+    "minTransferS": 300,
+    "observedPlatforms": []
+  },
+  "8594298": {
+    "name": "Winterthur, Archstrasse/HB",
+    "minTransferS": 420,
+    "observedPlatforms": []
+  }
+}

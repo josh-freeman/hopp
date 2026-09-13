@@ -1,0 +1,1834 @@
+{
+  "start": 12503825978,
+  "target": 6048976108,
+  "distanceM": 856.7847861056409,
+  "chain": [
+    [
+      12503825978,
+      13602180469,
+      233303169,
+      19.142241361312095
+    ],
+    [
+      13602180469,
+      5361903590,
+      233303169,
+      10.69328355278012
+    ],
+    [
+      5361903590,
+      275917160,
+      233303169,
+      74.01368904202499
+    ],
+    [
+      275917160,
+      10001937222,
+      56321725,
+      6.398554574500978
+    ],
+    [
+      10001937222,
+      3236038388,
+      56321725,
+      6.755955395407925
+    ],
+    [
+      3236038388,
+      2832503495,
+      56321725,
+      41.3005695968165
+    ],
+    [
+      2832503495,
+      5354443469,
+      56321725,
+      8.412713325990124
+    ],
+    [
+      5354443469,
+      255670571,
+      56321725,
+      8.149249823895959
+    ],
+    [
+      255670571,
+      348752916,
+      66690368,
+      15.557412424278601
+    ],
+    [
+      348752916,
+      3197993683,
+      66690368,
+      12.09399781857751
+    ],
+    [
+      3197993683,
+      1602642423,
+      66690368,
+      7.499099136551437
+    ],
+    [
+      1602642423,
+      3197993682,
+      66690368,
+      16.198257651925882
+    ],
+    [
+      3197993682,
+      10846117057,
+      66690368,
+      5.010758985567774
+    ],
+    [
+      10846117057,
+      10846117051,
+      66690368,
+      5.4010639596880194
+    ],
+    [
+      10846117051,
+      10846117058,
+      66690368,
+      14.854117700132193
+    ],
+    [
+      10846117058,
+      348752914,
+      66690368,
+      3.125372819901515
+    ],
+    [
+      348752914,
+      348752906,
+      66690370,
+      47.720191928741755
+    ],
+    [
+      348752906,
+      806598495,
+      66690366,
+      16.264651682428575
+    ],
+    [
+      806598495,
+      9045320536,
+      66690364,
+      3.9798177868807025
+    ],
+    [
+      9045320536,
+      9045320535,
+      66690364,
+      3.6202125699061685
+    ],
+    [
+      9045320535,
+      9045320534,
+      66690364,
+      15.139142662621776
+    ],
+    [
+      9045320534,
+      9045320537,
+      66690364,
+      4.017385188399422
+    ],
+    [
+      9045320537,
+      9045320538,
+      66690364,
+      3.1558627136738746
+    ],
+    [
+      9045320538,
+      2489071379,
+      66690364,
+      3.409646173950829
+    ],
+    [
+      2489071379,
+      9045320539,
+      66690364,
+      4.579344450834367
+    ],
+    [
+      9045320539,
+      806598518,
+      66690364,
+      5.478251861904265
+    ],
+    [
+      806598518,
+      12089325071,
+      66690364,
+      11.622173701798017
+    ],
+    [
+      12089325071,
+      806598532,
+      31324065,
+      10.820013062391308
+    ],
+    [
+      806598532,
+      10795289284,
+      31324065,
+      26.146143769031152
+    ],
+    [
+      10795289284,
+      12089325072,
+      31324065,
+      11.966318732111436
+    ],
+    [
+      12089325072,
+      255670174,
+      31324065,
+      5.0989549064327955
+    ],
+    [
+      255670174,
+      12089272665,
+      31324163,
+      1.538221171639212
+    ],
+    [
+      12089272665,
+      12089272666,
+      31324163,
+      1.5452469479906752
+    ],
+    [
+      12089272666,
+      348711522,
+      31324163,
+      26.010328584333003
+    ],
+    [
+      348711522,
+      12089325075,
+      31323985,
+      9.11632901230477
+    ],
+    [
+      12089325075,
+      12089325078,
+      31323985,
+      7.437892290043886
+    ],
+    [
+      12089325078,
+      348711510,
+      31323985,
+      20.061935376934876
+    ],
+    [
+      348711510,
+      2489558158,
+      31323985,
+      16.58708693824739
+    ],
+    [
+      2489558158,
+      12872444673,
+      31323985,
+      3.287088425691129
+    ],
+    [
+      12872444673,
+      348711505,
+      31323985,
+      3.189486367475219
+    ],
+    [
+      348711505,
+      2832503670,
+      685496243,
+      4.761394425506286
+    ],
+    [
+      2832503670,
+      12872444672,
+      685496243,
+      2.824872168869019
+    ],
+    [
+      12872444672,
+      12089325076,
+      685496243,
+      3.726986557231794
+    ],
+    [
+      12089325076,
+      12089325077,
+      685496243,
+      4.3017875610217
+    ],
+    [
+      12089325077,
+      348711504,
+      685496243,
+      5.723818599863166
+    ],
+    [
+      348711504,
+      14140084896,
+      31324008,
+      14.102292621111745
+    ],
+    [
+      14140084896,
+      348711955,
+      31324008,
+      33.53280173691259
+    ],
+    [
+      348711955,
+      2832503809,
+      31324008,
+      65.99809887366158
+    ],
+    [
+      2832503809,
+      11219885,
+      31324008,
+      6.996338843582972
+    ],
+    [
+      11219885,
+      10977408176,
+      1241986569,
+      5.104686905081944
+    ],
+    [
+      10977408176,
+      3196296938,
+      1241986569,
+      0.703231860730746
+    ],
+    [
+      3196296938,
+      2832503818,
+      1482955216,
+      8.974870133893887
+    ],
+    [
+      2832503818,
+      12089280907,
+      313626021,
+      9.470783715974532
+    ],
+    [
+      12089280907,
+      3197983467,
+      313626021,
+      11.018530813801004
+    ],
+    [
+      3197983467,
+      9384758725,
+      313626022,
+      30.918880939928258
+    ],
+    [
+      9384758725,
+      9885712588,
+      313626022,
+      6.259076962171069
+    ],
+    [
+      9885712588,
+      13158720291,
+      313626022,
+      8.064624429330038
+    ],
+    [
+      13158720291,
+      3194532740,
+      313626022,
+      7.243253546744379
+    ],
+    [
+      3194532740,
+      731946492,
+      238368645,
+      26.351506692810048
+    ],
+    [
+      731946492,
+      3585399428,
+      238368645,
+      21.881703761346785
+    ],
+    [
+      3585399428,
+      3639907046,
+      1214531288,
+      5.428916015928456
+    ],
+    [
+      3639907046,
+      3197986498,
+      1214531288,
+      5.827367093124008
+    ],
+    [
+      3197986498,
+      3639910749,
+      1214515049,
+      14.947263261067754
+    ],
+    [
+      3639910749,
+      10242878083,
+      359235347,
+      1.4682712165074523
+    ],
+    [
+      10242878083,
+      10604209907,
+      359235347,
+      10.676898943047037
+    ],
+    [
+      10604209907,
+      6048976109,
+      359235347,
+      4.761607197810992
+    ],
+    [
+      6048976109,
+      6048976108,
+      359235347,
+      19.31685775346324
+    ]
+  ],
+  "checkedAt": "2026-09-13",
+  "kind": "rejected-topology-probe",
+  "source": "https://api.openstreetmap.org/api/0.6/map.json?bbox=8.7935,46.1670,8.8030,46.1740",
+  "method": "Undirected haversine graph on mapped ways; excludes steps, private/no access, and primary roads without sidewalk tags. Includes other road centrelines, so this is not validated pedestrian routing.",
+  "limitations": [
+    "Excludes approach from alight stop to graph start.",
+    "Excludes final train-door distance.",
+    "Via Trevani includes an untagged-sidewalk road segment.",
+    "Crossing nodes do not establish the number of pavement crossings.",
+    "Unresolved shorter route through pedestrian-area topology is not inferred."
+  ],
+  "ways": [
+    {
+      "type": "way",
+      "id": 233303169,
+      "timestamp": "2026-09-10T14:29:06Z",
+      "version": 16,
+      "changeset": 188828161,
+      "user": "knoelle",
+      "uid": 24519177,
+      "nodes": [
+        275917158,
+        10001937226,
+        275917160,
+        5361903590,
+        13602180469,
+        12503825978
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lit": "yes",
+        "maxspeed": "30",
+        "maxspeed:type": "sign",
+        "name": "Via Bernardino Luini",
+        "railway": "razed",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 56321725,
+      "timestamp": "2026-01-13T13:37:51Z",
+      "version": 14,
+      "changeset": 177180475,
+      "user": "Nathan Giovannini",
+      "uid": 23697030,
+      "nodes": [
+        275917160,
+        10001937222,
+        3236038388,
+        2832503495,
+        5354443469,
+        255670571
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Via Serafino Balestra",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 66690368,
+      "timestamp": "2026-06-01T12:41:35Z",
+      "version": 9,
+      "changeset": 183493310,
+      "user": "Bronrolonw",
+      "uid": 24168988,
+      "nodes": [
+        348752914,
+        10846117058,
+        10846117051,
+        10846117057,
+        3197993682,
+        1602642423,
+        3197993683,
+        348752916,
+        255670571
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Via Trevani",
+        "official_name": "Via Famiglia Trevani",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 66690370,
+      "timestamp": "2026-01-12T09:28:53Z",
+      "version": 6,
+      "changeset": 177128741,
+      "user": "Nathan Giovannini",
+      "uid": 23697030,
+      "nodes": [
+        348752906,
+        348752914
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lane_markings": "yes",
+        "lanes": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Via Trevani",
+        "official_name": "Via Famiglia Trevani",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 66690366,
+      "timestamp": "2019-03-30T16:53:48Z",
+      "version": 5,
+      "changeset": 68703475,
+      "user": "lpalli",
+      "uid": 48434,
+      "nodes": [
+        806598495,
+        348752906
+      ],
+      "tags": {
+        "highway": "residential",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Via della Posta",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 66690364,
+      "timestamp": "2026-05-31T07:37:01Z",
+      "version": 12,
+      "changeset": 183429804,
+      "user": "Bronrolonw",
+      "uid": 24168988,
+      "nodes": [
+        806598495,
+        9045320536,
+        9045320535,
+        9045320534,
+        9045320537,
+        9045320538,
+        2489071379,
+        9045320539,
+        806598518,
+        12089325071
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lane_markings": "yes",
+        "lanes": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Largo Francesco Zorzi",
+        "oneway": "yes",
+        "sidewalk": "right",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 31324065,
+      "timestamp": "2025-01-01T20:34:13Z",
+      "version": 20,
+      "changeset": 160884341,
+      "user": "lpalli",
+      "uid": 48434,
+      "nodes": [
+        12089325071,
+        806598532,
+        10795289284,
+        12089325072,
+        255670174
+      ],
+      "tags": {
+        "highway": "residential",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Largo Franco Zorzi",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 31324163,
+      "timestamp": "2025-10-26T15:02:20Z",
+      "version": 14,
+      "changeset": 173798772,
+      "user": "nqrojer",
+      "uid": 11947641,
+      "nodes": [
+        348710855,
+        12089325079,
+        2489071385,
+        348711522,
+        12089272666,
+        12089272665,
+        255670174
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Largo Franco Zorzi",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 31323985,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 21,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520,
+      "nodes": [
+        348711522,
+        12089325075,
+        12089325078,
+        348711510,
+        2489558158,
+        12872444673,
+        348711505
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Largo Franco Zorzi",
+        "oneway": "yes",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 685496243,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 5,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520,
+      "nodes": [
+        348711505,
+        2832503670,
+        12872444672,
+        12089325076,
+        12089325077,
+        348711504
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Largo Francesco Zorzi",
+        "oneway": "yes",
+        "sidewalk": "left",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 31324008,
+      "timestamp": "2026-09-01T13:33:58Z",
+      "version": 10,
+      "changeset": 188365487,
+      "user": "EinEngener",
+      "uid": 6654469,
+      "nodes": [
+        348711504,
+        14140084896,
+        348711955,
+        2832503809,
+        11219885
+      ],
+      "tags": {
+        "foot": "yes",
+        "highway": "pedestrian",
+        "lit": "yes",
+        "name": "Via alla Ramogna",
+        "surface": "sett"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1241986569,
+      "timestamp": "2026-04-02T15:37:44Z",
+      "version": 3,
+      "changeset": 180774641,
+      "user": "zimosm",
+      "uid": 9436791,
+      "nodes": [
+        809786193,
+        809786180,
+        11219884,
+        3971760049,
+        10977408177,
+        11219885,
+        10977408176,
+        3196296938
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "primary",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lanes:psv:backward": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Viale Francesco Balli",
+        "parking:both": "no",
+        "railway": "razed",
+        "ref": "13",
+        "sidewalk:left": "separate",
+        "sidewalk:right": "yes",
+        "smoothness": "good",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1482955216,
+      "timestamp": "2026-04-02T15:37:44Z",
+      "version": 2,
+      "changeset": 180774641,
+      "user": "zimosm",
+      "uid": 9436791,
+      "nodes": [
+        3196296938,
+        2832503818
+      ],
+      "tags": {
+        "bridge": "yes",
+        "cycleway:both": "no",
+        "highway": "primary",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lanes:psv:backward": "1",
+        "layer": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxweight:signed": "no",
+        "name": "Viale Francesco Balli",
+        "parking:both": "no",
+        "ref": "13",
+        "shoulder": "no",
+        "sidewalk": "both",
+        "smoothness": "good",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 313626021,
+      "timestamp": "2026-04-02T15:37:45Z",
+      "version": 17,
+      "changeset": 180774641,
+      "user": "zimosm",
+      "uid": 9436791,
+      "nodes": [
+        2832503818,
+        12089280907,
+        3197983467
+      ],
+      "tags": {
+        "bridge": "yes",
+        "cycleway:both": "no",
+        "highway": "primary",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lanes:psv:backward": "1",
+        "layer": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxweight:signed": "no",
+        "name": "Via Stazione",
+        "parking:both": "no",
+        "ref": "13",
+        "shoulder": "no",
+        "sidewalk": "both",
+        "smoothness": "good",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 313626022,
+      "timestamp": "2025-09-20T21:20:00Z",
+      "version": 16,
+      "changeset": 172223111,
+      "user": "vmicho",
+      "uid": 1849074,
+      "nodes": [
+        3197983467,
+        9384758725,
+        9885712588,
+        13158720291,
+        3194532740
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "primary",
+        "lanes": "4",
+        "lanes:backward": "2",
+        "lanes:forward": "2",
+        "lanes:psv:backward": "1",
+        "lanes:psv:forward": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Via Stazione",
+        "parking:both": "no",
+        "ref": "13",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 238368645,
+      "timestamp": "2025-08-16T07:58:08Z",
+      "version": 19,
+      "changeset": 170510107,
+      "user": "Sara Newmountain",
+      "uid": 20047347,
+      "nodes": [
+        3194532740,
+        731946492,
+        3585399428
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "primary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lanes:psv:backward": "1",
+        "lanes:psv:forward": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Via Stazione",
+        "parking:both": "no",
+        "ref": "13",
+        "sidewalk": "both",
+        "smoothness": "excellent",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1214531288,
+      "timestamp": "2025-08-16T07:50:46Z",
+      "version": 4,
+      "changeset": 170510107,
+      "user": "Sara Newmountain",
+      "uid": 20047347,
+      "nodes": [
+        3585399428,
+        3639907046,
+        3197986498,
+        12089295890,
+        3197986499
+      ],
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "primary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lanes:psv:backward": "1",
+        "lanes:psv:forward": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Via Stazione",
+        "parking:both": "no",
+        "ref": "13",
+        "sidewalk": "separate",
+        "smoothness": "excellent",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1214515049,
+      "timestamp": "2025-08-16T07:50:22Z",
+      "version": 5,
+      "changeset": 170510006,
+      "user": "Sara Newmountain",
+      "uid": 20047347,
+      "nodes": [
+        3639910749,
+        3197986498
+      ],
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing_ref": "zebra",
+        "footway": "crossing",
+        "highway": "footway",
+        "lit": "yes",
+        "smoothness": "good",
+        "surface": "sett",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 359235347,
+      "timestamp": "2025-08-16T07:47:54Z",
+      "version": 11,
+      "changeset": 170510006,
+      "user": "Sara Newmountain",
+      "uid": 20047347,
+      "nodes": [
+        9874553125,
+        10243816539,
+        3639910748,
+        11252776693,
+        6048976108,
+        6048976109,
+        10604209907,
+        10242878083,
+        3639910749
+      ],
+      "tags": {
+        "highway": "footway",
+        "lit": "yes",
+        "smoothness": "excellent",
+        "surface": "asphalt"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "type": "node",
+      "id": 12503825978,
+      "lat": 46.1676765,
+      "lon": 8.794685,
+      "timestamp": "2026-02-26T10:13:58Z",
+      "version": 2,
+      "changeset": 179077417,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 13602180469,
+      "lat": 46.1677243,
+      "lon": 8.7949238,
+      "timestamp": "2026-02-26T10:13:56Z",
+      "version": 1,
+      "changeset": 179077417,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "bus": "yes",
+        "name": "Piazza Castello",
+        "network": "Arcobaleno",
+        "network:wikidata": "Q3685879",
+        "operator": "FART Auto",
+        "public_transport": "stop_position",
+        "tactile_paving": "yes",
+        "uic_name": "Locarno, Piazza Castello",
+        "uic_ref": "8578883"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5361903590,
+      "lat": 46.167751,
+      "lon": 8.7950572,
+      "timestamp": "2026-02-26T10:13:57Z",
+      "version": 5,
+      "changeset": 179077417,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 275917160,
+      "lat": 46.1679354,
+      "lon": 8.7959807,
+      "timestamp": "2026-02-26T10:13:57Z",
+      "version": 32,
+      "changeset": 179077417,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 10001937222,
+      "lat": 46.1679861,
+      "lon": 8.7959414,
+      "timestamp": "2024-08-02T17:07:13Z",
+      "version": 2,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "direction": "backward",
+        "highway": "stop"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3236038388,
+      "lat": 46.1680444,
+      "lon": 8.7959167,
+      "timestamp": "2026-01-13T13:37:52Z",
+      "version": 8,
+      "changeset": 177180472,
+      "user": "Nathan Giovannini",
+      "uid": 23697030,
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing:island": "no",
+        "crossing:markings": "zebra",
+        "highway": "crossing",
+        "kerb": "lowered",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2832503495,
+      "lat": 46.1684048,
+      "lon": 8.795787,
+      "timestamp": "2018-01-22T12:03:34Z",
+      "version": 2,
+      "changeset": 55652812,
+      "user": "slimthugga",
+      "uid": 7123503
+    },
+    {
+      "type": "node",
+      "id": 5354443469,
+      "lat": 46.1684794,
+      "lon": 8.7957688,
+      "timestamp": "2018-01-22T12:03:33Z",
+      "version": 1,
+      "changeset": 55652812,
+      "user": "slimthugga",
+      "uid": 7123503
+    },
+    {
+      "type": "node",
+      "id": 255670571,
+      "lat": 46.1685478,
+      "lon": 8.7958068,
+      "timestamp": "2014-11-21T01:35:23Z",
+      "version": 23,
+      "changeset": 26920282,
+      "user": "donovaly",
+      "uid": 1730904
+    },
+    {
+      "type": "node",
+      "id": 348752916,
+      "lat": 46.1686766,
+      "lon": 8.7958857,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 6,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 3197993683,
+      "lat": 46.1687751,
+      "lon": 8.7959523,
+      "timestamp": "2026-06-01T12:42:00Z",
+      "version": 5,
+      "changeset": 183497080,
+      "user": "Bronrolonw",
+      "uid": 24168988,
+      "tags": {
+        "crossing": "zebra",
+        "crossing:island": "no",
+        "highway": "crossing",
+        "kerb": "no",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1602642423,
+      "lat": 46.1688348,
+      "lon": 8.7959976,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 6,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 3197993682,
+      "lat": 46.1689515,
+      "lon": 8.7961235,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 2,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 10846117057,
+      "lat": 46.168982,
+      "lon": 8.7961714,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 1,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 10846117051,
+      "lat": 46.1690104,
+      "lon": 8.7962283,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 1,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 10846117058,
+      "lat": 46.1690748,
+      "lon": 8.7963973,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 1,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 348752914,
+      "lat": 46.1690839,
+      "lon": 8.7964357,
+      "timestamp": "2023-04-27T12:13:52Z",
+      "version": 10,
+      "changeset": 135426185,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 348752906,
+      "lat": 46.1691915,
+      "lon": 8.7970356,
+      "timestamp": "2015-06-10T10:58:34Z",
+      "version": 11,
+      "changeset": 31866833,
+      "user": "lonvia",
+      "uid": 26726
+    },
+    {
+      "type": "node",
+      "id": 806598495,
+      "lat": 46.1693377,
+      "lon": 8.797029,
+      "timestamp": "2021-08-29T13:55:57Z",
+      "version": 7,
+      "changeset": 110413876,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 9045320536,
+      "lat": 46.1693615,
+      "lon": 8.7970676,
+      "timestamp": "2021-08-29T13:55:57Z",
+      "version": 1,
+      "changeset": 110413876,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 9045320535,
+      "lat": 46.1693764,
+      "lon": 8.7971094,
+      "timestamp": "2021-08-29T13:55:57Z",
+      "version": 1,
+      "changeset": 110413876,
+      "user": "Voonosm",
+      "uid": 4378872
+    },
+    {
+      "type": "node",
+      "id": 9045320534,
+      "lat": 46.1694209,
+      "lon": 8.7972952,
+      "timestamp": "2024-08-02T17:07:13Z",
+      "version": 2,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 9045320537,
+      "lat": 46.1694497,
+      "lon": 8.7973267,
+      "timestamp": "2024-08-02T17:07:13Z",
+      "version": 2,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 9045320538,
+      "lat": 46.1694747,
+      "lon": 8.7973461,
+      "timestamp": "2024-08-02T17:07:13Z",
+      "version": 2,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 2489071379,
+      "lat": 46.1695036,
+      "lon": 8.7973609,
+      "timestamp": "2024-08-02T17:07:10Z",
+      "version": 4,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 9045320539,
+      "lat": 46.1695446,
+      "lon": 8.7973665,
+      "timestamp": "2024-08-02T17:07:13Z",
+      "version": 2,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 806598518,
+      "lat": 46.1695923,
+      "lon": 8.7973487,
+      "timestamp": "2024-08-02T17:07:09Z",
+      "version": 9,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing:markings": "zebra",
+        "highway": "crossing",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12089325071,
+      "lat": 46.1696968,
+      "lon": 8.7973457,
+      "timestamp": "2024-08-02T17:06:49Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 806598532,
+      "lat": 46.1697136,
+      "lon": 8.7974841,
+      "timestamp": "2025-06-17T05:59:55Z",
+      "version": 9,
+      "changeset": 167722104,
+      "user": "wies1",
+      "uid": 11002689
+    },
+    {
+      "type": "node",
+      "id": 10795289284,
+      "lat": 46.1697728,
+      "lon": 8.7978127,
+      "timestamp": "2026-01-13T09:17:36Z",
+      "version": 5,
+      "changeset": 177170008,
+      "user": "Nathan Giovannini",
+      "uid": 23697030,
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing:island": "no",
+        "crossing:markings": "zebra",
+        "highway": "crossing",
+        "kerb": "lowered",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12089325072,
+      "lat": 46.1697985,
+      "lon": 8.7979636,
+      "timestamp": "2024-08-02T17:06:49Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "direction": "forward",
+        "highway": "give_way"
+      }
+    },
+    {
+      "type": "node",
+      "id": 255670174,
+      "lat": 46.1697909,
+      "lon": 8.7980289,
+      "timestamp": "2024-08-02T17:07:07Z",
+      "version": 45,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 12089272665,
+      "lat": 46.1698018,
+      "lon": 8.7980412,
+      "timestamp": "2024-08-02T17:06:49Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 12089272666,
+      "lat": 46.1698094,
+      "lon": 8.798058,
+      "timestamp": "2024-08-02T17:06:49Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 348711522,
+      "lat": 46.1698672,
+      "lon": 8.7983853,
+      "timestamp": "2026-01-12T08:37:41Z",
+      "version": 17,
+      "changeset": 177126988,
+      "user": "Nathan Giovannini",
+      "uid": 23697030,
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing:markings": "zebra",
+        "highway": "crossing",
+        "kerb": "lowered",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12089325075,
+      "lat": 46.1699203,
+      "lon": 8.7984755,
+      "timestamp": "2024-08-02T17:06:49Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "direction": "backward",
+        "highway": "give_way"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12089325078,
+      "lat": 46.1699562,
+      "lon": 8.798557,
+      "timestamp": "2024-08-02T17:06:49Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 348711510,
+      "lat": 46.1700671,
+      "lon": 8.7987625,
+      "timestamp": "2024-08-02T17:07:08Z",
+      "version": 9,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 2489558158,
+      "lat": 46.1701569,
+      "lon": 8.7989345,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 3,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 12872444673,
+      "lat": 46.1701782,
+      "lon": 8.7989641,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 1,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 348711505,
+      "lat": 46.170204,
+      "lon": 8.7989822,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 8,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 2832503670,
+      "lat": 46.1702468,
+      "lon": 8.7989803,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 3,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 12872444672,
+      "lat": 46.1702711,
+      "lon": 8.7989696,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 1,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 12089325076,
+      "lat": 46.1702998,
+      "lon": 8.7989446,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 2,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 12089325077,
+      "lat": 46.1703286,
+      "lon": 8.7989073,
+      "timestamp": "2025-05-29T04:09:47Z",
+      "version": 2,
+      "changeset": 166900609,
+      "user": "CreCrePL",
+      "uid": 2793520
+    },
+    {
+      "type": "node",
+      "id": 348711504,
+      "lat": 46.1703639,
+      "lon": 8.7988532,
+      "timestamp": "2025-06-17T05:59:55Z",
+      "version": 12,
+      "changeset": 167722104,
+      "user": "wies1",
+      "uid": 11002689
+    },
+    {
+      "type": "node",
+      "id": 14140084896,
+      "lat": 46.1704578,
+      "lon": 8.7989763,
+      "timestamp": "2026-09-01T13:33:58Z",
+      "version": 1,
+      "changeset": 188365487,
+      "user": "EinEngener",
+      "uid": 6654469
+    },
+    {
+      "type": "node",
+      "id": 348711955,
+      "lat": 46.1706832,
+      "lon": 8.7992656,
+      "timestamp": "2026-09-01T13:33:58Z",
+      "version": 6,
+      "changeset": 188365487,
+      "user": "EinEngener",
+      "uid": 6654469
+    },
+    {
+      "type": "node",
+      "id": 2832503809,
+      "lat": 46.1711539,
+      "lon": 8.7997877,
+      "timestamp": "2026-05-23T15:41:50Z",
+      "version": 2,
+      "changeset": 183073701,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 11219885,
+      "lat": 46.1711744,
+      "lon": 8.7998736,
+      "timestamp": "2025-03-10T05:41:48Z",
+      "version": 16,
+      "changeset": 163426343,
+      "user": "lpalli",
+      "uid": 48434,
+      "tags": {
+        "button_operated": "yes",
+        "crossing": "traffic_signals",
+        "crossing:markings": "zebra",
+        "highway": "crossing",
+        "kerb": "lowered",
+        "tactile_paving": "no",
+        "traffic_signals:sound": "yes",
+        "traffic_signals:vibration": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10977408176,
+      "lat": 46.1712203,
+      "lon": 8.7998748,
+      "timestamp": "2024-01-19T16:37:10Z",
+      "version": 2,
+      "changeset": 146450590,
+      "user": "CreCrePL",
+      "uid": 2793520,
+      "tags": {
+        "highway": "traffic_signals",
+        "traffic_signals:direction": "backward"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3196296938,
+      "lat": 46.1712266,
+      "lon": 8.7998756,
+      "timestamp": "2026-05-23T15:41:50Z",
+      "version": 3,
+      "changeset": 183073701,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 2832503818,
+      "lat": 46.1713065,
+      "lon": 8.7998921,
+      "timestamp": "2024-08-02T17:07:10Z",
+      "version": 3,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 12089280907,
+      "lat": 46.1713879,
+      "lon": 8.7999283,
+      "timestamp": "2024-08-02T17:06:56Z",
+      "version": 1,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 3197983467,
+      "lat": 46.1714749,
+      "lon": 8.7999968,
+      "timestamp": "2024-01-22T16:58:07Z",
+      "version": 3,
+      "changeset": 146562056,
+      "user": "Manuele R",
+      "uid": 14775425
+    },
+    {
+      "type": "node",
+      "id": 9384758725,
+      "lat": 46.1717214,
+      "lon": 8.8001826,
+      "timestamp": "2022-01-02T00:24:11Z",
+      "version": 1,
+      "changeset": 115655331,
+      "user": "Wikilux",
+      "uid": 1894634
+    },
+    {
+      "type": "node",
+      "id": 9885712588,
+      "lat": 46.1717698,
+      "lon": 8.8002241,
+      "timestamp": "2025-09-20T21:20:00Z",
+      "version": 2,
+      "changeset": 172223111,
+      "user": "vmicho",
+      "uid": 1849074
+    },
+    {
+      "type": "node",
+      "id": 13158720291,
+      "lat": 46.1718363,
+      "lon": 8.8002659,
+      "timestamp": "2025-09-20T21:20:00Z",
+      "version": 1,
+      "changeset": 172223111,
+      "user": "vmicho",
+      "uid": 1849074
+    },
+    {
+      "type": "node",
+      "id": 3194532740,
+      "lat": 46.1718996,
+      "lon": 8.8002881,
+      "timestamp": "2025-09-20T21:20:00Z",
+      "version": 4,
+      "changeset": 172223111,
+      "user": "vmicho",
+      "uid": 1849074
+    },
+    {
+      "type": "node",
+      "id": 731946492,
+      "lat": 46.1721298,
+      "lon": 8.8003694,
+      "timestamp": "2026-02-26T10:13:57Z",
+      "version": 19,
+      "changeset": 179077417,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "bus": "yes",
+        "ele": "205",
+        "highway": "bus_stop",
+        "local_ref": "C",
+        "name": "Piazza Stazione",
+        "network": "Arcobaleno",
+        "network:wikidata": "Q3685879",
+        "operator": "FART Auto",
+        "public_transport": "stop_position",
+        "shelter": "yes",
+        "tactile_paving": "no",
+        "uic_name": "Locarno, Piazza Stazione",
+        "uic_ref": "8594370"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3585399428,
+      "lat": 46.1723227,
+      "lon": 8.8004256,
+      "timestamp": "2025-05-05T17:19:35Z",
+      "version": 11,
+      "changeset": 165857153,
+      "user": "G4rp",
+      "uid": 2265854,
+      "tags": {
+        "bus": "yes",
+        "ele": "205",
+        "highway": "bus_stop",
+        "local_ref": "B",
+        "name": "Piazza Stazione",
+        "network": "Arcobaleno",
+        "network:wikidata": "Q3685879",
+        "operator": "FART Auto",
+        "public_transport": "stop_position",
+        "shelter": "yes",
+        "tactile_paving": "no",
+        "uic_name": "Locarno, Piazza Stazione",
+        "uic_ref": "8594370"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3639907046,
+      "lat": 46.1723701,
+      "lon": 8.8004425,
+      "timestamp": "2024-08-02T17:07:12Z",
+      "version": 2,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273
+    },
+    {
+      "type": "node",
+      "id": 3197986498,
+      "lat": 46.1724207,
+      "lon": 8.8004622,
+      "timestamp": "2024-08-02T17:07:11Z",
+      "version": 5,
+      "changeset": 154745769,
+      "user": "d_berger",
+      "uid": 1234273,
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing:island": "yes",
+        "crossing:markings": "zebra",
+        "highway": "crossing",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3639910749,
+      "lat": 46.1724109,
+      "lon": 8.8006558,
+      "timestamp": "2015-07-07T21:37:05Z",
+      "version": 1,
+      "changeset": 32483927,
+      "user": "chrisanter",
+      "uid": 2917713
+    },
+    {
+      "type": "node",
+      "id": 10242878083,
+      "lat": 46.1724166,
+      "lon": 8.800673,
+      "timestamp": "2022-12-06T17:08:37Z",
+      "version": 1,
+      "changeset": 129791143,
+      "user": "Manuele R",
+      "uid": 14775425
+    },
+    {
+      "type": "node",
+      "id": 10604209907,
+      "lat": 46.1724583,
+      "lon": 8.8007979,
+      "timestamp": "2023-02-03T14:29:14Z",
+      "version": 1,
+      "changeset": 132044767,
+      "user": "rokas_osm",
+      "uid": 8655234
+    },
+    {
+      "type": "node",
+      "id": 6048976109,
+      "lat": 46.1724769,
+      "lon": 8.8008536,
+      "timestamp": "2018-11-09T13:32:55Z",
+      "version": 1,
+      "changeset": 64325296,
+      "user": "Benjiiii",
+      "uid": 8701125
+    },
+    {
+      "type": "node",
+      "id": 6048976108,
+      "lat": 46.1725453,
+      "lon": 8.8010842,
+      "timestamp": "2023-07-19T00:55:59Z",
+      "version": 3,
+      "changeset": 138692097,
+      "user": "Marc Mongenet",
+      "uid": 74847
+    }
+  ]
+}

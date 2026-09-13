@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-09-13T16:43:14.057Z",
+  "outcome": "Connections rendered",
+  "connections": 6,
+  "apiRequests": [
+    "https://transport.opendata.ch/v1/connections?from=Basel%2C+IWB&to=Z%C3%BCrich+HB&date=2026-09-13&time=18%3A43&limit=6",
+    "https://transport.opendata.ch/v1/locations?type=station&query=Z%C3%BCrich+HB",
+    "https://transport.opendata.ch/v1/connections?from=8500010&to=Z%C3%BCrich+HB&date=2026-09-13&time=18%3A44&limit=10"
+  ],
+  "apiMessages": [],
+  "uncaughtErrors": []
+}

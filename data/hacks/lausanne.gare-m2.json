@@ -1,0 +1,176 @@
+{
+  "id": "lausanne.gare-m2",
+  "version": 0,
+  "kind": "transfer-slack",
+  "status": "draft",
+  "name": "Lausanne: m2 'gare' → platforms (planner slack only)",
+  "station": {
+    "id": "8501120",
+    "name": "Lausanne",
+    "lat": 46.516795,
+    "lon": 6.629087,
+    "minTransferS": 300
+  },
+  "alight": {
+    "id": "8592050",
+    "name": "Lausanne, gare (m2)",
+    "lat": 46.5176,
+    "lon": 6.629648,
+    "lines": [
+      "m2"
+    ],
+    "platformLetters": {},
+    "plannerWalkS": 300,
+    "geofence": {
+      "lat": 46.517528,
+      "lon": 6.629633,
+      "r": 40
+    },
+    "note": "? m2 platform at level −1 with a 51 m step-free corridor into the passage sous-voies est; no alight-early hack exists (Grancy saves ≈ 1 min for voie 7/8 only ?, Flon is slower)"
+  },
+  "rideOn": [],
+  "validity": [
+    {
+      "from": null,
+      "to": "2026-12-31",
+      "note": "Léman 2030 works: platform/underpass works from end 2026 or 2027 ?; passage est guaranteed open"
+    }
+  ],
+  "fieldCheckNeeded": [
+    "everything: m2 platform level, stair counts, runner times, Saugettes entrance hours"
+  ],
+  "instructions": "From the m2, take the corridor into the east underpass; 28 steps up to your platform.",
+  "routes": [
+    {
+      "key": "v7-8",
+      "label": "voie 7/8",
+      "platforms": [
+        7,
+        8
+      ],
+      "helps": "marginal",
+      "confidence": "low",
+      "landing": {
+        "lat": 46.516468,
+        "lon": 6.629108,
+        "r": 40
+      },
+      "path": [
+        {
+          "kind": "hall",
+          "m": 205
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.6,
+          "steps": 28
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 50,
+        "max": 200
+      },
+      "note": "? 1:55 runner model"
+    },
+    {
+      "key": "v5-6",
+      "label": "voie 5/6",
+      "platforms": [
+        5,
+        6
+      ],
+      "helps": "marginal",
+      "confidence": "low",
+      "landing": {
+        "lat": 46.516605,
+        "lon": 6.629152,
+        "r": 40
+      },
+      "path": [
+        {
+          "kind": "hall",
+          "m": 185
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.6,
+          "steps": 28
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 50,
+        "max": 200
+      },
+      "note": "?"
+    },
+    {
+      "key": "v3-4",
+      "label": "voie 3/4",
+      "platforms": [
+        3,
+        4
+      ],
+      "helps": "marginal",
+      "confidence": "low",
+      "landing": {
+        "lat": 46.516735,
+        "lon": 6.629193,
+        "r": 40
+      },
+      "path": [
+        {
+          "kind": "hall",
+          "m": 165
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.6,
+          "steps": 28
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 50,
+        "max": 200
+      },
+      "note": "?"
+    },
+    {
+      "key": "v1-70",
+      "label": "voie 1 / 70",
+      "platforms": [
+        1,
+        70
+      ],
+      "helps": "marginal",
+      "confidence": "low",
+      "landing": {
+        "lat": 46.516811,
+        "lon": 6.629218,
+        "r": 40
+      },
+      "path": [
+        {
+          "kind": "hall",
+          "m": 155
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.0,
+          "steps": 24
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 50,
+        "max": 260
+      },
+      "note": "? voie 70 = +56 m along platform 1"
+    }
+  ],
+  "sources": [
+    "research lausanne-geo 2026-09-13 (transport.opendata.ch, Overpass, swisstopo heights) — unverified"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "geneve.lyon",
+  "version": 1,
+  "kind": "transfer-slack",
+  "status": "desk-verified",
+  "name": "Genève: Lyon → Montbrillant",
+  "station": {
+    "id": "8501008",
+    "name": "Genève",
+    "lat": 46.210228,
+    "lon": 6.142435,
+    "minTransferS": 0
+  },
+  "alight": {
+    "id": "8592850",
+    "name": "Genève, Lyon",
+    "lat": 46.209821,
+    "lon": 6.138285,
+    "lines": [],
+    "platformLetters": {},
+    "plannerWalkS": 420,
+    "geofence": {
+      "lat": 46.209821,
+      "lon": 6.138285,
+      "r": 90
+    },
+    "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+  },
+  "rideOn": [],
+  "validity": [
+    {
+      "from": "2026-09-13",
+      "to": "2026-12-12",
+      "note": "Desk review expires at the December 2026 timetable change; this is a review deadline, not an announced closure."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+    "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+    "Measure door approach by train length and stopping sector; current typical/maximum 120/350 m values are model allowances.",
+    "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API.",
+    "Only domestic tracks 4/5 are covered. No route to the French sector, tracks 1–3, or future underground platforms is inferred."
+  ],
+  "instructions": "Leave Lyon at a marked crossing, then follow the public pavements via Rue des Grottes, Rue Cité-de-la-Corderie and Rue des Amis towards Place de Montbrillant. Enter the signed public Montbrillant station passage, go down the short entrance steps, then take the stairs up to Voies 4/5.",
+  "routes": [
+    {
+      "key": "p4-5",
+      "label": "Voies 4/5",
+      "platforms": [
+        4,
+        5
+      ],
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.211027,
+        "lon": 6.1426805,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 540,
+          "crossings": 3,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-geneve-measurements.json."
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 1.26,
+          "steps": 7,
+          "note": "OSM way 1218743806: 7 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        },
+        {
+          "kind": "street",
+          "m": 5
+        },
+        {
+          "kind": "hall",
+          "m": 40
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 5.58,
+          "steps": 31,
+          "note": "OSM way 301439282: 31 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 120,
+        "max": 350
+      },
+      "note": "Public mapped access to platform relation 4013259, landing node 3054937562. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    }
+  ],
+  "sources": [
+    "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-geneve-a4.pdf",
+    "https://www.tpg.ch/sites/default/files/arrets_plan_de_connexion/CVIN_Gen%C3%A8ve%20gare%20Cornavin_Totem.pdf",
+    "https://transport.opendata.ch/v1/connections?from=8592850&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+    "https://company.sbb.ch/fr/developpement-ferroviaire/projets/suisse-romande-valais/leman-2030/nos-projets/geneve-cornavin.html",
+    "https://www.openstreetmap.org/relation/4013259",
+    "Geometry: data/research/raw/west-geneve-osm.json and west-geneve-measurements.json; checked 2026-09-13.",
+    "Method and limitations: docs/research/expansion/west.md"
+  ]
+}

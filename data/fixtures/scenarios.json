@@ -1,0 +1,14 @@
+{
+  "provenance": "Synthetic deterministic fixtures, authored for Hopp development. These are not captured SBB journeys, actual departures, or evidence that a sprint route is safe.",
+  "clock": "Each mock session anchors synthetic timestamps to the query time/current time; all offsets are seconds.",
+  "scenarios": {
+    "happy": "Zürich Central to platform 11: 300 seconds available, 10 minute arrival gain, walking cannot catch it. Basel IWB to platform 20 uses 185 seconds.",
+    "nohack": "A direct train journey with no supported sprint route.",
+    "late": "Starts catchable, then the first tram stationboard refresh introduces five minutes of delay.",
+    "passed": "The tram passed the alight stop two minutes ago.",
+    "ratelimit": "HTTP-200-style rate-limit error represented by ApiBusyError.",
+    "offline": "The timetable cannot be reached.",
+    "unknown": "Candidate platform is unpublished; a GO recommendation must not appear.",
+    "missing": "The initial route succeeds, but live stationboards return no matching trips. Freshness must not advance."
+  }
+}

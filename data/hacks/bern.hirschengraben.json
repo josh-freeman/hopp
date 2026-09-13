@@ -1,0 +1,314 @@
+{
+  "id": "bern.hirschengraben",
+  "version": 1,
+  "kind": "alight-early",
+  "status": "desk-verified",
+  "name": "Bern: Hirschengraben → Welle",
+  "station": {
+    "id": "8507000",
+    "name": "Bern",
+    "lat": 46.948823,
+    "lon": 7.439123,
+    "minTransferS": 0
+  },
+  "alight": {
+    "id": "8579896",
+    "name": "Bern, Hirschengraben",
+    "lat": 46.946664,
+    "lon": 7.437626,
+    "lines": [],
+    "platformLetters": {},
+    "plannerWalkS": 540,
+    "geofence": {
+      "lat": 46.946664,
+      "lon": 7.437626,
+      "r": 175
+    },
+    "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+  },
+  "rideOn": [
+    {
+      "id": "8576646",
+      "name": "Bern, Bahnhof",
+      "lines": [
+        "9",
+        "12"
+      ],
+      "rideS": 60,
+      "plannerWalkS": 360,
+      "note": "Recorded tram 9 and bus 12 connections take one minute from Hirschengraben, then allocate six minutes from Bern Bahnhof to the railway station. Actual feeder times and pass-list identity govern use."
+    }
+  ],
+  "validity": [
+    {
+      "from": "2026-09-13",
+      "to": "2026-12-12",
+      "note": "Desk review expires at the December 2026 timetable change; this is a review deadline, not an announced closure."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+    "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+    "Measure door approach by train length and stopping sector; current typical/maximum 120/350 m values are model allowances.",
+    "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API.",
+    "Recheck Welle crowding and construction signs; tracks 1/2 and the future Bubenberg passage are deliberately unsupported."
+  ],
+  "instructions": "From Hirschengraben, follow the public pavements north towards Schanzenstrasse and Welle. Use the marked crossings and obey signals. Enter the existing Welle passerelle, then take the signed stairs down to your platform. Stay on the public route shown by current signs.",
+  "routes": [
+    {
+      "key": "p3-4",
+      "label": "Gleis 3/4",
+      "platforms": [
+        3,
+        4
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9482411,
+        "lon": 7.4364073,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 280,
+          "crossings": 5,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 30
+        },
+        {
+          "kind": "street",
+          "m": 110,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 35
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 7.2,
+          "steps": 40,
+          "note": "OSM way 68172860: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 120,
+        "max": 350
+      },
+      "note": "Public mapped access to platform relation 10228959, landing node 821429459. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p5-6",
+      "label": "Gleis 5/6",
+      "platforms": [
+        5,
+        6
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9483753,
+        "lon": 7.4363513,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 280,
+          "crossings": 5,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 30
+        },
+        {
+          "kind": "street",
+          "m": 110,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 50
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 7.2,
+          "steps": 40,
+          "note": "OSM way 68172826: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 120,
+        "max": 350
+      },
+      "note": "Public mapped access to platform relation 10228960, landing node 821429518. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p7-8",
+      "label": "Gleis 7/8",
+      "platforms": [
+        7,
+        8
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9485068,
+        "lon": 7.4362994,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 280,
+          "crossings": 5,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 30
+        },
+        {
+          "kind": "street",
+          "m": 110,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 65
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 7.2,
+          "steps": 40,
+          "note": "OSM way 68172871: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 120,
+        "max": 350
+      },
+      "note": "Public mapped access to platform relation 10228961, landing node 821429626. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p9-10",
+      "label": "Gleis 9/10",
+      "platforms": [
+        9,
+        10
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9486335,
+        "lon": 7.4362518,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 280,
+          "crossings": 5,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 30
+        },
+        {
+          "kind": "street",
+          "m": 110,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 75
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 7.38,
+          "steps": 41,
+          "note": "OSM way 68172904: 41 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 120,
+        "max": 350
+      },
+      "note": "Public mapped access to platform relation 14666888, landing node 821429550. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p12-13",
+      "label": "Gleis 12/13",
+      "platforms": [
+        12,
+        13
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9487897,
+        "lon": 7.436182,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 280,
+          "crossings": 5,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 30
+        },
+        {
+          "kind": "street",
+          "m": 110,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 95
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 7.56,
+          "steps": 42,
+          "note": "OSM way 68172866: 42 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 120,
+        "max": 350
+      },
+      "note": "Public mapped access to platform relation 10228957, landing node 821429544. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    }
+  ],
+  "sources": [
+    "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-bern-a4.pdf",
+    "https://www.bernmobil.ch/de/fahrplan-netz/fahrplan-nach-haltestellen/hirschengraben",
+    "https://transport.opendata.ch/v1/connections?from=8579896&to=8503000&date=2026-09-14&time=08%3A00&limit=3",
+    "https://www.bernmobil.ch/de/verkehrsinformationen/baustellen/unterhalsarbeiten-raum-bahnhof",
+    "https://www.openstreetmap.org/relation/10228959",
+    "https://www.openstreetmap.org/relation/10228960",
+    "https://www.openstreetmap.org/relation/10228961",
+    "https://www.openstreetmap.org/relation/14666888",
+    "https://www.openstreetmap.org/relation/10228957",
+    "https://www.sbb.ch/de/reiseinformationen/bahnhoefe/bahnhof-finden/bahnhof-bern/bahnhofsbeschrieb.html",
+    "https://news.sbb.ch/de/019d7b77-8b55-7146-873b-297632bf5fea/zukunft-bahnhof-bern-ausbau-laeuft-in-vielen-bereichen-gut-komplexitaet-fuehrt-jedoch-zu-verzoegerungen",
+    "Geometry: data/research/raw/west-bern-osm.json and west-bern-measurements.json; checked 2026-09-13.",
+    "Method and limitations: docs/research/expansion/west.md"
+  ]
+}

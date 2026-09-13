@@ -1,0 +1,380 @@
+[
+  {
+    "id": "winterthur.museumstrasse",
+    "station": "Winterthur",
+    "region": "Northeast Switzerland",
+    "from": "Winterthur, Museumstrasse/HB",
+    "title": "North entrance from Museumstrasse/HB",
+    "status": "needs-check",
+    "summary": "Stellwerk 2 construction affects this approach; the paid bicycle station is not an unrestricted public shortcut.",
+    "access": "Museumstrasse leads towards the north station access.",
+    "platforms": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "plannerBudgetS": 300,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-winterthur-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8588552&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.720,47.497,8.727,47.503",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "City temporary traffic order for Stellwerk II",
+        "url": "https://stadt.winterthur.ch/gemeinde/verwaltung/bau/tiefbauamt/oeffentliche-planauflage-und-verkehrsanordnungen/verkehrsanordnungen/baustellensignalisation-stellwerk-ii-bahnhofplatz-bahnfussweg-merkur-und-museumstrasse",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Stellwerk 2 current construction information",
+        "url": "https://stellwerk2.ch/baustelleninformation/",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "City bicycle station access information",
+        "url": "https://stadt.winterthur.ch/themen/leben-in-winterthur/verkehr-mobilitaet/velo/velo-rund-um-den-bahnhof/velostationen",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8588552; railway station ID 8506000.",
+      "The recorded leading walk budgets 300 seconds, measured from timestamps because walk.duration is null.",
+      "The SBB plan dated 12/2025 marks BahnFussweg/Stellwerk 2 construction through expected spring 2028. Current project information also identifies temporary traffic changes at Museumstrasse, Merkurstrasse and Bahnhofplatz.",
+      "The mapped surface chain reaches Gleis 1 in 108.9 m, but this is not treated as current verified public access through the works.",
+      "Mapped routes to island platforms descend 34 steps on way 59087119 and ascend 34 or 37 steps. The construction access must be settled before modelling these routes.",
+      "The city describes controlled access to its bicycle parking facilities; a bicycle-station passage is not assumed to be a free public shortcut."
+    ],
+    "fieldChecks": [
+      "Confirm the exact current Museumstrasse/HB alighting kerb and a continuous public route outside the Stellwerk 2 work zone.",
+      "Check whether the mapped Gleis 1 entrance is open and where trains stop; photograph current diversion signs.",
+      "For any island-platform extension, measure stair rise and passage lengths and confirm that no controlled bicycle-parking access is used."
+    ]
+  },
+  {
+    "id": "winterthur.archstrasse",
+    "station": "Winterthur",
+    "region": "Northeast Switzerland",
+    "from": "Winterthur, Archstrasse/HB",
+    "title": "Southern entrance from Archstrasse/HB",
+    "status": "researched",
+    "summary": "Mapped public access to Gleis 3; only this platform is enabled, with conservative distance and door-position allowances.",
+    "access": "From Archstrasse/HB, use the public pavements and designated crossings towards Salzhausplatz. Continue through Salzhausplatz to the southern end of Gleis 3. Stay on the public pedestrian route; do not enter the bicycle parking facility or cross any railway tracks.",
+    "platforms": [
+      "3"
+    ],
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-winterthur-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8594298&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.720,47.497,8.727,47.503",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Captured Aarau full-journey baseline at 08:04",
+        "url": "https://transport.opendata.ch/v1/connections?from=8594298&to=Aarau&date=2026-09-15&time=08%3A04&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Captured actual train candidates at 08:06",
+        "url": "https://transport.opendata.ch/v1/connections?from=8506000&to=Aarau&date=2026-09-15&time=08%3A06&limit=10",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8594298; railway station ID 8506000.",
+      "The recorded leading walk budgets 420 seconds, measured from timestamps because walk.duration is null.",
+      "Mapped footpath chain: 178.7 m; model path: 200 m; landing node 5349403684.",
+      "Only Gleis 3 is promoted. Other groups lack a complete verified route in this record.",
+      "One unmodified captured case produces a modelled 23-minute gain: 2026-09-15 at 08:04 from Archstrasse to Aarau, S11 08:09 Gleis 3 and RE37 from Zürich 08:38 arrive 09:05, against the full planner baseline arrival 09:28. Default scheduled requirement is 254.3 s with 300 s available. This is a specific timetable/model result, not field verification."
+    ],
+    "fieldChecks": [
+      "Confirm the exact alighting kerb and the 28 m approach from the timetable stop point to the mapped pavement.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "activeHackId": "winterthur.archstrasse",
+    "distanceM": 200
+  },
+  {
+    "id": "st-gallen.st-leonhard",
+    "station": "St. Gallen",
+    "region": "Northeast Switzerland",
+    "from": "St. Gallen, St.Leonhard",
+    "title": "Station approach from St.Leonhard",
+    "status": "needs-check",
+    "summary": "The SBB plan distinguishes city-level access from the west/east underpasses; stair geometry has not yet been verified.",
+    "access": "Follow public pavements to the city-side station access; island platforms use the signed underpasses.",
+    "platforms": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "plannerBudgetS": 360,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-st-gallen-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8574223&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=9.366,47.420,9.373,47.425",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Mapped access stairs without height data",
+        "url": "https://www.openstreetmap.org/way/378097959",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Mapped Gleis 1 stairs without height data",
+        "url": "https://www.openstreetmap.org/way/377429471",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8574223; railway station ID 8506302.",
+      "The recorded leading walk budgets 360 seconds, measured from timestamps because walk.duration is null.",
+      "The SBB plan dated 06/2026 distinguishes mainline platforms 1–8, Appenzeller Bahnen platforms 11/12, and the west/east public underpasses.",
+      "The mapped mainline Gleis 1 chain is approximately 332 m and contains stairs on ways 378097959 and 377429471. Neither stair way supplies a step count or rise; horizontal map length is not a substitute for vertical rise.",
+      "Mapped surface approaches to Appenzeller Bahnen platforms 11/12 are approximately 225–228 m. Their timetable station/platform applicability has not been established by the captured Bern-bound mainline connection, so they are not promoted."
+    ],
+    "fieldChecks": [
+      "Measure the two level changes on the selected mainline approach and verify the current public entrance.",
+      "Confirm exact Appenzeller Bahnen timetable station IDs and platform numbers before treating the separate surface platforms as an alternative.",
+      "Time the transfer with luggage and check train stopping positions."
+    ]
+  },
+  {
+    "id": "schaffhausen.bahnhof-nord",
+    "station": "Schaffhausen",
+    "region": "Northeast Switzerland",
+    "from": "Schaffhausen, Bahnhof Nord",
+    "title": "Northern access from Bahnhof Nord",
+    "status": "needs-check",
+    "summary": "The mapped stair route to Gleis 1 exceeds the recorded three-minute transfer budget under the default model; shorter apparent routes use lifts.",
+    "access": "Use the signed Mühlental/Breite station entrances and public platform passages.",
+    "platforms": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "plannerBudgetS": 180,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://cdnsource.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-schaffhausen-a4.pdf.sbbdownload.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8588887&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.629,47.696,8.635,47.701",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 1 stairs with mapped count and riser height",
+        "url": "https://www.openstreetmap.org/way/191872658",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Northern ramp with surveyed length tag",
+        "url": "https://www.openstreetmap.org/way/291491757",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Lift on rejected shortest Gleis 6 path",
+        "url": "https://www.openstreetmap.org/node/3809734505",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8588887; railway station ID 8503424.",
+      "The recorded leading walk budgets 180 seconds, measured from timestamps because walk.duration is null.",
+      "The SBB plan dated 05/2026 identifies the public Löwengässchen and Süd underpasses and northern Mühlental/Breite access.",
+      "A public non-lift path to Gleis 1 measures 159.5 m on the map. Way 191872658 records 27 steps at 0.13 m per step (3.51 m rise). Ramp way 291491757 records a 37.2 m length, longer than its coarse mapped polyline; the longer tagged length must govern a model.",
+      "A conservative probe with 25 m street, 40 m ramp, 110 m passage, the mapped 3.51 m ascent and 140 m door allowance requires about 234 s scheduled or 204 s live at the default profile. Both exceed the observed 180 s walk budget; this is not a proven earlier-train opportunity.",
+      "The apparently shorter 116 m Gleis 6 route changes levels through lift node 3809734505. Similar shortest graph routes to 2/3 and 4/5 also contain lifts. These were rejected rather than modelled as flat footways."
+    ],
+    "fieldChecks": [
+      "Check actual train stopping positions and whether a complete, timed Gleis 1 transfer can usefully beat the planner for an actual journey.",
+      "Verify any alternative stair access to island platforms; do not substitute lift travel for an unmeasured stair route.",
+      "Check current ramp access and signs at the northern entrance."
+    ]
+  },
+  {
+    "id": "chur.post-i",
+    "station": "Chur",
+    "region": "Northeast Switzerland",
+    "from": "Chur, Post I",
+    "title": "Post I to the street-level Arosa platforms",
+    "status": "researched",
+    "summary": "Mapped public access to Gleis 2; only this platform is enabled, with conservative distance and door-position allowances.",
+    "access": "From Post I, use the designated pedestrian crossing and the public pavement alongside the station towards Bahnhofplatz. Follow the signed city-level access to Gleis 2 for Arosa. Remain on this side of the railway tracks; this route does not cover Gleis 1 or the mainline platforms.",
+    "platforms": [
+      "2"
+    ],
+    "plannerBudgetS": 240,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-chur-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8571313&to=Arosa&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=9.526,46.851,9.532,46.855",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8571313; railway station ID 8509000.",
+      "The recorded leading walk budgets 240 seconds, measured from timestamps because walk.duration is null.",
+      "Mapped footpath chain: 145.2 m; model path: 165 m; landing node 14089235014.",
+      "Only Gleis 2 is promoted. Other groups lack a complete verified route in this record."
+    ],
+    "fieldChecks": [
+      "Check where Arosa trains stop on the long Gleis 2 platform; the model reserves 200 m beyond the mapped access point.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "activeHackId": "chur.post-i",
+    "distanceM": 165
+  },
+  {
+    "id": "zurich-hb.sihlpost",
+    "station": "Zürich HB",
+    "region": "Northeast Switzerland",
+    "from": "Zürich, Sihlpost/HB",
+    "title": "Sihlpost approach to Zürich HB",
+    "status": "researched",
+    "summary": "Mapped public access to Gleis 3; only this platform is enabled, with conservative distance and door-position allowances.",
+    "access": "Leave Sihlpost/HB using the public pedestrian crossings onto the station-side pavement. Follow the pavement north towards Europaplatz, then the public square to the side entrance of Gleis 3. Stay at street level. This route is only for Gleis 3; do not cross railway tracks or use the underground passages for another platform.",
+    "platforms": [
+      "3"
+    ],
+    "plannerBudgetS": 540,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-hb-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8591367&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.533,47.3755,8.542,47.380",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8591367; railway station ID 8503000.",
+      "The recorded leading walk budgets 540 seconds, measured from timestamps because walk.duration is null.",
+      "Mapped footpath chain: 335.5 m; model path: 370 m; landing node 356305557.",
+      "Only Gleis 3 is promoted. Other groups lack a complete verified route in this record."
+    ],
+    "fieldChecks": [
+      "Check the exact stopping position on Gleis 3 and access through Europaplatz during any temporary works.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "activeHackId": "zurich-hb.sihlpost",
+    "distanceM": 370
+  },
+  {
+    "id": "zurich-oerlikon.bahnhof-nord",
+    "station": "Zürich Oerlikon",
+    "region": "Northeast Switzerland",
+    "from": "Zürich Oerlikon, Bahnhof Nord",
+    "title": "Max-Frisch-Platz entrance from Bahnhof Nord",
+    "status": "researched",
+    "summary": "Mapped public access to Gleis 8; only this platform is enabled, with conservative distance and door-position allowances.",
+    "access": "From Bahnhof Nord, follow the public pavement along Affolternstrasse, using its designated crossings. Continue to the short pedestrian ramp into the outer Gleis 8 platform. Use the pavement, not the traffic lane. This route covers Gleis 8 only; other platforms require a separately measured access route.",
+    "platforms": [
+      "8"
+    ],
+    "plannerBudgetS": 240,
+    "sources": [
+      {
+        "title": "SBB station and area plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-oerlikon-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8591062&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap station geometry extract",
+        "url": "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.541,47.409,8.547,47.414",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public timetable stop ID 8591062; railway station ID 8503006.",
+      "The recorded leading walk budgets 240 seconds, measured from timestamps because walk.duration is null.",
+      "Mapped footpath chain: 171.8 m; model path: 190 m; landing node 9651573109.",
+      "Only Gleis 8 is promoted. Other groups lack a complete verified route in this record."
+    ],
+    "fieldChecks": [
+      "Check bus stopping kerbs and the precise train stopping position on Gleis 8.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "activeHackId": "zurich-oerlikon.bahnhof-nord",
+    "distanceM": 190
+  }
+]

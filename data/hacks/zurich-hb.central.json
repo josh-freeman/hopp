@@ -1,0 +1,287 @@
+{
+  "id": "zurich-hb.central",
+  "version": 1,
+  "kind": "alight-early",
+  "status": "desk-verified",
+  "name": "Zürich Central → HB over the Bahnhofbrücke",
+  "station": {
+    "id": "8503000",
+    "name": "Zürich HB",
+    "lat": 47.377847,
+    "lon": 8.540502,
+    "minTransferS": 300
+  },
+  "alight": {
+    "id": "8588078",
+    "name": "Zürich, Central",
+    "lat": 47.376833,
+    "lon": 8.543937,
+    "lines": [
+      "3",
+      "4",
+      "6",
+      "7",
+      "10",
+      "11"
+    ],
+    "platformLetters": {
+      "3": "B",
+      "4": "F",
+      "11": "F",
+      "6": "H",
+      "7": "H",
+      "10": "H"
+    },
+    "plannerWalkS": 540,
+    "geofence": {
+      "lat": 47.3767194,
+      "lon": 8.5435274,
+      "r": 40
+    },
+    "note": "Tram 15 does NOT continue to HB (board 2026-09-13: departs G toward Tiefenbrunnen; VBZ 2026: becomes line 11 at Central ?). Bus 31 (platform I) also runs Central → Bahnhofplatz/HB. Polybahn arrivals: +55 m street."
+  },
+  "rideOn": [
+    {
+      "id": "8587348",
+      "name": "Zürich, Bahnhofplatz/HB",
+      "lines": [
+        "3",
+        "6",
+        "10"
+      ],
+      "rideS": 120,
+      "plannerWalkS": 420
+    },
+    {
+      "id": "8591067",
+      "name": "Zürich, Bahnhofstrasse/HB",
+      "lines": [
+        "4",
+        "7",
+        "11"
+      ],
+      "rideS": 150,
+      "plannerWalkS": 420
+    },
+    {
+      "id": "8587349",
+      "name": "Zürich, Bahnhofquai/HB",
+      "lines": [],
+      "rideS": 60,
+      "plannerWalkS": 420,
+      "validity": [
+        {
+          "from": "2026-12-13",
+          "to": null,
+          "note": "tram stop closed 2025-12-14 → 2026-12-12 (VBZ); lines after reopening unknown ?"
+        }
+      ]
+    }
+  ],
+  "validity": [
+    {
+      "from": "2025-12-14",
+      "to": "2026-12-12",
+      "note": "Bahnhofquai/HB closure. On reopening trams stop 187 m closer (195–214 m surface run) — re-survey and bump version."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Bahnhofquai surface sidewalk from the bridge to 'Ausgang Bahnhofquai' may be fenced by the tram-stop works (city advice: use ShopVille underpasses); if so add route variant via NE 'Eingang Shopville' stairs (+2 flights, ≈ +30 s)",
+    "Terminus stopping position on 3–18 (rear car in sector A?)",
+    "Real hall path length (interior unmapped; straight-line +5–10 % ?)"
+  ],
+  "instructions": "Exit onto the Bahnhofbrücke NORTH sidewalk (Landesmuseum side), cross Bahnhofquai at the lights, enter the Haupthalle through 'Ausgang Bahnhofquai' and run straight through to the Querhalle: Gleis 3 is on your left, 18 on your right. For 41–44 take the north escalators, for 31–34 the central escalators then Passage Löwenstrasse.",
+  "routes": [
+    {
+      "key": "surface",
+      "label": "Gleis 3–18 (surface, level 0)",
+      "platforms": {
+        "from": 3,
+        "to": 18
+      },
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.378186,
+        "lon": 8.539264,
+        "r": 70
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 233,
+          "crossings": 3,
+          "note": "Central F → bridge N sidewalk → Bahnhofquai → east portal (verifier chain 233 m; brief 217 m)"
+        },
+        {
+          "kind": "hall",
+          "m": 175,
+          "note": "? straight line 165 m (pl 10/11) – 184 m (pl 3); Haupthalle interior unmapped in OSM"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 30,
+        "max": 400
+      },
+      "note": "? terminus: rear car assumed in sector A, 10–30 m from the head (unverified)"
+    },
+    {
+      "key": "museumstrasse",
+      "label": "Gleis 41–44 Museumstrasse (level −3)",
+      "platforms": {
+        "from": 41,
+        "to": 44
+      },
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.378742,
+        "lon": 8.538995,
+        "r": 60
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 233,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 145,
+          "note": "portal → Haupthalle north escalators"
+        },
+        {
+          "kind": "escalator",
+          "dir": "down",
+          "riseM": 7.3,
+          "note": "0 → −2 (Halle Landesmuseum), 19 m long"
+        },
+        {
+          "kind": "hall",
+          "m": 36
+        },
+        {
+          "kind": "escalator",
+          "dir": "down",
+          "riseM": 6.3,
+          "note": "? −2 → −3 (13.6 − 7.3 m), 7 m long"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 150
+      },
+      "note": "? lands roughly mid-platform (OSM outline 412 m vs 360 m real)"
+    },
+    {
+      "key": "loewenstrasse",
+      "label": "Gleis 31–34 Löwenstrasse (level −4)",
+      "platforms": {
+        "from": 31,
+        "to": 34
+      },
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.378026,
+        "lon": 8.538718,
+        "r": 60
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 233,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 103,
+          "note": "portal → Haupthalle central escalators"
+        },
+        {
+          "kind": "escalator",
+          "dir": "down",
+          "riseM": 7.3,
+          "note": "0 → −2, 15 m long (OSM level '0;-1;-2')"
+        },
+        {
+          "kind": "hall",
+          "m": 70,
+          "note": "Passage Löwenstrasse west"
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 8.1,
+          "steps": 50,
+          "note": "−2 → −4, escalator alongside"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 150
+      },
+      "note": "? lands in the eastern third (outline 507 m vs 420 m real)"
+    },
+    {
+      "key": "szu",
+      "label": "Gleis 21–22 SZU",
+      "platforms": {
+        "from": 21,
+        "to": 22
+      },
+      "helps": "never",
+      "confidence": "low",
+      "validity": [
+        {
+          "from": null,
+          "to": "2026-12-31",
+          "note": "SZU station closed 2026-04-29, reopening slipped to ~Dec 2026 ?; S4/S10 end at Selnau"
+        }
+      ],
+      "path": [
+        {
+          "kind": "street",
+          "m": 233,
+          "crossings": 3
+        },
+        {
+          "kind": "hall",
+          "m": 103
+        },
+        {
+          "kind": "escalator",
+          "dir": "down",
+          "riseM": 4.7
+        },
+        {
+          "kind": "hall",
+          "m": 80
+        },
+        {
+          "kind": "escalator",
+          "dir": "down",
+          "riseM": 6.9
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 30,
+        "max": 125
+      },
+      "note": "STAY ON: SZU closed; new access must be re-measured after reopening"
+    }
+  ],
+  "sources": [
+    "OSM via Overpass/API 2026-09-13 (nodes 94583344, 2264870172, 267348654, 338493236; ways 445003247, 492505567, 383737821, 389727032; stop position 41 47.378742,8.538995)",
+    "SBB Innenplan Zürich HB 12/2025",
+    "de.wikipedia Zürich Hauptbahnhof (depths 7.3/13.6/15.4 m)",
+    "transport.opendata.ch connections 2026-09-14/15 (walk budgets 540 s Central, 420 s HB-adjacent stops; Central stationboard 2026-09-13)",
+    "stadt-zuerich.ch VBZ Bahnhofquai/HB 14.12.2025–12.12.2026",
+    "szu.ch closure notice",
+    "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-hb-a4.pdf",
+    "https://www.openstreetmap.org/way/445003247",
+    "https://www.openstreetmap.org/way/492505567",
+    "https://www.openstreetmap.org/way/383737821",
+    "https://www.openstreetmap.org/way/389727032"
+  ]
+}

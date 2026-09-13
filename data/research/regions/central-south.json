@@ -1,0 +1,393 @@
+[
+  {
+    "id": "luzern.pilatusplatz",
+    "station": "Luzern",
+    "region": "Central and southern Switzerland",
+    "from": "Luzern, Pilatusplatz",
+    "title": "Pilatusplatz to the level terminus concourse",
+    "status": "needs-check",
+    "summary": "The terminus has a level approach, but current Pilatusstrasse pavement works prevent enabling the direct sprint yet.",
+    "access": "Pilatusplatz towards Pilatusstrasse/Zentralstrasse and the front station concourse; use designated pedestrian crossings. The current construction diversion must be established first.",
+    "platforms": [
+      "2–15"
+    ],
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 05/2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-luzern-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8573022&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=8.3030,47.0470,8.3110,47.0510",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "VBL construction notice, including Pilatusstrasse pavement closure",
+        "url": "https://www.vbl.ch/ueber-vbl/aktuelles/detail/bau-der-neuen-durchmesserperrons-am-bahnhof-luzern/",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8573022; railway station 8505000; onward bus stop Luzern, Bahnhof 8508450.",
+      "Recorded line 14 ride: 120 seconds; subsequent station transfer: 300 seconds. The 420-second total is a ride-on baseline, not a measured direct walk.",
+      "VBL reports road and pavement barriers on Pilatusstrasse from 24 June until at latest mid-September 2026. On the research date, reopening cannot be assumed.",
+      "OSM platform relations 5634803 (2/3) through 5634854 (14/15) corroborate surface level 0. This establishes platform level, not an open route through current works."
+    ],
+    "fieldChecks": [
+      "Verify the current signed public diversion around the Pilatusstrasse and Bahnhofplatz works.",
+      "Measure each supported platform approach and nearest-door allowance after confirming pedestrian access."
+    ]
+  },
+  {
+    "id": "zug.metalli",
+    "station": "Zug",
+    "region": "Central and southern Switzerland",
+    "from": "Zug, Metalli/Bahnhof",
+    "title": "Metalli entrance to raised railway platforms",
+    "status": "needs-check",
+    "summary": "The direct Metalli entrance is documented; vertical access and the actual sprint-only advantage still need measurement.",
+    "access": "From Metalli/Bahnhof towards the signed Metalli station entrance on Bahnhofplatz. Choose the platform-specific stairs or escalator only after its route has been measured.",
+    "platforms": [
+      "1–2",
+      "3–4",
+      "5–6",
+      "7"
+    ],
+    "plannerBudgetS": 300,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 03/2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zug-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8502781&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=8.5140,47.1723,8.5175,47.1750",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "ZVB official Metalli/Bahnhof departure page",
+        "url": "https://www.zvb.ch/fahrplan-nach-haltestelle/ab-2781/?cHash=430eae186ecf2ed2716a09668a33e133",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8502781; railway station 8502204.",
+      "The planner gives a 300-second direct walking transfer, measured from section timestamps because walk.duration is null.",
+      "The SBB plan distinguishes town level from platform level. A street-distance estimate alone would omit the ascent.",
+      "OSM relations 5655356 (1/2), 5655782 (3/4) and 5655278 (5/6) are tagged level 1. Nearby stair way 31818627 has 24 steps but no measured riser height; its count is not a complete route model."
+    ],
+    "fieldChecks": [
+      "Measure the level change and exact public approach for each platform island.",
+      "Verify directional bus alight positions and whether ordinary walking already satisfies the proposed connection window."
+    ]
+  },
+  {
+    "id": "thun.klosestrasse",
+    "station": "Thun",
+    "region": "Central and southern Switzerland",
+    "from": "Thun, Klosestrasse",
+    "title": "Klosestrasse towards Thun south access",
+    "status": "needs-check",
+    "summary": "The southern approach is geographically relevant, but the usable platform access and vertical timing are not yet complete.",
+    "access": "Klosestrasse towards the documented Frutigenstrasse/southern station access. The station plan distinguishes surface access from the underpasses.",
+    "platforms": [
+      "1",
+      "2–3",
+      "4–5",
+      "16",
+      "18"
+    ],
+    "plannerBudgetS": 360,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 12/2025",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-thun-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8591913&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=7.6270,46.7528,7.6305,46.7564",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "STI official network and station access plans",
+        "url": "https://www.stibus.ch/fahrplaene/busnetz-und-situationsplan.php",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8591913; railway station 8507100.",
+      "The planner gives 360 seconds for the direct walking transfer; the duration is obtained from departure/arrival timestamps.",
+      "Thun has separate approaches to surface track 1, island platforms 2–3 and 4–5, and terminal tracks 16/18. These cannot share an invented stair allowance.",
+      "OSM relations 7078740 (1), 7078739 (2/3) and 16203972 (4/5) distinguish platform groups. Stair way 36936620 has 21 steps but supplies no rise; the full chosen access chain is not established."
+    ],
+    "fieldChecks": [
+      "Resolve the actual south entrance from each Klosestrasse bus direction and confirm pedestrian crossings.",
+      "Measure ramps/stairs and identify which platform groups the southern route really helps."
+    ]
+  },
+  {
+    "id": "aarau.kunsthaus",
+    "station": "Aarau",
+    "region": "Central and southern Switzerland",
+    "from": "Aarau, Kunsthaus",
+    "title": "Kunsthaus along Bahnhofstrasse to Aarau",
+    "status": "needs-check",
+    "summary": "A direct street approach is documented; island-platform access and whether this is merely planner slack need checking.",
+    "access": "Kunsthaus eastwards along the public Bahnhofstrasse pavement towards Bahnhofplatz; track 1 and the underpass routes must be assessed separately.",
+    "platforms": [
+      "1",
+      "2–3",
+      "4–5",
+      "6"
+    ],
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 01/2025",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-aarau-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8578642&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=8.0460,47.3900,8.0520,47.3924",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Bus Aarau official line 5 stop timetable",
+        "url": "https://www.busaarau.ch/fileadmin/user_upload/Fahrplaene/Linie_5/5_Aarau_Bahnhof_-_C_Hin.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8578642; railway station 8502113.",
+      "The direct planner walking transfer is 420 seconds, measured from timestamps.",
+      "The SBB plan separates surface track 1 from island platforms 2–3 and 4–5; southern tracks 11–13 belong to a different rail access and are not included.",
+      "A short surface route may already be fast enough on foot. No sprint-only benefit is claimed without a window-specific comparison.",
+      "OSM relations 5693368 (0/1), 5693370 (2/3), 5693371 (4/5) and way 33789949 (6) corroborate separate platforms. The 0 label is not enabled as a railway destination."
+    ],
+    "fieldChecks": [
+      "Measure the exact public platform-1 entrance and compare ordinary walking before promoting it.",
+      "Survey stairs and passage lengths for tracks 2–6; do not reuse surface timing for these islands."
+    ]
+  },
+  {
+    "id": "olten.schuetzenmatt",
+    "station": "Olten",
+    "region": "Central and southern Switzerland",
+    "from": "Olten, Schützenmatt",
+    "title": "Schützenmatt across the Aare to Olten station",
+    "status": "needs-check",
+    "summary": "The bus detour is substantial; the complete pedestrian bridge and platform access could yield a useful route but need verification.",
+    "access": "From Schützenmatt through the public town streets to the station-side crossing of the Aare. The Stadtzentrum entrances feed different station underpasses.",
+    "platforms": [
+      "1",
+      "2–3",
+      "4/7",
+      "8–9",
+      "10–11",
+      "12"
+    ],
+    "plannerBudgetS": 780,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 02/2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-olten-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8590432&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=7.9008,47.3475,7.9085,47.3526",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "BOGG line 509 Schützenmatt timetable, valid from 14 December 2025",
+        "url": "https://www.bogg.ch/cust/files/488/5.0%20509_520OLSC3_1_Hin.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8590432; railway station 8500218; bus arrival stop Olten, Bahnhof 8572352.",
+      "One observed journey walks directly in 900 seconds. Another rides line 509 for 480 seconds and then budgets 300 seconds to the train: 780 seconds total.",
+      "The official BOGG timetable also shows the detour via Solothurnerstrasse, Museen and Baslerstrasse before Bahnhof.",
+      "Underpass entries and island-platform access are explicit in the SBB plan; this is not a single level crossing across all tracks.",
+      "OSM relation 5686254 maps platform 1; 5686258 maps the unusual 4/7 island. Public stair way 382231401 connects levels -1 and 0 with 28 steps, without a measured riser height."
+    ],
+    "fieldChecks": [
+      "Verify the optimal public Aare crossing and platform-1 access without entering tracks or private ground.",
+      "Measure vertical access and passage distances separately for both underpasses and all proposed platform groups."
+    ]
+  },
+  {
+    "id": "bellinzona.piazza-mesolcina",
+    "station": "Bellinzona",
+    "region": "Central and southern Switzerland",
+    "from": "Bellinzona, Piazza Mesolcina",
+    "title": "Piazza Mesolcina to the northern station access",
+    "status": "needs-check",
+    "summary": "The bus goes beyond a potentially useful northern approach; public access and the platform-1 level change must be resolved.",
+    "access": "Piazza Mesolcina towards the signed station access by Piazza di Giro. Binario 1 must be separated from the bridges/underpass serving the islands.",
+    "platforms": [
+      "1",
+      "2–3",
+      "4/6"
+    ],
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 02/2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-bellinzona-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8575178&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=9.0248,46.1945,9.0305,46.1988",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8575178; railway station 8505213; bus arrival stop Bellinzona, Stazione 8579936.",
+      "Line 3 takes 180 seconds to Stazione, followed by a 240-second transfer to the train: 420 seconds total.",
+      "The station plan shows both footbridges and an underpass. A generic distance to the station centroid would miss these choices.",
+      "OSM bus stop node 984707982 is tagged elevation 226 m, while station bus platform way 1074960304 is tagged 238 m. These independently mapped values suggest a material climb; their difference is not a measured stair rise.",
+      "Binario 1 is mapped by way 217518077 at station level 0; island relations 10286411 and 10286412 cover 2/3 and 4/6. Station-relative level 0 does not establish level access from the lower street.",
+      "A future alight-early record must match the actual feeder passList and bus arrival stop 8579936 before the continuous station walk. The captured 420 seconds cannot be substituted for an unobserved direct planner walk."
+    ],
+    "fieldChecks": [
+      "Confirm whether the northern approach to Binario 1 is continuously public and level, and map any ramp or stairs.",
+      "Measure island-platform vertical access; do not invent a stair height from the plan drawing."
+    ]
+  },
+  {
+    "id": "locarno.piazza-castello",
+    "station": "Locarno",
+    "region": "Central and southern Switzerland",
+    "from": "Locarno, Piazza Castello",
+    "title": "Piazza Castello to the surface terminus platforms",
+    "status": "needs-check",
+    "summary": "The surface-platform endpoint is mapped, but the complete pedestrian chain from Piazza Castello is not verified.",
+    "access": "Piazza Castello towards the town-centre pedestrian streets, then the public Piazza Stazione concourse at the ends of the surface platforms.",
+    "platforms": [
+      "1",
+      "2–3"
+    ],
+    "plannerBudgetS": 480,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 06/2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-locarno-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8578883&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=8.7935,46.1670,8.8030,46.1740",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "FART official line-network overview",
+        "url": "https://fartiamo.ch/de/home-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8578883; railway station 8505400; bus arrival stop Locarno, Stazione 8578881.",
+      "Observed line 4 rides for 300 seconds, then budgets 180 seconds for the station transfer: 480 seconds total.",
+      "The official June 2026 plan distinguishes the surface terminus from the underground FART tracks; only surface tracks 1–3 are under consideration.",
+      "Public footway 359235347 shares node 6048976108 (46.1725453, 8.8010842) with surface platform 2/3 way 238368698. The approach crosses Via Stazione on mapped zebra footway 1214515049. This verifies the endpoint, not the full approach from Piazza Castello.",
+      "A no-stairs graph probe through Via Trevani and Via alla Ramogna measures 856.8 m between mapped nodes, excluding the alight-point approach and train-door allowance. It includes road centrelines and a Via Trevani segment without sidewalk tags, so it is not accepted as a complete public-pavement route.",
+      "The shorter town-centre route through Piazza Grande has unresolved pedestrian-area connections. No guessed 700 m route or crossing count is activated. Underground FART platform way 279457136 (level -2, tracks 11/21) is excluded.",
+      "The observed baseline requires feeder passList matching and rideOn stop 8578881. Starting the search at Piazza Castello alone does not establish a continuous leading walk or an active matcher case."
+    ],
+    "fieldChecks": [
+      "Trace the public route from the correct Piazza Castello bus-side stop through Piazza Grande to Via alla Ramogna, resolving pedestrian-area connectivity and any stairs.",
+      "Count actual pavement crossings and measure the full approach; the road-centreline graph is only a topology probe.",
+      "Confirm conservative train-door distance for each surface platform and establish an actual catchable earlier train; exclude underground tracks."
+    ]
+  },
+  {
+    "id": "lugano.piazza-besso",
+    "station": "Lugano",
+    "region": "Central and southern Switzerland",
+    "from": "Lugano, Stazione Piazza Besso",
+    "title": "Piazza Besso to Lugano station access",
+    "status": "needs-check",
+    "summary": "The Besso-side connection is directly relevant, but levels and CoBe construction prevent a generic sprint estimate.",
+    "access": "From Stazione Piazza Besso to the signed Besso entrance. Use the station-specific public accesses and underpasses, not the FLP platform or construction area.",
+    "platforms": [
+      "1",
+      "2–3",
+      "4"
+    ],
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB official station plan, edition 12/2025",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-lugano-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded 14 September 2026 journey and planner transfer budget",
+        "url": "https://transport.opendata.ch/v1/connections?from=8575286&to=Z%C3%BCrich%20HB&date=2026-09-14&time=08%3A00&limit=4",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "OpenStreetMap public street and station geometry snapshot",
+        "url": "https://api.openstreetmap.org/api/0.6/map.json?bbox=8.9440,46.0048,8.9478,46.0068",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "TPL line 3 Stazione Piazza Besso timetable, valid from 14 December 2025",
+        "url": "https://www.tplsa.ch/repository/pdf-2026/403_A_LUGPB2.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Public stop 8575286; railway station 8505300.",
+      "The direct planner walking transfer budgets 420 seconds, measured from section timestamps.",
+      "The station plan marks multiple underground levels, separate FLP access, and the CoBe construction area. These are material route constraints.",
+      "OSM maps surface platform 4 as way 368958158, platform 1 as way 619424793 and island 2/3 as relation 8590259. Stair way 619436183 has 43 steps between levels -1 and 0 but no riser measurement."
+    ],
+    "fieldChecks": [
+      "Verify current CoBe barriers and the open signed route from the bus stop.",
+      "Measure the actual Besso entrance level and platform-specific stairs, escalators or ramps; establish whether track 4 has a valid direct access."
+    ]
+  }
+]

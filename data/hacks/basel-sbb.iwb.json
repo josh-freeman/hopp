@@ -1,0 +1,345 @@
+{
+  "id": "basel-sbb.iwb",
+  "version": 1,
+  "kind": "alight-early",
+  "status": "desk-verified",
+  "name": "Basel IWB → Basel SBB via the Margarethenbrücke ramp",
+  "station": {
+    "id": "8500010",
+    "name": "Basel SBB",
+    "lat": 47.547403,
+    "lon": 7.589564,
+    "minTransferS": 360
+  },
+  "alight": {
+    "id": "8500160",
+    "name": "Basel, IWB",
+    "lat": 47.546673,
+    "lon": 7.584368,
+    "lines": [
+      "2"
+    ],
+    "platformLetters": {
+      "2": "B"
+    },
+    "plannerWalkS": 480,
+    "geofence": {
+      "lat": 47.5465349,
+      "lon": 7.5840273,
+      "r": 40
+    },
+    "note": "Tram 2 city-bound stops at Kante B on the station-side sidewalk — no track crossing. Tram 16 city-bound (Kante C) crosses the bridge to Markthalle but never serves Bahnhof SBB (baseline = Markthalle + 480 s) — separate entry later."
+  },
+  "rideOn": [
+    {
+      "id": "8578143",
+      "name": "Basel, Bahnhof SBB",
+      "lines": [
+        "2"
+      ],
+      "rideS": 180,
+      "plannerWalkS": 360,
+      "note": "IWB → Markthalle → Bahnhof SBB Kante F, 3 min scheduled"
+    },
+    {
+      "id": "8500193",
+      "name": "Basel, Markthalle",
+      "lines": [
+        "2",
+        "16"
+      ],
+      "rideS": 60,
+      "plannerWalkS": 480
+    }
+  ],
+  "validity": [
+    {
+      "from": "2025-12-06",
+      "to": "2030-12-31",
+      "note": "Ramp since 2024-04-15; provisional west passerelle since 2025-12-06 (day-level date from OSM ?); permanent Perronzugang Margarethen and bridge rebuild from ~2031 change every row."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Opening hours / night or ice closure of the ramp and the two bridge stairs",
+    "Which half of the split-level 16/18 platform the bridge stair lands on",
+    "Where trains stop on Gleis 19 (through) and 20 (terminating, assumed at the ramp end)",
+    "Direction: does the commuter also use the reverse (train on 19/20 → ramp → tram 2 Kante A)?"
+  ],
+  "instructions": "Get off at IWB (Kante B), run up Margarethenstrasse onto the bridge's right-hand (south-east) sidewalk. The first descent is the RAMP onto the west tip of Gleis 19/20; the stairs to 16/18 and 14/15 follow along the sidewalk. For Gleis 5–12 continue on Meret Oppenheim-Strasse to the provisional passerelle. Never cross tracks; never use the underpass (one-way, gated).",
+  "routes": [
+    {
+      "key": "g20",
+      "label": "Gleis 20 (terminating track — train stands at the ramp end)",
+      "platforms": [
+        20
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.5471411,
+        "lon": 7.5856005,
+        "r": 50
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 132,
+          "crossings": 1,
+          "note": "114 m node chain + 18 m mapped-sidewalk correction; crossings ? (Margarethenstrasse side street)"
+        },
+        {
+          "kind": "ramp",
+          "m": 59,
+          "note": "OSM way 1273058927, ~5 m down ?, concrete, shared with bicycles"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 40,
+        "max": 410
+      },
+      "note": "Wendegleis ending just before the bridge; ramp foot 46 m east of the west tip"
+    },
+    {
+      "key": "g19",
+      "label": "Gleis 19 (through track)",
+      "platforms": [
+        19
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.5471411,
+        "lon": 7.5856005,
+        "r": 50
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 132,
+          "crossings": 1
+        },
+        {
+          "kind": "ramp",
+          "m": 59
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 150,
+        "max": 410
+      },
+      "note": "? stopping position unknown; RailCity stair is 213 m from the ramp foot on a ~460 m platform"
+    },
+    {
+      "key": "g16-18",
+      "label": "Gleis 16/18 (bridge stairs)",
+      "platforms": [
+        16,
+        17,
+        18
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.5474729,
+        "lon": 7.5851521,
+        "r": 50
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 132,
+          "crossings": 1
+        },
+        {
+          "kind": "street",
+          "m": 24,
+          "note": "bridge SE sidewalk to the stair head"
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 4.5,
+          "steps": 27,
+          "note": "riseM ? (27 × 0.165 m); public since 2013-04-13, ticket validator at the foot"
+        },
+        {
+          "kind": "platform",
+          "m": 20,
+          "note": "? split-level halves (Gleis 18 lower) joined by stairs/ramps"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 350
+      },
+      "note": "? sector unknown; add a half-level when the train is on the other half"
+    },
+    {
+      "key": "g14-15",
+      "label": "Gleis 14/15 (bridge stairs)",
+      "platforms": [
+        14,
+        15
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.547676,
+        "lon": 7.5852895,
+        "r": 50
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 132,
+          "crossings": 1
+        },
+        {
+          "kind": "street",
+          "m": 48
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 5.0,
+          "steps": 30,
+          "note": "riseM ?; public since 2013"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 350
+      },
+      "note": "? sector unknown"
+    },
+    {
+      "key": "g5-12",
+      "label": "Gleis 5–12 via the provisional passerelle",
+      "platforms": {
+        "from": 5,
+        "to": 12
+      },
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.5467534,
+        "lon": 7.5863042,
+        "r": 60
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 250,
+          "crossings": 1,
+          "note": "IWB → Meret Oppenheim-Strasse → passerelle south entrance (232 m chain + 18 m)"
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 6.0,
+          "note": "? 13 steps + a flight to deck level 1 (lift exists)"
+        },
+        {
+          "kind": "hall",
+          "m": 100,
+          "note": "? covered deck: ~70 m to the 11/12 stair … ~125 m to 9/10"
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 6.0,
+          "note": "?"
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "landing = passerelle south entrance (per-platform stair coordinates not verified); passerelle lands west-middle of ~400 m platforms"
+    },
+    {
+      "key": "g30-35",
+      "label": "Gleis 30–35 SNCF via passerelle north landing",
+      "platforms": {
+        "from": 30,
+        "to": 35
+      },
+      "helps": "marginal",
+      "confidence": "low",
+      "path": [
+        {
+          "kind": "street",
+          "m": 250,
+          "crossings": 1
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 6.0
+        },
+        {
+          "kind": "hall",
+          "m": 145
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 6.0
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 60,
+        "max": 200
+      },
+      "note": "? link from Perron 30/31 to 33/35 unmapped; French platform strings may be null"
+    },
+    {
+      "key": "g1-4",
+      "label": "Gleis 1–4",
+      "platforms": {
+        "from": 1,
+        "to": 4
+      },
+      "helps": "never",
+      "confidence": "high",
+      "path": [
+        {
+          "kind": "street",
+          "m": 443
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 6.5,
+          "steps": 19
+        },
+        {
+          "kind": "hall",
+          "m": 185
+        },
+        {
+          "kind": "stairs",
+          "dir": "down",
+          "riseM": 6.5
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 60,
+        "max": 200
+      },
+      "note": "STAY ON: only reachable via the RailCity Passerelle (690–820 m, 2 level changes) — no gain over riding to Centralbahnplatz"
+    }
+  ],
+  "sources": [
+    "OSM via Overpass/API 2026-09-13 (way 1273058927; steps 217965086/217965087; way 1306147440; relation 17916175; platform 377466170)",
+    "bz Basel 2024-04-10 (ramp) and 2013-04-17 (stairs)",
+    "company.sbb.ch Ausbau Bahnhof Basel SBB (Wendegleis 20, 16/18 split level)",
+    "SBB Bahnhofplan Basel SBB 02/2026",
+    "transport.opendata.ch stationboard 8500160 and connections 2026-09-13/15 (walk budgets 480 s IWB, 360 s Bahnhof SBB; tram 2 IWB → Bahnhof SBB 3 min)",
+    "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-basel-sbb-a4.pdf",
+    "https://www.openstreetmap.org/way/1273058927",
+    "https://www.openstreetmap.org/way/217965086",
+    "https://www.openstreetmap.org/way/217965087",
+    "https://www.openstreetmap.org/way/1306147440"
+  ]
+}

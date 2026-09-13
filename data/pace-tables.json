@@ -1,0 +1,22 @@
+{
+  "defaultSprintMps": 3.5,
+  "walkMps": 1.35,
+  "bagFactor": 0.87,
+  "moveFactors": { "street": 1, "ramp": 0.9, "hall": 0.8, "platform": 0.9 },
+  "moveCaps": { "street": 20, "ramp": 4, "hall": 3.5, "platform": 4 },
+  "peakFactor": 0.8,
+  "peakWindows": [[420, 540], [990, 1110]],
+  "levelSecondsPerMetre": {
+    "run": { "stairs": { "down": 1.6, "up": 2.2 }, "escalator": { "down": 1.5, "up": 1.8 } },
+    "walk": { "stairs": { "down": 2.4, "up": 3.2 }, "escalator": { "down": 3.6, "up": 3.6 } }
+  },
+  "alightS": 12,
+  "reactS": 3,
+  "levelTransitionS": 3,
+  "crossingS": 10,
+  "doorApproachFactor": 0.9,
+  "minMarginS": 45,
+  "marginFraction": 0.15,
+  "doorCloseS": 20,
+  "scheduledOnlyMarginS": 30
+}

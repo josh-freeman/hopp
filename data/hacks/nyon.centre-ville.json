@@ -1,0 +1,80 @@
+{
+  "id": "nyon.centre-ville",
+  "version": 1,
+  "kind": "transfer-slack",
+  "status": "desk-verified",
+  "name": "Nyon, centre ville → Nyon, Voie 1 via Rue de la Gare",
+  "station": {
+    "id": "8501030",
+    "name": "Nyon",
+    "lat": 46.384429,
+    "lon": 6.23595,
+    "minTransferS": 0
+  },
+  "alight": {
+    "id": "8593874",
+    "name": "Nyon, centre ville",
+    "lat": 46.38308,
+    "lon": 6.235941,
+    "lines": [],
+    "platformLetters": {},
+    "plannerWalkS": 300,
+    "geofence": {
+      "lat": 46.3830541,
+      "lon": 6.2359482,
+      "r": 35
+    },
+    "note": "Five-minute leading walk in all four captured Geneva-bound connections. Exact kerb uses the public transport platform mapped in OSM; no independent station-wide transfer minimum is asserted."
+  },
+  "rideOn": [],
+  "validity": [
+    {
+      "from": "2026-09-13",
+      "to": "2026-12-12",
+      "note": "Review deadline at the December timetable change. Uses existing surface paths, not the proposed future Viollier underpass."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Time the public pavement route, including the marked crossings, on foot.",
+    "Confirm the alighting kerb and current signage at Rue de la Gare.",
+    "Check train stopping positions: the 150 m door approach is a modelling allowance, not a measured train formation."
+  ],
+  "instructions": "From centre ville, follow the public pavement of Rue de la Gare uphill towards the station. Use the marked crossings at the station forecourt, then follow the public footpath to Voie 1. Remain on the station-building side of the railway; this route does not use an underpass or cross railway tracks.",
+  "routes": [
+    {
+      "key": "v1",
+      "label": "Voie 1 via Rue de la Gare",
+      "platforms": [
+        1
+      ],
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.3841913,
+        "lon": 6.2357319,
+        "r": 30
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 225,
+          "crossings": 2,
+          "note": "201.6 m connected public OSM route including 3.2 m start offset, rounded upward for pavement alignment and forecourt approach. Two crossing-delay allowances cover the split mapped crossing. The shorter stair route was excluded because its rise is unverified."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 150,
+        "max": 350
+      },
+      "note": "Desk evidence reaches a node shared with the Voie 1 platform polygon. The 150 m door allowance is conservative modelling, not a measured stopping position. No access to Voie 2, 3 or NStCM platforms is asserted."
+    }
+  ],
+  "sources": [
+    "https://transport.opendata.ch/v1/connections?from=8593874&to=8501008&date=2026-09-14&time=08%3A00&limit=4",
+    "https://api.openstreetmap.org/api/0.6/map.json?bbox=6.2305,46.3815,6.2395,46.3880",
+    "https://www.openstreetmap.org/node/1837005634",
+    "https://www.openstreetmap.org/way/210675017",
+    "https://www.openstreetmap.org/node/5149171869",
+    "https://www.nyon.ch/nyon-officiel/grands-projets/gare-de-nyon/"
+  ]
+}

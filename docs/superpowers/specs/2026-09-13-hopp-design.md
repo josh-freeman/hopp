@@ -8,8 +8,10 @@
 4. **User-facing term: "Sprint route"** (works unchanged in DE/FR/IT). App name: **Hopp**. The feature must be able to live inside a transit app: the offer is a card above the normal connection list, not a mode switch.
 5. **Canonical phone flow** (mockups in `docs/design/phone-flow/`, artifact "Athlete Mode Phone Flow"): Plan → Results list with the *"You can still make the 17:32"* card (Try it / Not now) → Try-it sheet (full sprint X:XX · spare Y:YY · walking: no; "Sprint it" / "Show me the route first") → Route map of the run (OSM tiles + route, read *before* the run, never during) → Sprint route detail (timeline, spare time, SBB fallback card) → Go live (countdown, GET OFF AT, Gleis, need/spare, fallback pinned, "On the platform") → Shortcut page → Settings (single sprint pace, luggage, min margin, "Offer sprint routes" toggle). §7 below is amended accordingly; where §7 and this list differ, this list wins.
 6. **Hosting:** GitHub Pages under `/hopp/` (Cloudflare Pages identical); English-only UI for the MVP.
+7. **Discovery and copy (user correction, 2026-09-13):** Show shortcuts in the context of the searched trip. No prominent, easily accessible list of all routes. Route notes apply only to the selected connection. Use plain functional copy; remove slogans and promotional phrasing.
+8. **Coverage (user correction, 2026-09-13):** Broad research to find similar routes across Switzerland is in the current scope. Two seed shortcuts are insufficient. Investigate mapped public access and planner budgets systematically; add supported route data, and retain unresolved candidates as research records without enabling misleading sprint offers.
 
-Status: for approval. Date: 2026-09-13. Built on the research brief and its verifications; decisions first, options second.
+Status: approved 2026-09-13; static MVP implemented. Later phases remain planned. Date: 2026-09-13. Built on the research brief and its verifications; decisions first, options second.
 
 ---
 

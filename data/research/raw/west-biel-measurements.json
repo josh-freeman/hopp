@@ -1,0 +1,3563 @@
+[
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4616215913,
+    "toNode": 6046656251,
+    "distanceM": 289.58742507120087,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4616215913,
+        "to": 4616215920,
+        "m": 34.1449237121363,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656252,
+        "m": 4.759824185449174,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200752,
+        "from": 6046656252,
+        "to": 9249725325,
+        "m": 4.238020250857946,
+        "tags": {
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224353,
+        "from": 9249725325,
+        "to": 6046656251,
+        "m": 9.255148999233526,
+        "tags": {
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "24",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1348525,
+        7.2441529
+      ],
+      [
+        47.1348068,
+        7.2440915
+      ],
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1328623,
+        7.2428277
+      ],
+      [
+        47.1328976,
+        7.2427169
+      ]
+    ],
+    "boardingNode": 3474605970,
+    "boardingCoordinate": [
+      47.1349207,
+      7.2442942
+    ],
+    "connectorM": 13.105366216563256,
+    "landingCoordinate": [
+      47.1328976,
+      7.2427169
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 9988240220,
+    "toNode": 6046656251,
+    "distanceM": 304.235764594583,
+    "groups": [
+      {
+        "way": 39267685,
+        "from": 9988240220,
+        "to": 2346732269,
+        "m": 27.380357581737393,
+        "tags": {
+          "highway": "footway",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466921464,
+        "from": 2346732269,
+        "to": 10059212622,
+        "m": 15.728949487857815,
+        "tags": {
+          "bicycle": "permissive",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 514835620,
+        "from": 10059212622,
+        "to": 5028943092,
+        "m": 10.630465164160547,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 39267684,
+        "from": 5028943092,
+        "to": 2346732261,
+        "m": 138.9130759658255,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091140,
+        "from": 2346732261,
+        "to": 469899854,
+        "m": 15.460975656346731,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 26962257,
+        "from": 469899854,
+        "to": 10056902989,
+        "m": 27.322551673942858,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 10056902989,
+        "to": 295219008,
+        "m": 21.462355338082567,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656252,
+        "m": 4.759824185449174,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200752,
+        "from": 6046656252,
+        "to": 9249725325,
+        "m": 4.238020250857946,
+        "tags": {
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224353,
+        "from": 9249725325,
+        "to": 6046656251,
+        "m": 9.255148999233526,
+        "tags": {
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "24",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1349529,
+        7.2445462
+      ],
+      [
+        47.1347501,
+        7.2443409
+      ],
+      [
+        47.1346834,
+        7.2442969
+      ],
+      [
+        47.134654,
+        7.2443204
+      ],
+      [
+        47.1346396,
+        7.2443671
+      ],
+      [
+        47.1345962,
+        7.2443442
+      ],
+      [
+        47.1345496,
+        7.2443197
+      ],
+      [
+        47.1345328,
+        7.2442402
+      ],
+      [
+        47.1344767,
+        7.2441566
+      ],
+      [
+        47.1343864,
+        7.2440934
+      ],
+      [
+        47.1339061,
+        7.2437505
+      ],
+      [
+        47.1335418,
+        7.2434905
+      ],
+      [
+        47.1335189,
+        7.2434741
+      ],
+      [
+        47.1334726,
+        7.2434946
+      ],
+      [
+        47.1334082,
+        7.2434495
+      ],
+      [
+        47.1333462,
+        7.2434095
+      ],
+      [
+        47.1333159,
+        7.2433884
+      ],
+      [
+        47.1333042,
+        7.2433115
+      ],
+      [
+        47.1332246,
+        7.2432539
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1328623,
+        7.2428277
+      ],
+      [
+        47.1328976,
+        7.2427169
+      ]
+    ],
+    "boardingNode": 3474605971,
+    "boardingCoordinate": [
+      47.1349939,
+      7.2445649
+    ],
+    "connectorM": 4.773393444016798,
+    "landingCoordinate": [
+      47.1328976,
+      7.2427169
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4683890084,
+    "toNode": 6046656251,
+    "distanceM": 279.3146219506304,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4683890084,
+        "to": 4616215920,
+        "m": 17.399514500198695,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656252,
+        "m": 4.759824185449174,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200752,
+        "from": 6046656252,
+        "to": 9249725325,
+        "m": 4.238020250857946,
+        "tags": {
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224353,
+        "from": 9249725325,
+        "to": 6046656251,
+        "m": 9.255148999233526,
+        "tags": {
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "24",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1328623,
+        7.2428277
+      ],
+      [
+        47.1328976,
+        7.2427169
+      ]
+    ],
+    "boardingNode": 3867525587,
+    "boardingCoordinate": [
+      47.1349354,
+      7.2439017
+    ],
+    "connectorM": 19.57797230793047,
+    "landingCoordinate": [
+      47.1328976,
+      7.2427169
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4616215913,
+    "toNode": 6046656239,
+    "distanceM": 305.9852277583974,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4616215913,
+        "to": 4616215920,
+        "m": 34.1449237121363,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656240,
+        "m": 20.699680334583825,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200753,
+        "from": 6046656240,
+        "to": 9249725326,
+        "m": 5.4412574882635365,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224337,
+        "from": 9249725326,
+        "to": 6046656239,
+        "m": 8.50985829988987,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1348525,
+        7.2441529
+      ],
+      [
+        47.1348068,
+        7.2440915
+      ],
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1327343,
+        7.2427245
+      ],
+      [
+        47.1327673,
+        7.242623
+      ]
+    ],
+    "boardingNode": 3474605970,
+    "boardingCoordinate": [
+      47.1349207,
+      7.2442942
+    ],
+    "connectorM": 13.105366216563256,
+    "landingCoordinate": [
+      47.1327673,
+      7.242623
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 9988240220,
+    "toNode": 6046656239,
+    "distanceM": 320.6335672817795,
+    "groups": [
+      {
+        "way": 39267685,
+        "from": 9988240220,
+        "to": 2346732269,
+        "m": 27.380357581737393,
+        "tags": {
+          "highway": "footway",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466921464,
+        "from": 2346732269,
+        "to": 10059212622,
+        "m": 15.728949487857815,
+        "tags": {
+          "bicycle": "permissive",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 514835620,
+        "from": 10059212622,
+        "to": 5028943092,
+        "m": 10.630465164160547,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 39267684,
+        "from": 5028943092,
+        "to": 2346732261,
+        "m": 138.9130759658255,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091140,
+        "from": 2346732261,
+        "to": 469899854,
+        "m": 15.460975656346731,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 26962257,
+        "from": 469899854,
+        "to": 10056902989,
+        "m": 27.322551673942858,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 10056902989,
+        "to": 295219008,
+        "m": 21.462355338082567,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656240,
+        "m": 20.699680334583825,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200753,
+        "from": 6046656240,
+        "to": 9249725326,
+        "m": 5.4412574882635365,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224337,
+        "from": 9249725326,
+        "to": 6046656239,
+        "m": 8.50985829988987,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1349529,
+        7.2445462
+      ],
+      [
+        47.1347501,
+        7.2443409
+      ],
+      [
+        47.1346834,
+        7.2442969
+      ],
+      [
+        47.134654,
+        7.2443204
+      ],
+      [
+        47.1346396,
+        7.2443671
+      ],
+      [
+        47.1345962,
+        7.2443442
+      ],
+      [
+        47.1345496,
+        7.2443197
+      ],
+      [
+        47.1345328,
+        7.2442402
+      ],
+      [
+        47.1344767,
+        7.2441566
+      ],
+      [
+        47.1343864,
+        7.2440934
+      ],
+      [
+        47.1339061,
+        7.2437505
+      ],
+      [
+        47.1335418,
+        7.2434905
+      ],
+      [
+        47.1335189,
+        7.2434741
+      ],
+      [
+        47.1334726,
+        7.2434946
+      ],
+      [
+        47.1334082,
+        7.2434495
+      ],
+      [
+        47.1333462,
+        7.2434095
+      ],
+      [
+        47.1333159,
+        7.2433884
+      ],
+      [
+        47.1333042,
+        7.2433115
+      ],
+      [
+        47.1332246,
+        7.2432539
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1327343,
+        7.2427245
+      ],
+      [
+        47.1327673,
+        7.242623
+      ]
+    ],
+    "boardingNode": 3474605971,
+    "boardingCoordinate": [
+      47.1349939,
+      7.2445649
+    ],
+    "connectorM": 4.773393444016798,
+    "landingCoordinate": [
+      47.1327673,
+      7.242623
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4683890084,
+    "toNode": 6046656239,
+    "distanceM": 295.712424637827,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4683890084,
+        "to": 4616215920,
+        "m": 17.399514500198695,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656240,
+        "m": 20.699680334583825,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200753,
+        "from": 6046656240,
+        "to": 9249725326,
+        "m": 5.4412574882635365,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224337,
+        "from": 9249725326,
+        "to": 6046656239,
+        "m": 8.50985829988987,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1327343,
+        7.2427245
+      ],
+      [
+        47.1327673,
+        7.242623
+      ]
+    ],
+    "boardingNode": 3867525587,
+    "boardingCoordinate": [
+      47.1349354,
+      7.2439017
+    ],
+    "connectorM": 19.57797230793047,
+    "landingCoordinate": [
+      47.1327673,
+      7.242623
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4616215913,
+    "toNode": 6046656241,
+    "distanceM": 321.8841526833125,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4616215913,
+        "to": 4616215920,
+        "m": 34.1449237121363,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656242,
+        "m": 36.377968236255356,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200744,
+        "from": 6046656242,
+        "to": 9249725317,
+        "m": 5.2828205359201625,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224339,
+        "from": 9249725317,
+        "to": 6046656241,
+        "m": 8.888932275476831,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1348525,
+        7.2441529
+      ],
+      [
+        47.1348068,
+        7.2440915
+      ],
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1325851,
+        7.2427028
+      ],
+      [
+        47.1326056,
+        7.2426398
+      ],
+      [
+        47.1326401,
+        7.2425338
+      ]
+    ],
+    "boardingNode": 3474605970,
+    "boardingCoordinate": [
+      47.1349207,
+      7.2442942
+    ],
+    "connectorM": 13.105366216563256,
+    "landingCoordinate": [
+      47.1326401,
+      7.2425338
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 9988240220,
+    "toNode": 6046656241,
+    "distanceM": 336.5324922066946,
+    "groups": [
+      {
+        "way": 39267685,
+        "from": 9988240220,
+        "to": 2346732269,
+        "m": 27.380357581737393,
+        "tags": {
+          "highway": "footway",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466921464,
+        "from": 2346732269,
+        "to": 10059212622,
+        "m": 15.728949487857815,
+        "tags": {
+          "bicycle": "permissive",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 514835620,
+        "from": 10059212622,
+        "to": 5028943092,
+        "m": 10.630465164160547,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 39267684,
+        "from": 5028943092,
+        "to": 2346732261,
+        "m": 138.9130759658255,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091140,
+        "from": 2346732261,
+        "to": 469899854,
+        "m": 15.460975656346731,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 26962257,
+        "from": 469899854,
+        "to": 10056902989,
+        "m": 27.322551673942858,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 10056902989,
+        "to": 295219008,
+        "m": 21.462355338082567,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656242,
+        "m": 36.377968236255356,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200744,
+        "from": 6046656242,
+        "to": 9249725317,
+        "m": 5.2828205359201625,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224339,
+        "from": 9249725317,
+        "to": 6046656241,
+        "m": 8.888932275476831,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1349529,
+        7.2445462
+      ],
+      [
+        47.1347501,
+        7.2443409
+      ],
+      [
+        47.1346834,
+        7.2442969
+      ],
+      [
+        47.134654,
+        7.2443204
+      ],
+      [
+        47.1346396,
+        7.2443671
+      ],
+      [
+        47.1345962,
+        7.2443442
+      ],
+      [
+        47.1345496,
+        7.2443197
+      ],
+      [
+        47.1345328,
+        7.2442402
+      ],
+      [
+        47.1344767,
+        7.2441566
+      ],
+      [
+        47.1343864,
+        7.2440934
+      ],
+      [
+        47.1339061,
+        7.2437505
+      ],
+      [
+        47.1335418,
+        7.2434905
+      ],
+      [
+        47.1335189,
+        7.2434741
+      ],
+      [
+        47.1334726,
+        7.2434946
+      ],
+      [
+        47.1334082,
+        7.2434495
+      ],
+      [
+        47.1333462,
+        7.2434095
+      ],
+      [
+        47.1333159,
+        7.2433884
+      ],
+      [
+        47.1333042,
+        7.2433115
+      ],
+      [
+        47.1332246,
+        7.2432539
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1325851,
+        7.2427028
+      ],
+      [
+        47.1326056,
+        7.2426398
+      ],
+      [
+        47.1326401,
+        7.2425338
+      ]
+    ],
+    "boardingNode": 3474605971,
+    "boardingCoordinate": [
+      47.1349939,
+      7.2445649
+    ],
+    "connectorM": 4.773393444016798,
+    "landingCoordinate": [
+      47.1326401,
+      7.2425338
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4683890084,
+    "toNode": 6046656241,
+    "distanceM": 311.6113495627421,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4683890084,
+        "to": 4616215920,
+        "m": 17.399514500198695,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656242,
+        "m": 36.377968236255356,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200744,
+        "from": 6046656242,
+        "to": 9249725317,
+        "m": 5.2828205359201625,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224339,
+        "from": 9249725317,
+        "to": 6046656241,
+        "m": 8.888932275476831,
+        "tags": {
+          "access": "yes",
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1325851,
+        7.2427028
+      ],
+      [
+        47.1326056,
+        7.2426398
+      ],
+      [
+        47.1326401,
+        7.2425338
+      ]
+    ],
+    "boardingNode": 3867525587,
+    "boardingCoordinate": [
+      47.1349354,
+      7.2439017
+    ],
+    "connectorM": 19.57797230793047,
+    "landingCoordinate": [
+      47.1326401,
+      7.2425338
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4616215913,
+    "toNode": 6046656243,
+    "distanceM": 337.6541641306361,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4616215913,
+        "to": 4616215920,
+        "m": 34.1449237121363,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656244,
+        "m": 52.13476078379517,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200745,
+        "from": 6046656244,
+        "to": 9249725318,
+        "m": 4.341215286061459,
+        "tags": {
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224341,
+        "from": 9249725318,
+        "to": 6046656243,
+        "m": 9.843756425119313,
+        "tags": {
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1348525,
+        7.2441529
+      ],
+      [
+        47.1348068,
+        7.2440915
+      ],
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1325851,
+        7.2427028
+      ],
+      [
+        47.1324578,
+        7.2426113
+      ],
+      [
+        47.1324753,
+        7.24256
+      ],
+      [
+        47.1325132,
+        7.2424424
+      ]
+    ],
+    "boardingNode": 3474605970,
+    "boardingCoordinate": [
+      47.1349207,
+      7.2442942
+    ],
+    "connectorM": 13.105366216563256,
+    "landingCoordinate": [
+      47.1325132,
+      7.2424424
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 9988240220,
+    "toNode": 6046656243,
+    "distanceM": 352.3025036540182,
+    "groups": [
+      {
+        "way": 39267685,
+        "from": 9988240220,
+        "to": 2346732269,
+        "m": 27.380357581737393,
+        "tags": {
+          "highway": "footway",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466921464,
+        "from": 2346732269,
+        "to": 10059212622,
+        "m": 15.728949487857815,
+        "tags": {
+          "bicycle": "permissive",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 514835620,
+        "from": 10059212622,
+        "to": 5028943092,
+        "m": 10.630465164160547,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": true
+      },
+      {
+        "way": 39267684,
+        "from": 5028943092,
+        "to": 2346732261,
+        "m": 138.9130759658255,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091140,
+        "from": 2346732261,
+        "to": 469899854,
+        "m": 15.460975656346731,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 26962257,
+        "from": 469899854,
+        "to": 10056902989,
+        "m": 27.322551673942858,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 10056902989,
+        "to": 295219008,
+        "m": 21.462355338082567,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656244,
+        "m": 52.13476078379517,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200745,
+        "from": 6046656244,
+        "to": 9249725318,
+        "m": 4.341215286061459,
+        "tags": {
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224341,
+        "from": 9249725318,
+        "to": 6046656243,
+        "m": 9.843756425119313,
+        "tags": {
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1349529,
+        7.2445462
+      ],
+      [
+        47.1347501,
+        7.2443409
+      ],
+      [
+        47.1346834,
+        7.2442969
+      ],
+      [
+        47.134654,
+        7.2443204
+      ],
+      [
+        47.1346396,
+        7.2443671
+      ],
+      [
+        47.1345962,
+        7.2443442
+      ],
+      [
+        47.1345496,
+        7.2443197
+      ],
+      [
+        47.1345328,
+        7.2442402
+      ],
+      [
+        47.1344767,
+        7.2441566
+      ],
+      [
+        47.1343864,
+        7.2440934
+      ],
+      [
+        47.1339061,
+        7.2437505
+      ],
+      [
+        47.1335418,
+        7.2434905
+      ],
+      [
+        47.1335189,
+        7.2434741
+      ],
+      [
+        47.1334726,
+        7.2434946
+      ],
+      [
+        47.1334082,
+        7.2434495
+      ],
+      [
+        47.1333462,
+        7.2434095
+      ],
+      [
+        47.1333159,
+        7.2433884
+      ],
+      [
+        47.1333042,
+        7.2433115
+      ],
+      [
+        47.1332246,
+        7.2432539
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1325851,
+        7.2427028
+      ],
+      [
+        47.1324578,
+        7.2426113
+      ],
+      [
+        47.1324753,
+        7.24256
+      ],
+      [
+        47.1325132,
+        7.2424424
+      ]
+    ],
+    "boardingNode": 3474605971,
+    "boardingCoordinate": [
+      47.1349939,
+      7.2445649
+    ],
+    "connectorM": 4.773393444016798,
+    "landingCoordinate": [
+      47.1325132,
+      7.2424424
+    ]
+  },
+  {
+    "source": "Derived from west-biel-osm.json only; haversine along public mapped footways, ramps and stairs with explicit step_count; no polygon shortcuts, elevators, unknown-height stairs or restricted ways.",
+    "fromNode": 4683890084,
+    "toNode": 6046656243,
+    "distanceM": 327.3813610100657,
+    "groups": [
+      {
+        "way": 466921466,
+        "from": 4683890084,
+        "to": 4616215920,
+        "m": 17.399514500198695,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098623594,
+        "from": 4616215920,
+        "to": 4616215919,
+        "m": 16.257399512315367,
+        "tags": {
+          "crossing": "marked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922136,
+        "from": 4616215919,
+        "to": 4616221760,
+        "m": 113.76160668840576,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 466922135,
+        "from": 4616221760,
+        "to": 10056954907,
+        "m": 6.91709653875182,
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1253091139,
+        "from": 10056954907,
+        "to": 4616221758,
+        "m": 16.012949479693624,
+        "tags": {
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        },
+        "forward": false
+      },
+      {
+        "way": 1098369441,
+        "from": 4616221758,
+        "to": 295219008,
+        "m": 46.824442640721905,
+        "tags": {
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "wheelchair": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 738595169,
+        "from": 295219008,
+        "to": 3164051599,
+        "m": 24.3106468470721,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tactile_paving": "yes",
+          "tunnel": "building_passage"
+        },
+        "forward": false
+      },
+      {
+        "way": 26943667,
+        "from": 3164051599,
+        "to": 6046656244,
+        "m": 52.13476078379517,
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "inline_skates": "no",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "asphalt",
+          "tactile_paving": "yes",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 1002200745,
+        "from": 6046656244,
+        "to": 9249725318,
+        "m": 4.341215286061459,
+        "tags": {
+          "highway": "footway",
+          "incline": "down",
+          "layer": "-1",
+          "level": "0",
+          "lit": "yes",
+          "surface": "paving_stones",
+          "tunnel": "yes"
+        },
+        "forward": false
+      },
+      {
+        "way": 642224341,
+        "from": 9249725318,
+        "to": 6046656243,
+        "m": 9.843756425119313,
+        "tags": {
+          "handrail": "yes",
+          "highway": "steps",
+          "incline": "down",
+          "level": "1;0",
+          "lit": "yes",
+          "ramp": "no",
+          "step_count": "26",
+          "surface": "paving_stones",
+          "tactile_paving": "yes"
+        },
+        "forward": false
+      }
+    ],
+    "geometry": [
+      [
+        47.1347666,
+        7.2439753
+      ],
+      [
+        47.1347396,
+        7.2439298
+      ],
+      [
+        47.1347274,
+        7.2439159
+      ],
+      [
+        47.1347092,
+        7.2438953
+      ],
+      [
+        47.1346913,
+        7.2438663
+      ],
+      [
+        47.134678,
+        7.2437949
+      ],
+      [
+        47.1346186,
+        7.2438035
+      ],
+      [
+        47.1345325,
+        7.243816
+      ],
+      [
+        47.1345181,
+        7.2438376
+      ],
+      [
+        47.1345007,
+        7.2438536
+      ],
+      [
+        47.1344771,
+        7.2438643
+      ],
+      [
+        47.1344524,
+        7.2438648
+      ],
+      [
+        47.1340246,
+        7.2435572
+      ],
+      [
+        47.1336119,
+        7.2432709
+      ],
+      [
+        47.1335748,
+        7.2432434
+      ],
+      [
+        47.1335689,
+        7.2432143
+      ],
+      [
+        47.1334977,
+        7.2431735
+      ],
+      [
+        47.133435,
+        7.2431364
+      ],
+      [
+        47.1333685,
+        7.2431251
+      ],
+      [
+        47.1332865,
+        7.2430686
+      ],
+      [
+        47.1332548,
+        7.2431613
+      ],
+      [
+        47.1330942,
+        7.2430479
+      ],
+      [
+        47.1330808,
+        7.2430385
+      ],
+      [
+        47.1330701,
+        7.2430312
+      ],
+      [
+        47.1328823,
+        7.2429038
+      ],
+      [
+        47.1328437,
+        7.2428766
+      ],
+      [
+        47.1327132,
+        7.2427894
+      ],
+      [
+        47.1325851,
+        7.2427028
+      ],
+      [
+        47.1324578,
+        7.2426113
+      ],
+      [
+        47.1324753,
+        7.24256
+      ],
+      [
+        47.1325132,
+        7.2424424
+      ]
+    ],
+    "boardingNode": 3867525587,
+    "boardingCoordinate": [
+      47.1349354,
+      7.2439017
+    ],
+    "connectorM": 19.57797230793047,
+    "landingCoordinate": [
+      47.1325132,
+      7.2424424
+    ]
+  }
+]

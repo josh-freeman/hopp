@@ -1,0 +1,261 @@
+{
+  "checkedAt": "2026-09-13",
+  "method": "Public mapped geometry; each active model uses the longest boarding-quay approach, upward-rounded movement distances plus 10 m, maximum mapped crossings across quays, and an explicit 0.18 m/riser assumption for counted stairs. Door offsets are separate model allowances. Raw connections and OSM are real captures; this file is derived analysis.",
+  "routes": {
+    "bern.hirschengraben": [
+      {
+        "platforms": [
+          3,
+          4
+        ],
+        "landingNode": 821429459,
+        "relation": 10228959,
+        "measuredMaxM": 442.2,
+        "modelHorizontalM": 455,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.2,
+            "steps": 40,
+            "note": "OSM way 68172860: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 8
+      },
+      {
+        "platforms": [
+          5,
+          6
+        ],
+        "landingNode": 821429518,
+        "relation": 10228960,
+        "measuredMaxM": 457.5,
+        "modelHorizontalM": 470,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.2,
+            "steps": 40,
+            "note": "OSM way 68172826: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 8
+      },
+      {
+        "platforms": [
+          7,
+          8
+        ],
+        "landingNode": 821429626,
+        "relation": 10228961,
+        "measuredMaxM": 472.7,
+        "modelHorizontalM": 485,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.2,
+            "steps": 40,
+            "note": "OSM way 68172871: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 8
+      },
+      {
+        "platforms": [
+          9,
+          10
+        ],
+        "landingNode": 821429550,
+        "relation": 14666888,
+        "measuredMaxM": 486.5,
+        "modelHorizontalM": 495,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.38,
+            "steps": 41,
+            "note": "OSM way 68172904: 41 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 8
+      },
+      {
+        "platforms": [
+          12,
+          13
+        ],
+        "landingNode": 821429544,
+        "relation": 10228957,
+        "measuredMaxM": 505.5,
+        "modelHorizontalM": 515,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.56,
+            "steps": 42,
+            "note": "OSM way 68172866: 42 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 8
+      }
+    ],
+    "biel.place-guisan": [
+      {
+        "platforms": [
+          2,
+          3
+        ],
+        "landingNode": 6046656239,
+        "relation": 10216211,
+        "measuredMaxM": 320.6,
+        "modelHorizontalM": 335,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 642224337: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 2
+      },
+      {
+        "platforms": [
+          4,
+          5
+        ],
+        "landingNode": 6046656241,
+        "relation": 10216212,
+        "measuredMaxM": 336.5,
+        "modelHorizontalM": 350,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 642224339: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 2
+      },
+      {
+        "platforms": [
+          6,
+          7
+        ],
+        "landingNode": 6046656243,
+        "relation": 10216208,
+        "measuredMaxM": 352.3,
+        "modelHorizontalM": 360,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 642224341: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 2
+      }
+    ],
+    "geneve.lyon": [
+      {
+        "platforms": [
+          4,
+          5
+        ],
+        "landingNode": 3054937562,
+        "relation": 4013259,
+        "measuredMaxM": 587.7,
+        "modelHorizontalM": 585,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 1.26,
+            "steps": 7,
+            "note": "OSM way 1218743806: 7 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 5.58,
+            "steps": 31,
+            "note": "OSM way 301439282: 31 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 3
+      }
+    ],
+    "neuchatel.gare-nord": [
+      {
+        "platforms": [
+          6,
+          7
+        ],
+        "landingNode": 5553124036,
+        "relation": 8209994,
+        "measuredMaxM": 191.7,
+        "modelHorizontalM": 200,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 579951165: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 1
+      },
+      {
+        "platforms": [
+          4,
+          5
+        ],
+        "landingNode": 5553124024,
+        "relation": 8209995,
+        "measuredMaxM": 206.8,
+        "modelHorizontalM": 215,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 579951167: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 1
+      },
+      {
+        "platforms": [
+          2,
+          3
+        ],
+        "landingNode": 5553122309,
+        "relation": 8209993,
+        "measuredMaxM": 222.5,
+        "modelHorizontalM": 230,
+        "stairs": [
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.86,
+            "steps": 27,
+            "note": "OSM way 579951163: 27 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "crossings": 1
+      }
+    ]
+  }
+}

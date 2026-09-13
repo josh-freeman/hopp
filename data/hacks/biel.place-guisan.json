@@ -1,0 +1,197 @@
+{
+  "id": "biel.place-guisan",
+  "version": 1,
+  "kind": "alight-early",
+  "status": "desk-verified",
+  "name": "Biel/Bienne: Place Guisan → station underpass",
+  "station": {
+    "id": "8504300",
+    "name": "Biel/Bienne",
+    "lat": 47.132893,
+    "lon": 7.242918,
+    "minTransferS": 0
+  },
+  "alight": {
+    "id": "8587619",
+    "name": "Biel/Bienne, Place Guisan",
+    "lat": 47.134667,
+    "lon": 7.244084,
+    "lines": [],
+    "platformLetters": {},
+    "plannerWalkS": 420,
+    "geofence": {
+      "lat": 47.134667,
+      "lon": 7.244084,
+      "r": 90
+    },
+    "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+  },
+  "rideOn": [
+    {
+      "id": "8576391",
+      "name": "Biel/Bienne, Bahnhof/Gare",
+      "lines": [
+        "9"
+      ],
+      "rideS": 120,
+      "plannerWalkS": 300,
+      "note": "Recorded bus 9 takes two minutes from Place Guisan and the following station walk is five minutes. Other lines have different ride times; matching uses the actual feeder pass list."
+    }
+  ],
+  "validity": [
+    {
+      "from": "2026-09-13",
+      "to": "2026-12-12",
+      "note": "Desk review expires at the December 2026 timetable change; this is a review deadline, not an announced closure."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+    "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+    "Measure door approach by train length and stopping sector; current typical/maximum 100/300 m values are model allowances.",
+    "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API."
+  ],
+  "instructions": "From Place Guisan, follow the public pavement towards Bahnhofplatz / Place de la Gare. Use the marked pedestrian crossings, enter the central station underpass, and take the signed stairs up to your platform.",
+  "routes": [
+    {
+      "key": "p2-3",
+      "label": "Gleis 2/3",
+      "platforms": [
+        2,
+        3
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.1327673,
+        "lon": 7.242623,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 275,
+          "crossings": 2,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-biel-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 50
+        },
+        {
+          "kind": "ramp",
+          "m": 10
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.68,
+          "steps": 26,
+          "note": "OSM way 642224337: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "Public mapped access to platform relation 10216211, landing node 6046656239. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p4-5",
+      "label": "Gleis 4/5",
+      "platforms": [
+        4,
+        5
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.1326401,
+        "lon": 7.2425338,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 275,
+          "crossings": 2,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-biel-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 65
+        },
+        {
+          "kind": "ramp",
+          "m": 10
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.68,
+          "steps": 26,
+          "note": "OSM way 642224339: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "Public mapped access to platform relation 10216212, landing node 6046656241. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p6-7",
+      "label": "Gleis 6/7",
+      "platforms": [
+        6,
+        7
+      ],
+      "helps": "strong",
+      "confidence": "medium",
+      "landing": {
+        "lat": 47.1325132,
+        "lon": 7.2424424,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 275,
+          "crossings": 2,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-biel-measurements.json."
+        },
+        {
+          "kind": "hall",
+          "m": 80
+        },
+        {
+          "kind": "ramp",
+          "m": 5
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.68,
+          "steps": 26,
+          "note": "OSM way 642224341: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "Public mapped access to platform relation 10216208, landing node 6046656243. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    }
+  ],
+  "sources": [
+    "https://www.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-biel-bienne-a4.pdf.sbbdownload.pdf",
+    "https://widgets.oev-info.ch/publikation/jahresfpl/22.005.pdf",
+    "https://transport.opendata.ch/v1/connections?from=8587619&to=8503000&date=2026-09-14&time=08%3A00&limit=3",
+    "https://vb-tpb.ch/de/netzinfo",
+    "https://www.openstreetmap.org/relation/10216211",
+    "https://www.openstreetmap.org/relation/10216212",
+    "https://www.openstreetmap.org/relation/10216208",
+    "Geometry: data/research/raw/west-biel-osm.json and west-biel-measurements.json; checked 2026-09-13.",
+    "Method and limitations: docs/research/expansion/west.md"
+  ]
+}

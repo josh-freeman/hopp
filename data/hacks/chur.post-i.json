@@ -1,0 +1,83 @@
+{
+  "id": "chur.post-i",
+  "version": 1,
+  "kind": "transfer-slack",
+  "status": "desk-verified",
+  "name": "Chur, Post I → Chur, Gleis 2 for Arosa, city-level access",
+  "station": {
+    "id": "8509000",
+    "name": "Chur",
+    "lat": 46.853078,
+    "lon": 9.528926,
+    "minTransferS": 0
+  },
+  "alight": {
+    "id": "8571313",
+    "name": "Chur, Post I",
+    "lat": 46.852264,
+    "lon": 9.527687,
+    "lines": [],
+    "platformLetters": {},
+    "plannerWalkS": 240,
+    "geofence": {
+      "lat": 46.852264,
+      "lon": 9.527687,
+      "r": 40
+    },
+    "note": "Transfer budget measured from a real planner connection captured 2026-09-13 for 2026-09-15. Stop coordinates are the timetable point; platform letters and independent station minimum transfer time are not asserted."
+  },
+  "rideOn": [],
+  "validity": [
+    {
+      "from": "2026-09-13",
+      "to": "2026-12-12",
+      "note": "Desk checked against current SBB plan and OSM on 2026-09-13; review at the December timetable change. Expiry is a review deadline, not a claim that access closes."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Check where Arosa trains stop on the long Gleis 2 platform; the model reserves 200 m beyond the mapped access point.",
+    "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+    "Verify current temporary access signs and the published train platform."
+  ],
+  "instructions": "From Post I, use the designated pedestrian crossing and the public pavement alongside the station towards Bahnhofplatz. Follow the signed city-level access to Gleis 2 for Arosa. Remain on this side of the railway tracks; this route does not cover Gleis 1 or the mainline platforms.",
+  "routes": [
+    {
+      "key": "g2",
+      "label": "Gleis 2 for Arosa, city-level access",
+      "platforms": [
+        2
+      ],
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.8529596,
+        "lon": 9.5289168,
+        "r": 35
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 165,
+          "crossings": 1,
+          "note": "Mapped public path 145.2 m including stop-point approach; rounded upward for the model. Crossings are designated pedestrian links in OSM; obey signs and signals."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 200,
+        "max": 350
+      },
+      "note": "Unverified on foot. Public access is mapped to OSM node 14089235014; 200 m beyond that point is a conservative modelling allowance for train stopping position, not a measured formation. No other platform is covered."
+    }
+  ],
+  "sources": [
+    "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-chur-a4.pdf",
+    "https://transport.opendata.ch/v1/connections?from=8571313&to=Arosa&date=2026-09-15&time=08%3A00&limit=3",
+    "https://www.openstreetmap.org/api/0.6/map.json?bbox=9.526,46.851,9.532,46.855",
+    "https://www.openstreetmap.org/node/14089235014",
+    "https://www.openstreetmap.org/way/1418326130",
+    "https://www.openstreetmap.org/way/1418326129",
+    "https://www.openstreetmap.org/way/1418326121",
+    "https://www.openstreetmap.org/way/1418326124",
+    "https://www.openstreetmap.org/way/1524041760"
+  ]
+}

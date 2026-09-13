@@ -1,0 +1,2049 @@
+[
+  {
+    "id": "basel-sbb.iwb",
+    "version": 1,
+    "kind": "alight-early",
+    "status": "desk-verified",
+    "name": "Basel IWB → Basel SBB via the Margarethenbrücke ramp",
+    "station": {
+      "id": "8500010",
+      "name": "Basel SBB",
+      "lat": 47.547403,
+      "lon": 7.589564,
+      "minTransferS": 360
+    },
+    "alight": {
+      "id": "8500160",
+      "name": "Basel, IWB",
+      "lat": 47.546673,
+      "lon": 7.584368,
+      "lines": [
+        "2"
+      ],
+      "platformLetters": {
+        "2": "B"
+      },
+      "plannerWalkS": 480,
+      "geofence": {
+        "lat": 47.5465349,
+        "lon": 7.5840273,
+        "r": 40
+      },
+      "note": "Tram 2 city-bound stops at Kante B on the station-side sidewalk — no track crossing. Tram 16 city-bound (Kante C) crosses the bridge to Markthalle but never serves Bahnhof SBB (baseline = Markthalle + 480 s) — separate entry later."
+    },
+    "rideOn": [
+      {
+        "id": "8578143",
+        "name": "Basel, Bahnhof SBB",
+        "lines": [
+          "2"
+        ],
+        "rideS": 180,
+        "plannerWalkS": 360,
+        "note": "IWB → Markthalle → Bahnhof SBB Kante F, 3 min scheduled"
+      },
+      {
+        "id": "8500193",
+        "name": "Basel, Markthalle",
+        "lines": [
+          "2",
+          "16"
+        ],
+        "rideS": 60,
+        "plannerWalkS": 480
+      }
+    ],
+    "validity": [
+      {
+        "from": "2025-12-06",
+        "to": "2030-12-31",
+        "note": "Ramp since 2024-04-15; provisional west passerelle since 2025-12-06 (day-level date from OSM ?); permanent Perronzugang Margarethen and bridge rebuild from ~2031 change every row."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Opening hours / night or ice closure of the ramp and the two bridge stairs",
+      "Which half of the split-level 16/18 platform the bridge stair lands on",
+      "Where trains stop on Gleis 19 (through) and 20 (terminating, assumed at the ramp end)",
+      "Direction: does the commuter also use the reverse (train on 19/20 → ramp → tram 2 Kante A)?"
+    ],
+    "instructions": "Get off at IWB (Kante B), run up Margarethenstrasse onto the bridge's right-hand (south-east) sidewalk. The first descent is the RAMP onto the west tip of Gleis 19/20; the stairs to 16/18 and 14/15 follow along the sidewalk. For Gleis 5–12 continue on Meret Oppenheim-Strasse to the provisional passerelle. Never cross tracks; never use the underpass (one-way, gated).",
+    "routes": [
+      {
+        "key": "g20",
+        "label": "Gleis 20 (terminating track — train stands at the ramp end)",
+        "platforms": [
+          20
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.5471411,
+          "lon": 7.5856005,
+          "r": 50
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 132,
+            "crossings": 1,
+            "note": "114 m node chain + 18 m mapped-sidewalk correction; crossings ? (Margarethenstrasse side street)"
+          },
+          {
+            "kind": "ramp",
+            "m": 59,
+            "note": "OSM way 1273058927, ~5 m down ?, concrete, shared with bicycles"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 40,
+          "max": 410
+        },
+        "note": "Wendegleis ending just before the bridge; ramp foot 46 m east of the west tip"
+      },
+      {
+        "key": "g19",
+        "label": "Gleis 19 (through track)",
+        "platforms": [
+          19
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.5471411,
+          "lon": 7.5856005,
+          "r": 50
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 132,
+            "crossings": 1
+          },
+          {
+            "kind": "ramp",
+            "m": 59
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 150,
+          "max": 410
+        },
+        "note": "? stopping position unknown; RailCity stair is 213 m from the ramp foot on a ~460 m platform"
+      },
+      {
+        "key": "g16-18",
+        "label": "Gleis 16/18 (bridge stairs)",
+        "platforms": [
+          16,
+          17,
+          18
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.5474729,
+          "lon": 7.5851521,
+          "r": 50
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 132,
+            "crossings": 1
+          },
+          {
+            "kind": "street",
+            "m": 24,
+            "note": "bridge SE sidewalk to the stair head"
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 4.5,
+            "steps": 27,
+            "note": "riseM ? (27 × 0.165 m); public since 2013-04-13, ticket validator at the foot"
+          },
+          {
+            "kind": "platform",
+            "m": 20,
+            "note": "? split-level halves (Gleis 18 lower) joined by stairs/ramps"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 350
+        },
+        "note": "? sector unknown; add a half-level when the train is on the other half"
+      },
+      {
+        "key": "g14-15",
+        "label": "Gleis 14/15 (bridge stairs)",
+        "platforms": [
+          14,
+          15
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.547676,
+          "lon": 7.5852895,
+          "r": 50
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 132,
+            "crossings": 1
+          },
+          {
+            "kind": "street",
+            "m": 48
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 5,
+            "steps": 30,
+            "note": "riseM ?; public since 2013"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 350
+        },
+        "note": "? sector unknown"
+      },
+      {
+        "key": "g5-12",
+        "label": "Gleis 5–12 via the provisional passerelle",
+        "platforms": {
+          "from": 5,
+          "to": 12
+        },
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.5467534,
+          "lon": 7.5863042,
+          "r": 60
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 250,
+            "crossings": 1,
+            "note": "IWB → Meret Oppenheim-Strasse → passerelle south entrance (232 m chain + 18 m)"
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 6,
+            "note": "? 13 steps + a flight to deck level 1 (lift exists)"
+          },
+          {
+            "kind": "hall",
+            "m": 100,
+            "note": "? covered deck: ~70 m to the 11/12 stair … ~125 m to 9/10"
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 6,
+            "note": "?"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "landing = passerelle south entrance (per-platform stair coordinates not verified); passerelle lands west-middle of ~400 m platforms"
+      },
+      {
+        "key": "g30-35",
+        "label": "Gleis 30–35 SNCF via passerelle north landing",
+        "platforms": {
+          "from": 30,
+          "to": 35
+        },
+        "helps": "marginal",
+        "confidence": "low",
+        "path": [
+          {
+            "kind": "street",
+            "m": 250,
+            "crossings": 1
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 6
+          },
+          {
+            "kind": "hall",
+            "m": 145
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 6
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 60,
+          "max": 200
+        },
+        "note": "? link from Perron 30/31 to 33/35 unmapped; French platform strings may be null"
+      },
+      {
+        "key": "g1-4",
+        "label": "Gleis 1–4",
+        "platforms": {
+          "from": 1,
+          "to": 4
+        },
+        "helps": "never",
+        "confidence": "high",
+        "path": [
+          {
+            "kind": "street",
+            "m": 443
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 6.5,
+            "steps": 19
+          },
+          {
+            "kind": "hall",
+            "m": 185
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 6.5
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 60,
+          "max": 200
+        },
+        "note": "STAY ON: only reachable via the RailCity Passerelle (690–820 m, 2 level changes) — no gain over riding to Centralbahnplatz"
+      }
+    ],
+    "sources": [
+      "OSM via Overpass/API 2026-09-13 (way 1273058927; steps 217965086/217965087; way 1306147440; relation 17916175; platform 377466170)",
+      "bz Basel 2024-04-10 (ramp) and 2013-04-17 (stairs)",
+      "company.sbb.ch Ausbau Bahnhof Basel SBB (Wendegleis 20, 16/18 split level)",
+      "SBB Bahnhofplan Basel SBB 02/2026",
+      "transport.opendata.ch stationboard 8500160 and connections 2026-09-13/15 (walk budgets 480 s IWB, 360 s Bahnhof SBB; tram 2 IWB → Bahnhof SBB 3 min)",
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-basel-sbb-a4.pdf",
+      "https://www.openstreetmap.org/way/1273058927",
+      "https://www.openstreetmap.org/way/217965086",
+      "https://www.openstreetmap.org/way/217965087",
+      "https://www.openstreetmap.org/way/1306147440"
+    ]
+  },
+  {
+    "id": "bern.hirschengraben",
+    "version": 1,
+    "kind": "alight-early",
+    "status": "desk-verified",
+    "name": "Bern: Hirschengraben → Welle",
+    "station": {
+      "id": "8507000",
+      "name": "Bern",
+      "lat": 46.948823,
+      "lon": 7.439123,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8579896",
+      "name": "Bern, Hirschengraben",
+      "lat": 46.946664,
+      "lon": 7.437626,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 540,
+      "geofence": {
+        "lat": 46.946664,
+        "lon": 7.437626,
+        "r": 175
+      },
+      "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+    },
+    "rideOn": [
+      {
+        "id": "8576646",
+        "name": "Bern, Bahnhof",
+        "lines": [
+          "9",
+          "12"
+        ],
+        "rideS": 60,
+        "plannerWalkS": 360,
+        "note": "Recorded tram 9 and bus 12 connections take one minute from Hirschengraben, then allocate six minutes from Bern Bahnhof to the railway station. Actual feeder times and pass-list identity govern use."
+      }
+    ],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk review expires at the December 2026 timetable change; this is a review deadline, not an announced closure."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 120/350 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API.",
+      "Recheck Welle crowding and construction signs; tracks 1/2 and the future Bubenberg passage are deliberately unsupported."
+    ],
+    "instructions": "From Hirschengraben, follow the public pavements north towards Schanzenstrasse and Welle. Use the marked crossings and obey signals. Enter the existing Welle passerelle, then take the signed stairs down to your platform. Stay on the public route shown by current signs.",
+    "routes": [
+      {
+        "key": "p3-4",
+        "label": "Gleis 3/4",
+        "platforms": [
+          3,
+          4
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9482411,
+          "lon": 7.4364073,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 280,
+            "crossings": 5,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 30
+          },
+          {
+            "kind": "street",
+            "m": 110,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 35
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.2,
+            "steps": 40,
+            "note": "OSM way 68172860: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 120,
+          "max": 350
+        },
+        "note": "Public mapped access to platform relation 10228959, landing node 821429459. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p5-6",
+        "label": "Gleis 5/6",
+        "platforms": [
+          5,
+          6
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9483753,
+          "lon": 7.4363513,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 280,
+            "crossings": 5,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 30
+          },
+          {
+            "kind": "street",
+            "m": 110,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 50
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.2,
+            "steps": 40,
+            "note": "OSM way 68172826: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 120,
+          "max": 350
+        },
+        "note": "Public mapped access to platform relation 10228960, landing node 821429518. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p7-8",
+        "label": "Gleis 7/8",
+        "platforms": [
+          7,
+          8
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9485068,
+          "lon": 7.4362994,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 280,
+            "crossings": 5,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 30
+          },
+          {
+            "kind": "street",
+            "m": 110,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 65
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.2,
+            "steps": 40,
+            "note": "OSM way 68172871: 40 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 120,
+          "max": 350
+        },
+        "note": "Public mapped access to platform relation 10228961, landing node 821429626. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p9-10",
+        "label": "Gleis 9/10",
+        "platforms": [
+          9,
+          10
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9486335,
+          "lon": 7.4362518,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 280,
+            "crossings": 5,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 30
+          },
+          {
+            "kind": "street",
+            "m": 110,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 75
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.38,
+            "steps": 41,
+            "note": "OSM way 68172904: 41 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 120,
+          "max": 350
+        },
+        "note": "Public mapped access to platform relation 14666888, landing node 821429550. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p12-13",
+        "label": "Gleis 12/13",
+        "platforms": [
+          12,
+          13
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9487897,
+          "lon": 7.436182,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 280,
+            "crossings": 5,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-bern-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 30
+          },
+          {
+            "kind": "street",
+            "m": 110,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 95
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 7.56,
+            "steps": 42,
+            "note": "OSM way 68172866: 42 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 120,
+          "max": 350
+        },
+        "note": "Public mapped access to platform relation 10228957, landing node 821429544. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      }
+    ],
+    "sources": [
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-bern-a4.pdf",
+      "https://www.bernmobil.ch/de/fahrplan-netz/fahrplan-nach-haltestellen/hirschengraben",
+      "https://transport.opendata.ch/v1/connections?from=8579896&to=8503000&date=2026-09-14&time=08%3A00&limit=3",
+      "https://www.bernmobil.ch/de/verkehrsinformationen/baustellen/unterhalsarbeiten-raum-bahnhof",
+      "https://www.openstreetmap.org/relation/10228959",
+      "https://www.openstreetmap.org/relation/10228960",
+      "https://www.openstreetmap.org/relation/10228961",
+      "https://www.openstreetmap.org/relation/14666888",
+      "https://www.openstreetmap.org/relation/10228957",
+      "https://www.sbb.ch/de/reiseinformationen/bahnhoefe/bahnhof-finden/bahnhof-bern/bahnhofsbeschrieb.html",
+      "https://news.sbb.ch/de/019d7b77-8b55-7146-873b-297632bf5fea/zukunft-bahnhof-bern-ausbau-laeuft-in-vielen-bereichen-gut-komplexitaet-fuehrt-jedoch-zu-verzoegerungen",
+      "Geometry: data/research/raw/west-bern-osm.json and west-bern-measurements.json; checked 2026-09-13.",
+      "Method and limitations: docs/research/expansion/west.md"
+    ]
+  },
+  {
+    "id": "biel.place-guisan",
+    "version": 1,
+    "kind": "alight-early",
+    "status": "desk-verified",
+    "name": "Biel/Bienne: Place Guisan → station underpass",
+    "station": {
+      "id": "8504300",
+      "name": "Biel/Bienne",
+      "lat": 47.132893,
+      "lon": 7.242918,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8587619",
+      "name": "Biel/Bienne, Place Guisan",
+      "lat": 47.134667,
+      "lon": 7.244084,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 420,
+      "geofence": {
+        "lat": 47.134667,
+        "lon": 7.244084,
+        "r": 90
+      },
+      "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+    },
+    "rideOn": [
+      {
+        "id": "8576391",
+        "name": "Biel/Bienne, Bahnhof/Gare",
+        "lines": [
+          "9"
+        ],
+        "rideS": 120,
+        "plannerWalkS": 300,
+        "note": "Recorded bus 9 takes two minutes from Place Guisan and the following station walk is five minutes. Other lines have different ride times; matching uses the actual feeder pass list."
+      }
+    ],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk review expires at the December 2026 timetable change; this is a review deadline, not an announced closure."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 100/300 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API."
+    ],
+    "instructions": "From Place Guisan, follow the public pavement towards Bahnhofplatz / Place de la Gare. Use the marked pedestrian crossings, enter the central station underpass, and take the signed stairs up to your platform.",
+    "routes": [
+      {
+        "key": "p2-3",
+        "label": "Gleis 2/3",
+        "platforms": [
+          2,
+          3
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.1327673,
+          "lon": 7.242623,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 275,
+            "crossings": 2,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-biel-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 50
+          },
+          {
+            "kind": "ramp",
+            "m": 10
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 642224337: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "Public mapped access to platform relation 10216211, landing node 6046656239. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p4-5",
+        "label": "Gleis 4/5",
+        "platforms": [
+          4,
+          5
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.1326401,
+          "lon": 7.2425338,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 275,
+            "crossings": 2,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-biel-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 65
+          },
+          {
+            "kind": "ramp",
+            "m": 10
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 642224339: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "Public mapped access to platform relation 10216212, landing node 6046656241. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p6-7",
+        "label": "Gleis 6/7",
+        "platforms": [
+          6,
+          7
+        ],
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.1325132,
+          "lon": 7.2424424,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 275,
+            "crossings": 2,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-biel-measurements.json."
+          },
+          {
+            "kind": "hall",
+            "m": 80
+          },
+          {
+            "kind": "ramp",
+            "m": 5
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 642224341: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "Public mapped access to platform relation 10216208, landing node 6046656243. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      }
+    ],
+    "sources": [
+      "https://www.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-biel-bienne-a4.pdf.sbbdownload.pdf",
+      "https://widgets.oev-info.ch/publikation/jahresfpl/22.005.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8587619&to=8503000&date=2026-09-14&time=08%3A00&limit=3",
+      "https://vb-tpb.ch/de/netzinfo",
+      "https://www.openstreetmap.org/relation/10216211",
+      "https://www.openstreetmap.org/relation/10216212",
+      "https://www.openstreetmap.org/relation/10216208",
+      "Geometry: data/research/raw/west-biel-osm.json and west-biel-measurements.json; checked 2026-09-13.",
+      "Method and limitations: docs/research/expansion/west.md"
+    ]
+  },
+  {
+    "id": "chur.post-i",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Chur, Post I → Chur, Gleis 2 for Arosa, city-level access",
+    "station": {
+      "id": "8509000",
+      "name": "Chur",
+      "lat": 46.853078,
+      "lon": 9.528926,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8571313",
+      "name": "Chur, Post I",
+      "lat": 46.852264,
+      "lon": 9.527687,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 240,
+      "geofence": {
+        "lat": 46.852264,
+        "lon": 9.527687,
+        "r": 40
+      },
+      "note": "Transfer budget measured from a real planner connection captured 2026-09-13 for 2026-09-15. Stop coordinates are the timetable point; platform letters and independent station minimum transfer time are not asserted."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk checked against current SBB plan and OSM on 2026-09-13; review at the December timetable change. Expiry is a review deadline, not a claim that access closes."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Check where Arosa trains stop on the long Gleis 2 platform; the model reserves 200 m beyond the mapped access point.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "instructions": "From Post I, use the designated pedestrian crossing and the public pavement alongside the station towards Bahnhofplatz. Follow the signed city-level access to Gleis 2 for Arosa. Remain on this side of the railway tracks; this route does not cover Gleis 1 or the mainline platforms.",
+    "routes": [
+      {
+        "key": "g2",
+        "label": "Gleis 2 for Arosa, city-level access",
+        "platforms": [
+          2
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.8529596,
+          "lon": 9.5289168,
+          "r": 35
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 165,
+            "crossings": 1,
+            "note": "Mapped public path 145.2 m including stop-point approach; rounded upward for the model. Crossings are designated pedestrian links in OSM; obey signs and signals."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 200,
+          "max": 350
+        },
+        "note": "Unverified on foot. Public access is mapped to OSM node 14089235014; 200 m beyond that point is a conservative modelling allowance for train stopping position, not a measured formation. No other platform is covered."
+      }
+    ],
+    "sources": [
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-chur-a4.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8571313&to=Arosa&date=2026-09-15&time=08%3A00&limit=3",
+      "https://www.openstreetmap.org/api/0.6/map.json?bbox=9.526,46.851,9.532,46.855",
+      "https://www.openstreetmap.org/node/14089235014",
+      "https://www.openstreetmap.org/way/1418326130",
+      "https://www.openstreetmap.org/way/1418326129",
+      "https://www.openstreetmap.org/way/1418326121",
+      "https://www.openstreetmap.org/way/1418326124",
+      "https://www.openstreetmap.org/way/1524041760"
+    ]
+  },
+  {
+    "id": "geneve.lyon",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Genève: Lyon → Montbrillant",
+    "station": {
+      "id": "8501008",
+      "name": "Genève",
+      "lat": 46.210228,
+      "lon": 6.142435,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8592850",
+      "name": "Genève, Lyon",
+      "lat": 46.209821,
+      "lon": 6.138285,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 420,
+      "geofence": {
+        "lat": 46.209821,
+        "lon": 6.138285,
+        "r": 90
+      },
+      "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk review expires at the December 2026 timetable change; this is a review deadline, not an announced closure."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 120/350 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API.",
+      "Only domestic tracks 4/5 are covered. No route to the French sector, tracks 1–3, or future underground platforms is inferred."
+    ],
+    "instructions": "Leave Lyon at a marked crossing, then follow the public pavements via Rue des Grottes, Rue Cité-de-la-Corderie and Rue des Amis towards Place de Montbrillant. Enter the signed public Montbrillant station passage, go down the short entrance steps, then take the stairs up to Voies 4/5.",
+    "routes": [
+      {
+        "key": "p4-5",
+        "label": "Voies 4/5",
+        "platforms": [
+          4,
+          5
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.211027,
+          "lon": 6.1426805,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 540,
+            "crossings": 3,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-geneve-measurements.json."
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 1.26,
+            "steps": 7,
+            "note": "OSM way 1218743806: 7 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          },
+          {
+            "kind": "street",
+            "m": 5
+          },
+          {
+            "kind": "hall",
+            "m": 40
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 5.58,
+            "steps": 31,
+            "note": "OSM way 301439282: 31 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 120,
+          "max": 350
+        },
+        "note": "Public mapped access to platform relation 4013259, landing node 3054937562. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      }
+    ],
+    "sources": [
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-geneve-a4.pdf",
+      "https://www.tpg.ch/sites/default/files/arrets_plan_de_connexion/CVIN_Gen%C3%A8ve%20gare%20Cornavin_Totem.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8592850&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+      "https://company.sbb.ch/fr/developpement-ferroviaire/projets/suisse-romande-valais/leman-2030/nos-projets/geneve-cornavin.html",
+      "https://www.openstreetmap.org/relation/4013259",
+      "Geometry: data/research/raw/west-geneve-osm.json and west-geneve-measurements.json; checked 2026-09-13.",
+      "Method and limitations: docs/research/expansion/west.md"
+    ]
+  },
+  {
+    "id": "lausanne.gare-m2",
+    "version": 0,
+    "kind": "transfer-slack",
+    "status": "draft",
+    "name": "Lausanne: m2 'gare' → platforms (planner slack only)",
+    "station": {
+      "id": "8501120",
+      "name": "Lausanne",
+      "lat": 46.516795,
+      "lon": 6.629087,
+      "minTransferS": 300
+    },
+    "alight": {
+      "id": "8592050",
+      "name": "Lausanne, gare (m2)",
+      "lat": 46.5176,
+      "lon": 6.629648,
+      "lines": [
+        "m2"
+      ],
+      "platformLetters": {},
+      "plannerWalkS": 300,
+      "geofence": {
+        "lat": 46.517528,
+        "lon": 6.629633,
+        "r": 40
+      },
+      "note": "? m2 platform at level −1 with a 51 m step-free corridor into the passage sous-voies est; no alight-early hack exists (Grancy saves ≈ 1 min for voie 7/8 only ?, Flon is slower)"
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": null,
+        "to": "2026-12-31",
+        "note": "Léman 2030 works: platform/underpass works from end 2026 or 2027 ?; passage est guaranteed open"
+      }
+    ],
+    "fieldCheckNeeded": [
+      "everything: m2 platform level, stair counts, runner times, Saugettes entrance hours"
+    ],
+    "instructions": "From the m2, take the corridor into the east underpass; 28 steps up to your platform.",
+    "routes": [
+      {
+        "key": "v7-8",
+        "label": "voie 7/8",
+        "platforms": [
+          7,
+          8
+        ],
+        "helps": "marginal",
+        "confidence": "low",
+        "landing": {
+          "lat": 46.516468,
+          "lon": 6.629108,
+          "r": 40
+        },
+        "path": [
+          {
+            "kind": "hall",
+            "m": 205
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.6,
+            "steps": 28
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 50,
+          "max": 200
+        },
+        "note": "? 1:55 runner model"
+      },
+      {
+        "key": "v5-6",
+        "label": "voie 5/6",
+        "platforms": [
+          5,
+          6
+        ],
+        "helps": "marginal",
+        "confidence": "low",
+        "landing": {
+          "lat": 46.516605,
+          "lon": 6.629152,
+          "r": 40
+        },
+        "path": [
+          {
+            "kind": "hall",
+            "m": 185
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.6,
+            "steps": 28
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 50,
+          "max": 200
+        },
+        "note": "?"
+      },
+      {
+        "key": "v3-4",
+        "label": "voie 3/4",
+        "platforms": [
+          3,
+          4
+        ],
+        "helps": "marginal",
+        "confidence": "low",
+        "landing": {
+          "lat": 46.516735,
+          "lon": 6.629193,
+          "r": 40
+        },
+        "path": [
+          {
+            "kind": "hall",
+            "m": 165
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.6,
+            "steps": 28
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 50,
+          "max": 200
+        },
+        "note": "?"
+      },
+      {
+        "key": "v1-70",
+        "label": "voie 1 / 70",
+        "platforms": [
+          1,
+          70
+        ],
+        "helps": "marginal",
+        "confidence": "low",
+        "landing": {
+          "lat": 46.516811,
+          "lon": 6.629218,
+          "r": 40
+        },
+        "path": [
+          {
+            "kind": "hall",
+            "m": 155
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4,
+            "steps": 24
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 50,
+          "max": 260
+        },
+        "note": "? voie 70 = +56 m along platform 1"
+      }
+    ],
+    "sources": [
+      "research lausanne-geo 2026-09-13 (transport.opendata.ch, Overpass, swisstopo heights) — unverified"
+    ]
+  },
+  {
+    "id": "neuchatel.gare-nord",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Neuchâtel: gare nord → station underpass",
+    "station": {
+      "id": "8504221",
+      "name": "Neuchâtel",
+      "lat": 46.996727,
+      "lon": 6.9357,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8579625",
+      "name": "Neuchâtel, gare nord",
+      "lat": 46.996736,
+      "lon": 6.933872,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 240,
+      "geofence": {
+        "lat": 46.996736,
+        "lon": 6.933872,
+        "r": 90
+      },
+      "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-09-24",
+        "note": "Exclude 25–27 September Fête des Vendanges crowding and disruptions announced by transN."
+      },
+      {
+        "from": "2026-09-28",
+        "to": "2026-12-12",
+        "note": "After Fête des Vendanges; review at the December timetable change."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 100/300 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API."
+    ],
+    "instructions": "From gare nord, follow the public pavement to the signed station access ramp. Descend into the railway underpass, then take the signed stairs up to your platform. From quay C, use the marked crossing first.",
+    "routes": [
+      {
+        "key": "p6-7",
+        "label": "Voies 6/7",
+        "platforms": [
+          6,
+          7
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9970393,
+          "lon": 6.935272,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 125,
+            "crossings": 1,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-neuchatel-measurements.json."
+          },
+          {
+            "kind": "ramp",
+            "m": 55
+          },
+          {
+            "kind": "hall",
+            "m": 20
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 579951165: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "Public mapped access to platform relation 8209994, landing node 5553124036. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p4-5",
+        "label": "Voies 4/5",
+        "platforms": [
+          4,
+          5
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9969193,
+          "lon": 6.9353451,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 125,
+            "crossings": 1,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-neuchatel-measurements.json."
+          },
+          {
+            "kind": "ramp",
+            "m": 55
+          },
+          {
+            "kind": "hall",
+            "m": 35
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.68,
+            "steps": 26,
+            "note": "OSM way 579951167: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "Public mapped access to platform relation 8209995, landing node 5553124024. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      },
+      {
+        "key": "p2-3",
+        "label": "Voies 2/3",
+        "platforms": [
+          2,
+          3
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.9967981,
+          "lon": 6.9354205,
+          "r": 25
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 125,
+            "crossings": 1,
+            "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-neuchatel-measurements.json."
+          },
+          {
+            "kind": "ramp",
+            "m": 55
+          },
+          {
+            "kind": "hall",
+            "m": 50
+          },
+          {
+            "kind": "stairs",
+            "dir": "up",
+            "riseM": 4.86,
+            "steps": 27,
+            "note": "OSM way 579951163: 27 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 300
+        },
+        "note": "Public mapped access to platform relation 8209993, landing node 5553122309. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+      }
+    ],
+    "sources": [
+      "https://cdnsource.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-neuchatel-a4.pdf.sbbdownload.pdf",
+      "https://www.transn.ch/fileadmin/transn/pdf/Plans/Plan-de-connexion_GareNord_2024.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8579625&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+      "https://www.transn.ch/voyageurs/voyager/info-voyageurs/info-trafic/",
+      "https://www.openstreetmap.org/relation/8209994",
+      "https://www.openstreetmap.org/relation/8209995",
+      "https://www.openstreetmap.org/relation/8209993",
+      "https://www.transn.ch/fileadmin/transn/horaire_2026/109/transN-NE-109-2.pdf",
+      "Geometry: data/research/raw/west-neuchatel-osm.json and west-neuchatel-measurements.json; checked 2026-09-13.",
+      "Method and limitations: docs/research/expansion/west.md"
+    ]
+  },
+  {
+    "id": "nyon.centre-ville",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Nyon, centre ville → Nyon, Voie 1 via Rue de la Gare",
+    "station": {
+      "id": "8501030",
+      "name": "Nyon",
+      "lat": 46.384429,
+      "lon": 6.23595,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8593874",
+      "name": "Nyon, centre ville",
+      "lat": 46.38308,
+      "lon": 6.235941,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 300,
+      "geofence": {
+        "lat": 46.3830541,
+        "lon": 6.2359482,
+        "r": 35
+      },
+      "note": "Five-minute leading walk in all four captured Geneva-bound connections. Exact kerb uses the public transport platform mapped in OSM; no independent station-wide transfer minimum is asserted."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Review deadline at the December timetable change. Uses existing surface paths, not the proposed future Viollier underpass."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Time the public pavement route, including the marked crossings, on foot.",
+      "Confirm the alighting kerb and current signage at Rue de la Gare.",
+      "Check train stopping positions: the 150 m door approach is a modelling allowance, not a measured train formation."
+    ],
+    "instructions": "From centre ville, follow the public pavement of Rue de la Gare uphill towards the station. Use the marked crossings at the station forecourt, then follow the public footpath to Voie 1. Remain on the station-building side of the railway; this route does not use an underpass or cross railway tracks.",
+    "routes": [
+      {
+        "key": "v1",
+        "label": "Voie 1 via Rue de la Gare",
+        "platforms": [
+          1
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 46.3841913,
+          "lon": 6.2357319,
+          "r": 30
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 225,
+            "crossings": 2,
+            "note": "201.6 m connected public OSM route including 3.2 m start offset, rounded upward for pavement alignment and forecourt approach. Two crossing-delay allowances cover the split mapped crossing. The shorter stair route was excluded because its rise is unverified."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 150,
+          "max": 350
+        },
+        "note": "Desk evidence reaches a node shared with the Voie 1 platform polygon. The 150 m door allowance is conservative modelling, not a measured stopping position. No access to Voie 2, 3 or NStCM platforms is asserted."
+      }
+    ],
+    "sources": [
+      "https://transport.opendata.ch/v1/connections?from=8593874&to=8501008&date=2026-09-14&time=08%3A00&limit=4",
+      "https://api.openstreetmap.org/api/0.6/map.json?bbox=6.2305,46.3815,6.2395,46.3880",
+      "https://www.openstreetmap.org/node/1837005634",
+      "https://www.openstreetmap.org/way/210675017",
+      "https://www.openstreetmap.org/node/5149171869",
+      "https://www.nyon.ch/nyon-officiel/grands-projets/gare-de-nyon/"
+    ]
+  },
+  {
+    "id": "winterthur.archstrasse",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Winterthur, Archstrasse/HB → Winterthur, Gleis 3 via Salzhausplatz",
+    "station": {
+      "id": "8506000",
+      "name": "Winterthur",
+      "lat": 47.500322,
+      "lon": 8.723808,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8594298",
+      "name": "Winterthur, Archstrasse/HB",
+      "lat": 47.4983,
+      "lon": 8.72364,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 420,
+      "geofence": {
+        "lat": 47.4983,
+        "lon": 8.72364,
+        "r": 40
+      },
+      "note": "Transfer budget measured from a real planner connection captured 2026-09-13 for 2026-09-15. Stop coordinates are the timetable point; platform letters and independent station minimum transfer time are not asserted."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk checked against current SBB plan and OSM on 2026-09-13; review at the December timetable change. Expiry is a review deadline, not a claim that access closes."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Confirm the exact alighting kerb and the 28 m approach from the timetable stop point to the mapped pavement.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "instructions": "From Archstrasse/HB, use the public pavements and designated crossings towards Salzhausplatz. Continue through Salzhausplatz to the southern end of Gleis 3. Stay on the public pedestrian route; do not enter the bicycle parking facility or cross any railway tracks.",
+    "routes": [
+      {
+        "key": "g3",
+        "label": "Gleis 3 via Salzhausplatz",
+        "platforms": [
+          3
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.499022,
+          "lon": 8.7227262,
+          "r": 35
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 200,
+            "crossings": 3,
+            "note": "Mapped public path 178.7 m including stop-point approach; rounded upward for the model. Crossings are designated pedestrian links in OSM; obey signs and signals."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 180,
+          "max": 400
+        },
+        "note": "Unverified on foot. Public access is mapped to OSM node 5349403684; 180 m beyond that point is a conservative modelling allowance for train stopping position, not a measured formation. No other platform is covered."
+      }
+    ],
+    "sources": [
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-winterthur-a4.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8594298&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+      "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.720,47.497,8.727,47.503",
+      "https://www.openstreetmap.org/node/5349403684",
+      "https://www.openstreetmap.org/way/583809501",
+      "https://www.openstreetmap.org/way/1027477716",
+      "https://www.openstreetmap.org/way/834932636",
+      "https://www.openstreetmap.org/way/834932633",
+      "https://www.openstreetmap.org/way/1027477719",
+      "https://www.openstreetmap.org/way/705846324",
+      "https://www.openstreetmap.org/way/705846323",
+      "https://www.openstreetmap.org/way/554125063"
+    ]
+  },
+  {
+    "id": "zurich-hb.central",
+    "version": 1,
+    "kind": "alight-early",
+    "status": "desk-verified",
+    "name": "Zürich Central → HB over the Bahnhofbrücke",
+    "station": {
+      "id": "8503000",
+      "name": "Zürich HB",
+      "lat": 47.377847,
+      "lon": 8.540502,
+      "minTransferS": 300
+    },
+    "alight": {
+      "id": "8588078",
+      "name": "Zürich, Central",
+      "lat": 47.376833,
+      "lon": 8.543937,
+      "lines": [
+        "3",
+        "4",
+        "6",
+        "7",
+        "10",
+        "11"
+      ],
+      "platformLetters": {
+        "3": "B",
+        "4": "F",
+        "6": "H",
+        "7": "H",
+        "10": "H",
+        "11": "F"
+      },
+      "plannerWalkS": 540,
+      "geofence": {
+        "lat": 47.3767194,
+        "lon": 8.5435274,
+        "r": 40
+      },
+      "note": "Tram 15 does NOT continue to HB (board 2026-09-13: departs G toward Tiefenbrunnen; VBZ 2026: becomes line 11 at Central ?). Bus 31 (platform I) also runs Central → Bahnhofplatz/HB. Polybahn arrivals: +55 m street."
+    },
+    "rideOn": [
+      {
+        "id": "8587348",
+        "name": "Zürich, Bahnhofplatz/HB",
+        "lines": [
+          "3",
+          "6",
+          "10"
+        ],
+        "rideS": 120,
+        "plannerWalkS": 420
+      },
+      {
+        "id": "8591067",
+        "name": "Zürich, Bahnhofstrasse/HB",
+        "lines": [
+          "4",
+          "7",
+          "11"
+        ],
+        "rideS": 150,
+        "plannerWalkS": 420
+      },
+      {
+        "id": "8587349",
+        "name": "Zürich, Bahnhofquai/HB",
+        "lines": [],
+        "rideS": 60,
+        "plannerWalkS": 420,
+        "validity": [
+          {
+            "from": "2026-12-13",
+            "to": null,
+            "note": "tram stop closed 2025-12-14 → 2026-12-12 (VBZ); lines after reopening unknown ?"
+          }
+        ]
+      }
+    ],
+    "validity": [
+      {
+        "from": "2025-12-14",
+        "to": "2026-12-12",
+        "note": "Bahnhofquai/HB closure. On reopening trams stop 187 m closer (195–214 m surface run) — re-survey and bump version."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Bahnhofquai surface sidewalk from the bridge to 'Ausgang Bahnhofquai' may be fenced by the tram-stop works (city advice: use ShopVille underpasses); if so add route variant via NE 'Eingang Shopville' stairs (+2 flights, ≈ +30 s)",
+      "Terminus stopping position on 3–18 (rear car in sector A?)",
+      "Real hall path length (interior unmapped; straight-line +5–10 % ?)"
+    ],
+    "instructions": "Exit onto the Bahnhofbrücke NORTH sidewalk (Landesmuseum side), cross Bahnhofquai at the lights, enter the Haupthalle through 'Ausgang Bahnhofquai' and run straight through to the Querhalle: Gleis 3 is on your left, 18 on your right. For 41–44 take the north escalators, for 31–34 the central escalators then Passage Löwenstrasse.",
+    "routes": [
+      {
+        "key": "surface",
+        "label": "Gleis 3–18 (surface, level 0)",
+        "platforms": {
+          "from": 3,
+          "to": 18
+        },
+        "helps": "strong",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.378186,
+          "lon": 8.539264,
+          "r": 70
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 233,
+            "crossings": 3,
+            "note": "Central F → bridge N sidewalk → Bahnhofquai → east portal (verifier chain 233 m; brief 217 m)"
+          },
+          {
+            "kind": "hall",
+            "m": 175,
+            "note": "? straight line 165 m (pl 10/11) – 184 m (pl 3); Haupthalle interior unmapped in OSM"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 30,
+          "max": 400
+        },
+        "note": "? terminus: rear car assumed in sector A, 10–30 m from the head (unverified)"
+      },
+      {
+        "key": "museumstrasse",
+        "label": "Gleis 41–44 Museumstrasse (level −3)",
+        "platforms": {
+          "from": 41,
+          "to": 44
+        },
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.378742,
+          "lon": 8.538995,
+          "r": 60
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 233,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 145,
+            "note": "portal → Haupthalle north escalators"
+          },
+          {
+            "kind": "escalator",
+            "dir": "down",
+            "riseM": 7.3,
+            "note": "0 → −2 (Halle Landesmuseum), 19 m long"
+          },
+          {
+            "kind": "hall",
+            "m": 36
+          },
+          {
+            "kind": "escalator",
+            "dir": "down",
+            "riseM": 6.3,
+            "note": "? −2 → −3 (13.6 − 7.3 m), 7 m long"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 150
+        },
+        "note": "? lands roughly mid-platform (OSM outline 412 m vs 360 m real)"
+      },
+      {
+        "key": "loewenstrasse",
+        "label": "Gleis 31–34 Löwenstrasse (level −4)",
+        "platforms": {
+          "from": 31,
+          "to": 34
+        },
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.378026,
+          "lon": 8.538718,
+          "r": 60
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 233,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 103,
+            "note": "portal → Haupthalle central escalators"
+          },
+          {
+            "kind": "escalator",
+            "dir": "down",
+            "riseM": 7.3,
+            "note": "0 → −2, 15 m long (OSM level '0;-1;-2')"
+          },
+          {
+            "kind": "hall",
+            "m": 70,
+            "note": "Passage Löwenstrasse west"
+          },
+          {
+            "kind": "stairs",
+            "dir": "down",
+            "riseM": 8.1,
+            "steps": 50,
+            "note": "−2 → −4, escalator alongside"
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 100,
+          "max": 150
+        },
+        "note": "? lands in the eastern third (outline 507 m vs 420 m real)"
+      },
+      {
+        "key": "szu",
+        "label": "Gleis 21–22 SZU",
+        "platforms": {
+          "from": 21,
+          "to": 22
+        },
+        "helps": "never",
+        "confidence": "low",
+        "validity": [
+          {
+            "from": null,
+            "to": "2026-12-31",
+            "note": "SZU station closed 2026-04-29, reopening slipped to ~Dec 2026 ?; S4/S10 end at Selnau"
+          }
+        ],
+        "path": [
+          {
+            "kind": "street",
+            "m": 233,
+            "crossings": 3
+          },
+          {
+            "kind": "hall",
+            "m": 103
+          },
+          {
+            "kind": "escalator",
+            "dir": "down",
+            "riseM": 4.7
+          },
+          {
+            "kind": "hall",
+            "m": 80
+          },
+          {
+            "kind": "escalator",
+            "dir": "down",
+            "riseM": 6.9
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 30,
+          "max": 125
+        },
+        "note": "STAY ON: SZU closed; new access must be re-measured after reopening"
+      }
+    ],
+    "sources": [
+      "OSM via Overpass/API 2026-09-13 (nodes 94583344, 2264870172, 267348654, 338493236; ways 445003247, 492505567, 383737821, 389727032; stop position 41 47.378742,8.538995)",
+      "SBB Innenplan Zürich HB 12/2025",
+      "de.wikipedia Zürich Hauptbahnhof (depths 7.3/13.6/15.4 m)",
+      "transport.opendata.ch connections 2026-09-14/15 (walk budgets 540 s Central, 420 s HB-adjacent stops; Central stationboard 2026-09-13)",
+      "stadt-zuerich.ch VBZ Bahnhofquai/HB 14.12.2025–12.12.2026",
+      "szu.ch closure notice",
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-hb-a4.pdf",
+      "https://www.openstreetmap.org/way/445003247",
+      "https://www.openstreetmap.org/way/492505567",
+      "https://www.openstreetmap.org/way/383737821",
+      "https://www.openstreetmap.org/way/389727032"
+    ]
+  },
+  {
+    "id": "zurich-hb.sihlpost",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Zürich, Sihlpost/HB → Zürich HB, Gleis 3 via Europaplatz, surface access",
+    "station": {
+      "id": "8503000",
+      "name": "Zürich HB",
+      "lat": 47.377847,
+      "lon": 8.540502,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8591367",
+      "name": "Zürich, Sihlpost/HB",
+      "lat": 47.376081,
+      "lon": 8.534202,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 540,
+      "geofence": {
+        "lat": 47.376081,
+        "lon": 8.534202,
+        "r": 40
+      },
+      "note": "Transfer budget measured from a real planner connection captured 2026-09-13 for 2026-09-15. Stop coordinates are the timetable point; platform letters and independent station minimum transfer time are not asserted."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk checked against current SBB plan and OSM on 2026-09-13; review at the December timetable change. Expiry is a review deadline, not a claim that access closes."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Check the exact stopping position on Gleis 3 and access through Europaplatz during any temporary works.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "instructions": "Leave Sihlpost/HB using the public pedestrian crossings onto the station-side pavement. Follow the pavement north towards Europaplatz, then the public square to the side entrance of Gleis 3. Stay at street level. This route is only for Gleis 3; do not cross railway tracks or use the underground passages for another platform.",
+    "routes": [
+      {
+        "key": "g3",
+        "label": "Gleis 3 via Europaplatz, surface access",
+        "platforms": [
+          3
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.3781971,
+          "lon": 8.5365725,
+          "r": 35
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 370,
+            "crossings": 5,
+            "note": "Mapped public path 335.5 m including stop-point approach; rounded upward for the model. Crossings are designated pedestrian links in OSM; obey signs and signals."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 180,
+          "max": 400
+        },
+        "note": "Unverified on foot. Public access is mapped to OSM node 356305557; 180 m beyond that point is a conservative modelling allowance for train stopping position, not a measured formation. No other platform is covered."
+      }
+    ],
+    "sources": [
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-hb-a4.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8591367&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+      "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.533,47.3755,8.542,47.380",
+      "https://www.openstreetmap.org/node/356305557",
+      "https://www.openstreetmap.org/way/29102475",
+      "https://www.openstreetmap.org/way/623360674",
+      "https://www.openstreetmap.org/way/623360675",
+      "https://www.openstreetmap.org/way/290137368",
+      "https://www.openstreetmap.org/way/527458583",
+      "https://www.openstreetmap.org/way/1513099708",
+      "https://www.openstreetmap.org/way/1513099709",
+      "https://www.openstreetmap.org/way/527458584",
+      "https://www.openstreetmap.org/way/1513099710",
+      "https://www.openstreetmap.org/way/1513099711",
+      "https://www.openstreetmap.org/way/561998818",
+      "https://www.openstreetmap.org/way/1078440120",
+      "https://www.openstreetmap.org/way/31824220"
+    ]
+  },
+  {
+    "id": "zurich-oerlikon.bahnhof-nord",
+    "version": 1,
+    "kind": "transfer-slack",
+    "status": "desk-verified",
+    "name": "Zürich Oerlikon, Bahnhof Nord → Zürich Oerlikon, Gleis 8 via the Affolternstrasse pavement and ramp",
+    "station": {
+      "id": "8503006",
+      "name": "Zürich Oerlikon",
+      "lat": 47.411526,
+      "lon": 8.54414,
+      "minTransferS": 0
+    },
+    "alight": {
+      "id": "8591062",
+      "name": "Zürich Oerlikon, Bahnhof Nord",
+      "lat": 47.412186,
+      "lon": 8.543783,
+      "lines": [],
+      "platformLetters": {},
+      "plannerWalkS": 240,
+      "geofence": {
+        "lat": 47.412186,
+        "lon": 8.543783,
+        "r": 40
+      },
+      "note": "Transfer budget measured from a real planner connection captured 2026-09-13 for 2026-09-15. Stop coordinates are the timetable point; platform letters and independent station minimum transfer time are not asserted."
+    },
+    "rideOn": [],
+    "validity": [
+      {
+        "from": "2026-09-13",
+        "to": "2026-12-12",
+        "note": "Desk checked against current SBB plan and OSM on 2026-09-13; review at the December timetable change. Expiry is a review deadline, not a claim that access closes."
+      }
+    ],
+    "fieldCheckNeeded": [
+      "Check bus stopping kerbs and the precise train stopping position on Gleis 8.",
+      "Time the full route on foot, including pedestrian crossings, before treating the estimate as calibrated.",
+      "Verify current temporary access signs and the published train platform."
+    ],
+    "instructions": "From Bahnhof Nord, follow the public pavement along Affolternstrasse, using its designated crossings. Continue to the short pedestrian ramp into the outer Gleis 8 platform. Use the pavement, not the traffic lane. This route covers Gleis 8 only; other platforms require a separately measured access route.",
+    "routes": [
+      {
+        "key": "g8",
+        "label": "Gleis 8 via the Affolternstrasse pavement and ramp",
+        "platforms": [
+          8
+        ],
+        "helps": "marginal",
+        "confidence": "medium",
+        "landing": {
+          "lat": 47.4127078,
+          "lon": 8.5454884,
+          "r": 35
+        },
+        "path": [
+          {
+            "kind": "street",
+            "m": 185,
+            "crossings": 2,
+            "note": "Mapped public path 171.8 m including stop-point approach; rounded upward for the model. Crossings are designated pedestrian links in OSM; obey signs and signals."
+          },
+          {
+            "kind": "ramp",
+            "m": 5,
+            "note": "Mapped public pedestrian ramp, OSM way 454724167, measured 3.1 m and rounded upward."
+          }
+        ],
+        "doorOffsetM": {
+          "typ": 140,
+          "max": 300
+        },
+        "note": "Unverified on foot. Public access is mapped to OSM node 9651573109; 140 m beyond that point is a conservative modelling allowance for train stopping position, not a measured formation. No other platform is covered."
+      }
+    ],
+    "sources": [
+      "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-zuerich-oerlikon-a4.pdf",
+      "https://transport.opendata.ch/v1/connections?from=8591062&to=8507000&date=2026-09-15&time=08%3A00&limit=3",
+      "https://www.openstreetmap.org/api/0.6/map.json?bbox=8.541,47.409,8.547,47.414",
+      "https://www.openstreetmap.org/node/9651573109",
+      "https://www.openstreetmap.org/way/454724146",
+      "https://www.openstreetmap.org/way/1050256828",
+      "https://www.openstreetmap.org/way/1116626375",
+      "https://www.openstreetmap.org/way/515050141",
+      "https://www.openstreetmap.org/way/1050256827",
+      "https://www.openstreetmap.org/way/775871912",
+      "https://www.openstreetmap.org/way/454724167"
+    ]
+  }
+]

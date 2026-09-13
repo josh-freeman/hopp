@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfbfa">
+  <title>Hopp · Phone preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #171715; background: #f0f0ec; font: 16px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    main { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: 100dvh; }
+    aside { padding: 28px 24px; background: #fbfbfa; border-right: 1px solid #dddcd5; }
+    h1 { margin: 0 0 4px; font-size: 28px; letter-spacing: -1px; }
+    p { color: #595953; margin: 8px 0 24px; }
+    label { display: block; margin: 20px 0 6px; font-size: 14px; font-weight: 650; }
+    select, button, .open { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #c8c8bd; border-radius: 9px; background: #fff; color: inherit; font: inherit; }
+    button, .open { cursor: pointer; }
+    button:hover, .open:hover { border-color: #171715; }
+    :focus-visible { outline: 3px solid #ba3228; outline-offset: 3px; }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+    .open { display: block; text-align: center; margin-top: 12px; color: #fff; background: #171715; text-decoration: none; }
+    .note { margin-top: 24px; font-size: 13px; }
+    section { min-width: 0; overflow: auto; padding: 24px; }
+    #size { margin: 0 0 16px; text-align: center; font-size: 14px; color: #595953; }
+    #stage { margin: 0 auto; position: relative; }
+    #shell { position: absolute; top: 0; left: 0; padding: 10px; border: 2px solid #30302c; background: #171715; border-radius: 34px; transform-origin: top left; box-shadow: 0 18px 50px #0002; }
+    iframe { display: block; border: 0; border-radius: 23px; background: #fbfbfa; }
+    @media (max-width: 700px) {
+      main { display: block; }
+      aside { padding: 20px; border-right: 0; border-bottom: 1px solid #dddcd5; }
+      .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+      label { margin-top: 12px; }
+      .note { margin: 12px 0 0; }
+      section { padding: 20px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <h1>Hopp.</h1>
+      <p>Phone preview</p>
+      <div class="fields">
+        <div><label for="device">Viewport</label><select id="device"></select></div>
+        <div><label for="screen">Screen</label><select id="screen">
+          <option value="plan">Plan</option><option value="results">Results</option><option value="try">Try it</option>
+          <option value="route">Route map</option><option value="detail">Sprint detail</option><option value="live">Live</option>
+          <option value="shortcut">Shortcut</option><option value="settings">Settings</option><option value="done">On the platform</option>
+        </select></div>
+        <div><label for="scenario">Demo</label><select id="scenario">
+          <option value="1">Sprint offered</option><option value="nohack">No matching shortcut</option>
+          <option value="late">Tram becomes late</option><option value="passed">Stop already passed</option>
+          <option value="unknown">Unknown platform</option><option value="ratelimit">Rate limited</option><option value="offline">Offline</option><option value="missing">Live updates unavailable</option>
+        </select></div>
+        <div><label for="scale">Display scale</label><select id="scale"><option value="fit">Fit available space</option><option value="1">100%</option></select></div>
+      </div>
+      <div class="actions"><button id="rotate" type="button">Rotate</button><button id="reload" type="button">Reload</button></div>
+      <a class="open" id="open" href="./?mock=1#plan" target="_blank" rel="noopener">Open app in a new tab</a>
+      <p class="note">This frame previews CSS viewport sizes in your current browser. Playwright tests use WebKit for iPhone classes and Chromium for Samsung classes. Physical phones, browser bars, safe areas, and keyboards need separate checks.</p>
+    </aside>
+    <section aria-label="App preview"><p id="size" aria-live="polite"></p><div id="stage"><div id="shell"><iframe id="app" title="Hopp phone app" src="./?mock=1#plan"></iframe></div></div></section>
+  </main>
+  <script type="module">
+    const sizes = [
+      ['iPhone', 375, 667], ['iPhone', 375, 812], ['iPhone', 390, 844], ['iPhone', 393, 852], ['iPhone', 402, 874],
+      ['iPhone', 414, 896], ['iPhone', 428, 926], ['iPhone', 430, 932], ['iPhone', 440, 956],
+      ['Samsung', 344, 882], ['Samsung', 360, 740], ['Samsung', 360, 800], ['Samsung', 384, 824], ['Samsung', 412, 915], ['Samsung', 674, 841],
+      ['Minimum', 320, 568],
+    ];
+    const device = document.querySelector('#device');
+    const screen = document.querySelector('#screen');
+    const scenario = document.querySelector('#scenario');
+    const scale = document.querySelector('#scale');
+    const frame = document.querySelector('#app');
+    const shell = document.querySelector('#shell');
+    const stage = document.querySelector('#stage');
+    let rotated = false;
+    sizes.forEach(([family, width, height], index) => device.add(new Option(`${family} ${width} × ${height}`, String(index))));
+    device.value = '2';
+    function layout() {
+      const [family, originalWidth, originalHeight] = sizes[Number(device.value)];
+      const width = rotated ? originalHeight : originalWidth;
+      const height = rotated ? originalWidth : originalHeight;
+      frame.style.width = `${width}px`;
+      frame.style.height = `${height}px`;
+      const availableWidth = document.querySelector('section').clientWidth - (window.innerWidth > 700 ? 48 : 24);
+      const availableHeight = Math.max(400, window.innerHeight - 80);
+      const ratio = scale.value === '1' ? 1 : Math.min(1, availableWidth / (width + 24), availableHeight / (height + 24));
+      shell.style.transform = `scale(${ratio})`;
+      stage.style.width = `${(width + 24) * ratio}px`;
+      stage.style.height = `${(height + 24) * ratio}px`;
+      document.querySelector('#size').textContent = `${family} · ${width} × ${height} CSS pixels · ${Math.round(ratio * 100)}% display scale`;
+    }
+    function load() {
+      const url = new URL('./', window.location.href);
+      url.searchParams.set('mock', scenario.value);
+      if (scenario.value === 'late') url.searchParams.set('poll', '1000');
+      url.hash = screen.value;
+      frame.src = url.href;
+      document.querySelector('#open').href = url.href;
+    }
+    device.addEventListener('change', () => { rotated = false; layout(); });
+    scale.addEventListener('change', layout);
+    screen.addEventListener('change', load);
+    scenario.addEventListener('change', load);
+    document.querySelector('#rotate').addEventListener('click', () => { rotated = !rotated; layout(); });
+    document.querySelector('#reload').addEventListener('click', load);
+    window.addEventListener('resize', layout);
+    layout();
+  </script>
+</body>
+</html>

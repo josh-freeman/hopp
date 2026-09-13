@@ -1,0 +1,192 @@
+{
+  "id": "neuchatel.gare-nord",
+  "version": 1,
+  "kind": "transfer-slack",
+  "status": "desk-verified",
+  "name": "Neuchâtel: gare nord → station underpass",
+  "station": {
+    "id": "8504221",
+    "name": "Neuchâtel",
+    "lat": 46.996727,
+    "lon": 6.9357,
+    "minTransferS": 0
+  },
+  "alight": {
+    "id": "8579625",
+    "name": "Neuchâtel, gare nord",
+    "lat": 46.996736,
+    "lon": 6.933872,
+    "lines": [],
+    "platformLetters": {},
+    "plannerWalkS": 240,
+    "geofence": {
+      "lat": 46.996736,
+      "lon": 6.933872,
+      "r": 90
+    },
+    "note": "Stop ID and coordinates are from the captured timetable response. Timing bounds the mapped stop quays; no independent railway minimum transfer time was established."
+  },
+  "rideOn": [],
+  "validity": [
+    {
+      "from": "2026-09-13",
+      "to": "2026-09-24",
+      "note": "Exclude 25–27 September Fête des Vendanges crowding and disruptions announced by transN."
+    },
+    {
+      "from": "2026-09-28",
+      "to": "2026-12-12",
+      "note": "After Fête des Vendanges; review at the December timetable change."
+    }
+  ],
+  "fieldCheckNeeded": [
+    "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+    "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+    "Measure door approach by train length and stopping sector; current typical/maximum 100/300 m values are model allowances.",
+    "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API."
+  ],
+  "instructions": "From gare nord, follow the public pavement to the signed station access ramp. Descend into the railway underpass, then take the signed stairs up to your platform. From quay C, use the marked crossing first.",
+  "routes": [
+    {
+      "key": "p6-7",
+      "label": "Voies 6/7",
+      "platforms": [
+        6,
+        7
+      ],
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9970393,
+        "lon": 6.935272,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 125,
+          "crossings": 1,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-neuchatel-measurements.json."
+        },
+        {
+          "kind": "ramp",
+          "m": 55
+        },
+        {
+          "kind": "hall",
+          "m": 20
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.68,
+          "steps": 26,
+          "note": "OSM way 579951165: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "Public mapped access to platform relation 8209994, landing node 5553124036. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p4-5",
+      "label": "Voies 4/5",
+      "platforms": [
+        4,
+        5
+      ],
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9969193,
+        "lon": 6.9353451,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 125,
+          "crossings": 1,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-neuchatel-measurements.json."
+        },
+        {
+          "kind": "ramp",
+          "m": 55
+        },
+        {
+          "kind": "hall",
+          "m": 35
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.68,
+          "steps": 26,
+          "note": "OSM way 579951167: 26 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "Public mapped access to platform relation 8209995, landing node 5553124024. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    },
+    {
+      "key": "p2-3",
+      "label": "Voies 2/3",
+      "platforms": [
+        2,
+        3
+      ],
+      "helps": "marginal",
+      "confidence": "medium",
+      "landing": {
+        "lat": 46.9967981,
+        "lon": 6.9354205,
+        "r": 25
+      },
+      "path": [
+        {
+          "kind": "street",
+          "m": 125,
+          "crossings": 1,
+          "note": "Conservative bound across mapped stop quays; distances rounded upward plus 10 m for boarding-position/pavement uncertainty. Measured chain and way IDs: west-neuchatel-measurements.json."
+        },
+        {
+          "kind": "ramp",
+          "m": 55
+        },
+        {
+          "kind": "hall",
+          "m": 50
+        },
+        {
+          "kind": "stairs",
+          "dir": "up",
+          "riseM": 4.86,
+          "steps": 27,
+          "note": "OSM way 579951163: 27 mapped steps. Rise is a conservative model at 0.18 m per riser, not a surveyed height."
+        }
+      ],
+      "doorOffsetM": {
+        "typ": 100,
+        "max": 300
+      },
+      "note": "Public mapped access to platform relation 8209993, landing node 5553122309. Covers the longest measured boarding-quay approach, not just the closest stop edge. Door distance is a model allowance, not a measured train formation; stopping sector, crowding and stair rise need field checks."
+    }
+  ],
+  "sources": [
+    "https://cdnsource.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-neuchatel-a4.pdf.sbbdownload.pdf",
+    "https://www.transn.ch/fileadmin/transn/pdf/Plans/Plan-de-connexion_GareNord_2024.pdf",
+    "https://transport.opendata.ch/v1/connections?from=8579625&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+    "https://www.transn.ch/voyageurs/voyager/info-voyageurs/info-trafic/",
+    "https://www.openstreetmap.org/relation/8209994",
+    "https://www.openstreetmap.org/relation/8209995",
+    "https://www.openstreetmap.org/relation/8209993",
+    "https://www.transn.ch/fileadmin/transn/horaire_2026/109/transN-NE-109-2.pdf",
+    "Geometry: data/research/raw/west-neuchatel-osm.json and west-neuchatel-measurements.json; checked 2026-09-13.",
+    "Method and limitations: docs/research/expansion/west.md"
+  ]
+}

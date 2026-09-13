@@ -6,3 +6,9 @@ out/
 *.log
 .DS_Store
 scripts/miner/cache/
+.claude/
+test-results/
+playwright-report/
+docs/qa/iphone-*/
+docs/qa/samsung-*/
+docs/qa/minimum-*/

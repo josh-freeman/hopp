@@ -1,0 +1,969 @@
+{
+  "method": "Discovery leads only; no straight-line route is promoted automatically. API calls paced and cached.",
+  "stationsRequested": [
+    "Nyon",
+    "Morges",
+    "Renens VD",
+    "Baden",
+    "Brugg AG",
+    "Rapperswil SG",
+    "Wil SG",
+    "Solothurn",
+    "Sion",
+    "Yverdon-les-Bains",
+    "Uster",
+    "Wetzikon ZH",
+    "Bulle",
+    "Burgdorf",
+    "Visp",
+    "Brig",
+    "Basel Bad Bf",
+    "Zürich Altstetten",
+    "Zürich Stadelhofen"
+  ],
+  "sampleDate": "2026-09-14",
+  "leads": [
+    {
+      "station": "Nyon",
+      "stationId": "8501030",
+      "from": "Nyon, centre ville",
+      "fromId": "8593874",
+      "directDistanceM": 150,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Nyon&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.384429&y=6.23595&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8593874&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 300,
+      "sections": [
+        {
+          "from": "Nyon, centre ville",
+          "to": "Nyon",
+          "mode": "walk",
+          "seconds": 300
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 153,
+      "budgetAboveOptimisticFloorS": 147
+    },
+    {
+      "station": "Nyon",
+      "stationId": "8501030",
+      "from": "Nyon, Rte St-Cergue - Canal",
+      "fromId": "8512665",
+      "directDistanceM": 231,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Nyon&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.384429&y=6.23595&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8512665&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 360,
+      "sections": [
+        {
+          "from": "Nyon, Rte St-Cergue - Canal",
+          "to": "Nyon",
+          "mode": "walk",
+          "seconds": 360
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 176,
+      "budgetAboveOptimisticFloorS": 184
+    },
+    {
+      "station": "Morges",
+      "stationId": "8501037",
+      "from": "Morges, gare",
+      "fromId": "8570084",
+      "directDistanceM": 88,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Morges&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.511102&y=6.493958&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8570084&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Morges",
+      "stationId": "8501037",
+      "from": "Morges, Charpentiers",
+      "fromId": "8592262",
+      "directDistanceM": 244,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Morges&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.511102&y=6.493958&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8592262&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 300,
+      "sections": [
+        {
+          "from": "Morges, Charpentiers",
+          "to": "Morges, gare",
+          "mode": "B",
+          "seconds": 120
+        },
+        {
+          "from": "Morges, gare",
+          "to": "Morges",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": false,
+      "optimisticSprintFloorS": 180,
+      "budgetAboveOptimisticFloorS": 120
+    },
+    {
+      "station": "Renens VD",
+      "stationId": "8501118",
+      "from": "Renens VD, gare",
+      "fromId": "8530749",
+      "directDistanceM": 71,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Renens+VD&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.537046&y=6.57892&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8530749&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Renens VD",
+      "stationId": "8501118",
+      "from": "Renens VD, gare/Epenex",
+      "fromId": "8511875",
+      "directDistanceM": 90,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Renens+VD&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.537046&y=6.57892&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8511875&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Renens VD, gare/Epenex",
+          "to": "Renens VD",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 136,
+      "budgetAboveOptimisticFloorS": 104
+    },
+    {
+      "station": "Baden",
+      "stationId": "8503504",
+      "from": "Baden, Bahnhof West",
+      "fromId": "8578914",
+      "directDistanceM": 79,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Baden&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.476417&y=8.307706&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8578914&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Baden, Bahnhof West",
+          "to": "Baden",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 133,
+      "budgetAboveOptimisticFloorS": 107
+    },
+    {
+      "station": "Baden",
+      "stationId": "8503504",
+      "from": "Baden, Postautostation",
+      "fromId": "8572550",
+      "directDistanceM": 134,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Baden&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.476417&y=8.307706&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8572550&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 300,
+      "sections": [
+        {
+          "from": "Baden, Postautostation",
+          "to": "Baden",
+          "mode": "walk",
+          "seconds": 300
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 148,
+      "budgetAboveOptimisticFloorS": 152
+    },
+    {
+      "station": "Brugg AG",
+      "stationId": "8500309",
+      "from": "Brugg AG, Bahnhof/Campus",
+      "fromId": "8581749",
+      "directDistanceM": 76,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Brugg+AG&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.48085&y=8.208842&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8581749&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Brugg AG, Bahnhof/Campus",
+          "to": "Brugg AG",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 132,
+      "budgetAboveOptimisticFloorS": 108
+    },
+    {
+      "station": "Brugg AG",
+      "stationId": "8500309",
+      "from": "Brugg AG, Bahnhof/Zentrum",
+      "fromId": "8572464",
+      "directDistanceM": 87,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Brugg+AG&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.48085&y=8.208842&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8572464&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Brugg AG, Bahnhof/Zentrum",
+          "to": "Brugg AG",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 135,
+      "budgetAboveOptimisticFloorS": 105
+    },
+    {
+      "station": "Rapperswil SG",
+      "stationId": "8503110",
+      "from": "Rapperswil SG, Bahnhof Süd",
+      "fromId": "8591746",
+      "directDistanceM": 111,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Rapperswil+SG&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.224876&y=8.816742&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8591746&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Rapperswil SG, Bahnhof Süd",
+          "to": "Rapperswil SG",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 142,
+      "budgetAboveOptimisticFloorS": 98
+    },
+    {
+      "station": "Rapperswil SG",
+      "stationId": "8503110",
+      "from": "Rapperswil SG (See)",
+      "fromId": "8503667",
+      "directDistanceM": 257,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Rapperswil+SG&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.224876&y=8.816742&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8503667&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 600,
+      "sections": [
+        {
+          "from": "Rapperswil SG (See)",
+          "to": "Rapperswil SG",
+          "mode": "walk",
+          "seconds": 600
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 184,
+      "budgetAboveOptimisticFloorS": 416
+    },
+    {
+      "station": "Wil SG",
+      "stationId": "8506206",
+      "from": "Wil SG, Bahnhof",
+      "fromId": "8573602",
+      "directDistanceM": 52,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Wil+SG&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.462409&y=9.040979&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8573602&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Wil SG",
+      "stationId": "8506206",
+      "from": "Wil SG, Bahnhof Süd",
+      "fromId": "8578826",
+      "directDistanceM": 132,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Wil+SG&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.462409&y=9.040979&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8578826&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 180,
+      "sections": [
+        {
+          "from": "Wil SG, Bahnhof Süd",
+          "to": "Wil SG",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 148,
+      "budgetAboveOptimisticFloorS": 32
+    },
+    {
+      "station": "Solothurn",
+      "stationId": "8500207",
+      "from": "Solothurn, Hauptbahnhof",
+      "fromId": "8572373",
+      "directDistanceM": 48,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Solothurn&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.204189&y=7.542692&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8572373&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Solothurn, Hauptbahnhof",
+          "to": "Solothurn",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 124,
+      "budgetAboveOptimisticFloorS": 116
+    },
+    {
+      "station": "Solothurn",
+      "stationId": "8500207",
+      "from": "Solothurn, Zuchwilerstr./Bahnhof",
+      "fromId": "8510916",
+      "directDistanceM": 117,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Solothurn&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.204189&y=7.542692&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8510916&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Solothurn, Zuchwilerstr./Bahnhof",
+          "to": "Solothurn",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 143,
+      "budgetAboveOptimisticFloorS": 97
+    },
+    {
+      "station": "Sion",
+      "stationId": "8501506",
+      "from": "Sion, poste/gare",
+      "fromId": "8501994",
+      "directDistanceM": 62,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Sion&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.227544&y=7.359183&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8501994&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Sion, poste/gare",
+          "to": "Sion",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 128,
+      "budgetAboveOptimisticFloorS": 112
+    },
+    {
+      "station": "Sion",
+      "stationId": "8501506",
+      "from": "Sion, Gare Bus Sédunois",
+      "fromId": "8583270",
+      "directDistanceM": 79,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Sion&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.227544&y=7.359183&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8583270&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Sion, Gare Bus Sédunois",
+          "to": "Sion",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 133,
+      "budgetAboveOptimisticFloorS": 107
+    },
+    {
+      "station": "Yverdon-les-Bains",
+      "stationId": "8504200",
+      "from": "Yverdon-les-Bains, gare",
+      "fromId": "8504774",
+      "directDistanceM": 67,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Yverdon-les-Bains&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.78155&y=6.640943&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8504774&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Yverdon-les-Bains",
+      "stationId": "8504200",
+      "from": "Yverdon, Théâtre Benno Besson",
+      "fromId": "8594031",
+      "directDistanceM": 281,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Yverdon-les-Bains&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.78155&y=6.640943&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8594031&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 420,
+      "sections": [
+        {
+          "from": "Yverdon, Théâtre Benno Besson",
+          "to": "Yverdon-les-Bains, gare",
+          "mode": "B",
+          "seconds": 180
+        },
+        {
+          "from": "Yverdon-les-Bains, gare",
+          "to": "Yverdon-les-Bains",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": false,
+      "optimisticSprintFloorS": 190,
+      "budgetAboveOptimisticFloorS": 230
+    },
+    {
+      "station": "Uster",
+      "stationId": "8503125",
+      "from": "Uster, Bahnhof",
+      "fromId": "8573504",
+      "directDistanceM": 100,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Uster&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.350364&y=8.7187&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8573504&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Uster",
+      "stationId": "8503125",
+      "from": "Uster, Stadthaus",
+      "fromId": "8580879",
+      "directDistanceM": 277,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Uster&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.350364&y=8.7187&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8580879&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 360,
+      "sections": [
+        {
+          "from": "Uster, Stadthaus",
+          "to": "Uster, Bahnhof",
+          "mode": "B",
+          "seconds": 180
+        },
+        {
+          "from": "Uster, Bahnhof",
+          "to": "Uster",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": false,
+      "optimisticSprintFloorS": 189,
+      "budgetAboveOptimisticFloorS": 171
+    },
+    {
+      "station": "Wetzikon ZH",
+      "stationId": "8503123",
+      "from": "Wetzikon ZH, Bahnhof",
+      "fromId": "8576105",
+      "directDistanceM": 76,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Wetzikon+ZH&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.318021&y=8.792281&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8576105&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Wetzikon ZH",
+      "stationId": "8503123",
+      "from": "Wetzikon ZH, Bahnhof Süd",
+      "fromId": "8594731",
+      "directDistanceM": 92,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Wetzikon+ZH&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.318021&y=8.792281&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8594731&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Wetzikon ZH, Bahnhof Süd",
+          "to": "Wetzikon ZH",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 136,
+      "budgetAboveOptimisticFloorS": 104
+    },
+    {
+      "station": "Bulle",
+      "stationId": "8504086",
+      "from": "Bulle, gare routière",
+      "fromId": "8577725",
+      "directDistanceM": 96,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Bulle&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.619217&y=7.052991&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8577725&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 180,
+      "sections": [
+        {
+          "from": "Bulle, gare routière",
+          "to": "Bulle",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 137,
+      "budgetAboveOptimisticFloorS": 43
+    },
+    {
+      "station": "Bulle",
+      "stationId": "8504086",
+      "from": "Bulle, Place de la Gare",
+      "fromId": "8593280",
+      "directDistanceM": 107,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Bulle&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.619217&y=7.052991&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8593280&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 180,
+      "sections": [
+        {
+          "from": "Bulle, Place de la Gare",
+          "to": "Bulle",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 141,
+      "budgetAboveOptimisticFloorS": 39
+    },
+    {
+      "station": "Burgdorf",
+      "stationId": "8508005",
+      "from": "Burgdorf, Bahnhof",
+      "fromId": "8576504",
+      "directDistanceM": 86,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Burgdorf&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.060694&y=7.621694&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8576504&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Burgdorf",
+      "stationId": "8508005",
+      "from": "Burgdorf, Poststrasse",
+      "fromId": "8593265",
+      "directDistanceM": 110,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Burgdorf&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.060694&y=7.621694&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8593265&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Burgdorf, Poststrasse",
+          "to": "Burgdorf",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 141,
+      "budgetAboveOptimisticFloorS": 99
+    },
+    {
+      "station": "Visp",
+      "stationId": "8501605",
+      "from": "Visp, Bahnhof Süd",
+      "fromId": "8571075",
+      "directDistanceM": 50,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Visp&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.29402&y=7.881455&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8571075&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Visp, Bahnhof Süd",
+          "to": "Visp",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 124,
+      "budgetAboveOptimisticFloorS": 116
+    },
+    {
+      "station": "Visp",
+      "stationId": "8501605",
+      "from": "Visp, Bahnhof Nord",
+      "fromId": "8581852",
+      "directDistanceM": 105,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Visp&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.29402&y=7.881455&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8581852&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 240,
+      "sections": [
+        {
+          "from": "Visp, Bahnhof Nord",
+          "to": "Visp",
+          "mode": "walk",
+          "seconds": 240
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 140,
+      "budgetAboveOptimisticFloorS": 100
+    },
+    {
+      "station": "Brig",
+      "stationId": "8501609",
+      "from": "Brig Bahnhofplatz",
+      "fromId": "8515296",
+      "directDistanceM": 140,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Brig&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.319416&y=7.988089&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8515296&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 420,
+      "sections": [
+        {
+          "from": "Brig Bahnhofplatz",
+          "to": "Brig",
+          "mode": "walk",
+          "seconds": 420
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 150,
+      "budgetAboveOptimisticFloorS": 270
+    },
+    {
+      "station": "Brig",
+      "stationId": "8501609",
+      "from": "Brig, Viktoriastrasse",
+      "fromId": "8578544",
+      "directDistanceM": 147,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Brig&type=station",
+        "https://transport.opendata.ch/v1/locations?x=46.319416&y=7.988089&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8578544&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 420,
+      "sections": [
+        {
+          "from": "Brig, Viktoriastrasse",
+          "to": "Brig",
+          "mode": "walk",
+          "seconds": 420
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 152,
+      "budgetAboveOptimisticFloorS": 268
+    },
+    {
+      "station": "Basel Bad Bf",
+      "stationId": "8500090",
+      "from": "Basel, Badischer Bahnhof",
+      "fromId": "8592321",
+      "directDistanceM": 75,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Basel+Bad+Bf&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.567301&y=7.606922&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8592321&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Basel Bad Bf",
+      "stationId": "8500090",
+      "from": "Basel, Surinam",
+      "fromId": "8589368",
+      "directDistanceM": 290,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Basel+Bad+Bf&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.567301&y=7.606922&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8589368&to=8503000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 480,
+      "sections": [
+        {
+          "from": "Basel, Surinam",
+          "to": "Basel, Badischer Bahnhof",
+          "mode": "B",
+          "seconds": 120
+        },
+        {
+          "from": "Basel, Badischer Bahnhof",
+          "to": "Basel Bad Bf",
+          "mode": "walk",
+          "seconds": 360
+        }
+      ],
+      "walkingOnly": false,
+      "optimisticSprintFloorS": 193,
+      "budgetAboveOptimisticFloorS": 287
+    },
+    {
+      "station": "Zürich Altstetten",
+      "stationId": "8503001",
+      "from": "Zürich Altstetten, Bahnhof",
+      "fromId": "8591056",
+      "directDistanceM": 60,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Z%C3%BCrich+Altstetten&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.391478&y=8.488952&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8591056&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner."
+    },
+    {
+      "station": "Zürich Altstetten",
+      "stationId": "8503001",
+      "from": "Zürich Altstetten, Bahnhof Nord",
+      "fromId": "8591057",
+      "directDistanceM": 96,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Z%C3%BCrich+Altstetten&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.391478&y=8.488952&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8591057&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 180,
+      "sections": [
+        {
+          "from": "Zürich Altstetten, Bahnhof Nord",
+          "to": "Zürich Altstetten",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 137,
+      "budgetAboveOptimisticFloorS": 43
+    },
+    {
+      "station": "Zürich Stadelhofen",
+      "stationId": "8503003",
+      "from": "Zürich, Opernhaus",
+      "fromId": "8576195",
+      "directDistanceM": 146,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Z%C3%BCrich+Stadelhofen&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.366598&y=8.548478&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8576195&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 180,
+      "sections": [
+        {
+          "from": "Zürich, Opernhaus",
+          "to": "Zürich Stadelhofen",
+          "mode": "walk",
+          "seconds": 180
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 152,
+      "budgetAboveOptimisticFloorS": 28
+    },
+    {
+      "station": "Zürich Stadelhofen",
+      "stationId": "8503003",
+      "from": "Zürich, Bellevue",
+      "fromId": "8576193",
+      "directDistanceM": 259,
+      "status": "unverified-lead",
+      "checkedDate": "2026-09-13",
+      "sources": [
+        "https://transport.opendata.ch/v1/locations?query=Z%C3%BCrich+Stadelhofen&type=station",
+        "https://transport.opendata.ch/v1/locations?x=47.366598&y=8.548478&type=station",
+        "https://transport.opendata.ch/v1/connections?from=8576193&to=8507000&date=2026-09-14&time=08%3A00&limit=4"
+      ],
+      "limitation": "Straight-line distance is only a screening measure. Public path, platforms, stairs and construction must be checked before this can enter the planner.",
+      "plannerAccessS": 420,
+      "sections": [
+        {
+          "from": "Zürich, Bellevue",
+          "to": "Zürich Stadelhofen",
+          "mode": "walk",
+          "seconds": 420
+        }
+      ],
+      "walkingOnly": true,
+      "optimisticSprintFloorS": 184,
+      "budgetAboveOptimisticFloorS": 236
+    }
+  ]
+}

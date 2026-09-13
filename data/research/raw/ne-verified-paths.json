@@ -1,0 +1,616 @@
+{
+  "winterthur.archstrasse": {
+    "mappedDistanceM": 178.7141473531403,
+    "modelDistanceM": 200,
+    "stopApproachM": 28.109438623898278,
+    "landing": {
+      "lat": 47.499022,
+      "lon": 8.7227262,
+      "r": 35
+    },
+    "landingNode": 5349403684,
+    "platformOsm": 5659908,
+    "segments": [
+      {
+        "way": 583809501,
+        "m": 12.07222120775059,
+        "nodes": [
+          7793667063,
+          7325049321
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1027477716,
+        "m": 9.839253286811402,
+        "nodes": [
+          7325049321,
+          667178272,
+          9472378924
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "concrete"
+        }
+      },
+      {
+        "way": 834932636,
+        "m": 3.26481489560971,
+        "nodes": [
+          9472378924,
+          7793667047
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes"
+        }
+      },
+      {
+        "way": 834932633,
+        "m": 11.860685759727874,
+        "nodes": [
+          7793667047,
+          7793667040,
+          6703937981
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1027477719,
+        "m": 57.0683538019199,
+        "nodes": [
+          6703937981,
+          3906034653
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 705846324,
+        "m": 29.502539909014875,
+        "nodes": [
+          3906034653,
+          6632401090,
+          6632401086
+        ],
+        "tags": {
+          "check_date:smoothness": "2025-04-17",
+          "highway": "pedestrian",
+          "lit": "yes",
+          "name": "Salzhausplatz",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes"
+        }
+      },
+      {
+        "way": 705846323,
+        "m": 6.980125652608707,
+        "nodes": [
+          6632401086,
+          6432480189
+        ],
+        "tags": {
+          "bicycle": "no",
+          "highway": "pedestrian",
+          "lit": "yes",
+          "noname": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "tactile_paving": "yes"
+        }
+      },
+      {
+        "way": 554125063,
+        "m": 20.016714215798988,
+        "nodes": [
+          6432480189,
+          6432480190,
+          6440541053,
+          5349403684
+        ],
+        "tags": {
+          "highway": "pedestrian",
+          "lit": "yes",
+          "noname": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      }
+    ],
+    "sourceFile": "data/research/raw/ne-osm-winterthur.json",
+    "timetableFile": "data/research/raw/ne-conn-winter-arch.json"
+  },
+  "chur.post-i": {
+    "mappedDistanceM": 145.17892767054127,
+    "modelDistanceM": 165,
+    "stopApproachM": 4.7954440350792025,
+    "landing": {
+      "lat": 46.8529596,
+      "lon": 9.5289168,
+      "r": 35
+    },
+    "landingNode": 14089235014,
+    "platformOsm": 244969029,
+    "segments": [
+      {
+        "way": 1418326130,
+        "m": 5.681805749106822,
+        "nodes": [
+          13033918186,
+          13033918183
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "crossing:island": "no",
+          "crossing:markings": "no",
+          "footway": "crossing",
+          "highway": "footway",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1418326129,
+        "m": 26.182174913922427,
+        "nodes": [
+          13033918183,
+          13033917036,
+          13033917035,
+          13033918182,
+          13033918165
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "layer": "-1"
+        }
+      },
+      {
+        "way": 1418326121,
+        "m": 70.6136816825353,
+        "nodes": [
+          13033918165,
+          13033918181,
+          13033918161,
+          13891527582,
+          13891527581,
+          13033918163,
+          13033918162
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway"
+        }
+      },
+      {
+        "way": 1418326124,
+        "m": 22.68102002606502,
+        "nodes": [
+          13033918162,
+          13033918171,
+          13033918172,
+          13033918173
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1524041760,
+        "m": 15.2248012638325,
+        "nodes": [
+          13033918173,
+          14089235014
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway"
+        }
+      }
+    ],
+    "sourceFile": "data/research/raw/ne-osm-chur.json",
+    "timetableFile": "data/research/raw/ne-conn-chur-post.json"
+  },
+  "zurich-hb.sihlpost": {
+    "mappedDistanceM": 335.5014418259876,
+    "modelDistanceM": 370,
+    "stopApproachM": 15.7479099642646,
+    "landing": {
+      "lat": 47.3781971,
+      "lon": 8.5365725,
+      "r": 35
+    },
+    "landingNode": 356305557,
+    "platformOsm": 107555897,
+    "segments": [
+      {
+        "way": 29102475,
+        "m": 40.40249598741477,
+        "nodes": [
+          9703323791,
+          9703323790,
+          2936635610
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 623360674,
+        "m": 10.79780431856384,
+        "nodes": [
+          2936635610,
+          10196471387,
+          2267154351,
+          10196471390,
+          1811869977
+        ],
+        "tags": {
+          "crossing": "zebra",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 623360675,
+        "m": 8.44084076222299,
+        "nodes": [
+          1811869977,
+          10196471389,
+          10827082801,
+          6357594213,
+          10827082798,
+          10196471388,
+          1811869972
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "crossing:markings": "no",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 290137368,
+        "m": 8.377579336731717,
+        "nodes": [
+          1811869972,
+          5910363709,
+          2267154359,
+          10196471391,
+          5127862259
+        ],
+        "tags": {
+          "crossing": "zebra",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 527458583,
+        "m": 10.309702102410853,
+        "nodes": [
+          5127862259,
+          5127862260
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1513099708,
+        "m": 1.685153392182267,
+        "nodes": [
+          5127862260,
+          13825072165
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1513099709,
+        "m": 7.770720807585956,
+        "nodes": [
+          13825072165,
+          13825072166
+        ],
+        "tags": {
+          "crossing:markings": "zebra",
+          "crossing:markings:colour": "yellow",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 527458584,
+        "m": 2.2770035875677195,
+        "nodes": [
+          13825072166,
+          3071329224,
+          13825072167
+        ],
+        "tags": {
+          "footway": "traffic_island",
+          "highway": "footway",
+          "lit": "yes"
+        }
+      },
+      {
+        "way": 1513099710,
+        "m": 5.258836515210323,
+        "nodes": [
+          13825072167,
+          13825072168
+        ],
+        "tags": {
+          "crossing:markings": "zebra",
+          "crossing:markings:colour": "yellow",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1513099711,
+        "m": 1.9466446124499035,
+        "nodes": [
+          13825072168,
+          3071329226
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 561998818,
+        "m": 6.925174520267095,
+        "nodes": [
+          3071329226,
+          9886871601
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1078440120,
+        "m": 135.27162032403467,
+        "nodes": [
+          9886871601,
+          9886871599,
+          9886871600
+        ],
+        "tags": {
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 31824220,
+        "m": 80.28995559508103,
+        "nodes": [
+          9886871600,
+          356305665,
+          5117664270,
+          567132757,
+          356305958,
+          356305557
+        ],
+        "tags": {
+          "area": "yes",
+          "bicycle": "dismount",
+          "foot": "yes",
+          "highway": "pedestrian",
+          "lit": "yes",
+          "motor_vehicle": "no",
+          "name": "Europaplatz",
+          "place": "square",
+          "smoothness": "excellent",
+          "surface": "asphalt",
+          "wikidata": "Q27324736"
+        }
+      }
+    ],
+    "sourceFile": "data/research/raw/ne-osm-zurich.json",
+    "timetableFile": "data/research/raw/ne-conn-zh-sihlpost.json"
+  },
+  "zurich-oerlikon.bahnhof-nord": {
+    "mappedDistanceM": 171.83037269114624,
+    "modelDistanceM": 190,
+    "stopApproachM": 13.484986372248176,
+    "landing": {
+      "lat": 47.4127078,
+      "lon": 8.5454884,
+      "r": 35
+    },
+    "landingNode": 9651573109,
+    "platformOsm": 9310982,
+    "segments": [
+      {
+        "way": 454724146,
+        "m": 32.03161627559924,
+        "nodes": [
+          6483754586,
+          6483754589
+        ],
+        "tags": {
+          "highway": "footway",
+          "lit": "24/7",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1050256828,
+        "m": 11.253974797075289,
+        "nodes": [
+          6483754589,
+          4864531252,
+          5030798045
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "excellent",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1116626375,
+        "m": 55.861560769211295,
+        "nodes": [
+          5030798045,
+          6483754587,
+          5030798044,
+          5030798043
+        ],
+        "tags": {
+          "area": "no",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 515050141,
+        "m": 32.868263415565714,
+        "nodes": [
+          5030798043,
+          8538351815,
+          5030798042,
+          6735098673,
+          5030798041,
+          6735098672,
+          9651573112
+        ],
+        "tags": {
+          "area": "no",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 1050256827,
+        "m": 9.723788864537713,
+        "nodes": [
+          9651573112,
+          9651573111,
+          9651573110
+        ],
+        "tags": {
+          "crossing": "unmarked",
+          "footway": "crossing",
+          "highway": "footway",
+          "lit": "yes",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 775871912,
+        "m": 13.483657723038192,
+        "nodes": [
+          9651573110,
+          5210326952,
+          2396972260
+        ],
+        "tags": {
+          "bicycle": "no",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "lit": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      },
+      {
+        "way": 454724167,
+        "m": 3.1225244738706186,
+        "nodes": [
+          2396972260,
+          9651573109
+        ],
+        "tags": {
+          "bicycle": "no",
+          "highway": "footway",
+          "lit": "yes",
+          "ramp": "yes",
+          "smoothness": "good",
+          "surface": "asphalt"
+        }
+      }
+    ],
+    "sourceFile": "data/research/raw/ne-osm-oerlikon.json",
+    "timetableFile": "data/research/raw/ne-conn-oerlikon-nord.json"
+  }
+}

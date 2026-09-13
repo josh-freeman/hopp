@@ -1,0 +1,481 @@
+[
+  {
+    "id": "bern.hirschengraben",
+    "station": "Bern",
+    "region": "Western Switzerland",
+    "from": "Bern, Hirschengraben",
+    "title": "Bern: Hirschengraben → Welle",
+    "status": "researched",
+    "summary": "Public mapped access can fit within the observed 9-minute transfer budget for some trips. Only the listed platform groups are enabled; an earlier arrival still requires a real candidate train.",
+    "access": "From Hirschengraben, follow the public pavements north towards Schanzenstrasse and Welle. Use the marked crossings and obey signals. Enter the existing Welle passerelle, then take the signed stairs down to your platform. Stay on the public route shown by current signs.",
+    "platforms": [
+      "3/4",
+      "5/6",
+      "7/8",
+      "9/10",
+      "12/13"
+    ],
+    "distanceM": 506,
+    "plannerBudgetS": 540,
+    "sources": [
+      {
+        "title": "SBB station plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-bern-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Operator stop/access plan",
+        "url": "https://www.bernmobil.ch/de/fahrplan-netz/fahrplan-nach-haltestellen/hirschengraben",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner response",
+        "url": "https://transport.opendata.ch/v1/connections?from=8579896&to=8503000&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Published works information",
+        "url": "https://www.bernmobil.ch/de/verkehrsinformationen/baustellen/unterhalsarbeiten-raum-bahnhof",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 3/4 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10228959",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 5/6 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10228960",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 7/8 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10228961",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 9/10 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/14666888",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 12/13 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10228957",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Public Welle access description",
+        "url": "https://www.sbb.ch/de/reiseinformationen/bahnhoefe/bahnhof-finden/bahnhof-bern/bahnhofsbeschrieb.html",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Future Bubenberg access is not yet open",
+        "url": "https://news.sbb.ch/de/019d7b77-8b55-7146-873b-297632bf5fea/zukunft-bahnhof-bern-ausbau-laeuft-in-vielen-bereichen-gut-komplexitaet-fuehrt-jedoch-zu-verzoegerungen",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Real stop 8579896 → railway station 8507000; raw response west-bern-hirschengraben-connections.json.",
+      "Continuous public footway geometry, mapped stair counts/directions and the final platform landing were checked separately.",
+      "No train gain is inferred from the transfer budget alone. Unsupported platforms remain unavailable to the planner.",
+      "Distances cover the longest mapped boarding-quay approach. Stair rise and door location are explicit model assumptions with medium confidence."
+    ],
+    "fieldChecks": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 120/350 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API.",
+      "Recheck Welle crowding and construction signs; tracks 1/2 and the future Bubenberg passage are deliberately unsupported."
+    ],
+    "activeHackId": "bern.hirschengraben"
+  },
+  {
+    "id": "biel.place-guisan",
+    "station": "Biel/Bienne",
+    "region": "Western Switzerland",
+    "from": "Biel/Bienne, Place Guisan",
+    "title": "Biel/Bienne: Place Guisan → station underpass",
+    "status": "researched",
+    "summary": "Public mapped access can fit within the observed 7-minute transfer budget for some trips. Only the listed platform groups are enabled; an earlier arrival still requires a real candidate train.",
+    "access": "From Place Guisan, follow the public pavement towards Bahnhofplatz / Place de la Gare. Use the marked pedestrian crossings, enter the central station underpass, and take the signed stairs up to your platform.",
+    "platforms": [
+      "2/3",
+      "4/5",
+      "6/7"
+    ],
+    "distanceM": 353,
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB station plan",
+        "url": "https://www.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-biel-bienne-a4.pdf.sbbdownload.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Operator stop/access plan",
+        "url": "https://widgets.oev-info.ch/publikation/jahresfpl/22.005.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner response",
+        "url": "https://transport.opendata.ch/v1/connections?from=8587619&to=8503000&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Published works information",
+        "url": "https://vb-tpb.ch/de/netzinfo",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 2/3 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10216211",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 4/5 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10216212",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Gleis 6/7 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/10216208",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Real stop 8587619 → railway station 8504300; raw response west-biel-place-guisan-connections.json.",
+      "Continuous public footway geometry, mapped stair counts/directions and the final platform landing were checked separately.",
+      "No train gain is inferred from the transfer budget alone. Unsupported platforms remain unavailable to the planner.",
+      "Distances cover the longest mapped boarding-quay approach. Stair rise and door location are explicit model assumptions with medium confidence."
+    ],
+    "fieldChecks": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 100/300 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API."
+    ],
+    "activeHackId": "biel.place-guisan"
+  },
+  {
+    "id": "geneve.lyon",
+    "station": "Genève",
+    "region": "Western Switzerland",
+    "from": "Genève, Lyon",
+    "title": "Genève: Lyon → Montbrillant",
+    "status": "researched",
+    "summary": "Public mapped access can fit within the observed 7-minute transfer budget for some trips. Only the listed platform groups are enabled; an earlier arrival still requires a real candidate train.",
+    "access": "Leave Lyon at a marked crossing, then follow the public pavements via Rue des Grottes, Rue Cité-de-la-Corderie and Rue des Amis towards Place de Montbrillant. Enter the signed public Montbrillant station passage, go down the short entrance steps, then take the stairs up to Voies 4/5.",
+    "platforms": [
+      "4/5"
+    ],
+    "distanceM": 588,
+    "plannerBudgetS": 420,
+    "sources": [
+      {
+        "title": "SBB station plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-geneve-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Operator stop/access plan",
+        "url": "https://www.tpg.ch/sites/default/files/arrets_plan_de_connexion/CVIN_Gen%C3%A8ve%20gare%20Cornavin_Totem.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner response",
+        "url": "https://transport.opendata.ch/v1/connections?from=8592850&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Published works information",
+        "url": "https://company.sbb.ch/fr/developpement-ferroviaire/projets/suisse-romande-valais/leman-2030/nos-projets/geneve-cornavin.html",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Voies 4/5 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/4013259",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Real stop 8592850 → railway station 8501008; raw response west-geneve-lyon-connections.json.",
+      "Continuous public footway geometry, mapped stair counts/directions and the final platform landing were checked separately.",
+      "No train gain is inferred from the transfer budget alone. Unsupported platforms remain unavailable to the planner.",
+      "Distances cover the longest mapped boarding-quay approach. Stair rise and door location are explicit model assumptions with medium confidence."
+    ],
+    "fieldChecks": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 120/350 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API.",
+      "Only domestic tracks 4/5 are covered. No route to the French sector, tracks 1–3, or future underground platforms is inferred."
+    ],
+    "activeHackId": "geneve.lyon"
+  },
+  {
+    "id": "neuchatel.gare-nord",
+    "station": "Neuchâtel",
+    "region": "Western Switzerland",
+    "from": "Neuchâtel, gare nord",
+    "title": "Neuchâtel: gare nord → station underpass",
+    "status": "researched",
+    "summary": "Public mapped access can fit within the observed 4-minute transfer budget for some trips. Only the listed platform groups are enabled; an earlier arrival still requires a real candidate train.",
+    "access": "From gare nord, follow the public pavement to the signed station access ramp. Descend into the railway underpass, then take the signed stairs up to your platform. From quay C, use the marked crossing first.",
+    "platforms": [
+      "6/7",
+      "4/5",
+      "2/3"
+    ],
+    "distanceM": 223,
+    "plannerBudgetS": 240,
+    "sources": [
+      {
+        "title": "SBB station plan",
+        "url": "https://cdnsource.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-neuchatel-a4.pdf.sbbdownload.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Operator stop/access plan",
+        "url": "https://www.transn.ch/fileadmin/transn/pdf/Plans/Plan-de-connexion_GareNord_2024.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded planner response",
+        "url": "https://transport.opendata.ch/v1/connections?from=8579625&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Published works information",
+        "url": "https://www.transn.ch/voyageurs/voyager/info-voyageurs/info-trafic/",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Voies 6/7 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/8209994",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Voies 4/5 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/8209995",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Voies 2/3 platform polygon",
+        "url": "https://www.openstreetmap.org/relation/8209993",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "2026 timetable and festival notice",
+        "url": "https://www.transn.ch/fileadmin/transn/horaire_2026/109/transN-NE-109-2.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Real stop 8579625 → railway station 8504221; raw response west-neuchatel-gare-nord-connections.json.",
+      "Continuous public footway geometry, mapped stair counts/directions and the final platform landing were checked separately.",
+      "No train gain is inferred from the transfer budget alone. Unsupported platforms remain unavailable to the planner.",
+      "Distances cover the longest mapped boarding-quay approach. Stair rise and door location are explicit model assumptions with medium confidence.",
+      "This is a small timing window, especially with scheduled-only information; a bag, slower pace or larger margin can remove every offer. Fête des Vendanges dates 25–27 September 2026 are excluded."
+    ],
+    "fieldChecks": [
+      "Walk each supported boarding-quay approach and confirm current signs, crossings and public entrance availability.",
+      "Measure actual stair rise; step counts are mapped, while 0.18 m per riser is an explicit conservative timing assumption.",
+      "Measure door approach by train length and stopping sector; current typical/maximum 100/300 m values are model allowances.",
+      "Time a representative peak-period transfer; short-notice closures and pedestrian queues are not available from the connection API."
+    ],
+    "activeHackId": "neuchatel.gare-nord"
+  },
+  {
+    "id": "bern.bubenberg-future",
+    "station": "Bern",
+    "region": "Western Switzerland",
+    "from": "Bern, Hirschengraben",
+    "title": "Hirschengraben → planned Bubenberg station access",
+    "status": "needs-check",
+    "summary": "The future passage would be relevant to this stop, but it is not a current public shortcut. It is excluded from the planner.",
+    "access": "Future underground connection from Hirschengraben/Bubenbergplatz to the new station passage; use the existing signed public access today.",
+    "platforms": [
+      "Unbuilt access; no platform group enabled"
+    ],
+    "sources": [
+      {
+        "title": "SBB project schedule",
+        "url": "https://news.sbb.ch/de/019d7b77-8b55-7146-873b-297632bf5fea/zukunft-bahnhof-bern-ausbau-laeuft-in-vielen-bereichen-gut-komplexitaet-fuehrt-jedoch-zu-verzoegerungen",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Current SBB plan, August 2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-bern-a4.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "SBB distinguishes the Bubenberg building from the new underground station access.",
+      "The project update moves the new public passage/access opening to 2031; a building or retail opening does not establish a through route."
+    ],
+    "fieldChecks": [
+      "Confirm commissioned opening, complete public geometry, platform mapping and walking budget after construction."
+    ]
+  },
+  {
+    "id": "geneve.lyon-main-hall",
+    "station": "Genève",
+    "region": "Western Switzerland",
+    "from": "Genève, Lyon",
+    "title": "Lyon → Cornavin main hall and platforms 1–3",
+    "status": "needs-check",
+    "summary": "Lyon is a real nearby stop and public station entrances are documented, but the complete vertical route to platforms 1–3 has not been measured. These platforms are excluded.",
+    "access": "Street pavements towards Cornavin and a public main-hall entrance; the exact platform access must be established before timing it.",
+    "platforms": [
+      "1",
+      "2/3"
+    ],
+    "sources": [
+      {
+        "title": "Current SBB station plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-geneve-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Current operator connection-plan download",
+        "url": "https://www.tpg.ch/sites/default/files/arrets_plan_de_connexion/CVIN_Gen%C3%A8ve%20gare%20Cornavin_Totem.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded Lyon connections",
+        "url": "https://transport.opendata.ch/v1/connections?from=8592850&to=8501120&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "The captured 08:08 RE33 uses Voie 2 and the 08:24 IR95 uses Voie 4, demonstrating why a station-level blanket route is insufficient.",
+      "OSM maps several stairways to platforms 1–3 without usable step counts; no rise or shortcut through another platform is invented."
+    ],
+    "fieldChecks": [
+      "Measure each complete public stair/ramp chain to Voies 1–3, including entrance hours and door approach."
+    ],
+    "plannerBudgetS": 420
+  },
+  {
+    "id": "lausanne.georgette",
+    "station": "Lausanne",
+    "region": "Western Switzerland",
+    "from": "Lausanne, Georgette",
+    "title": "Georgette → east-side station access",
+    "status": "needs-check",
+    "summary": "Georgette is close enough to investigate, but the station forecourt construction changed pedestrian routes in July 2026. No measured route is enabled.",
+    "access": "Public street approach from Georgette towards the eastern station entrances; current construction diversions need an on-foot check.",
+    "platforms": [
+      "Eastern access; platform mapping pending"
+    ],
+    "sources": [
+      {
+        "title": "TL Georgette stop plan, 2026",
+        "url": "https://www.t-l.ch/app/uploads/2026/01/Lausanne-Georgette.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "CFF construction update, July 2026",
+        "url": "https://news.sbb.ch/fr/019d7b77-2ee6-7440-82c6-0148ce2dc460/des-nouvelles-des-chantiers-de-la-gare-de-lausanne",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded Georgette connections",
+        "url": "https://transport.opendata.ch/v1/connections?from=8592051&to=8501008&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Real stop ID 8592051. The captured baseline rides a bus five minutes to Lausanne gare, then has a 300-second station walk.",
+      "CFF says the forecourt worksite moved from south to north on 27 July 2026 and pedestrian routes were adapted. A pre-work map cannot establish the current path."
+    ],
+    "fieldChecks": [
+      "Walk the current signed entrance route, record temporary fences, count stairs, and identify the public platform landing.",
+      "Obtain a direct walking transfer budget separately; 300 seconds is the post-bus walk, not a Georgette walking measurement."
+    ]
+  },
+  {
+    "id": "lausanne.gare-m2-current",
+    "station": "Lausanne",
+    "region": "Western Switzerland",
+    "from": "Lausanne, gare (m2)",
+    "title": "m2 gare → current railway passage access",
+    "status": "needs-check",
+    "summary": "The existing draft m2 record needs current access verification during station works; this research does not promote or alter that seed.",
+    "access": "Public connection between the gare m2 station and the railway passages, subject to the current signed construction routing.",
+    "platforms": [
+      "No additional platform group enabled"
+    ],
+    "sources": [
+      {
+        "title": "CFF construction update, July 2026",
+        "url": "https://news.sbb.ch/fr/019d7b77-2ee6-7440-82c6-0148ce2dc460/des-nouvelles-des-chantiers-de-la-gare-de-lausanne",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "SBB Lausanne station plan, January 2026",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-lausanne-a4.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "The existing seed uses stop ID 8592050 and remains draft; its quoted stair dimensions are not validated by this investigation.",
+      "Updated railway forecourt works make old assumptions about a direct passage insufficient. This is a field-check task, not extra active coverage."
+    ],
+    "fieldChecks": [
+      "Capture the current m2 connection geometry and stop-level coordinates, verify each passage stays open, and independently measure each platform access."
+    ]
+  },
+  {
+    "id": "fribourg.richemond",
+    "station": "Fribourg/Freiburg",
+    "region": "Western Switzerland",
+    "from": "Fribourg/Freiburg, Richemond/gare",
+    "title": "Richemond → western railway underpass",
+    "status": "not-useful",
+    "summary": "The public access is real and the station works are documented, but the API already budgets only three minutes. The measured 178–219 m approach and platform access leave too little default margin for a useful sprint offer.",
+    "access": "Use the completed Richemond shared space and western station underpass, then the public platform ramps.",
+    "platforms": [
+      "2/3",
+      "4/5"
+    ],
+    "sources": [
+      {
+        "title": "Current SBB station plan",
+        "url": "https://company.sbb.ch/content/dam/infrastruktur/trafimage/bahnhofplaene/plan-fribourg-a4.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "CFF access works completion",
+        "url": "https://news.sbb.ch/fr/019d7b77-5154-7b10-8db3-d1206a8fd300/derniers-acces-modernises-a-la-gare-de-fribourg",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "City Richemond project completion",
+        "url": "https://www.ville-fribourg.ch/transformations/richemond",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Recorded Richemond connections",
+        "url": "https://transport.opendata.ch/v1/connections?from=8511792&to=8507000&date=2026-09-14&time=08%3A00&limit=3",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "title": "Mapped western underpass",
+        "url": "https://www.openstreetmap.org/way/1231437119",
+        "checkedAt": "2026-09-13"
+      }
+    ],
+    "findings": [
+      "Real stop ID 8511792; railway station 8504100. The first recorded walk is 08:00–08:03 on 14 September 2026.",
+      "Mapped ramps to platforms 4/5 use ways 1285977430 and 1230667687; platforms 2/3 use 1230667693. The approach varies by boarding side.",
+      "The Boulevard de Pérolles/gare comparison (8510983) also receives a 180-second walk. No larger planner penalty is assumed."
+    ],
+    "fieldChecks": [
+      "Measure complete ramp slopes and boarding-side paths before revisiting usefulness.",
+      "Test a real time window that improves final arrival with the full margin; proximity alone is insufficient."
+    ],
+    "distanceM": 220,
+    "plannerBudgetS": 180
+  }
+]
