@@ -67,6 +67,7 @@ function render(): void {
   else content = planScreen(profile, from, to);
   app.innerHTML = `${header()}${mock ? '<div class="demo-banner">Demo · example times</div>' : ''}<main id="main" tabindex="-1">${content}</main><div class="toast" role="status" id="toast"></div><div id="announce" class="sr-only" aria-live="assertive"></div>`;
   app.classList.toggle('is-live', screen === 'live');
+  if (screen === 'live' && result && selected) liveSignature = liveSnapshot(now()).sig;
   app.toggleAttribute('data-enter', previous !== screen);
   if (previous !== screen) setTimeout(() => app.removeAttribute('data-enter'), 500);
   document.querySelectorAll<HTMLImageElement>('.route-map img').forEach(img => img.complete ? img.classList.add('is-loaded') : img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true }));
@@ -130,16 +131,12 @@ function updateLive(): void {
   }
   if (!result || !selected) return;
   const seconds = now();
-  const stale = seconds - result.updatedAt > 120;
-  const passed = !running && !!result.opportunity?.feeder && seconds > result.opportunity.alightTs + 60;
-  const available = Math.min(selected.haveS, selected.departureTs - Math.max(seconds, result.opportunity?.alightTs ?? seconds));
-  const go = !!result.recommended && selected.band === 'GO' && available >= selected.sprintS + selected.marginS && !stale && !passed;
-  const active = running ? selected.departureTs - 20 > seconds && !stale && selected.band === 'GO' : go;
-  const sig = `${active}/${stale}/${passed}/${running}/${selected.platform}/${selected.departureTs}/${result.updatedAt}`;
+  const { available, active, sig } = liveSnapshot(seconds);
   if (sig !== liveSignature) {
     if (liveSignature.startsWith('true') && !active && 'vibrate' in navigator) navigator.vibrate([200, 100, 200]);
     const focused = (document.activeElement as HTMLElement | null)?.dataset.action;
     const wasActive = liveSignature.startsWith('true');
+    app.removeAttribute('data-enter');
     document.querySelector('#main')!.innerHTML = liveScreen(result, selected, seconds, running);
     if (liveSignature && wasActive !== active) {
       document.querySelector('.live-instruction')?.setAttribute('data-flip', '');
@@ -160,6 +157,15 @@ function updateLive(): void {
       if (spare) spare.textContent = formatDuration(Math.max(0, available - selected.sprintS - selected.marginS));
     }
   }
+}
+// The live screen's state signature: a re-render happens only when it changes.
+function liveSnapshot(seconds: number): { available: number; active: boolean; sig: string } {
+  const stale = seconds - result!.updatedAt > 120;
+  const passed = !running && !!result!.opportunity?.feeder && seconds > result!.opportunity.alightTs + 60;
+  const available = Math.min(selected!.haveS, selected!.departureTs - Math.max(seconds, result!.opportunity?.alightTs ?? seconds));
+  const go = !!result!.recommended && selected!.band === 'GO' && available >= selected!.sprintS + selected!.marginS && !stale && !passed;
+  const active = running ? selected!.departureTs - 20 > seconds && !stale && selected!.band === 'GO' : go;
+  return { available, active, sig: `${active}/${stale}/${passed}/${running}/${selected!.platform}/${selected!.departureTs}/${result!.updatedAt}` };
 }
 function startPolling(): void {
   clearInterval(pollTimer);
