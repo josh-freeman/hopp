@@ -1,4 +1,5 @@
 import type { Profile } from '../types';
+import { formatDuration } from '../engine';
 import { esc, icon, button } from './html';
 import { recentDestinations } from '../storage/prefs';
 export function planScreen(profile: Profile, from: string, to: string): string {
@@ -22,8 +23,8 @@ export function settingsScreen(profile: Profile): string {
   return `<section class="screen" data-screen="settings" data-testid="screen"><h1>Settings</h1>
     <form id="settings-form"><div class="panel settings-panel">
       <label class="setting-switch"><span><strong>Offer sprint routes</strong><small>Alongside your regular connections</small></span><input name="offer" type="checkbox" ${profile.offerSprintRoutes ? 'checked' : ''}/></label>
-      <div class="setting"><label for="pace">Your full-effort pace</label><div class="unit-input"><input id="pace" name="pace" type="number" min="1.5" max="6.5" step="0.1" value="${profile.sprintMps}" required/><span>m/s</span></div><p class="muted" id="pace-preview">${(profile.sprintMps * 3.6).toFixed(1)} km/h · 400 m of open street in about ${Math.ceil(400 / profile.sprintMps)} seconds</p></div>
-      <label class="setting-switch"><span><strong>Carrying luggage</strong><small>Use a slower pace with luggage</small></span><input name="bag" type="checkbox" ${profile.bag ? 'checked' : ''}/></label>
-      <div class="setting"><label for="margin">Minimum spare time</label><div class="unit-input"><input id="margin" name="margin" type="number" min="45" max="300" step="5" value="${profile.minMarginS}" required/><span>seconds</span></div><p class="muted">The estimate also includes time for closing doors and timetable uncertainty.</p></div></div>
+      <div class="setting"><label for="pace">Your sprint pace</label><div class="unit-input"><input id="pace" name="pace" type="number" min="1.5" max="6.5" step="0.1" value="${profile.sprintMps}" required/><span>m/s</span></div><p class="muted" id="pace-preview">${(profile.sprintMps * 3.6).toFixed(1)} km/h · 400 m in ${formatDuration(Math.ceil(400 / profile.sprintMps))}</p></div>
+      <label class="setting-switch"><span><strong>Carrying luggage</strong><small>Slows your pace estimate</small></span><input name="bag" type="checkbox" ${profile.bag ? 'checked' : ''}/></label>
+      <div class="setting"><label for="margin">Safety margin</label><div class="unit-input"><input id="margin" name="margin" type="number" min="45" max="300" step="5" value="${profile.minMarginS}" required/><span>seconds</span></div><p class="muted">Added to every sprint estimate. Hopp adds door-closing time and timetable uncertainty on top.</p></div></div>
       <p class="muted privacy-note">Saved on this device. No account needed.</p><div class="bottom-actions"><button type="submit" class="primary" data-testid="primary-action">Save settings ${icon('check')}</button></div></form></section>`;
 }

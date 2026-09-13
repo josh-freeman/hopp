@@ -257,7 +257,7 @@ app.addEventListener('input', event => {
   const input = event.target as HTMLInputElement;
   if (input.id === 'pace') {
     const v = Number(input.value), preview = document.querySelector('#pace-preview');
-    if (v > 0 && preview) preview.textContent = `${(v * 3.6).toFixed(1)} km/h · 400 m of open street in about ${Math.ceil(400 / v)} seconds`;
+    if (v > 0 && preview) preview.textContent = `${(v * 3.6).toFixed(1)} km/h · 400 m in ${formatDuration(Math.ceil(400 / v))}`;
   }
   if (!['from', 'to'].includes(input.id)) return;
   clearTimeout(autocompleteTimer);
