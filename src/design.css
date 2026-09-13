@@ -589,3 +589,10 @@ h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; 
   .results-actions .primary { font-size: 15px; padding-inline: 14px; }
   .results-actions > .text-button { min-width: auto; padding-inline: 6px; font-size: 13px; }
 }
+
+/* Short phones: the map must stay above the action bar; secondary lines give way first. */
+@media (max-height: 620px) {
+  .results-screen .offer-regular-stop, .results-screen .integrated-route > h3 { display: none; }
+  .results-screen .integrated-route .route-map img { height: 180px; }
+  .results-screen .offer-arrival { margin-top: 0; }
+}
