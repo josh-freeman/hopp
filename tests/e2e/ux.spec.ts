@@ -76,7 +76,8 @@ test('Not now dismisses the sprint and keeps regular connections', async ({ page
   await expect(page.locator('.integrated-route')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Guide me there', exact: true })).toHaveCount(0);
   await expect(page.getByTestId('connection-row')).toHaveCount(count);
-  await expect(page.getByTestId('fallback')).toBeVisible();
+  await expect(page.getByTestId('fallback')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /Show the sprint route again/ })).toBeVisible();
 });
 
 for (const scenario of ['nohack', 'passed', 'unknown']) {

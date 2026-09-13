@@ -53,7 +53,6 @@ h1, h2, h3 { font-weight: 650; }
   background: #bf3b28; color: #fff; transform: translateY(1px);
 }
 .brand-mark svg { width: 19px; height: 19px; transform: none; stroke-width: 2.4; }
-.icon-button { border-radius: 50%; }
 .demo-banner { background: #e8e8e0; color: #535d5d; padding-block: 6px; border-bottom: 1px solid var(--line); }
 .screen { min-height: calc(100dvh - 66px); }
 .demo-banner + main .screen { min-height: calc(100dvh - 95px); }
@@ -531,7 +530,7 @@ h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; 
 
 /* Three radii. Inner radius = outer radius − padding, floored at --r-xs. */
 .badges span, .practice-progress > span { border-radius: var(--r-xs); }
-.chip, .unit-input input, .account-settings input, .suggestions, .practice-feedback, .practice-marker, .milestone-list > span, .live-numbers [data-testid=platform], .platform-sign, .reward-swatch, .icon-button:not(.account-button) { border-radius: var(--r-sm); }
+.chip, .unit-input input, .account-settings input, .suggestions, .practice-feedback, .practice-marker, .milestone-list > span, .live-numbers [data-testid=platform], .platform-sign, .reward-swatch, .icon-button { border-radius: var(--r-sm); }
 .panel, .local-note, .results-screen .integrated-offer, .live-instruction, .primary, .secondary, .results-actions .primary, .live-bottom .primary, .practice-list, .daily-check, .reward-unlocked, .reward-option, .toast, .notice, .delete-confirm, .history-empty, .profile-pass, .arrival-info { border-radius: var(--r-md); }
 .time-field { border-radius: 0 0 11px 11px; }
 .brand-mark { border-radius: 5px; }
@@ -596,3 +595,11 @@ h2, .offer-directive, .account-screen h1, .done-screen h1 { text-wrap: balance; 
   .results-screen .integrated-route .route-map img { height: 180px; }
   .results-screen .offer-arrival { margin-top: 0; }
 }
+
+/* After-audit residue: runner at icon size on Plan; pressed states for the last seven controls. */
+.local-note > svg:first-child { width: 18px; height: 18px; }
+.route-map-link:active, .route-notes a:active, .wordmark:active, summary:active { opacity: .6; }
+.setting-switch input:active::after { transform: scale(.9); }
+.setting-switch input:checked:active::after { transform: translateX(18px) scale(.9); }
+.google-signin:active { transform: scale(.985); }
+.time-field select:active { color: var(--muted); }
