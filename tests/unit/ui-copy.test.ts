@@ -23,12 +23,12 @@ describe('travel copy reflects the actual service and budget', () => {
     const c = result.recommended!;
     const html = resultsScreen(result, false);
     const budget = html.match(/data-testid="verdict-budget">([\s\S]*?)<\/p>/)?.[1] ?? '';
-    const displayed = [...budget.matchAll(/<strong>(\d+:\d{2})<\/strong>/g)].map(match => durationSeconds(match[1]));
+    const displayed = [...budget.matchAll(/<strong>([\s\S]*?)<\/strong>/g)].map(match => durationSeconds(match[1].replace(/<[^>]+>/g, '')));
     expect(displayed).toHaveLength(3);
     [c.haveS, c.sprintS, c.marginS].forEach((seconds, index) => {
       expect(Math.abs(displayed[index] - seconds)).toBeLessThanOrEqual(0.5);
     });
-    const spareText = html.match(/class="offer-spare">[\s\S]*?<strong>(\d+:\d{2})<\/strong>/)?.[1];
+    const spareText = html.match(/class="offer-spare">[\s\S]*?<strong>([\s\S]*?)<\/strong>/)?.[1]?.replace(/<[^>]+>/g, '');
     expect(spareText).toBeDefined();
     expect(Math.abs(durationSeconds(spareText!) - (displayed[0] - displayed[1] - displayed[2]))).toBeLessThanOrEqual(2);
     expect(html).toContain('to spare');

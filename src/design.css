@@ -397,8 +397,8 @@ h1, h2, h3 { font-weight: 650; }
 .is-live .app-header { height: 56px; padding-block: 6px; }
 .is-live .screen { min-height: calc(100dvh - 56px); }
 .is-live .demo-banner + main .screen { min-height: calc(100dvh - 85px); }
-.live-caveat { margin-top: auto; padding-bottom: 4px; }
-.live-bottom { margin-top: 0; }
+.live-caveat { margin-top: 0; padding-bottom: 0; }
+.live-bottom { margin-top: auto; }
 .live-numbers { align-items: last baseline; }
 .live-numbers strong { line-height: 1; }
 .live-numbers [data-testid=platform] { line-height: 1; padding: 10px 10px 9px; border-radius: 8px; }

@@ -5,11 +5,11 @@ export const shortStop = (value: string) => value.replace(/^[^,]+,\s*/, '');
 export const journeyLabel = (j?: Journey | null) => j?.category && j?.number ? `${j.category} ${j.number}` : j?.name || j?.category || 'Train';
 export function arrivalText(result: PlanResult, now: number): string {
   const label = !result.opportunity?.feeder ? 'Start' : 'Your stop';
-  return `${label} in <strong>${formatDuration(Math.max(0, (result.opportunity?.alightTs ?? now) - now))}</strong>`;
+  return `${label} in <strong>${t(formatDuration(Math.max(0, (result.opportunity?.alightTs ?? now) - now)))}</strong>`;
 }
 export const trainName = (c: Candidate) => journeyLabel(c.train.journey);
 export function budget(c: Candidate): string {
-  return `<p class="budget" data-testid="verdict-budget"><strong>${formatDuration(c.haveS)}</strong> at the door − <strong>${formatDuration(c.sprintS)}</strong> run − <strong>${formatDuration(c.marginS)}</strong> margin</p>`;
+  return `<p class="budget" data-testid="verdict-budget"><strong>${t(formatDuration(c.haveS))}</strong> at the door − <strong>${t(formatDuration(c.sprintS))}</strong> run − <strong>${t(formatDuration(c.marginS))}</strong> margin</p>`;
 }
 export function connectionRow(c: Connection): string {
   const departure = stopTime(c.from, 'departure'), arrival = stopTime(c.to, 'arrival');
@@ -28,7 +28,7 @@ export function fallback(result: PlanResult, compact = false, alreadyOff = false
   const label = journeyLabel(train?.journey);
   const stayOn = alreadyOff ? undefined : result.opportunity?.feeder?.arrival.station.name;
   const title = result.fallbackAtRisk ? 'Regular connection also at risk' : alreadyOff ? 'Missed it? Next train' : stayOn ? 'Miss it? Stay on the tram' : 'Your regular connection';
-  return `<aside class="fallback ${compact ? 'compact' : ''}" data-testid="fallback"><span class="fallback-icon">${icon('train')}</span><div><strong>${title}</strong><p>${esc(label || 'Train')} · ${t(formatTime(dep))}${stayOn ? ` from ${esc(shortStop(stayOn))}` : ''}${platform ? ` · Platform ${esc(platform)}` : ''} · arrives ${t(formatTime(stopTime(connection.to, 'arrival')))}</p>${!compact ? `<p class="muted">${result.fallbackAtRisk ? 'Refresh connections before continuing.' : 'Follow the regular transfer.'}</p>` : ''}</div></aside>`;
+  return `<aside class="fallback ${compact ? 'compact' : ''}" data-testid="fallback"><span class="fallback-icon">${icon('train')}</span><div><strong>${title}</strong><p>${esc(label || 'Train')} · ${t(formatTime(dep))}${stayOn ? ` from ${esc(shortStop(stayOn))}` : ''}${platform ? ` · <span class="nowrap">Platform ${esc(platform)}</span>` : ''} · <span class="nowrap">arrives ${t(formatTime(stopTime(connection.to, 'arrival')))}</span></p>${!compact ? `<p class="muted">${result.fallbackAtRisk ? 'Refresh connections before continuing.' : 'Follow the regular transfer.'}</p>` : ''}</div></aside>`;
 }
 export function badges(result: PlanResult, c: Candidate): string {
   return `<p class="route-status">Platform from the timetable · route drawn from maps, not yet run by Hopp${c.route?.helps === 'marginal' ? ' · saves only a few minutes' : ''}</p>`;

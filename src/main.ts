@@ -141,7 +141,8 @@ function updateLive(): void {
     if (liveSignature && wasActive !== active) {
       document.querySelector('.live-instruction')?.setAttribute('data-flip', '');
       const announce = document.querySelector('#announce');
-      if (announce) announce.textContent = active ? `Go. Get off at ${shortStop(result.opportunity?.hack.alight.name ?? '')}.` : 'Stay on. The tram is late.';
+      const band = document.querySelector('.live-instruction');
+      if (announce) announce.textContent = active ? `Go. Get off at ${shortStop(result.opportunity?.hack.alight.name ?? '')}.` : `${band?.querySelector('.eyebrow')?.textContent ?? 'Stay on'}. ${band?.querySelector('h1')?.textContent ?? ''}`.trim();
     }
     liveSignature = sig;
     if (focused) document.querySelector<HTMLElement>(`[data-action="${focused}"]`)?.focus({ preventScroll: true });
@@ -152,9 +153,9 @@ function updateLive(): void {
     if (arrival && !running) arrival.innerHTML = arrivalText(result, seconds);
     if (!running) {
       const have = document.querySelector('[data-testid="verdict-budget"] strong');
-      if (have) have.textContent = formatDuration(available);
+      if (have) have.innerHTML = t(formatDuration(available));
       const spare = document.querySelector('.live-spare strong');
-      if (spare) spare.textContent = formatDuration(Math.max(0, available - selected.sprintS - selected.marginS));
+      if (spare) spare.innerHTML = t(formatDuration(Math.max(0, available - selected.sprintS - selected.marginS)));
     }
   }
 }
