@@ -55,7 +55,7 @@ h1, h2, h3 { font-weight: 650; }
 .screen { min-height: calc(100dvh - 66px); }
 .demo-banner + main .screen { min-height: calc(100dvh - 95px); }
 .eyebrow { font-weight: 500; font-size: 12px; letter-spacing: .065em; }
-.panel, .fallback { border-radius: 12px; }
+.panel { border-radius: 12px; }
 .primary, .results-actions .primary, .live-bottom .primary {
   background: var(--ink); color: var(--card); border-radius: 10px;
   font-size: 16px; font-weight: 600; transition: background .15s ease;
@@ -126,7 +126,7 @@ h1, h2, h3 { font-weight: 650; }
 .integrated-route .route-directions p { font-size: 14px; line-height: 1.6; }
 .badges span { border-radius: 4px; background: #f0f1eb; }
 .integrated-offer .route-notes { margin-top: 5px; }
-.fallback { background: var(--card); }
+.fallback, .results-screen .fallback { background: transparent; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 12px 0; gap: 12px; }
 .fallback-icon { color: var(--ink); }
 .connection-times strong { font-family: var(--mono); font-weight: 500; font-size: 21px; letter-spacing: -.02em; }
 .journey-line { background: #9ba6a4; }
@@ -150,7 +150,7 @@ h1, h2, h3 { font-weight: 650; }
 .live-budget { padding-block: 14px; }
 .live-budget .budget { font-size: 12px; }
 .live-budget > p:last-child { font-size: 13px; }
-.live-bottom .fallback { border-left: 3px solid #a8b5ad; }
+.live-bottom .fallback { padding: 12px 0 8px; }
 .live-paused .live-instruction { background: #e6e9e2; color: var(--ink); }
 .live-paused .live-instruction p { color: #505c5d; }
 
