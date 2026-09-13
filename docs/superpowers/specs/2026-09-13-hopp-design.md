@@ -378,6 +378,20 @@ Anti-cheat: reject `seconds < pathMetres / 6.5` or `> 3 × walk-tier formula` or
 
 Calibration math (in `engine/sprint.ts`, data optional): for (hack, version, route, tier_class) with n attempts, `t̂ = w · p80 + (1 − w) · F`, `w = n / (n + 10)` (formula-only at n = 0, half weight at n = 10, 75 % crowd at n = 30); p50 shown as "typical". When n ≥ 10, `margin = max(30 s, p80 − p50) + 20 s (+ 30 s without live data)`. A tier class with n < 3 borrows the other class's attempts scaled by `v_tier / v_other`. Personal layer: with `n_p ≥ 3` own attempts, `t_final = w_p · p80_personal + (1 − w_p) · t̂`, `w_p = n_p / (n_p + 3)`. The card labels the source ("model" / "n = 23 runners"). The MVP ships with calibration = null and works without the Worker.
 
+### 10.x Gamification (user, 2026-09-13; phase 2, same backend)
+
+Profiles and points, scored on how far you beat the odds the classic SBB planner gives you — never on how close you cut it.
+
+- **Profile**: anonymous device id + nickname (phase-2 `POST /api/devices`); optional Strava identity later. Personal page: total points, runs, best time per shortcut, badges.
+- **Points per accepted attempt** (`engine/points.ts`, pure, unit-tested):
+  `beatS = plannerBudgetS − actualS` (seconds you beat SBB's transfer assumption by; the "odds" are SBB's budget vs your run)
+  `points = round(clamp(beatS, 0, 600) / 6)` → 0–100 base, **+ 50 "made it" bonus** when the attempt ended before the target train's real departure and the official plan had that train as missed (the app already knows both), **× 1.25 first-timer multiplier** the first time a device runs a given shortcut, **× 1.5 explorer multiplier** for the first accepted attempt ever on a `draft` hack (rewards validating mined candidates).
+  No bonus for small spare time: an attempt that arrived with < the planned margin gets the base points only and a "cut it close — no bonus" note. Safety is a product requirement for the SBB pitch: the scoring must never reward risk.
+- **Anti-farming**: only GPS-verified attempts count for leaderboards (tap-only attempts count for personal stats at half points); diminishing returns per (device, shortcut, day): 1st run ×1, 2nd ×0.5, 3rd+ ×0; attempts already rejected by the anti-cheat bounds in §10 score nothing.
+- **Leaderboards** (`GET /api/leaderboard?scope=shortcut|city|all&period=week|all`): top 20 by points; ties by best time. Per-shortcut boards double as the crowd timing table used for calibration.
+- **Badges** (data, not code: `data/badges.json`): first accepted run on a shortcut ("First blood: Gleis 20"), 10 runs on one shortcut ("Regular"), validated a draft hack ("Scout"), beat SBB's budget by ≥ 5 min ("Odds-breaker").
+- **Where it appears in the flow**: after "On the platform" on the Go-live screen → a result sheet: your time, SBB's budget, points earned, rank on this shortcut; the Shortcut page shows the board. Nothing in the MVP flow changes; the MVP ships `calibration = null` and no points.
+
 ## 11. Error handling
 
 - API busy (`errors[]` in a 200 body, HTTP 429, 5xx): `ApiBusyError` → "SBB timetable busy — retry in 60 s" with a counting-down Retry; exponential backoff 5/20/75 s on the live loop; never auto-retry in a tight loop; 30 s URL cache absorbs double taps; live loop pauses with a banner "live data paused Ns".
