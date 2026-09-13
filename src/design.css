@@ -51,7 +51,7 @@ h1, h2, h3 { font-weight: 650; }
   width: 23px; height: 23px; margin-left: 5px; border-radius: 5px;
   background: #bf3b28; color: #fff; transform: translateY(1px);
 }
-.brand-mark svg { width: 20px; height: 20px; transform: rotate(-45deg); }
+.brand-mark svg { width: 19px; height: 19px; transform: none; stroke-width: 2.4; }
 .icon-button { border-radius: 50%; }
 .demo-banner { background: #e8e8e0; color: #535d5d; padding-block: 6px; border-bottom: 1px solid var(--line); }
 .screen { min-height: calc(100dvh - 66px); }
@@ -241,7 +241,7 @@ h1, h2, h3 { font-weight: 650; }
 .profile-pass { --profile-bg: #f0e2d6; --profile-ink: #77331e; background: var(--profile-bg); color: var(--profile-ink); border-radius: 15px; padding: 18px; position: relative; overflow: hidden; border: 1px solid #18252d12; }
 .profile-pass .eyebrow { color: inherit; letter-spacing: .08em; font-size: 12px; }
 .profile-pass h2 { margin-top: 14px; font-size: 30px; line-height: 1.12; letter-spacing: -.8px; font-weight: 600; }
-.profile-graphic { width: calc(100% + 36px); height: 86px; display: block; margin: 5px -18px -10px; opacity: .75; }
+.profile-graphic { width: calc(100% + 36px); height: 86px; display: block; margin: 5px -18px -10px; opacity: 1; }
 .pass-top, .pass-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .pass-score { display: flex; gap: 10px; align-items: baseline; margin-top: 8px; }
 .pass-score > strong { font-family: var(--mono); font-size: 53px; font-weight: 500; line-height: 1.3; letter-spacing: -3px; }

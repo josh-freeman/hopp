@@ -34,7 +34,7 @@ const account = createAccountIntegration({
 const protectedScreens = ['live', 'done'];
 function navigate(next: string): void { if (location.hash === `#${next}`) render(); else location.hash = next; }
 function header(): string {
-  const mark = `<span class="brand-mark">${icon('arrow')}</span>`;
+  const mark = `<span class="brand-mark">${icon('hop')}</span>`;
   return `<header class="app-header">${screen === 'plan' ? `<a href="#plan" class="wordmark" aria-label="Hopp home">hopp${mark}</a>` : button(icon('back'), 'back', 'icon-button', 'aria-label="Go back"')}<span class="header-label">${screen === 'plan' ? '' : `hopp${mark}`}</span>${button(icon('user'), 'account', `icon-button account-button ${account.signedIn ? 'has-account' : ''}`, 'aria-label="Your profile"')}${button(icon('settings'), 'settings', 'icon-button', 'aria-label="Settings"')}</header>`;
 }
 function render(): void {
