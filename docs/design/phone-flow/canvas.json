@@ -6,11 +6,13 @@
     { "file": "RouteMap.dc.html", "x": 1470, "y": 0, "w": 390, "h": 844, "title": "4 · Your run (map)" },
     { "file": "Result.dc.html", "x": 1960, "y": 0, "w": 390, "h": 844, "title": "5 · Sprint route detail" },
     { "file": "Go.dc.html", "x": 2450, "y": 0, "w": 390, "h": 844, "title": "6 · Go (live)" },
-    { "file": "Shortcut.dc.html", "x": 2940, "y": 0, "w": 390, "h": 844, "title": "7 · Shortcut" },
-    { "file": "Pace.dc.html", "x": 3430, "y": 0, "w": 390, "h": 844, "title": "8 · Sprint settings" }
+    { "file": "Celebrate.dc.html", "x": 2940, "y": 0, "w": 390, "h": 844, "title": "7 · Verified — points (phase 2)" },
+    { "file": "Shortcut.dc.html", "x": 3430, "y": 0, "w": 390, "h": 844, "title": "8 · Shortcut" },
+    { "file": "Pace.dc.html", "x": 3920, "y": 0, "w": 390, "h": 844, "title": "9 · Sprint settings" }
   ],
   "annotations": [
-    { "id": "assumptions", "x": 0, "y": -360, "w": 760, "text": "Athlete mode — phone flow, v3\nThe use case: the official plan says you miss your train; a sprint route lets you still make it. Search a trip as usual; when a shortcut exists, a 'You can still make the 17:32' card sits above the normal connections. Try it → sheet (full sprint 3:00 · 1:00 spare · walking impossible) → optional map of the run → sprint route detail → Go live. No pace tiers: one calibrated sprint pace in settings (3.5 m/s default, learned from timed runs). The official plan is never hidden.\nMap: OpenStreetMap tiles with the run drawn from OSM node coordinates in the research. Original UI, no SBB branding or components copied.\nNumbers: 460 m from Central to the hall, official 9:00 walk budget. 'SOON' chips mark phase-2 items (Strava, crowd timing)." }
+    { "id": "assumptions", "x": 0, "y": -360, "w": 760, "text": "Athlete mode — phone flow, v4\nThe use case: the official plan says you miss your train; a sprint route lets you still make it. Search a trip as usual; when a shortcut exists, a 'You can still make the 17:32' card sits above the normal connections. Try it → sheet (full sprint 3:00 · 1:00 spare · walking impossible) → optional map of the run → sprint route detail → Go live → (phase 2) GPS-verified on the train → points, race bar, badge, leaderboard. No pace tiers: one calibrated sprint pace in settings. The official plan is never hidden.\nMap: OpenStreetMap tiles with the run drawn from OSM node coordinates in the research. Original UI, no SBB branding or components copied.\nNumbers: 460 m from Central to the hall, official 9:00 walk budget. 'SOON' chips mark phase-2 items (Strava, crowd timing)." },
+    { "id": "celebrate-note", "x": 2940, "y": -200, "w": 390, "text": "Phase 2 · the one playful moment. Points only after GPS proves you're on the train (2–4 min after departure) — never from tapping 'On the platform'. Animations: race bar grows, points pop, confetti only with the 'made it' bonus, badge flips; all CSS/SVG, off under prefers-reduced-motion." }
   ],
   "launch": { "view": "canvas" }
 }
