@@ -4,7 +4,7 @@ import { recentDestinations } from '../storage/prefs';
 export function planScreen(profile: Profile, from: string, to: string): string {
   const recent = recentDestinations();
   return `<section class="screen plan-screen" data-screen="plan" data-testid="screen">
-    <div class="intro"><h1>the art of<br>being on time <span class="headline-runner">${icon('run')}</span></h1><p class="lead">Train shortcuts for runners.</p></div>
+    <div class="intro"><h1>the art of<br>being on time</h1><p class="lead">Train shortcuts for runners.</p></div>
     <form id="trip-form" class="trip-form">
       <div class="journey-fields panel">
         <div class="station-field"><span class="field-icon">${icon('pin')}</span><div class="field-content"><label for="from">From</label><input id="from" name="from" value="${esc(from)}" placeholder="Stop or station" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="from-suggestions" required/><ul id="from-suggestions" class="suggestions" role="listbox" hidden></ul></div>${button(icon('pin'), 'nearest', 'icon-button', 'aria-label="Use nearest stop"')}</div>
