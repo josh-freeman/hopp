@@ -197,11 +197,13 @@ h1, h2, h3 { font-weight: 650; }
   .demo-banner + main .screen { min-height: calc(100dvh - 143px); }
 }
 @media (prefers-color-scheme: dark) {
-  :root { --paper: #182127; --card: #202c33; --ink: #f0f3ed; --muted: #b2bdbd; --line: #39484c; --red: #d96b53; --green: #b4d7bb; --green-bg: #2a4038; --amber: #e3b86e; --amber-bg: #3a3226; background: #11191f; }
+  :root { --paper: #182127; --card: #222f37; --ink: #f0f3ed; --muted: #b2bdbd; --line: #3d4d52; --red: #e5846c; --green: #b4d7bb; --green-bg: #2a4038; --amber: #e3b86e; --amber-bg: #3a3226; background: #11191f; }
   .demo-banner { background: #303b3e; color: #d0d7d4; border-color: var(--line); }
   .journey-fields, .results-screen .integrated-offer { border-color: var(--line); }
   .time-field { background: #28363c; }
   .offer-timing { background: #2b4238; }
+  .setting-switch input::before { background: #5f6d70; }
+  .toast { background: var(--ink); color: var(--paper); }
   .integrated-route .route-map { border-color: #4a5b60; background: #1c262b; }
   .integrated-route .route-map img { filter: brightness(.9) saturate(.92); }
   .integrated-route .route-map figcaption { background: #28363c; color: var(--muted); }
@@ -408,3 +410,14 @@ h1, h2, h3 { font-weight: 650; }
   .live-numbers strong { font-size: 72px; }
   .live-numbers [data-testid=platform] { font-size: 54px; min-width: 84px; padding: 8px 12px 7px; }
 }
+
+/* One neutral family, one focus ring, honest cursors. */
+.setting-switch input::before { background: #7f8a87; }
+.journey-line::before, .journey-line::after { border-color: var(--muted); }
+.field-content input::placeholder { color: var(--muted); }
+.notice { background: var(--amber-bg); color: var(--amber); border-color: color-mix(in srgb, var(--amber) 35%, transparent); }
+:is(button, a, input, select, summary):focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: inherit; }
+.primary:focus-visible, .results-actions .primary:focus-visible, .live-bottom .primary:focus-visible { outline-color: var(--red); }
+.setting-switch input:focus-visible { outline-offset: -2px; }
+button:disabled { cursor: not-allowed; }
+button[aria-busy="true"] { cursor: progress; opacity: 1; }
