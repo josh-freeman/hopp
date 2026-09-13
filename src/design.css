@@ -392,3 +392,19 @@ h1, h2, h3 { font-weight: 650; }
 .offer-timing .budget { font-size: 13px !important; }
 .offer-timing .budget, .live-budget .budget, .live-budget > p { font-size: 13px; color: var(--muted); line-height: 1.5; font-weight: 400; margin: 0; }
 .budget strong { font-family: var(--mono); font-weight: 500; letter-spacing: 0; color: var(--ink); }
+
+/* Live: a quiet header, the caveat anchored above the regular connection, numbers on one baseline. */
+.is-live .account-button, .is-live .icon-button[data-action="settings"] { display: none; }
+.is-live .app-header { height: 56px; padding-block: 6px; }
+.is-live .screen { min-height: calc(100dvh - 56px); }
+.is-live .demo-banner + main .screen { min-height: calc(100dvh - 85px); }
+.live-caveat { margin-top: auto; padding-bottom: 4px; }
+.live-bottom { margin-top: 0; }
+.live-numbers { align-items: last baseline; }
+.live-numbers strong { line-height: 1; }
+.live-numbers [data-testid=platform] { line-height: 1; padding: 10px 10px 9px; border-radius: 8px; }
+.live-numbers [data-testid=countdown] { padding-top: 0; }
+@media (min-height: 800px) {
+  .live-numbers strong { font-size: 72px; }
+  .live-numbers [data-testid=platform] { font-size: 54px; min-width: 84px; padding: 8px 12px 7px; }
+}
