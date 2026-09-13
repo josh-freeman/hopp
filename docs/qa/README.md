@@ -1,8 +1,8 @@
 # Phone QA
 
-Hopp's automated phone checks exercise the flow in design spec §0: Plan → Results with map, timing, directions and fallback → **Go live** → **Start sprint** → **On the platform**. Settings is optional. Route notes and sources expand within Results. Start sprint records when the passenger leaves the feeder so passing the alight stop does not incorrectly cancel a run already in progress. Demo scenarios run without transport API access or account setup.
+Hopp's automated phone checks exercise the flow in design spec §0: Plan → Results with map, timing, directions and fallback → **Go live** → **Start sprint** → **On the platform**. Settings and Profile are optional. Profile adds practice, daily-use progress and saved private trip notes without adding a step to the trip flow. Route notes and sources expand within Results. Start sprint records when the passenger leaves the feeder so passing the alight stop does not incorrectly cancel a run already in progress. Demo scenarios run without transport API access or real account setup; **Open demo profile** uses isolated local data.
 
-Design and integrated-flow run, 2026-09-13: **86 unit tests passed with 452 assertions; 46 browser checks passed in 19.4 seconds**. The browser matrix covers 16 viewport classes and five screens, producing 80 screenshots. See [the UX review](ux-review.md) for changes and checks that still require physical devices or participants.
+Current validation, 2026-09-13: **110 frontend unit tests passed with 564 assertions; 66 backend tests passed** (30 Hopp checks plus 36 website/member/Stripe regressions). The full **56 browser checks passed in 21.3 seconds** after the account and map integration fixes. The current matrix covers 16 viewport classes and six screens, producing 96 screenshots. Five isolated backend response fixtures also passed the frontend Zod schemas. See [the UX review](ux-review.md) for changes and checks that still require physical devices or participants.
 
 ## Run
 
@@ -16,7 +16,7 @@ bun run test:ux
 
 Playwright starts the built Vite preview at `http://127.0.0.1:4173/hopp/`. Build again after changing app code. Run `bun run test:e2e` to run both suites together. To investigate one viewport, use `bunx playwright test --project=iphone-390x844` or `--project=samsung-412x915`. Open `playwright-report/index.html` with `bunx playwright show-report` for steps and failure traces.
 
-The browser preview at `/hopp/phone.html` has viewport, screen, and scenario selectors. It uses the browser in which it is opened; selecting an iPhone size does not switch the browser engine. Screens beyond Plan open deterministic demo data automatically in mock mode.
+The browser preview at `/hopp/phone.html` has viewport, screen, and scenario selectors. It uses the browser in which it is opened; selecting an iPhone size does not switch the browser engine. Screens beyond Plan open deterministic trip data automatically in mock mode. The Profile selector opens the optional account screen; **Open demo profile** then enables isolated practice and customization. It never reads real website/Hopp tokens or calls the account backend.
 
 ## Coverage
 
@@ -27,12 +27,13 @@ The browser preview at `/hopp/phone.html` has viewport, screen, and scenario sel
 | Chromium | samsung-344x882, samsung-360x740, samsung-360x800, samsung-384x824, samsung-412x915, samsung-674x841 |
 | WebKit | minimum-320x568 |
 
-Each viewport project runs one complete flow, audits Plan, Results, Live, Settings and On the platform, and writes screenshots to `docs/qa/<project>/<screen>.png`. Each image captures the visible phone viewport at one image pixel per CSS pixel, preserving the specified device dimensions. Scrollable content below the screenshot is also checked by the DOM layout audit and can be reviewed in the interactive preview. The suite checks:
+Each viewport project runs one complete flow, audits Plan, Results, Live, Settings, On the platform and Profile, and writes screenshots to `docs/qa/<project>/<screen>.png`. Each image captures the visible phone viewport at one image pixel per CSS pixel, preserving the specified device dimensions. Scrollable content below the screenshot is also checked by the DOM layout audit and can be reviewed in the interactive preview. The suite checks:
 
 - No horizontal overflow; visible text at least 12 px; text inputs at least 16 px; interactive hit areas at least 44 × 44 px. A labeled checkbox or radio may use its associated label as its hit area.
 - Primary actions in the lower quarter of the viewport and above its bottom edge, including the Results **Go live** action.
 - Live countdown, alight stop, platform, and fallback fully visible before scrolling, including at 320 × 568.
 - A sprint offer shows its public train number and departure time above normal connections, with the matching route included in the same screen.
+- Across all sixteen viewport classes, the entire Results map image is visible above the fixed **Go live** action, is at least 180 px high and uses `object-fit: contain`; both endpoints remain in view, including at 320 × 568.
 
 The behavior and accessibility suite runs on one representative WebKit phone (390 × 844) and one Chromium phone (412 × 915), avoiding duplicated scenario runs on every size. It checks:
 
@@ -45,9 +46,22 @@ The behavior and accessibility suite runs on one representative WebKit phone (39
 - `?mock=offline` and `ratelimit` finish loading, explain the error, and allow retry.
 - `?mock=late&poll=1000` updates the live verdict to STAY ON while retaining the fallback.
 - An offer older than two minutes cannot be revived through navigation, and `?mock=missing` cannot use unmatched live trips to refresh an expired countdown.
-- All five screens have no serious or critical axe violations under WCAG 2 A/AA and WCAG 2.1 A/AA rules. This automated scan is a partial accessibility check.
+- All six screens are checked for serious or critical axe violations under WCAG 2 A/AA and WCAG 2.1 A/AA rules. The full run passed these checks; this automated scan remains a partial accessibility check.
+- Optional demo sign-in stays separate from real website/Hopp storage. Practice awards 25 once per correct question and zero for wrong or repeated answers; unlocked profile-card styles persist and tampered theme selections are rejected.
+- Daily-check progress awards 5 once per Swiss calendar day, remains distinct from zero-point platform notes, and does not change the trip decision. The profile shows cumulative milestones and an unlock action with reduced-motion support.
+- Profile sign-out/deletion preserves unrelated website storage, and the signed-in screen is checked for narrow layout and accessibility.
 
-Screenshots are generated evidence, not visual snapshot comparisons with an approved baseline. Test assertions and the Playwright report determine automated pass/fail. The older mockups in `docs/design/phone-flow/` record the original proposal; the simplified flow in spec §0 is the current reference.
+Screenshots are generated evidence, not visual snapshot comparisons with an approved baseline. Test assertions and the Playwright report determine automated pass/fail. Only the six current screen names contribute to the 96-image matrix; older local screenshots may remain as ignored artifacts. The older mockups in `docs/design/phone-flow/` record the original proposal; the simplified flow in spec §0 is the current reference.
+
+## Account validation boundaries
+
+**Production accounts are pending deployment.** Backend source is implemented and pushed, but both Fly builders rejected deployment for overdue invoices. Production Hopp endpoints still return 404. The frontend preflight retains users in Hopp with an unavailable message; demo accounts work independently. Resolve billing, deploy the API and record production checks before describing real sign-in or sync as live.
+
+The frontend account unit suite tests remote JSON validation, stable failures, one-time callback consumption, session races, website-session validation, Hopp-only storage/deletion behavior, private zero-point attempts and mock isolation. The separate backend suite tests OAuth state/code browser binding, expiry/replay, authoritative identity linking, privilege separation, server grading, duplicate awards, Swiss midnight/DST, theme locks, session revocation and administrator metric cohorts.
+
+The metrics checks cover authenticated DAU/WAU/MAU/YAU, activation, DAU/MAU stickiness and exact-day D7/D30 retention, including empty denominators and incomplete Swiss follow-up days. They validate the implementation, not actual user retention or travel behavior. [The account guide](../ACCOUNTS.md) defines each measure.
+
+Passing these suites does not establish a human Google consent round trip. Frontend Pages publication and the account API deployment are separate; a successful anonymous planner request does not prove authenticated production mutations work. No production account is created or deleted by the mock browser suite.
 
 ## Physical-device and human checks
 
@@ -62,10 +76,12 @@ Use [the think-aloud script](think-aloud-script.md) for comprehension and one-ha
 | VoiceOver and TalkBack: labels, reading order, live updates | Not yet recorded |
 | Think-aloud users: 3-second decision and fallback understanding | Not yet recorded |
 | Real tram timing and station route field verification | Not yet recorded; seed routes retain their verification status |
+| Human Google consent: sign-in, callback, reuse, sign-out and deletion | Not yet recorded; automated OAuth tests use a fake provider |
+| Practice/daily-point comprehension, theme selection and cumulative milestones | Think-aloud task prepared; participant evidence not yet recorded |
 
 The demo's deterministic response is a UX fixture. It is not a measurement of current Swiss transport service or field verification of a sprint route.
 
-The [demo player](https://joshfreeman.me/hopp/demo.html) records the app's phone UI through the combined result and into Live. It uses synthetic timetable data, has no audio, and ends before Start sprint. The player and downloadable MP4 are generated from the browser recording, separately from the screenshot matrix.
+The [demo player](https://joshfreeman.me/hopp/demo.html) records search → early-alighting result/map → budget/directions → live countdown → isolated demo profile → a correct practice answer worth 25 points → selecting Forest. The 40.04-second, 780 × 1688 H.264 export is approximately 2.50 MB and has no audio. It uses synthetic timetable/account data and ends on the Forest profile without starting an actual sprint. The player and downloadable MP4 are generated from the browser recording, separately from the screenshot matrix.
 
 ## Live timetable smoke check
 

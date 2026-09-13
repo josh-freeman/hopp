@@ -44,7 +44,7 @@
         <div><label for="device">Viewport</label><select id="device"></select></div>
         <div><label for="screen">Screen</label><select id="screen">
           <option value="plan">Plan</option><option value="results">Results and route</option><option value="live">Live</option>
-          <option value="settings">Settings</option><option value="done">On the platform</option>
+          <option value="settings">Settings</option><option value="done">On the platform</option><option value="account">Profile</option>
         </select></div>
         <div><label for="scenario">Demo</label><select id="scenario">
           <option value="1">Sprint offered</option><option value="nohack">No matching shortcut</option>
@@ -55,6 +55,7 @@
       </div>
       <div class="actions"><button id="rotate" type="button">Rotate</button><button id="reload" type="button">Reload</button></div>
       <a class="open" id="open" href="./?mock=1#plan" target="_blank" rel="noopener">Open app in a new tab</a>
+      <p class="note">All six screens use demo data. In Profile, choose <strong>Open demo profile</strong> to try practice, daily-check points and styles with isolated local progress. Real account tokens and the account API are never used here.</p>
       <p class="note">This frame previews CSS viewport sizes in your current browser. Playwright tests use WebKit for iPhone classes and Chromium for Samsung classes. Physical phones, browser bars, safe areas, and keyboards need separate checks.</p>
     </aside>
     <section aria-label="App preview"><p id="size" aria-live="polite"></p><div id="stage"><div id="shell"><iframe id="app" title="Hopp phone app" src="./?mock=1#plan"></iframe></div></div></section>

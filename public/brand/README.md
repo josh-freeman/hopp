@@ -1,0 +1,1 @@
+Google sign-in button: unmodified pre-approved Android + Web, light, square SVG from https://developers.google.com/static/identity/images/signin-assets.zip, downloaded 2026-09-13. Use governed by https://developers.google.com/identity/branding-guidelines.

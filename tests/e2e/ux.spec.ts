@@ -1,13 +1,14 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { allScreens, expectScreen, findConnections, showScreen, startDemo } from './helpers';
+import { allScreens, auditLayout, expectScreen, findConnections, showScreen, startDemo } from './helpers';
 
 test('fresh profile reaches live in one tap after search, with honest budget and fallback', async ({ page }) => {
   await startDemo(page);
   // Each test has a fresh browser context: no profile, account, location grant, or prior trip.
   await findConnections(page);
   await expectScreen(page, 'results');
-  await expect(page.getByTestId('offer-card').getByRole('heading', { level: 2 })).toContainText(/IC \d+ · \d{2}:\d{2}/);
+  await expect(page.getByTestId('offer-card').getByRole('heading', { level: 2 })).toHaveText('Get off early at Central');
+  await expect(page.locator('.offer-service')).toContainText(/IC \d+ · \d{2}:\d{2} · Platform 11/);
   await expect(page.locator('.integrated-route')).toBeVisible();
   await expect(page.getByTestId('verdict-budget')).toContainText(/you have/i);
   await expect(page.getByTestId('verdict-budget')).toContainText(/need/i);
@@ -24,6 +25,7 @@ test('fresh profile reaches live in one tap after search, with honest budget and
   expect(fallback.length).toBeGreaterThan(15);
   await page.getByRole('button', { name: 'Go live', exact: true }).click();
   await expectScreen(page, 'live');
+  await expect(page.getByTestId('live-status')).toHaveText('GET OFF EARLY AT');
   await expect(page.getByTestId('fallback')).toHaveText(fallback, { useInnerText: true });
   await expect(page.getByTestId('fallback')).toContainText(/SBB|stay on|fallback/i);
   await expect(page.getByTestId('countdown')).toContainText(/\d+:\d{2}/);
@@ -184,6 +186,8 @@ test('recorded Winterthur shortcut reaches the right platform with trip-specific
   await expect(page.getByTestId('offer-card')).toContainText('08:09', { timeout: 25_000 });
   await expect(page.getByTestId('offer-card')).toContainText('Archstrasse/HB');
   await expect(page.getByTestId('offer-card')).toContainText('Platform 3');
+  await expect(page.getByTestId('offer-card').getByRole('heading', { level: 2 })).toHaveText('Start at Archstrasse/HB');
+  await expect(page.locator('.offer-regular-stop')).toHaveCount(0);
   await expect(page.getByTestId('fallback')).toContainText('09:28');
   await expect(page.locator('.integrated-route .route-map img')).toHaveAttribute('alt', /Winterthur/);
   await expect(page.getByTestId('screen')).not.toContainText('Central');
@@ -212,4 +216,188 @@ test('an origin offer disappears when its sprint window closes before data becom
   await expect(page.getByTestId('screen')).toContainText('full margin');
   await expect(page.getByTestId('screen')).not.toContainText('passed the');
   await expect(page.getByTestId('connection-row').first()).toBeVisible();
+});
+
+async function openDemoProfile(page: Page) {
+  await page.getByRole('button', { name: 'Your profile', exact: true }).click();
+  await expectScreen(page, 'account');
+  await page.getByRole('button', { name: 'Open demo profile', exact: true }).click();
+  await expect(page.getByTestId('profile-pass')).toBeVisible();
+  await expect(page.getByTestId('profile-pass')).toContainText('Demo profile');
+}
+
+async function answerPractice(page: Page, scenario: string, answer: string) {
+  const toggle = page.locator(`.practice-toggle[data-scenario="${scenario}"]`);
+  if (await toggle.getAttribute('aria-expanded') !== 'true') await toggle.click();
+  await page.locator(`#practice-${scenario} .practice-choices`).getByRole('button', { name: answer, exact: true }).click();
+}
+
+test('accounts are optional and the demo never contacts real account or timetable services', async ({ page }) => {
+  const externalRequests: string[] = [];
+  await page.addInitScript(() => {
+    localStorage.setItem('comment_token', 'website-token-sentinel');
+    localStorage.setItem('comment_user', '{"id":"website-user-sentinel"}');
+    localStorage.setItem('hopp.auth.token', 'real-hopp-token-sentinel');
+  });
+  await page.route('**/*', async route => {
+    const url = new URL(route.request().url());
+    if (!['127.0.0.1', 'localhost'].includes(url.hostname)) {
+      externalRequests.push(`${route.request().method()} ${url.origin}${url.pathname}`);
+      await route.abort();
+    } else await route.continue();
+  });
+  await startDemo(page);
+  await page.getByRole('button', { name: 'Your profile', exact: true }).click();
+  await expectScreen(page, 'account');
+  await expect(page.getByTestId('practice-points')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Back to your trip', exact: true }).click();
+  await expectScreen(page, 'plan');
+  await findConnections(page);
+  await page.getByRole('button', { name: 'Go live', exact: true }).click();
+  await expectScreen(page, 'live');
+  await expect(page.getByTestId('live-status')).toHaveText('GET OFF EARLY AT');
+  await openDemoProfile(page);
+  await expect(page.getByTestId('practice-points')).toHaveText('0');
+  expect(externalRequests, 'Demo planning and sign-in stay entirely local').toEqual([]);
+  expect(await page.evaluate(() => [localStorage.getItem('comment_token'), localStorage.getItem('hopp.auth.token')])).toEqual(['website-token-sentinel', 'real-hopp-token-sentinel']);
+});
+
+test('practice rewards are earned once and the unlocked style and nickname survive reload', async ({ page }) => {
+  await startDemo(page);
+  await openDemoProfile(page);
+  const points = page.getByTestId('practice-points');
+  const forest = page.locator('.reward-option[data-theme="forest"]');
+  const night = page.locator('.reward-option[data-theme="night"]');
+  await expect(points).toHaveText('0');
+  await expect(forest).toBeDisabled();
+  await expect(night).toBeDisabled();
+
+  await answerPractice(page, 'budget', '1 minute 56 seconds');
+  await expect(page.locator('#practice-budget .practice-feedback')).toBeVisible();
+  await expect(page.locator('#practice-budget .practice-feedback')).not.toHaveClass(/correct/);
+  await expect(points).toHaveText('0');
+  await answerPractice(page, 'budget', '51 seconds');
+  await expect(points).toHaveText('25');
+  await expect(forest).toBeEnabled();
+  await expect(night).toBeDisabled();
+  await expect(page.locator('.reward-unlocked')).toContainText('Forest unlocked');
+  await page.locator('.reward-unlocked').getByRole('button', { name: 'Use style', exact: true }).click();
+  await expect(page.getByTestId('profile-pass')).toHaveClass(/theme-forest/);
+
+  await page.reload();
+  await expect(page.getByTestId('profile-pass')).toHaveClass(/theme-forest/);
+  await expect(points).toHaveText('25');
+  await page.locator('.practice-toggle[data-scenario="budget"]').click();
+  await expect(page.locator('#practice-budget')).toContainText('25 points earned');
+  await expect(page.locator('#practice-budget .practice-choices')).toHaveCount(0);
+  // Reopening a completed check, including after reload, cannot grant it again.
+  await page.locator('.practice-toggle[data-scenario="budget"]').click();
+  await page.locator('.practice-toggle[data-scenario="budget"]').click();
+  await expect(points).toHaveText('25');
+
+  await answerPractice(page, 'fallback', 'Use the regular connection');
+  await expect(points).toHaveText('50');
+  await answerPractice(page, 'platform', 'Wait for the platform and check the route');
+  await expect(points).toHaveText('75');
+  await expect(page.locator('.prepared-badge')).toHaveText('Prepared');
+  await night.click();
+  await expect(page.getByTestId('profile-pass')).toHaveClass(/theme-night/);
+  await page.locator('.account-settings > summary').click();
+  await page.getByLabel('Display name', { exact: true }).fill('Alex on the train');
+  await page.getByRole('button', { name: 'Save name', exact: true }).click();
+  await expect(page.locator('.account-heading h1')).toHaveText('Alex on the train');
+  await page.reload();
+  await expect(page.locator('.account-heading h1')).toHaveText('Alex on the train');
+  await expect(page.getByTestId('profile-pass')).toHaveClass(/theme-night/);
+  await expect(points).toHaveText('75');
+  await expect(page.locator('.prepared-badge')).toHaveText('Prepared');
+});
+
+test('unlock checks protect locked and invalid styles even if a button is changed', async ({ page }) => {
+  await startDemo(page);
+  await openDemoProfile(page);
+  const pass = page.getByTestId('profile-pass');
+  const night = page.locator('.reward-option[data-theme="night"]');
+  await expect(night).toBeDisabled();
+  // A disabled control is only presentation; the account operation must also
+  // reject a request for a style that has not been earned.
+  await night.evaluate((element: HTMLButtonElement) => { element.disabled = false; });
+  await night.click();
+  await expect(pass).toHaveClass(/theme-signal/);
+  await expect(page.getByTestId('practice-points')).toHaveText('0');
+  await expect(page.locator('.reward-option[data-theme="night"]')).toBeDisabled();
+  const signal = page.locator('.reward-option[data-theme="signal"]');
+  await signal.evaluate(element => { element.setAttribute('data-theme', 'invented-style'); });
+  await page.locator('.reward-option[data-theme="invented-style"]').click();
+  await expect(pass).toHaveClass(/theme-signal/);
+  await page.reload();
+  await expect(pass).toHaveClass(/theme-signal/);
+  await expect(page.getByTestId('practice-points')).toHaveText('0');
+});
+
+test('daily search credit is awarded once, platform taps earn zero, and Hopp deletion preserves website storage', async ({ page }) => {
+  await startDemo(page);
+  await page.evaluate(() => {
+    localStorage.setItem('comment_token', 'website-token-sentinel');
+    localStorage.setItem('comment_user', '{"id":"website-user-sentinel"}');
+    localStorage.setItem('website-preferences-test', 'keep-website-preferences');
+  });
+  await openDemoProfile(page);
+  await answerPractice(page, 'budget', '51 seconds');
+  await page.getByRole('button', { name: 'Go back', exact: true }).click();
+  await expectScreen(page, 'plan');
+  await findConnections(page);
+  await expectScreen(page, 'results');
+  await page.getByRole('button', { name: 'Your profile', exact: true }).click();
+  await expectScreen(page, 'account');
+  await expect(page.getByTestId('practice-points')).toHaveText('30');
+  await page.getByRole('button', { name: 'Go back', exact: true }).click();
+  await expectScreen(page, 'plan');
+  await findConnections(page);
+  await page.getByRole('button', { name: 'Go live', exact: true }).click();
+  await page.getByRole('button', { name: 'Start sprint', exact: true }).click();
+  await page.getByRole('button', { name: 'On the platform', exact: true }).click();
+  await expectScreen(page, 'done');
+  await page.getByRole('button', { name: 'Your profile', exact: true }).click();
+  await expectScreen(page, 'account');
+  await expect(page.getByTestId('practice-points')).toHaveText('30');
+  await expect(page.locator('.account-history li')).toHaveCount(1);
+  await expect(page.locator('.account-history')).toContainText('Unverified · 0 points');
+  await page.locator('.account-settings > summary').click();
+  await page.getByRole('button', { name: 'Delete Hopp data', exact: true }).click();
+  await expect(page.locator('.delete-confirm')).toContainText('Your website account');
+  await page.getByRole('button', { name: 'Keep my data', exact: true }).click();
+  await expect(page.getByTestId('practice-points')).toHaveText('30');
+  await expect(page.locator('.account-history li')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Delete Hopp data', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete my Hopp data', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Open demo profile', exact: true })).toBeVisible();
+  expect(await page.evaluate(() => ({
+    account: localStorage.getItem('comment_token'),
+    user: localStorage.getItem('comment_user'),
+    preferences: localStorage.getItem('website-preferences-test'),
+  }))).toEqual({ account: 'website-token-sentinel', user: '{"id":"website-user-sentinel"}', preferences: 'keep-website-preferences' });
+  await page.getByRole('button', { name: 'Open demo profile', exact: true }).click();
+  await expect(page.getByTestId('practice-points')).toHaveText('0');
+  await expect(page.locator('.account-history li')).toHaveCount(0);
+  await page.locator('.account-settings > summary').click();
+  await page.getByRole('button', { name: 'Sign out of Hopp', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Open demo profile', exact: true })).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem('comment_token'))).toBe('website-token-sentinel');
+});
+
+test('signed-in profile controls remain readable and accessible in light and dark mode', async ({ page }, testInfo) => {
+  await startDemo(page);
+  await openDemoProfile(page);
+  await page.locator('.practice-toggle[data-scenario="budget"]').click();
+  await page.locator('.account-settings > summary').click();
+  for (const colorScheme of ['light', 'dark'] as const) {
+    await page.emulateMedia({ colorScheme });
+    await page.evaluate(async () => { await document.fonts.ready; window.scrollTo(0, 0); });
+    await auditLayout(page, 'account');
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+    const significant = results.violations.filter(({ impact }) => impact === 'serious' || impact === 'critical');
+    expect(significant.map(({ id, impact, nodes }) => ({ id, impact, elements: nodes.map(({ target }) => target) })), `${colorScheme} account: axe serious/critical violations`).toEqual([]);
+    await testInfo.attach(`Signed-in profile (${colorScheme})`, { body: await page.screenshot({ animations: 'disabled' }), contentType: 'image/png' });
+  }
 });

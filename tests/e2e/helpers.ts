@@ -2,8 +2,8 @@ import { expect, type Page, type TestInfo } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-export type Screen = 'plan' | 'results' | 'live' | 'settings' | 'done';
-export const allScreens: Screen[] = ['plan', 'results', 'live', 'settings', 'done'];
+export type Screen = 'plan' | 'results' | 'live' | 'settings' | 'done' | 'account';
+export const allScreens: Screen[] = ['plan', 'results', 'live', 'settings', 'done', 'account'];
 
 export async function expectScreen(page: Page, screen: Screen) {
   await expect(page.getByTestId('screen')).toHaveAttribute('data-screen', screen);

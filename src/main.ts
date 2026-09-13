@@ -11,7 +11,8 @@ import { esc, icon, button } from './ui/html';
 import { planScreen, settingsScreen } from './ui/plan';
 import { resultsScreen, doneScreen } from './ui/journey';
 import { liveScreen } from './ui/live';
-import { arrivalText } from './ui/common';
+import { arrivalText, trainName } from './ui/common';
+import { createAccountIntegration } from './account/integration';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const params = new URLSearchParams(location.search);
@@ -23,13 +24,18 @@ let selected: Candidate | undefined;
 let from = mock ? 'Zürich, Bellevue' : '', to = mock ? 'Bern' : '';
 let loading = false, error = '', dismissed = false, running = false;
 let screen = '', searchSerial = 0, pollBusy = false, liveSignature = '';
+let attemptId: string | undefined, runStartedAt: number | undefined;
 let pollTimer: ReturnType<typeof setInterval> | undefined;
 const now = () => Date.now() / 1000;
+const account = createAccountIntegration({
+  mock, getScreen: () => screen, render: () => render(), navigate: next => navigate(next), flash,
+  onPreferences: saved => { if (!result) { profile = saved; saveProfile(saved); } },
+});
 const protectedScreens = ['live', 'done'];
 function navigate(next: string): void { if (location.hash === `#${next}`) render(); else location.hash = next; }
 function header(): string {
   const mark = `<span class="brand-mark">${icon('arrow')}</span>`;
-  return `<header class="app-header">${screen === 'plan' ? `<a href="#plan" class="wordmark" aria-label="Hopp home">hopp${mark}</a>` : button(icon('back'), 'back', 'icon-button', 'aria-label="Go back"')}<span class="header-label">${screen === 'plan' ? '' : `hopp${mark}`}</span>${button(icon('settings'), 'settings', 'icon-button', 'aria-label="Settings"')}</header>`;
+  return `<header class="app-header">${screen === 'plan' ? `<a href="#plan" class="wordmark" aria-label="Hopp home">hopp${mark}</a>` : button(icon('back'), 'back', 'icon-button', 'aria-label="Go back"')}<span class="header-label">${screen === 'plan' ? '' : `hopp${mark}`}</span>${button(icon('user'), 'account', `icon-button account-button ${account.signedIn ? 'has-account' : ''}`, 'aria-label="Your profile"')}${button(icon('settings'), 'settings', 'icon-button', 'aria-label="Settings"')}</header>`;
 }
 function render(): void {
   const previous = screen;
@@ -39,7 +45,7 @@ function render(): void {
     history.replaceState(null, '', `${location.pathname}${location.search}#results`);
   }
   if (loading && screen !== 'plan') { ++searchSerial; loading = false; }
-  if (!['plan', 'results', 'live', 'done', 'settings'].includes(screen)) screen = 'plan';
+  if (!['plan', 'results', 'live', 'done', 'settings', 'account'].includes(screen)) screen = 'plan';
   if (result && result.recommended && now() - result.updatedAt > 120 && screen !== 'live' && screen !== 'done') {
     result = { ...result, recommended: undefined, risky: undefined, reason: 'stale', error: 'Timetable updates are over two minutes old. Refresh to check a sprint route.' };
   }
@@ -53,7 +59,8 @@ function render(): void {
     selected = result?.recommended ?? selected; running = false; liveSignature = ''; startPolling(); void keepAwake(true);
   } else if (screen !== 'live' && previous === 'live') { clearInterval(pollTimer); void keepAwake(false); }
   let content: string;
-  if (screen === 'settings') content = settingsScreen(profile);
+  if (screen === 'account') content = account.html();
+  else if (screen === 'settings') content = settingsScreen(account.preferences() ?? profile);
   else if (screen === 'results') content = resultsScreen(result!, dismissed);
   else if (screen === 'live') content = liveScreen(result!, selected!, now(), running);
   else if (screen === 'done') content = doneScreen(result!, selected);
@@ -76,7 +83,9 @@ function showSearchError(): void {
 }
 async function search(query: TripQuery, target = 'results'): Promise<void> {
   const serial = ++searchSerial;
+  profile = account.preferences() ?? profile;
   loading = true; error = ''; dismissed = false; running = false;
+  attemptId = undefined; runStartedAt = undefined;
   from = query.from; to = query.to;
   history.replaceState(null, '', `${location.pathname}${location.search}#plan`);
   render();
@@ -87,6 +96,7 @@ async function search(query: TripQuery, target = 'results'): Promise<void> {
     result = next; selected = next.recommended;
     rememberDestination(query.to);
     loading = false; navigate(target); if (screen === target) render();
+    if (next.connections.length) void account.recordConnectionChecked();
   } catch (reason) {
     if (serial !== searchSerial) return;
     error = reason instanceof Error ? reason.message : 'Could not load connections. Please try again.';
@@ -169,6 +179,7 @@ function swissInputEpoch(value: string): number {
 app.addEventListener('submit', event => {
   event.preventDefault();
   const form = event.target as HTMLFormElement;
+  if (account.handleSubmit(form)) return;
   const data = new FormData(form);
   if (form.id === 'trip-form') {
     try {
@@ -177,8 +188,13 @@ app.addEventListener('submit', event => {
     } catch (reason) { error = (reason as Error).message; showSearchError(); }
   } else if (form.id === 'settings-form') {
     ++searchSerial; loading = false; error = '';
-    profile = { sprintMps: Number(data.get('pace')), minMarginS: Number(data.get('margin')), bag: data.get('bag') === 'on', offerSprintRoutes: data.get('offer') === 'on' };
-    saveProfile(profile); result = undefined; selected = undefined; navigate('plan');
+    const next = { sprintMps: Number(data.get('pace')), minMarginS: Number(data.get('margin')), bag: data.get('bag') === 'on', offerSprintRoutes: data.get('offer') === 'on' };
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (submit) submit.disabled = true;
+    void account.savePreferences(next).then(saved => {
+      if (!saved) return;
+      profile = next; saveProfile(profile); result = undefined; selected = undefined; navigate('plan');
+    }).finally(() => { if (submit?.isConnected) submit.disabled = false; });
   }
 });
 app.addEventListener('change', event => {
@@ -193,12 +209,20 @@ app.addEventListener('click', event => {
   const target = (event.target as Element).closest<HTMLElement>('[data-action]');
   if (!target) return;
   const action = target.dataset.action!;
-  if (action === 'back') { navigate(({ plan: 'plan', results: 'plan', live: 'results', done: 'results', settings: 'plan' } as Record<string, string>)[screen]); return; }
+  if (account.handleAction(action, target)) return;
+  if (action === 'back') { navigate(({ plan: 'plan', results: 'plan', live: 'results', done: 'results', settings: 'plan', account: 'plan' } as Record<string, string>)[screen]); return; }
   if (action === 'dismiss') { dismissed = true; render(); return; }
   if (action === 'start-run') {
     const available = selected ? selected.departureTs - Math.max(now(), result?.opportunity?.alightTs ?? now()) : 0;
     if (!result?.recommended || !selected || now() - result.updatedAt > 120 || available < selected.sprintS + selected.marginS) { updateLive(); return; }
+    if (!running) { attemptId = crypto.randomUUID(); runStartedAt = now(); }
     running = true; updateLive(); return;
+  }
+  if (action === 'done') {
+    if (!running || !result || !selected || !attemptId || runStartedAt === undefined) return;
+    const record = { client_id: attemptId, route_id: result.opportunity?.hack.id, platform: selected.platform,
+      train: trainName(selected), departure_at: new Date(selected.departureTs * 1000).toISOString(), duration_s: Math.max(0, Math.round(now() - runStartedAt)) };
+    navigate('done'); void account.recordAttempt(record); return;
   }
   if (action === 'refresh') { if (result) void search({ ...result.query, when: Math.max(now(), result.query.when) }); return; }
   if (action === 'swap') {
@@ -257,3 +281,4 @@ window.addEventListener('pagehide', () => { clearInterval(pollTimer); void keepA
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { updateLive(); if (screen === 'live') void poll(); } });
 setInterval(updateLive, 1000);
 render();
+void account.initialize();

@@ -211,3 +211,171 @@ h1, h2, h3 { font-weight: 650; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
+
+/* Hopp's own positioning and the action that differs from a regular transfer. */
+.plan-screen .intro h1 { font-size: 35px; font-weight: 600; line-height: 1.08; letter-spacing: -1.3px; }
+.headline-runner { display: inline-flex; vertical-align: middle; color: var(--red); }
+.headline-runner svg { width: 35px; height: 35px; stroke-width: 1.7; }
+.plan-screen .intro .lead { font-size: 15px; margin-top: 11px; color: var(--muted); }
+.app-header { gap: 5px; }
+.account-button { position: relative; }
+.account-button.has-account::after { content: ''; position: absolute; right: 9px; top: 8px; width: 6px; height: 6px; background: var(--green); border-radius: 50%; border: 1px solid var(--paper); }
+.results-screen .integrated-offer .offer-directive { display: block; font-size: 24px; letter-spacing: -.8px; line-height: 1.12; }
+.offer-directive > span { color: var(--red); }
+.offer-regular-stop { font-size: 12px; color: var(--muted); margin-top: -3px; }
+.offer-service { display: flex; align-items: baseline; gap: 5px; font-size: 12px; flex-wrap: wrap; }
+.offer-service .service-name { font-size: 14px; }
+.offer-service .departure-time { font-size: 15px; letter-spacing: -.5px; }
+.offer-service strong { font-size: 12px; }
+.results-screen .integrated-offer { gap: 7px; }
+.live-instruction .eyebrow { font-weight: 650; font-size: 14px; }
+
+/* Account progress stays outside the trip flow. Colour rewards affect the pass only. */
+.account-screen { gap: 23px; padding-top: 20px; }
+.account-screen h1 { font-size: 31px; letter-spacing: -1px; margin-top: 5px; overflow-wrap: anywhere; }
+.account-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.account-heading > div { min-width: 0; }
+.account-heading > .icon-button { display: none; }
+.profile-pass { --profile-bg: #f0e2d6; --profile-ink: #77331e; background: var(--profile-bg); color: var(--profile-ink); border-radius: 15px; padding: 18px; position: relative; overflow: hidden; border: 1px solid #18252d12; }
+.profile-pass .eyebrow { color: inherit; letter-spacing: .08em; font-size: 12px; }
+.profile-pass h2 { margin-top: 14px; font-size: 30px; line-height: 1.12; letter-spacing: -.8px; font-weight: 600; }
+.profile-graphic { width: calc(100% + 36px); height: 86px; display: block; margin: 5px -18px -10px; opacity: .75; }
+.pass-top, .pass-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pass-score { display: flex; gap: 10px; align-items: baseline; margin-top: 8px; }
+.pass-score > strong { font-family: var(--mono); font-size: 53px; font-weight: 500; line-height: 1.3; letter-spacing: -3px; }
+.pass-score > span { font-size: 14px; }
+.pass-bottom { border-top: 1px solid currentColor; padding-top: 12px; font-size: 12px; }
+.prepared-badge { display: flex; align-items: center; gap: 5px; font-weight: 600; }
+.prepared-badge svg { height: 18px; width: 18px; }
+.theme-signal { --profile-bg: #f0e2d6; --profile-ink: #77331e; }
+.theme-forest { --profile-bg: #d3e5c8; --profile-ink: #28472c; }
+.theme-night { --profile-bg: #23314d; --profile-ink: #e1e7ff; }
+.theme-track { --profile-bg: #efd394; --profile-ink: #65490d; background-image: repeating-linear-gradient(115deg, transparent, transparent 40px, #fff2 40px, #fff2 42px); }
+.theme-alpine { --profile-bg: #d3e8ed; --profile-ink: #215160; background-image: linear-gradient(145deg, #ffffff00 55%, #fff5 55%, #fff5 70%, #ffffff00 70%); }
+.theme-dusk { --profile-bg: #e0cce9; --profile-ink: #59366b; background-image: radial-gradient(ellipse at 90% 0, #ffdcac90, transparent 65%); }
+.next-reward { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+.next-reward > div { display: flex; flex-direction: column; gap: 3px; }
+.next-reward strong { font-size: 16px; font-weight: 600; }
+.points-to-go { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.next-reward progress { grid-column: 1 / -1; appearance: none; width: 100%; height: 6px; border: 0; border-radius: 10px; overflow: hidden; background: var(--line); color: var(--red); }
+.next-reward progress::-webkit-progress-bar { background: var(--line); }
+.next-reward progress::-webkit-progress-value { background: var(--red); }
+.next-reward progress::-moz-progress-bar { background: var(--red); }
+.points-rule { font-size: 12px; color: var(--muted); line-height: 1.6; margin-top: -8px; }
+.all-rewards { font-size: 14px; color: var(--green); }
+.milestone-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.milestone-list > span { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; font-size: 12px; }
+.milestone-list svg { width: 19px; height: 19px; color: var(--green); }
+.account-section { display: flex; flex-direction: column; gap: 12px; }
+.account-section .section-heading h2 { font-size: 19px; letter-spacing: -.35px; }
+.account-section .section-heading > svg { color: var(--muted); }
+.account-section > .muted { font-size: 13px; margin-top: -5px; }
+.practice-progress { display: flex; gap: 6px; }
+.practice-progress > span { flex: 1; height: 4px; background: var(--line); border-radius: 2px; }
+.practice-progress > span.complete { background: var(--green); }
+.practice-list { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--card); }
+.practice-card + .practice-card { border-top: 1px solid var(--line); }
+.practice-toggle { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 81px; padding: 15px; text-align: left; border: 0; background: transparent; color: var(--ink); }
+.practice-toggle > span:nth-child(2) { flex: 1; min-width: 0; }
+.practice-toggle strong { font-size: 14px; display: block; font-weight: 600; }
+.practice-toggle small { font-size: 12px; color: var(--muted); display: block; margin-top: 4px; }
+.practice-toggle > svg { width: 17px; height: 17px; color: var(--muted); }
+.practice-marker { display: flex; align-items: center; justify-content: center; height: 37px; width: 37px; background: var(--paper); border-radius: 10px; flex-shrink: 0; }
+.is-complete .practice-marker { background: var(--green-bg); color: var(--green); }
+.practice-content { padding: 0 15px 17px; }
+.practice-content > p { font-size: 14px; line-height: 1.6; }
+.practice-choices { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.practice-choices .secondary { justify-content: flex-start; min-height: 48px; padding: 13px; font-size: 14px; font-weight: 500; }
+.practice-choices .secondary:hover { border-color: var(--ink); }
+.practice-feedback { padding: 12px; margin-top: 14px; background: var(--paper); border-radius: 8px; }
+.practice-feedback.correct { background: var(--green-bg); color: var(--green); }
+.practice-completed { display: flex; gap: 8px; align-items: center; color: var(--green); margin-top: 10px; }
+.practice-completed svg { width: 18px; height: 18px; }
+.reward-unlocked { display: flex; align-items: center; gap: 10px; padding: 11px; background: var(--green-bg); color: var(--green); border: 1px solid var(--line); border-radius: 12px; }
+.unlock-emblem { display: grid; place-items: center; width: 40px; height: 40px; border: 1px dashed currentColor; border-radius: 50%; flex-shrink: 0; animation: unlock-in .55s ease-out both; }
+.unlock-emblem svg { width: 25px; height: 25px; }
+.reward-unlocked > div { flex: 1; min-width: 0; }
+.reward-unlocked .eyebrow { display: block; color: inherit; font-size: 12px; }
+.reward-unlocked strong { display: block; margin-top: 3px; font-size: 14px; }
+.reward-unlocked .text-button { font-size: 12px; color: inherit; padding-inline: 5px; }
+.reward-use { margin-top: 10px; width: 100%; justify-content: space-between; }
+.daily-check { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 13px; }
+.daily-check strong { font-size: 14px; font-weight: 600; }
+.daily-check p { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.milestone-track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 5px 0 0; margin: 0; gap: 8px; }
+.milestone-track li { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 10px 5px; position: relative; }
+.milestone-track li::before { content: ''; position: absolute; width: calc(100% + 8px); height: 1px; top: 29px; left: 50%; background: var(--line); }
+.milestone-track li:last-child::before { display: none; }
+.milestone-track li > span { display: grid; place-items: center; position: relative; width: 39px; height: 39px; border-radius: 50%; background: var(--paper); border: 1px solid var(--line); color: var(--muted); }
+.milestone-track svg { width: 19px; height: 19px; }
+.milestone-track strong { font-size: 13px; margin-top: 3px; }
+.milestone-track small { color: var(--muted); font-size: 12px; }
+.milestone-track .reached > span { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+@keyframes unlock-in { from { transform: scale(.6) rotate(-25deg); opacity: .3; } to { transform: scale(1) rotate(0); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .unlock-emblem { animation: none; } }
+.reward-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.reward-option { display: flex; flex-direction: column; align-items: stretch; min-width: 0; gap: 6px; padding: 6px 6px 11px; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; text-align: left; }
+.reward-option.selected { border: 2px solid var(--ink); padding: 5px 5px 10px; }
+.reward-option:disabled { opacity: 1; cursor: default; }
+.reward-swatch { height: 61px; border-radius: 6px; background-color: var(--profile-bg); color: var(--profile-ink); display: flex; justify-content: center; align-items: center; }
+.reward-swatch svg { width: 29px; height: 29px; }
+.reward-option strong { font-size: 13px; font-weight: 600; margin: 2px 3px 0; }
+.reward-option small { font-size: 12px; color: var(--muted); margin-inline: 3px; }
+.history-empty { padding: 17px; background: var(--card); border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: 13px; }
+.account-history { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.account-history li { display: flex; align-items: flex-start; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.account-history strong { font-size: 14px; }
+.account-history p, .account-history small { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.account-history p { margin-block: 5px; }
+.history-icon { margin-top: 3px; }
+.account-settings { border-top: 1px solid var(--line); }
+.account-settings summary { min-height: 56px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; gap: 10px; }
+.account-settings > .secondary { margin-block: 14px; }
+.account-settings form { display: flex; flex-direction: column; gap: 10px; }
+.account-settings label { font-size: 13px; }
+.account-settings input { min-height: 48px; width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--ink); font-size: 16px; }
+.account-settings .secondary { font-size: 14px; min-height: 48px; }
+.account-settings > .muted { overflow-wrap: anywhere; }
+.destructive { color: var(--red); }
+.delete-confirm { padding: 14px; border: 1px solid var(--red); border-radius: 10px; margin-top: 14px; }
+.delete-confirm p { font-size: 13px; margin-bottom: 12px; }
+.account-privacy, .account-attribution { font-size: 12px; color: var(--muted); }
+.account-attribution { margin-top: -12px; }
+.account-benefits { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 17px; }
+.account-benefits li { display: flex; gap: 12px; align-items: center; font-size: 14px; }
+.account-benefits svg { color: var(--muted); width: 21px; height: 21px; }
+.google-signin { display: flex; align-items: center; justify-content: center; min-height: 56px; border: 0; background: transparent; width: 100%; padding: 0; }
+.google-signin img { display: block; width: 216px; height: 48px; }
+.account-signin-actions .text-button { font-size: 13px; }
+
+@media (max-height: 740px) {
+  .plan-screen .intro h1 { font-size: 32px; }
+  .plan-screen .intro .lead { font-size: 14px; margin-top: 8px; }
+  .results-screen .integrated-offer .offer-directive { font-size: 22px; }
+}
+@media (max-height: 620px) {
+  .plan-screen .intro h1 { font-size: 27px; }
+  .headline-runner svg { height: 29px; width: 29px; }
+  .plan-screen .intro .lead { font-size: 13px; }
+  .plan-screen .local-note { min-height: 46px; }
+  .plan-screen .local-note small { display: none; }
+  .results-screen .integrated-offer { gap: 6px; }
+  .results-screen .integrated-offer .offer-directive { font-size: 21px; }
+  .offer-regular-stop { font-size: 12px; }
+  .live-instruction .eyebrow { font-size: 12px; }
+}
+@media (max-width: 359px) {
+  .app-header .wordmark, .app-header:has(.icon-button:first-child) .header-label { font-size: 26px; }
+  .brand-mark, .wordmark .brand-mark { width: 21px; height: 21px; margin-left: 4px; }
+  .app-header { gap: 2px; }
+  .reward-grid { gap: 7px; }
+  .account-screen h1 { font-size: 28px; }
+}
+
+/* Read the stop, service and map first; the full budget follows the map. */
+.integrated-route > .offer-timing { grid-column: 1 / -1; margin-top: 0; }
+@media (max-height: 620px) {
+  .results-screen:has(.integrated-offer) { padding-top: 8px; gap: 8px; }
+  .results-screen .integrated-route { gap: 6px; }
+  .results-screen .integrated-route .route-map img { height: 190px; }
+}

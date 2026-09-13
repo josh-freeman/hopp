@@ -11,8 +11,8 @@ export function routeVisualization(h: Hack, c: Candidate): string {
   return `${visual}<a class="text-link route-map-link" href="${osm}" target="_blank" rel="noopener" aria-label="Open this area in OpenStreetMap" title="Open this area in OpenStreetMap">${icon('arrow')}</a>`;
 }
 
-export function integratedRoute(h: Hack, c: Candidate): string {
-  return `<section class="integrated-route" aria-labelledby="integrated-route-heading"><h3 id="integrated-route-heading">${icon('map')} Route to Platform ${esc(c.platform)}</h3>${routeVisualization(h, c)}<div class="route-directions"><h3>Directions</h3><p>${esc(h.instructions)}</p></div></section>`;
+export function integratedRoute(h: Hack, c: Candidate, timing = ''): string {
+  return `<section class="integrated-route" aria-labelledby="integrated-route-heading"><h3 id="integrated-route-heading">${icon('map')} Route to Platform ${esc(c.platform)}</h3>${routeVisualization(h, c)}${timing}<div class="route-directions"><h3>Directions</h3><p>${esc(h.instructions)}</p></div></section>`;
 }
 
 export function routeNotes(h: Hack, c: Candidate): string {

@@ -10,7 +10,8 @@ export function liveScreen(result: PlanResult, selected: Candidate, now: number,
   const runningTime = selected.departureTs - 20 - now;
   const safeRunning = running && runningTime > 0 && !stale && selected.band === 'GO';
   const active = running ? safeRunning : go;
-  const title = stale ? 'Updates paused' : passed ? 'Stop has passed' : !active ? (running || !result.opportunity?.feeder ? 'Train at risk' : 'STAY ON') : running ? 'Head to the platform' : result.opportunity?.feeder ? 'GET OFF AT' : 'START AT';
+  const directive = result.opportunity?.kind === 'ride-past' ? 'GET OFF EARLY AT' : result.opportunity?.kind === 'walk' ? 'GET OFF AT' : 'START AT';
+  const title = stale ? 'Updates paused' : passed ? 'Stop has passed' : !active ? (running || !result.opportunity?.feeder ? 'Train at risk' : 'STAY ON') : running ? 'Head to the platform' : directive;
   const stop = result.opportunity?.hack.alight.name ?? '';
   return `<section class="screen live-screen ${active ? '' : 'live-paused'}" data-screen="live" data-testid="screen"><div class="live-train"><span>${esc(trainName(selected))} · ${formatTime(selected.departureTs)}</span><span class="live-indicator">${stale ? 'PAUSED' : selected.live ? 'UPDATED' : 'SCHEDULED'}</span></div>
     <div class="live-instruction"><p class="eyebrow" data-testid="live-status" role="status">${title}</p><h1 data-testid="alight">${active ? (running ? 'Keep to the route' : esc(shortStop(stop))) : stale ? 'Check the board' : passed ? 'Keep your connection' : running ? 'Check the board' : result.opportunity?.feeder ? 'Stay aboard' : 'Keep your connection'}</h1>${active && !running ? `<p>${arrivalText(result, now)}</p>` : '<p>Your regular connection stays below.</p>'}</div>

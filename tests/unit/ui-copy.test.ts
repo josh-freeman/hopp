@@ -49,6 +49,28 @@ describe('travel copy reflects the actual service and budget', () => {
     expect(html).toContain('Go live');
     expect(html).not.toMatch(/data-action="(?:try|detail|route)"/);
   });
+  test('early alighting is explicit only when the regular plan rides past the shortcut stop', async () => {
+    const now = Math.floor(Date.now() / 1000);
+    const result = await planTrip(createMockClient('happy', now), { from: 'Zürich, Bellevue', to: 'Bern', when: now }, DEFAULT_PROFILE);
+    expect(result.opportunity!.kind).toBe('ride-past');
+    const html = resultsScreen(result, false);
+    const heading = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/)?.[1].replace(/<[^>]+>/g, '');
+    expect(heading).toBe('Get off early at Central');
+    expect(html).toContain('Before Bahnhofplatz/HB');
+    expect(liveScreen(result, result.recommended!, now, false)).toContain('GET OFF EARLY AT');
+
+    // A walking transfer begins at the feeder's actual arrival stop; the user
+    // changes the station approach, not the stop at which they leave the tram.
+    result.opportunity!.kind = 'walk';
+    result.opportunity!.feeder!.arrival = structuredClone(result.opportunity!.alightStop!);
+    const walkHtml = resultsScreen(result, false);
+    const walkHeading = walkHtml.match(/<h2[^>]*>([\s\S]*?)<\/h2>/)?.[1].replace(/<[^>]+>/g, '');
+    expect(walkHeading).toBe('Get off at Central');
+    expect(walkHtml).not.toContain('offer-regular-stop');
+    const walkLive = liveScreen(result, result.recommended!, now, false);
+    expect(walkLive).toContain('GET OFF AT');
+    expect(walkLive).not.toContain('GET OFF EARLY AT');
+  });
 });
 
 test('bus and origin shortcuts use the correct arrival instruction', async () => {
@@ -58,9 +80,14 @@ test('bus and origin shortcuts use the correct arrival instruction', async () =>
   expect(arrivalText(result, now)).toStartWith('Bus arrives in');
   expect(liveScreen(result, result.recommended!, now, false)).not.toContain('Tram arrives');
   delete result.opportunity!.feeder;
+  result.opportunity!.kind = 'origin';
   expect(arrivalText(result, now)).toStartWith('Start in');
   expect(liveScreen(result, result.recommended!, now, false)).toContain('START AT');
-  expect(resultsScreen(result, false)).toContain('Start at <strong>');
+  const html = resultsScreen(result, false);
+  const heading = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/)?.[1].replace(/<[^>]+>/g, '');
+  expect(heading).toBe('Start at Central');
+  expect(html).not.toContain('offer-regular-stop');
+  expect(html).not.toContain('Get off');
 });
 
 test('platform confirmation preserves the selected train after its recommendation changes', async () => {
