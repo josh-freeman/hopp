@@ -12,7 +12,7 @@ export function routeVisualization(h: Hack, c: Candidate): string {
 }
 
 export function integratedRoute(h: Hack, c: Candidate, timing = ''): string {
-  return `<section class="integrated-route" aria-labelledby="integrated-route-heading"><h3 id="integrated-route-heading">On foot, A to B</h3>${routeVisualization(h, c)}${timing}<div class="route-directions"><h3>Directions</h3><p>${esc(h.instructions)}</p></div></section>`;
+  return `<section class="integrated-route" aria-labelledby="integrated-route-heading"><h3 id="integrated-route-heading">On foot, A to B</h3>${routeVisualization(h, c)}${timing}<div class="route-directions"><h3>Directions</h3><ol class="route-steps">${h.instructions.split(/(?<=[.!?])\s+/).filter(Boolean).map(step => `<li>${esc(step)}</li>`).join('')}</ol></div></section>`;
 }
 
 export function routeNotes(h: Hack, c: Candidate): string {

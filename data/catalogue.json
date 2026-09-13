@@ -1670,7 +1670,7 @@
       "Terminus stopping position on 3–18 (rear car in sector A?)",
       "Real hall path length (interior unmapped; straight-line +5–10 % ?)"
     ],
-    "instructions": "Exit onto the Bahnhofbrücke NORTH sidewalk (Landesmuseum side), cross Bahnhofquai at the lights, enter the Haupthalle through 'Ausgang Bahnhofquai' and run straight through to the Querhalle: Gleis 3 is on your left, 18 on your right. For 41–44 take the north escalators, for 31–34 the central escalators then Passage Löwenstrasse.",
+    "instructions": "Exit onto the north pavement of Bahnhofbrücke (Landesmuseum side). Cross Bahnhofquai at the lights. Enter the Haupthalle at ‘Ausgang Bahnhofquai’. Run straight through to the Querhalle: platforms 3 to 18 open off it, 3 on your left, 18 on your right. For platforms 31 to 34 or 41 to 44, take the escalators down at the centre of the hall.",
     "routes": [
       {
         "key": "surface",

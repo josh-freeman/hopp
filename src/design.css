@@ -503,3 +503,7 @@ button[aria-busy="true"] { cursor: progress; opacity: 1; }
 .is-live .toast { bottom: auto; top: calc(56px + 30px + 12px); }
 @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 6px); } to { opacity: 1; transform: translate(-50%, 0); } }
 .toast:not(:empty) { animation: toast-in .2s ease-out both; }
+
+/* Directions as short numbered steps. */
+.route-steps { padding-left: 22px; margin: 0; font-size: 14px; line-height: 1.55; }
+.route-steps li + li { margin-top: 6px; }
